@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["PublishTaskRequest",""],["PublishTaskResponse",""],["PullTaskRequest",""],["PullTaskResponse",""],["SubscribeRequest",""],["SubscribeResponse",""],["UpdateTaskResultRequest",""],["UpdateTaskResultResponse",""],["UpdateTaskStatusRequest",""],["UpdateTaskStatusResponse",""]]});
