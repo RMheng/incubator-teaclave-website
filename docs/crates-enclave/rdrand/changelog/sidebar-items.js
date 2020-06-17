@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["r0_3_0","Crate now works on stable!"],["r0_4_0","Breaking changes"],["r0_5_0","Breaking changes"],["r0_5_1","Replaced likely unsound use of `core::mem::uninitialized()`."],["r0_6_0","Fix unsound mutable reference aliasing in the implementation of `try_fill_bytes`."]]});
