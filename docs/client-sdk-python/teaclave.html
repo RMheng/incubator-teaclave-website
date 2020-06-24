@@ -449,6 +449,16 @@ class FrontendClient:
 
         return response[&#34;content&#34;][&#34;result&#34;][&#34;result&#34;][&#34;Ok&#34;][&#34;return_value&#34;]
 
+    def get_output_cmac_by_tag(self, task_id: str, tag: str):
+        request = GetTaskRequest(self.metadata, task_id)
+        while True:
+            _write_message(self.channel, request)
+            response = _read_message(self.channel)
+            time.sleep(1)
+            if response[&#34;content&#34;][&#34;status&#34;] == 10:
+                break
+        return response[&#34;content&#34;][&#34;result&#34;][&#34;result&#34;][&#34;Ok&#34;][&#34;tags_map&#34;][tag]
+
 
 def _write_message(sock: ssl.SSLSocket, message: Any):
     class RequestEncoder(json.JSONEncoder):
@@ -890,7 +900,17 @@ with other methods.</dd>
             if response[&#34;content&#34;][&#34;status&#34;] == 10:
                 break
 
-        return response[&#34;content&#34;][&#34;result&#34;][&#34;result&#34;][&#34;Ok&#34;][&#34;return_value&#34;]</code></pre>
+        return response[&#34;content&#34;][&#34;result&#34;][&#34;result&#34;][&#34;Ok&#34;][&#34;return_value&#34;]
+
+    def get_output_cmac_by_tag(self, task_id: str, tag: str):
+        request = GetTaskRequest(self.metadata, task_id)
+        while True:
+            _write_message(self.channel, request)
+            response = _read_message(self.channel)
+            time.sleep(1)
+            if response[&#34;content&#34;][&#34;status&#34;] == 10:
+                break
+        return response[&#34;content&#34;][&#34;result&#34;][&#34;result&#34;][&#34;Ok&#34;][&#34;tags_map&#34;][tag]</code></pre>
 </details>
 <h3>Methods</h3>
 <dl>
@@ -949,6 +969,26 @@ with other methods.</dd>
     _write_message(self.channel, request)
     response = _read_message(self.channel)
     return response[&#34;content&#34;][&#34;task_id&#34;]</code></pre>
+</details>
+</dd>
+<dt id="teaclave.FrontendClient.get_output_cmac_by_tag"><code class="name flex">
+<span>def <span class="ident">get_output_cmac_by_tag</span></span>(<span>self, task_id: str, tag: str)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_output_cmac_by_tag(self, task_id: str, tag: str):
+    request = GetTaskRequest(self.metadata, task_id)
+    while True:
+        _write_message(self.channel, request)
+        response = _read_message(self.channel)
+        time.sleep(1)
+        if response[&#34;content&#34;][&#34;status&#34;] == 10:
+            break
+    return response[&#34;content&#34;][&#34;result&#34;][&#34;result&#34;][&#34;Ok&#34;][&#34;tags_map&#34;][tag]</code></pre>
 </details>
 </dd>
 <dt id="teaclave.FrontendClient.get_task_result"><code class="name flex">
@@ -1301,6 +1341,7 @@ with other methods.</dd>
 <li><code><a title="teaclave.FrontendClient.approve_task" href="#teaclave.FrontendClient.approve_task">approve_task</a></code></li>
 <li><code><a title="teaclave.FrontendClient.assign_data_to_task" href="#teaclave.FrontendClient.assign_data_to_task">assign_data_to_task</a></code></li>
 <li><code><a title="teaclave.FrontendClient.create_task" href="#teaclave.FrontendClient.create_task">create_task</a></code></li>
+<li><code><a title="teaclave.FrontendClient.get_output_cmac_by_tag" href="#teaclave.FrontendClient.get_output_cmac_by_tag">get_output_cmac_by_tag</a></code></li>
 <li><code><a title="teaclave.FrontendClient.get_task_result" href="#teaclave.FrontendClient.get_task_result">get_task_result</a></code></li>
 <li><code><a title="teaclave.FrontendClient.invoke_task" href="#teaclave.FrontendClient.invoke_task">invoke_task</a></code></li>
 <li><code><a title="teaclave.FrontendClient.register_function" href="#teaclave.FrontendClient.register_function">register_function</a></code></li>
