@@ -301,6 +301,24 @@
 <span id="301">301</span>
 <span id="302">302</span>
 <span id="303">303</span>
+<span id="304">304</span>
+<span id="305">305</span>
+<span id="306">306</span>
+<span id="307">307</span>
+<span id="308">308</span>
+<span id="309">309</span>
+<span id="310">310</span>
+<span id="311">311</span>
+<span id="312">312</span>
+<span id="313">313</span>
+<span id="314">314</span>
+<span id="315">315</span>
+<span id="316">316</span>
+<span id="317">317</span>
+<span id="318">318</span>
+<span id="319">319</span>
+<span id="320">320</span>
+<span id="321">321</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// Licensed to the Apache Software Foundation (ASF) under one</span>
 <span class="comment">// or more contributor license agreements.  See the NOTICE file</span>
@@ -332,6 +350,7 @@
 <span class="kw">use</span> <span class="ident">ring</span>::<span class="ident">aead</span>;
 <span class="kw">use</span> <span class="ident">serde</span>::{<span class="ident">Deserialize</span>, <span class="ident">Serialize</span>};
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">format</span>;
+<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">io</span>::{<span class="ident">Read</span>, <span class="ident">Write</span>};
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">path</span>::<span class="ident">Path</span>;
 
 <span class="kw">const</span> <span class="ident">AES_GCM_128_KEY_LENGTH</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">16</span>;
@@ -341,6 +360,8 @@
 <span class="kw">const</span> <span class="ident">AES_GCM_256_IV_LENGTH</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">12</span>;
 <span class="kw">const</span> <span class="ident">TEACLAVE_FILE_128_ROOT_KEY_LENGTH</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">16</span>;
 <span class="kw">const</span> <span class="ident">CMAC_LENGTH</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">16</span>;
+<span class="kw">const</span> <span class="ident">FILE_CHUNK_SIZE</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">1024</span> <span class="op">*</span> <span class="number">1024</span>;
+
 <span class="kw">type</span> <span class="ident">CMac</span> <span class="op">=</span> [<span class="ident">u8</span>; <span class="ident">CMAC_LENGTH</span>];
 
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Debug</span>, <span class="ident">Serialize</span>, <span class="ident">Deserialize</span>, <span class="ident">PartialEq</span>)]</span>
@@ -504,18 +525,33 @@
         <span class="prelude-val">Ok</span>(<span class="ident">TeaclaveFile128Key</span> { <span class="ident">key</span> })
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">decrypt</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">AsRef</span><span class="op">&lt;</span><span class="ident">Path</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">path</span>: <span class="ident">P</span>, <span class="ident">out</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">CMac</span><span class="op">&gt;</span> {
-        <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">io</span>::<span class="ident">Read</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">decrypt</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">AsRef</span><span class="op">&lt;</span><span class="ident">Path</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">path</span>: <span class="ident">P</span>, <span class="ident">output</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="kw">impl</span> <span class="ident">Write</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">CMac</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">file</span> <span class="op">=</span> <span class="ident">ProtectedFile</span>::<span class="ident">open_ex</span>(<span class="ident">path</span>.<span class="ident">as_ref</span>(), <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">key</span>)<span class="question-mark">?</span>;
-        <span class="ident">file</span>.<span class="ident">read_to_end</span>(<span class="ident">out</span>)<span class="question-mark">?</span>;
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">buffer</span> <span class="op">=</span> <span class="ident">std</span>::<span class="macro">vec</span><span class="macro">!</span>[<span class="number">0</span>; <span class="ident">FILE_CHUNK_SIZE</span>];
+        <span class="kw">loop</span> {
+            <span class="kw">let</span> <span class="ident">n</span> <span class="op">=</span> <span class="ident">file</span>.<span class="ident">read</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">buffer</span>)<span class="question-mark">?</span>;
+            <span class="kw">if</span> <span class="ident">n</span> <span class="op">&gt;</span> <span class="number">0</span> {
+                <span class="ident">output</span>.<span class="ident">write</span>(<span class="kw-2">&amp;</span><span class="ident">buffer</span>[..<span class="ident">n</span>])<span class="question-mark">?</span>;
+            } <span class="kw">else</span> {
+                <span class="kw">break</span>;
+            }
+        }
+        <span class="ident">output</span>.<span class="ident">flush</span>()<span class="question-mark">?</span>;
         <span class="kw">let</span> <span class="ident">cmac</span> <span class="op">=</span> <span class="ident">file</span>.<span class="ident">current_meta_gmac</span>()<span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(<span class="ident">cmac</span>)
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">encrypt</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">AsRef</span><span class="op">&lt;</span><span class="ident">Path</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">path</span>: <span class="ident">P</span>, <span class="ident">content</span>: <span class="kw-2">&amp;</span>[<span class="ident">u8</span>]) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">CMac</span><span class="op">&gt;</span> {
-        <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">io</span>::<span class="ident">Write</span>;
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">encrypt</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">AsRef</span><span class="op">&lt;</span><span class="ident">Path</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">path</span>: <span class="ident">P</span>, <span class="kw-2">mut</span> <span class="ident">content</span>: <span class="kw">impl</span> <span class="ident">Read</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">CMac</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">file</span> <span class="op">=</span> <span class="ident">ProtectedFile</span>::<span class="ident">create_ex</span>(<span class="ident">path</span>.<span class="ident">as_ref</span>(), <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">key</span>)<span class="question-mark">?</span>;
-        <span class="ident">file</span>.<span class="ident">write_all</span>(<span class="ident">content</span>)<span class="question-mark">?</span>;
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">buffer</span> <span class="op">=</span> <span class="ident">std</span>::<span class="macro">vec</span><span class="macro">!</span>[<span class="number">0</span>; <span class="ident">FILE_CHUNK_SIZE</span>];
+        <span class="kw">loop</span> {
+            <span class="kw">let</span> <span class="ident">n</span> <span class="op">=</span> <span class="ident">content</span>.<span class="ident">read</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">buffer</span>[..])<span class="question-mark">?</span>;
+            <span class="kw">if</span> <span class="ident">n</span> <span class="op">&gt;</span> <span class="number">0</span> {
+                <span class="ident">file</span>.<span class="ident">write</span>(<span class="kw-2">&amp;</span><span class="ident">buffer</span>[..<span class="ident">n</span>])<span class="question-mark">?</span>;
+            } <span class="kw">else</span> {
+                <span class="kw">break</span>;
+            }
+        }
         <span class="ident">file</span>.<span class="ident">flush</span>()<span class="question-mark">?</span>;
         <span class="kw">let</span> <span class="ident">cmac</span> <span class="op">=</span> <span class="ident">file</span>.<span class="ident">current_meta_gmac</span>()<span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(<span class="ident">cmac</span>)
