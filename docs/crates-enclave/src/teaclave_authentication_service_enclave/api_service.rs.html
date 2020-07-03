@@ -144,24 +144,6 @@
 <span id="144">144</span>
 <span id="145">145</span>
 <span id="146">146</span>
-<span id="147">147</span>
-<span id="148">148</span>
-<span id="149">149</span>
-<span id="150">150</span>
-<span id="151">151</span>
-<span id="152">152</span>
-<span id="153">153</span>
-<span id="154">154</span>
-<span id="155">155</span>
-<span id="156">156</span>
-<span id="157">157</span>
-<span id="158">158</span>
-<span id="159">159</span>
-<span id="160">160</span>
-<span id="161">161</span>
-<span id="162">162</span>
-<span id="163">163</span>
-<span id="164">164</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// Licensed to the Apache Software Foundation (ASF) under one</span>
 <span class="comment">// or more contributor license agreements.  See the NOTICE file</span>
@@ -180,6 +162,7 @@
 <span class="comment">// specific language governing permissions and limitations</span>
 <span class="comment">// under the License.</span>
 
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">error</span>::<span class="ident">TeaclaveAuthenticationApiError</span>;
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">user_db</span>::{<span class="ident">DbClient</span>, <span class="ident">DbError</span>};
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">user_info</span>::<span class="ident">UserInfo</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">prelude</span>::<span class="ident">v1</span>::<span class="kw-2">*</span>;
@@ -191,26 +174,7 @@
 };
 <span class="kw">use</span> <span class="ident">teaclave_rpc</span>::<span class="ident">Request</span>;
 <span class="kw">use</span> <span class="ident">teaclave_service_enclave_utils</span>::{<span class="ident">bail</span>, <span class="ident">ensure</span>, <span class="ident">teaclave_service</span>};
-<span class="kw">use</span> <span class="ident">teaclave_types</span>::{<span class="ident">TeaclaveServiceResponseError</span>, <span class="ident">TeaclaveServiceResponseResult</span>};
-<span class="kw">use</span> <span class="ident">thiserror</span>::<span class="ident">Error</span>;
-
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Error</span>, <span class="ident">Debug</span>)]</span>
-<span class="kw">enum</span> <span class="ident">TeaclaveAuthenticationApiError</span> {
-    <span class="attribute">#[<span class="ident">error</span>(<span class="string">&quot;permission denied&quot;</span>)]</span>
-    <span class="ident">PermissionDenied</span>,
-    <span class="attribute">#[<span class="ident">error</span>(<span class="string">&quot;invalid userid&quot;</span>)]</span>
-    <span class="ident">InvalidUserId</span>,
-    <span class="attribute">#[<span class="ident">error</span>(<span class="string">&quot;invalid password&quot;</span>)]</span>
-    <span class="ident">InvalidPassword</span>,
-    <span class="attribute">#[<span class="ident">error</span>(<span class="string">&quot;service unavailable&quot;</span>)]</span>
-    <span class="ident">ServiceUnavailable</span>,
-}
-
-<span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">TeaclaveAuthenticationApiError</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">TeaclaveServiceResponseError</span> {
-    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">error</span>: <span class="ident">TeaclaveAuthenticationApiError</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
-        <span class="ident">TeaclaveServiceResponseError</span>::<span class="ident">RequestError</span>(<span class="ident">error</span>.<span class="ident">to_string</span>())
-    }
-}
+<span class="kw">use</span> <span class="ident">teaclave_types</span>::<span class="ident">TeaclaveServiceResponseResult</span>;
 
 <span class="attribute">#[<span class="ident">teaclave_service</span>(
     <span class="ident">teaclave_authentication_service</span>,

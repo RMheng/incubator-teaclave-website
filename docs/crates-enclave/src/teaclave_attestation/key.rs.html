@@ -238,14 +238,14 @@
 
 <span class="doccomment">/// NistP256KeyPair stores a pair of ECDSA (private, public) key based on the</span>
 <span class="doccomment">/// NIST P-256 curve (a.k.a secp256r1).</span>
-<span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">struct</span> <span class="ident">NistP256KeyPair</span> {
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">NistP256KeyPair</span> {
     <span class="ident">prv_k</span>: <span class="ident">sgx_ec256_private_t</span>,
     <span class="ident">pub_k</span>: <span class="ident">sgx_ec256_public_t</span>,
 }
 
 <span class="kw">impl</span> <span class="ident">NistP256KeyPair</span> {
     <span class="doccomment">/// Generate a ECDSA key pair.</span>
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">new</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">ecc_handle</span> <span class="op">=</span> <span class="ident">SgxEccHandle</span>::<span class="ident">new</span>();
         <span class="ident">ecc_handle</span>.<span class="ident">open</span>()<span class="question-mark">?</span>;
         <span class="kw">let</span> (<span class="ident">prv_k</span>, <span class="ident">pub_k</span>) <span class="op">=</span> <span class="ident">ecc_handle</span>.<span class="ident">create_key_pair</span>()<span class="question-mark">?</span>;
@@ -253,7 +253,7 @@
         <span class="prelude-val">Ok</span>(<span class="self">Self</span> { <span class="ident">prv_k</span>, <span class="ident">pub_k</span> })
     }
 
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">pub_k</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">sgx_ec256_public_t</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">pub_k</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">sgx_ec256_public_t</span> {
         <span class="self">self</span>.<span class="ident">pub_k</span>
     }
 

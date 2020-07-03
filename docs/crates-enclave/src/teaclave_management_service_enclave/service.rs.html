@@ -740,9 +740,6 @@
 <span id="740">740</span>
 <span id="741">741</span>
 <span id="742">742</span>
-<span id="743">743</span>
-<span id="744">744</span>
-<span id="745">745</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// Licensed to the Apache Software Foundation (ASF) under one</span>
 <span class="comment">// or more contributor license agreements.  See the NOTICE file</span>
@@ -761,6 +758,7 @@
 <span class="comment">// specific language governing permissions and limitations</span>
 <span class="comment">// under the License.</span>
 
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">error</span>::<span class="ident">TeaclaveManagementServiceError</span>;
 <span class="kw">use</span> <span class="ident">anyhow</span>::{<span class="ident">anyhow</span>, <span class="prelude-ty">Result</span>};
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">collections</span>::<span class="ident">HashMap</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">convert</span>::<span class="ident">TryInto</span>;
@@ -785,31 +783,14 @@
 <span class="kw">use</span> <span class="ident">teaclave_rpc</span>::<span class="ident">Request</span>;
 <span class="kw">use</span> <span class="ident">teaclave_service_enclave_utils</span>::{<span class="ident">ensure</span>, <span class="ident">teaclave_service</span>};
 <span class="kw">use</span> <span class="ident">teaclave_types</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">thiserror</span>::<span class="ident">Error</span>;
 <span class="kw">use</span> <span class="ident">url</span>::<span class="ident">Url</span>;
 <span class="kw">use</span> <span class="ident">uuid</span>::<span class="ident">Uuid</span>;
 
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Error</span>, <span class="ident">Debug</span>)]</span>
-<span class="kw">enum</span> <span class="ident">ServiceError</span> {
-    <span class="attribute">#[<span class="ident">error</span>(<span class="string">&quot;invalid request&quot;</span>)]</span>
-    <span class="ident">InvalidRequest</span>,
-    <span class="attribute">#[<span class="ident">error</span>(<span class="string">&quot;data error&quot;</span>)]</span>
-    <span class="ident">DataError</span>,
-    <span class="attribute">#[<span class="ident">error</span>(<span class="string">&quot;storage error&quot;</span>)]</span>
-    <span class="ident">StorageError</span>,
-    <span class="attribute">#[<span class="ident">error</span>(<span class="string">&quot;permission denied&quot;</span>)]</span>
-    <span class="ident">PermissionDenied</span>,
-    <span class="attribute">#[<span class="ident">error</span>(<span class="string">&quot;bad task&quot;</span>)]</span>
-    <span class="ident">BadTask</span>,
-}
-
-<span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">ServiceError</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">TeaclaveServiceResponseError</span> {
-    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">error</span>: <span class="ident">ServiceError</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
-        <span class="ident">TeaclaveServiceResponseError</span>::<span class="ident">RequestError</span>(<span class="ident">error</span>.<span class="ident">to_string</span>())
-    }
-}
-
-<span class="attribute">#[<span class="ident">teaclave_service</span>(<span class="ident">teaclave_management_service</span>, <span class="ident">TeaclaveManagement</span>, <span class="ident">ServiceError</span>)]</span>
+<span class="attribute">#[<span class="ident">teaclave_service</span>(
+    <span class="ident">teaclave_management_service</span>,
+    <span class="ident">TeaclaveManagement</span>,
+    <span class="ident">TeaclaveManagementServiceError</span>
+)]</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>)]</span>
 <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">struct</span> <span class="ident">TeaclaveManagementService</span> {
     <span class="ident">storage_client</span>: <span class="ident">Arc</span><span class="op">&lt;</span><span class="ident">Mutex</span><span class="op">&lt;</span><span class="ident">TeaclaveStorageClient</span><span class="op">&gt;</span><span class="op">&gt;</span>,
@@ -831,7 +812,7 @@
         );
 
         <span class="self">self</span>.<span class="ident">write_to_db</span>(<span class="kw-2">&amp;</span><span class="ident">input_file</span>)
-            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">StorageError</span>)<span class="question-mark">?</span>;
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">StorageError</span>)<span class="question-mark">?</span>;
 
         <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="ident">RegisterInputFileResponse</span>::<span class="ident">new</span>(<span class="ident">input_file</span>.<span class="ident">external_id</span>());
         <span class="prelude-val">Ok</span>(<span class="ident">response</span>)
@@ -849,11 +830,11 @@
 
         <span class="kw">let</span> <span class="ident">old_input_file</span>: <span class="ident">TeaclaveInputFile</span> <span class="op">=</span> <span class="self">self</span>
             .<span class="ident">read_from_db</span>(<span class="kw-2">&amp;</span><span class="ident">request</span>.<span class="ident">data_id</span>)
-            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
 
         <span class="macro">ensure</span><span class="macro">!</span>(
             <span class="ident">old_input_file</span>.<span class="ident">owner</span> <span class="op">=</span><span class="op">=</span> <span class="ident">OwnerList</span>::<span class="ident">from</span>(<span class="macro">vec</span><span class="macro">!</span>[<span class="ident">user_id</span>]),
-            <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>
+            <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>
         );
 
         <span class="kw">let</span> <span class="ident">input_file</span> <span class="op">=</span> <span class="ident">TeaclaveInputFile</span>::<span class="ident">new</span>(
@@ -864,7 +845,7 @@
         );
 
         <span class="self">self</span>.<span class="ident">write_to_db</span>(<span class="kw-2">&amp;</span><span class="ident">input_file</span>)
-            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">StorageError</span>)<span class="question-mark">?</span>;
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">StorageError</span>)<span class="question-mark">?</span>;
 
         <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="ident">UpdateInputFileResponse</span>::<span class="ident">new</span>(<span class="ident">input_file</span>.<span class="ident">external_id</span>());
         <span class="prelude-val">Ok</span>(<span class="ident">response</span>)
@@ -880,7 +861,7 @@
         <span class="kw">let</span> <span class="ident">output_file</span> <span class="op">=</span> <span class="ident">TeaclaveOutputFile</span>::<span class="ident">new</span>(<span class="ident">request</span>.<span class="ident">url</span>, <span class="ident">request</span>.<span class="ident">crypto_info</span>, <span class="macro">vec</span><span class="macro">!</span>[<span class="ident">user_id</span>]);
 
         <span class="self">self</span>.<span class="ident">write_to_db</span>(<span class="kw-2">&amp;</span><span class="ident">output_file</span>)
-            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">StorageError</span>)<span class="question-mark">?</span>;
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">StorageError</span>)<span class="question-mark">?</span>;
 
         <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="ident">RegisterOutputFileResponse</span>::<span class="ident">new</span>(<span class="ident">output_file</span>.<span class="ident">external_id</span>());
         <span class="prelude-val">Ok</span>(<span class="ident">response</span>)
@@ -898,11 +879,11 @@
 
         <span class="kw">let</span> <span class="ident">old_output_file</span>: <span class="ident">TeaclaveOutputFile</span> <span class="op">=</span> <span class="self">self</span>
             .<span class="ident">read_from_db</span>(<span class="kw-2">&amp;</span><span class="ident">request</span>.<span class="ident">data_id</span>)
-            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
 
         <span class="macro">ensure</span><span class="macro">!</span>(
             <span class="ident">old_output_file</span>.<span class="ident">owner</span> <span class="op">=</span><span class="op">=</span> <span class="ident">OwnerList</span>::<span class="ident">from</span>(<span class="macro">vec</span><span class="macro">!</span>[<span class="ident">user_id</span>]),
-            <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>
+            <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>
         );
 
         <span class="kw">let</span> <span class="ident">output_file</span> <span class="op">=</span> <span class="ident">TeaclaveOutputFile</span>::<span class="ident">new</span>(
@@ -912,7 +893,7 @@
         );
 
         <span class="self">self</span>.<span class="ident">write_to_db</span>(<span class="kw-2">&amp;</span><span class="ident">output_file</span>)
-            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">StorageError</span>)<span class="question-mark">?</span>;
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">StorageError</span>)<span class="question-mark">?</span>;
 
         <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="ident">UpdateOutputFileResponse</span>::<span class="ident">new</span>(<span class="ident">output_file</span>.<span class="ident">external_id</span>());
         <span class="prelude-val">Ok</span>(<span class="ident">response</span>)
@@ -928,15 +909,15 @@
         <span class="kw">let</span> <span class="ident">owner_list</span> <span class="op">=</span> <span class="ident">request</span>.<span class="ident">message</span>.<span class="ident">owner_list</span>;
         <span class="macro">ensure</span><span class="macro">!</span>(
             <span class="ident">owner_list</span>.<span class="ident">len</span>() <span class="op">&gt;</span> <span class="number">1</span> <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="ident">owner_list</span>.<span class="ident">contains</span>(<span class="kw-2">&amp;</span><span class="ident">user_id</span>),
-            <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>
+            <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>
         );
 
         <span class="kw">let</span> <span class="ident">output_file</span> <span class="op">=</span> <span class="self">self</span>
             .<span class="ident">create_fusion_data</span>(<span class="ident">owner_list</span>)
-            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">DataError</span>)<span class="question-mark">?</span>;
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">DataError</span>)<span class="question-mark">?</span>;
 
         <span class="self">self</span>.<span class="ident">write_to_db</span>(<span class="kw-2">&amp;</span><span class="ident">output_file</span>)
-            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">StorageError</span>)<span class="question-mark">?</span>;
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">StorageError</span>)<span class="question-mark">?</span>;
 
         <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="ident">RegisterFusionOutputResponse</span>::<span class="ident">new</span>(<span class="ident">output_file</span>.<span class="ident">external_id</span>());
         <span class="prelude-val">Ok</span>(<span class="ident">response</span>)
@@ -953,18 +934,18 @@
 
         <span class="kw">let</span> <span class="ident">output</span>: <span class="ident">TeaclaveOutputFile</span> <span class="op">=</span> <span class="self">self</span>
             .<span class="ident">read_from_db</span>(<span class="kw-2">&amp;</span><span class="ident">request</span>.<span class="ident">message</span>.<span class="ident">data_id</span>)
-            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
 
         <span class="macro">ensure</span><span class="macro">!</span>(
             <span class="ident">output</span>.<span class="ident">owner</span>.<span class="ident">contains</span>(<span class="kw-2">&amp;</span><span class="ident">user_id</span>),
-            <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>
+            <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>
         );
 
-        <span class="kw">let</span> <span class="ident">input</span> <span class="op">=</span>
-            <span class="ident">TeaclaveInputFile</span>::<span class="ident">from_output</span>(<span class="ident">output</span>).<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
+        <span class="kw">let</span> <span class="ident">input</span> <span class="op">=</span> <span class="ident">TeaclaveInputFile</span>::<span class="ident">from_output</span>(<span class="ident">output</span>)
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
 
         <span class="self">self</span>.<span class="ident">write_to_db</span>(<span class="kw-2">&amp;</span><span class="ident">input</span>)
-            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">StorageError</span>)<span class="question-mark">?</span>;
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">StorageError</span>)<span class="question-mark">?</span>;
 
         <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="ident">RegisterInputFromOutputResponse</span>::<span class="ident">new</span>(<span class="ident">input</span>.<span class="ident">external_id</span>());
         <span class="prelude-val">Ok</span>(<span class="ident">response</span>)
@@ -979,11 +960,11 @@
 
         <span class="kw">let</span> <span class="ident">output_file</span>: <span class="ident">TeaclaveOutputFile</span> <span class="op">=</span> <span class="self">self</span>
             .<span class="ident">read_from_db</span>(<span class="kw-2">&amp;</span><span class="ident">request</span>.<span class="ident">message</span>.<span class="ident">data_id</span>)
-            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
 
         <span class="macro">ensure</span><span class="macro">!</span>(
             <span class="ident">output_file</span>.<span class="ident">owner</span>.<span class="ident">contains</span>(<span class="kw-2">&amp;</span><span class="ident">user_id</span>),
-            <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>
+            <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>
         );
 
         <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="ident">GetOutputFileResponse</span>::<span class="ident">new</span>(<span class="ident">output_file</span>.<span class="ident">owner</span>, <span class="ident">output_file</span>.<span class="ident">cmac</span>);
@@ -999,11 +980,11 @@
 
         <span class="kw">let</span> <span class="ident">input_file</span>: <span class="ident">TeaclaveInputFile</span> <span class="op">=</span> <span class="self">self</span>
             .<span class="ident">read_from_db</span>(<span class="kw-2">&amp;</span><span class="ident">request</span>.<span class="ident">message</span>.<span class="ident">data_id</span>)
-            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
 
         <span class="macro">ensure</span><span class="macro">!</span>(
             <span class="ident">input_file</span>.<span class="ident">owner</span>.<span class="ident">contains</span>(<span class="kw-2">&amp;</span><span class="ident">user_id</span>),
-            <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>
+            <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>
         );
 
         <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="ident">GetInputFileResponse</span>::<span class="ident">new</span>(<span class="ident">input_file</span>.<span class="ident">owner</span>, <span class="ident">input_file</span>.<span class="ident">cmac</span>);
@@ -1022,7 +1003,7 @@
             .<span class="ident">owner</span>(<span class="ident">user_id</span>);
 
         <span class="self">self</span>.<span class="ident">write_to_db</span>(<span class="kw-2">&amp;</span><span class="ident">function</span>)
-            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">StorageError</span>)<span class="question-mark">?</span>;
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">StorageError</span>)<span class="question-mark">?</span>;
 
         <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="ident">RegisterFunctionResponse</span>::<span class="ident">new</span>(<span class="ident">function</span>.<span class="ident">external_id</span>());
         <span class="prelude-val">Ok</span>(<span class="ident">response</span>)
@@ -1037,11 +1018,11 @@
 
         <span class="kw">let</span> <span class="ident">function</span>: <span class="ident">Function</span> <span class="op">=</span> <span class="self">self</span>
             .<span class="ident">read_from_db</span>(<span class="kw-2">&amp;</span><span class="ident">request</span>.<span class="ident">message</span>.<span class="ident">function_id</span>)
-            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
 
         <span class="macro">ensure</span><span class="macro">!</span>(
             (<span class="ident">function</span>.<span class="ident">public</span> <span class="op">|</span><span class="op">|</span> <span class="ident">function</span>.<span class="ident">owner</span> <span class="op">=</span><span class="op">=</span> <span class="ident">user_id</span>),
-            <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>
+            <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>
         );
 
         <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="ident">GetFunctionResponse</span> {
@@ -1073,7 +1054,7 @@
 
         <span class="kw">let</span> <span class="ident">function</span>: <span class="ident">Function</span> <span class="op">=</span> <span class="self">self</span>
             .<span class="ident">read_from_db</span>(<span class="kw-2">&amp;</span><span class="ident">request</span>.<span class="ident">function_id</span>)
-            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
 
         <span class="kw">let</span> <span class="ident">task</span> <span class="op">=</span> <span class="ident">Task</span>::<span class="op">&lt;</span><span class="ident">Create</span><span class="op">&gt;</span>::<span class="ident">new</span>(
             <span class="ident">user_id</span>,
@@ -1083,13 +1064,13 @@
             <span class="ident">request</span>.<span class="ident">outputs_ownership</span>,
             <span class="ident">function</span>,
         )
-        .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">BadTask</span>)<span class="question-mark">?</span>;
+        .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">BadTask</span>)<span class="question-mark">?</span>;
 
         <span class="ident">log</span>::<span class="macro">debug</span><span class="macro">!</span>(<span class="string">&quot;CreateTask: {:?}&quot;</span>, <span class="ident">task</span>);
 
         <span class="kw">let</span> <span class="ident">ts</span>: <span class="ident">TaskState</span> <span class="op">=</span> <span class="ident">task</span>.<span class="ident">into</span>();
         <span class="self">self</span>.<span class="ident">write_to_db</span>(<span class="kw-2">&amp;</span><span class="ident">ts</span>)
-            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">StorageError</span>)<span class="question-mark">?</span>;
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">StorageError</span>)<span class="question-mark">?</span>;
 
         <span class="kw">let</span> <span class="ident">response</span> <span class="op">=</span> <span class="ident">CreateTaskResponse</span>::<span class="ident">new</span>(<span class="ident">ts</span>.<span class="ident">external_id</span>());
         <span class="prelude-val">Ok</span>(<span class="ident">response</span>)
@@ -1104,9 +1085,12 @@
 
         <span class="kw">let</span> <span class="ident">ts</span>: <span class="ident">TaskState</span> <span class="op">=</span> <span class="self">self</span>
             .<span class="ident">read_from_db</span>(<span class="kw-2">&amp;</span><span class="ident">request</span>.<span class="ident">message</span>.<span class="ident">task_id</span>)
-            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
 
-        <span class="macro">ensure</span><span class="macro">!</span>(<span class="ident">ts</span>.<span class="ident">has_participant</span>(<span class="kw-2">&amp;</span><span class="ident">user_id</span>), <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>);
+        <span class="macro">ensure</span><span class="macro">!</span>(
+            <span class="ident">ts</span>.<span class="ident">has_participant</span>(<span class="kw-2">&amp;</span><span class="ident">user_id</span>),
+            <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>
+        );
 
         <span class="ident">log</span>::<span class="macro">debug</span><span class="macro">!</span>(<span class="string">&quot;GetTask: {:?}&quot;</span>, <span class="ident">ts</span>);
 
@@ -1148,36 +1132,39 @@
 
         <span class="kw">let</span> <span class="ident">ts</span>: <span class="ident">TaskState</span> <span class="op">=</span> <span class="self">self</span>
             .<span class="ident">read_from_db</span>(<span class="kw-2">&amp;</span><span class="ident">request</span>.<span class="ident">task_id</span>)
-            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
 
-        <span class="macro">ensure</span><span class="macro">!</span>(<span class="ident">ts</span>.<span class="ident">has_participant</span>(<span class="kw-2">&amp;</span><span class="ident">user_id</span>), <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>);
+        <span class="macro">ensure</span><span class="macro">!</span>(
+            <span class="ident">ts</span>.<span class="ident">has_participant</span>(<span class="kw-2">&amp;</span><span class="ident">user_id</span>),
+            <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>
+        );
 
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">task</span>: <span class="ident">Task</span><span class="op">&lt;</span><span class="ident">Assign</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">ts</span>.<span class="ident">try_into</span>().<span class="ident">map_err</span>(<span class="op">|</span><span class="ident">e</span><span class="op">|</span> {
             <span class="ident">log</span>::<span class="macro">warn</span><span class="macro">!</span>(<span class="string">&quot;Assign state error: {:?}&quot;</span>, <span class="ident">e</span>);
-            <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>
+            <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>
         })<span class="question-mark">?</span>;
 
         <span class="kw">for</span> (<span class="ident">data_name</span>, <span class="ident">data_id</span>) <span class="kw">in</span> <span class="ident">request</span>.<span class="ident">inputs</span>.<span class="ident">iter</span>() {
             <span class="kw">let</span> <span class="ident">file</span>: <span class="ident">TeaclaveInputFile</span> <span class="op">=</span> <span class="self">self</span>
                 .<span class="ident">read_from_db</span>(<span class="kw-2">&amp;</span><span class="ident">data_id</span>)
-                .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
+                .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
             <span class="ident">task</span>.<span class="ident">assign_input</span>(<span class="kw-2">&amp;</span><span class="ident">user_id</span>, <span class="ident">data_name</span>, <span class="ident">file</span>)
-                .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
+                .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
         }
 
         <span class="kw">for</span> (<span class="ident">data_name</span>, <span class="ident">data_id</span>) <span class="kw">in</span> <span class="ident">request</span>.<span class="ident">outputs</span>.<span class="ident">iter</span>() {
             <span class="kw">let</span> <span class="ident">file</span>: <span class="ident">TeaclaveOutputFile</span> <span class="op">=</span> <span class="self">self</span>
                 .<span class="ident">read_from_db</span>(<span class="kw-2">&amp;</span><span class="ident">data_id</span>)
-                .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
+                .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
             <span class="ident">task</span>.<span class="ident">assign_output</span>(<span class="kw-2">&amp;</span><span class="ident">user_id</span>, <span class="ident">data_name</span>, <span class="ident">file</span>)
-                .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
+                .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
         }
 
         <span class="ident">log</span>::<span class="macro">debug</span><span class="macro">!</span>(<span class="string">&quot;AssignData: {:?}&quot;</span>, <span class="ident">task</span>);
 
         <span class="kw">let</span> <span class="ident">ts</span>: <span class="ident">TaskState</span> <span class="op">=</span> <span class="ident">task</span>.<span class="ident">into</span>();
         <span class="self">self</span>.<span class="ident">write_to_db</span>(<span class="kw-2">&amp;</span><span class="ident">ts</span>)
-            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">StorageError</span>)<span class="question-mark">?</span>;
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">StorageError</span>)<span class="question-mark">?</span>;
 
         <span class="prelude-val">Ok</span>(<span class="ident">AssignDataResponse</span>)
     }
@@ -1194,21 +1181,21 @@
         <span class="kw">let</span> <span class="ident">request</span> <span class="op">=</span> <span class="ident">request</span>.<span class="ident">message</span>;
         <span class="kw">let</span> <span class="ident">ts</span>: <span class="ident">TaskState</span> <span class="op">=</span> <span class="self">self</span>
             .<span class="ident">read_from_db</span>(<span class="kw-2">&amp;</span><span class="ident">request</span>.<span class="ident">task_id</span>)
-            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
 
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">task</span>: <span class="ident">Task</span><span class="op">&lt;</span><span class="ident">Approve</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">ts</span>.<span class="ident">try_into</span>().<span class="ident">map_err</span>(<span class="op">|</span><span class="ident">e</span><span class="op">|</span> {
             <span class="ident">log</span>::<span class="macro">warn</span><span class="macro">!</span>(<span class="string">&quot;Approve state error: {:?}&quot;</span>, <span class="ident">e</span>);
-            <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>
+            <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>
         })<span class="question-mark">?</span>;
 
         <span class="ident">task</span>.<span class="ident">approve</span>(<span class="kw-2">&amp;</span><span class="ident">user_id</span>)
-            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
 
         <span class="ident">log</span>::<span class="macro">debug</span><span class="macro">!</span>(<span class="string">&quot;ApproveTask: approve:{:?}&quot;</span>, <span class="ident">task</span>);
 
         <span class="kw">let</span> <span class="ident">ts</span>: <span class="ident">TaskState</span> <span class="op">=</span> <span class="ident">task</span>.<span class="ident">into</span>();
         <span class="self">self</span>.<span class="ident">write_to_db</span>(<span class="kw-2">&amp;</span><span class="ident">ts</span>)
-            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">StorageError</span>)<span class="question-mark">?</span>;
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">StorageError</span>)<span class="question-mark">?</span>;
 
         <span class="prelude-val">Ok</span>(<span class="ident">ApproveTaskResponse</span>)
     }
@@ -1225,20 +1212,23 @@
 
         <span class="kw">let</span> <span class="ident">ts</span>: <span class="ident">TaskState</span> <span class="op">=</span> <span class="self">self</span>
             .<span class="ident">read_from_db</span>(<span class="kw-2">&amp;</span><span class="ident">request</span>.<span class="ident">task_id</span>)
-            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
 
         <span class="comment">// Early validation</span>
-        <span class="macro">ensure</span><span class="macro">!</span>(<span class="ident">ts</span>.<span class="ident">has_creator</span>(<span class="kw-2">&amp;</span><span class="ident">user_id</span>), <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>);
+        <span class="macro">ensure</span><span class="macro">!</span>(
+            <span class="ident">ts</span>.<span class="ident">has_creator</span>(<span class="kw-2">&amp;</span><span class="ident">user_id</span>),
+            <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>
+        );
 
         <span class="kw">let</span> <span class="ident">function</span>: <span class="ident">Function</span> <span class="op">=</span> <span class="self">self</span>
             .<span class="ident">read_from_db</span>(<span class="kw-2">&amp;</span><span class="ident">ts</span>.<span class="ident">function_id</span>)
-            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>)<span class="question-mark">?</span>;
 
         <span class="ident">log</span>::<span class="macro">debug</span><span class="macro">!</span>(<span class="string">&quot;InvokeTask: get function: {:?}&quot;</span>, <span class="ident">function</span>);
 
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">task</span>: <span class="ident">Task</span><span class="op">&lt;</span><span class="ident">Stage</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">ts</span>.<span class="ident">try_into</span>().<span class="ident">map_err</span>(<span class="op">|</span><span class="ident">e</span><span class="op">|</span> {
             <span class="ident">log</span>::<span class="macro">warn</span><span class="macro">!</span>(<span class="string">&quot;Stage state error: {:?}&quot;</span>, <span class="ident">e</span>);
-            <span class="ident">ServiceError</span>::<span class="ident">PermissionDenied</span>
+            <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">PermissionDenied</span>
         })<span class="question-mark">?</span>;
 
         <span class="ident">log</span>::<span class="macro">debug</span><span class="macro">!</span>(<span class="string">&quot;InvokeTask: get task: {:?}&quot;</span>, <span class="ident">task</span>);
@@ -1251,7 +1241,7 @@
 
         <span class="kw">let</span> <span class="ident">ts</span>: <span class="ident">TaskState</span> <span class="op">=</span> <span class="ident">task</span>.<span class="ident">into</span>();
         <span class="self">self</span>.<span class="ident">write_to_db</span>(<span class="kw-2">&amp;</span><span class="ident">ts</span>)
-            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">StorageError</span>)<span class="question-mark">?</span>;
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">StorageError</span>)<span class="question-mark">?</span>;
 
         <span class="prelude-val">Ok</span>(<span class="ident">InvokeTaskResponse</span>)
     }
@@ -1293,7 +1283,9 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">meta</span>: <span class="kw-2">&amp;</span><span class="ident">HashMap</span><span class="op">&lt;</span><span class="ident">String</span>, <span class="ident">String</span><span class="op">&gt;</span>,
     ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">TeaclaveServiceResponseResult</span><span class="op">&lt;</span><span class="ident">UserID</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">user_id</span> <span class="op">=</span> <span class="ident">meta</span>.<span class="ident">get</span>(<span class="string">&quot;id&quot;</span>).<span class="ident">ok_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">InvalidRequest</span>)<span class="question-mark">?</span>;
+        <span class="kw">let</span> <span class="ident">user_id</span> <span class="op">=</span> <span class="ident">meta</span>
+            .<span class="ident">get</span>(<span class="string">&quot;id&quot;</span>)
+            .<span class="ident">ok_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">InvalidRequest</span>)<span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(<span class="ident">user_id</span>.<span class="ident">to_string</span>().<span class="ident">into</span>())
     }
 
@@ -1324,13 +1316,15 @@
     }
 
     <span class="kw">fn</span> <span class="ident">enqueue_to_db</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">key</span>: <span class="kw-2">&amp;</span>[<span class="ident">u8</span>], <span class="ident">item</span>: <span class="kw-2">&amp;</span><span class="kw">impl</span> <span class="ident">Storable</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">TeaclaveServiceResponseResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">value</span> <span class="op">=</span> <span class="ident">item</span>.<span class="ident">to_vec</span>().<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">DataError</span>)<span class="question-mark">?</span>;
+        <span class="kw">let</span> <span class="ident">value</span> <span class="op">=</span> <span class="ident">item</span>
+            .<span class="ident">to_vec</span>()
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">DataError</span>)<span class="question-mark">?</span>;
         <span class="kw">let</span> <span class="ident">enqueue_request</span> <span class="op">=</span> <span class="ident">EnqueueRequest</span>::<span class="ident">new</span>(<span class="ident">key</span>, <span class="ident">value</span>);
         <span class="kw">let</span> <span class="ident">_enqueue_response</span> <span class="op">=</span> <span class="self">self</span>
             .<span class="ident">storage_client</span>
             .<span class="ident">clone</span>()
             .<span class="ident">lock</span>()
-            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">ServiceError</span>::<span class="ident">StorageError</span>)<span class="question-mark">?</span>
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">TeaclaveManagementServiceError</span>::<span class="ident">StorageError</span>)<span class="question-mark">?</span>
             .<span class="ident">enqueue</span>(<span class="ident">enqueue_request</span>)<span class="question-mark">?</span>;
         <span class="prelude-val">Ok</span>(())
     }

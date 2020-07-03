@@ -243,19 +243,6 @@
 <span id="243">243</span>
 <span id="244">244</span>
 <span id="245">245</span>
-<span id="246">246</span>
-<span id="247">247</span>
-<span id="248">248</span>
-<span id="249">249</span>
-<span id="250">250</span>
-<span id="251">251</span>
-<span id="252">252</span>
-<span id="253">253</span>
-<span id="254">254</span>
-<span id="255">255</span>
-<span id="256">256</span>
-<span id="257">257</span>
-<span id="258">258</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// Licensed to the Apache Software Foundation (ASF) under one</span>
 <span class="comment">// or more contributor license agreements.  See the NOTICE file</span>
@@ -274,10 +261,11 @@
 <span class="comment">// specific language governing permissions and limitations</span>
 <span class="comment">// under the License.</span>
 
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">error</span>::<span class="ident">TeaclaveFrontendError</span>;
+
 <span class="kw">use</span> <span class="ident">anyhow</span>::<span class="prelude-ty">Result</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">prelude</span>::<span class="ident">v1</span>::<span class="kw-2">*</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">sync</span>::{<span class="ident">Arc</span>, <span class="ident">SgxMutex</span> <span class="kw">as</span> <span class="ident">Mutex</span>};
-<span class="kw">use</span> <span class="ident">thiserror</span>::<span class="ident">Error</span>;
 
 <span class="kw">use</span> <span class="ident">teaclave_proto</span>::<span class="ident">teaclave_authentication_service</span>::{
     <span class="ident">TeaclaveAuthenticationInternalClient</span>, <span class="ident">UserAuthenticateRequest</span>,
@@ -298,21 +286,7 @@
 <span class="kw">use</span> <span class="ident">teaclave_rpc</span>::<span class="ident">endpoint</span>::<span class="ident">Endpoint</span>;
 <span class="kw">use</span> <span class="ident">teaclave_rpc</span>::<span class="ident">Request</span>;
 <span class="kw">use</span> <span class="ident">teaclave_service_enclave_utils</span>::{<span class="ident">bail</span>, <span class="ident">teaclave_service</span>};
-<span class="kw">use</span> <span class="ident">teaclave_types</span>::{<span class="ident">TeaclaveServiceResponseError</span>, <span class="ident">TeaclaveServiceResponseResult</span>};
-
-<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Error</span>, <span class="ident">Debug</span>)]</span>
-<span class="kw">enum</span> <span class="ident">TeaclaveFrontendError</span> {
-    <span class="attribute">#[<span class="ident">error</span>(<span class="string">&quot;authentication error&quot;</span>)]</span>
-    <span class="ident">AuthenticationError</span>,
-    <span class="attribute">#[<span class="ident">error</span>(<span class="string">&quot;lock error&quot;</span>)]</span>
-    <span class="ident">LockError</span>,
-}
-
-<span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">TeaclaveFrontendError</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">TeaclaveServiceResponseError</span> {
-    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">error</span>: <span class="ident">TeaclaveFrontendError</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
-        <span class="ident">TeaclaveServiceResponseError</span>::<span class="ident">RequestError</span>(<span class="ident">error</span>.<span class="ident">to_string</span>())
-    }
-}
+<span class="kw">use</span> <span class="ident">teaclave_types</span>::<span class="ident">TeaclaveServiceResponseResult</span>;
 
 <span class="attribute">#[<span class="ident">teaclave_service</span>(<span class="ident">teaclave_frontend_service</span>, <span class="ident">TeaclaveFrontend</span>, <span class="ident">TeaclaveFrontendError</span>)]</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>)]</span>

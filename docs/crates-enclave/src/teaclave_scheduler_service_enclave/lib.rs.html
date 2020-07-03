@@ -136,6 +136,7 @@
 <span id="136">136</span>
 <span id="137">137</span>
 <span id="138">138</span>
+<span id="139">139</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// Licensed to the Apache Software Foundation (ASF) under one</span>
 <span class="comment">// or more contributor license agreements.  See the NOTICE file</span>
@@ -166,9 +167,6 @@
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">log</span>;
 <span class="kw">use</span> <span class="ident">anyhow</span>::{<span class="ident">anyhow</span>, <span class="prelude-ty">Result</span>};
 
-<span class="kw">mod</span> <span class="ident">publisher</span>;
-<span class="kw">mod</span> <span class="ident">service</span>;
-
 <span class="kw">use</span> <span class="ident">teaclave_attestation</span>::{<span class="ident">verifier</span>, <span class="ident">AttestationConfig</span>, <span class="ident">RemoteAttestation</span>};
 <span class="kw">use</span> <span class="ident">teaclave_binder</span>::<span class="ident">proto</span>::{
     <span class="ident">ECallCommand</span>, <span class="ident">FinalizeEnclaveInput</span>, <span class="ident">FinalizeEnclaveOutput</span>, <span class="ident">InitEnclaveInput</span>, <span class="ident">InitEnclaveOutput</span>,
@@ -185,6 +183,10 @@
 <span class="kw">use</span> <span class="ident">teaclave_service_enclave_utils</span>::<span class="ident">create_trusted_storage_endpoint</span>;
 <span class="kw">use</span> <span class="ident">teaclave_service_enclave_utils</span>::<span class="ident">ServiceEnclave</span>;
 <span class="kw">use</span> <span class="ident">teaclave_types</span>::{<span class="ident">EnclaveInfo</span>, <span class="ident">TeeServiceError</span>, <span class="ident">TeeServiceResult</span>};
+
+<span class="kw">mod</span> <span class="ident">error</span>;
+<span class="kw">mod</span> <span class="ident">publisher</span>;
+<span class="kw">mod</span> <span class="ident">service</span>;
 
 <span class="kw">fn</span> <span class="ident">start_service</span>(<span class="ident">config</span>: <span class="kw-2">&amp;</span><span class="ident">RuntimeConfig</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
     <span class="kw">let</span> <span class="ident">listen_address</span> <span class="op">=</span> <span class="ident">config</span>.<span class="ident">internal_endpoints</span>.<span class="ident">scheduler</span>.<span class="ident">listen_address</span>;
