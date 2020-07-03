@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["IpcError",""]],"struct":[["ECallReceiver",""]],"trait":[["IpcReceiver",""],["IpcSender",""],["IpcService",""]]});
+initSidebarItems({"struct":[["ECallReceiver",""]],"trait":[["IpcReceiver",""],["IpcSender",""],["IpcService",""]]});

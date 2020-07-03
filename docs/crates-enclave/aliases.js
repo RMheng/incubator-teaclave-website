@@ -106,6 +106,7 @@ ALIASES["teaclave_runtime"] = {};
 ALIASES["teaclave_scheduler_service_enclave"] = {};
 ALIASES["teaclave_service_enclave_utils"] = {};
 ALIASES["teaclave_service_enclave_utils_proc_macro"] = {};
+ALIASES["teaclave_sgx_tool_enclave"] = {};
 ALIASES["teaclave_storage_service_enclave"] = {};
 ALIASES["teaclave_test_utils"] = {};
 ALIASES["teaclave_test_utils_proc_macro"] = {};

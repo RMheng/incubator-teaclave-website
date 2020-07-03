@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["ECallCommand",""]],"struct":[["FinalizeEnclaveInput",""],["FinalizeEnclaveOutput",""],["InitEnclaveInput",""],["InitEnclaveOutput",""],["RunTestInput",""],["RunTestOutput",""],["StartServiceInput",""],["StartServiceOutput",""]]});
+initSidebarItems({"enum":[["ECallCommand",""]],"struct":[["FinalizeEnclaveInput",""],["FinalizeEnclaveOutput",""],["InitEnclaveInput",""],["InitEnclaveOutput",""],["RawJsonInput",""],["RawJsonOutput",""],["RunTestInput",""],["RunTestOutput",""],["StartServiceInput",""],["StartServiceOutput",""]]});
