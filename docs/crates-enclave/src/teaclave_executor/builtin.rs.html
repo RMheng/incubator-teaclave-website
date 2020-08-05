@@ -69,6 +69,8 @@
 <span id="69">69</span>
 <span id="70">70</span>
 <span id="71">71</span>
+<span id="72">72</span>
+<span id="73">73</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// Licensed to the Apache Software Foundation (ASF) under one</span>
 <span class="comment">// or more contributor license agreements.  See the NOTICE file</span>
@@ -91,8 +93,8 @@
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">prelude</span>::<span class="ident">v1</span>::<span class="kw-2">*</span>;
 
 <span class="kw">use</span> <span class="ident">teaclave_function</span>::{
-    <span class="ident">Echo</span>, <span class="ident">GbdtPredict</span>, <span class="ident">GbdtTrain</span>, <span class="ident">LogisticRegressionPredict</span>, <span class="ident">LogisticRegressionTrain</span>,
-    <span class="ident">OnlineDecrypt</span>, <span class="ident">OrderedSetIntersect</span>, <span class="ident">PrivateJoinAndCompute</span>, <span class="ident">RsaSign</span>,
+    <span class="ident">Echo</span>, <span class="ident">FaceDetection</span>, <span class="ident">GbdtPredict</span>, <span class="ident">GbdtTrain</span>, <span class="ident">LogisticRegressionPredict</span>,
+    <span class="ident">LogisticRegressionTrain</span>, <span class="ident">OnlineDecrypt</span>, <span class="ident">OrderedSetIntersect</span>, <span class="ident">PrivateJoinAndCompute</span>, <span class="ident">RsaSign</span>,
 };
 <span class="kw">use</span> <span class="ident">teaclave_types</span>::{<span class="ident">FunctionArguments</span>, <span class="ident">FunctionRuntime</span>, <span class="ident">TeaclaveExecutor</span>};
 
@@ -130,6 +132,8 @@
             <span class="ident">OrderedSetIntersect</span>::<span class="ident">NAME</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">OrderedSetIntersect</span>::<span class="ident">new</span>().<span class="ident">run</span>(<span class="ident">arguments</span>, <span class="ident">runtime</span>),
             <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;builtin_rsa_sign&quot;</span>)]</span>
             <span class="ident">RsaSign</span>::<span class="ident">NAME</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">RsaSign</span>::<span class="ident">new</span>().<span class="ident">run</span>(<span class="ident">arguments</span>, <span class="ident">runtime</span>),
+            <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;builtin_face_detection&quot;</span>)]</span>
+            <span class="ident">FaceDetection</span>::<span class="ident">NAME</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">FaceDetection</span>::<span class="ident">new</span>().<span class="ident">run</span>(<span class="ident">arguments</span>, <span class="ident">runtime</span>),
             <span class="kw">_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">bail</span><span class="macro">!</span>(<span class="string">&quot;Function not found.&quot;</span>),
         }
     }

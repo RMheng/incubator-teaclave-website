@@ -233,7 +233,7 @@
 <span class="macro">ast_enum</span><span class="macro">!</span> {
     <span class="doccomment">/// A binary operator: `+`, `+=`, `&amp;`.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// *This type is available if Syn is built with the `&quot;derive&quot;` or `&quot;full&quot;`</span>
+    <span class="doccomment">/// *This type is available only if Syn is built with the `&quot;derive&quot;` or `&quot;full&quot;`</span>
     <span class="doccomment">/// feature.*</span>
     <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;clone-impls&quot;</span>, <span class="ident">derive</span>(<span class="ident">Copy</span>))]</span>
     <span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">BinOp</span> {
@@ -299,7 +299,7 @@
 <span class="macro">ast_enum</span><span class="macro">!</span> {
     <span class="doccomment">/// A unary operator: `*`, `!`, `-`.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// *This type is available if Syn is built with the `&quot;derive&quot;` or `&quot;full&quot;`</span>
+    <span class="doccomment">/// *This type is available only if Syn is built with the `&quot;derive&quot;` or `&quot;full&quot;`</span>
     <span class="doccomment">/// feature.*</span>
     <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;clone-impls&quot;</span>, <span class="ident">derive</span>(<span class="ident">Copy</span>))]</span>
     <span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">UnOp</span> {

@@ -167,7 +167,7 @@
 <span class="doccomment">/// }</span>
 <span class="doccomment">/// ```</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// *This macro is available if Syn is built with the `&quot;parsing&quot;` feature,</span>
+<span class="doccomment">/// *This macro is available only if Syn is built with the `&quot;parsing&quot;` feature,</span>
 <span class="doccomment">/// although interpolation of syntax tree nodes into the quoted tokens is only</span>
 <span class="doccomment">/// supported if Syn is built with the `&quot;printing&quot;` feature as well.*</span>
 <span class="doccomment">///</span>
@@ -212,7 +212,7 @@
 <span class="comment">//</span>
 <span class="comment">// TODO: allow Punctuated to be inferred as intra doc link, currently blocked on</span>
 <span class="comment">// https://github.com/rust-lang/rust/issues/62834</span>
-<span class="attribute">#[<span class="ident">macro_export</span>(<span class="ident">local_inner_macros</span>)]</span>
+<span class="attribute">#[<span class="ident">macro_export</span>]</span>
 <span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">parse_quote</span> {
     ($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">tt</span>:<span class="ident">tt</span>)<span class="kw-2">*</span>) <span class="op">=</span><span class="op">&gt;</span> {
         <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">parse_quote</span>::<span class="ident">parse</span>(

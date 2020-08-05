@@ -278,7 +278,7 @@
 <span class="macro">ast_struct</span><span class="macro">!</span> {
     <span class="doccomment">/// Data structure sent to a `proc_macro_derive` macro.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// *This type is available if Syn is built with the `&quot;derive&quot;` feature.*</span>
+    <span class="doccomment">/// *This type is available only if Syn is built with the `&quot;derive&quot;` feature.*</span>
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">DeriveInput</span> {
         <span class="doccomment">/// Attributes tagged on the whole struct or enum.</span>
         <span class="kw">pub</span> <span class="ident">attrs</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">Attribute</span><span class="op">&gt;</span>,
@@ -300,7 +300,7 @@
 <span class="macro">ast_enum_of_structs</span><span class="macro">!</span> {
     <span class="doccomment">/// The storage of a struct, enum or union data structure.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// *This type is available if Syn is built with the `&quot;derive&quot;` feature.*</span>
+    <span class="doccomment">/// *This type is available only if Syn is built with the `&quot;derive&quot;` feature.*</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Syntax tree enum</span>
     <span class="doccomment">///</span>
@@ -327,7 +327,7 @@
 <span class="macro">ast_struct</span><span class="macro">!</span> {
     <span class="doccomment">/// A struct input to a `proc_macro_derive` macro.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// *This type is available if Syn is built with the `&quot;derive&quot;`</span>
+    <span class="doccomment">/// *This type is available only if Syn is built with the `&quot;derive&quot;`</span>
     <span class="doccomment">/// feature.*</span>
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">DataStruct</span> {
         <span class="kw">pub</span> <span class="ident">struct_token</span>: <span class="macro">Token</span><span class="macro">!</span>[<span class="kw">struct</span>],
@@ -339,7 +339,7 @@
 <span class="macro">ast_struct</span><span class="macro">!</span> {
     <span class="doccomment">/// An enum input to a `proc_macro_derive` macro.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// *This type is available if Syn is built with the `&quot;derive&quot;`</span>
+    <span class="doccomment">/// *This type is available only if Syn is built with the `&quot;derive&quot;`</span>
     <span class="doccomment">/// feature.*</span>
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">DataEnum</span> {
         <span class="kw">pub</span> <span class="ident">enum_token</span>: <span class="macro">Token</span><span class="macro">!</span>[<span class="kw">enum</span>],
@@ -351,7 +351,7 @@
 <span class="macro">ast_struct</span><span class="macro">!</span> {
     <span class="doccomment">/// An untagged union input to a `proc_macro_derive` macro.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// *This type is available if Syn is built with the `&quot;derive&quot;`</span>
+    <span class="doccomment">/// *This type is available only if Syn is built with the `&quot;derive&quot;`</span>
     <span class="doccomment">/// feature.*</span>
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">DataUnion</span> {
         <span class="kw">pub</span> <span class="ident">union_token</span>: <span class="macro">Token</span><span class="macro">!</span>[<span class="ident">union</span>],

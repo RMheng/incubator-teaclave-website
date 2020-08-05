@@ -587,6 +587,19 @@
 <span id="587">587</span>
 <span id="588">588</span>
 <span id="589">589</span>
+<span id="590">590</span>
+<span id="591">591</span>
+<span id="592">592</span>
+<span id="593">593</span>
+<span id="594">594</span>
+<span id="595">595</span>
+<span id="596">596</span>
+<span id="597">597</span>
+<span id="598">598</span>
+<span id="599">599</span>
+<span id="600">600</span>
+<span id="601">601</span>
+<span id="602">602</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! This library provides [`anyhow::Error`][Error], a trait object based error</span>
 <span class="doccomment">//! type for easy idiomatic error handling in Rust applications.</span>
@@ -710,9 +723,21 @@
 <span class="doccomment">//!   # ;</span>
 <span class="doccomment">//!   ```</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! - A backtrace is captured and printed with the error if the underlying error</span>
-<span class="doccomment">//!   type does not already provide its own. In order to see backtraces, the</span>
-<span class="doccomment">//!   `RUST_LIB_BACKTRACE=1` environment variable must be defined.</span>
+<span class="doccomment">//! - If using the nightly channel, a backtrace is captured and printed with the</span>
+<span class="doccomment">//!   error if the underlying error type does not already provide its own. In</span>
+<span class="doccomment">//!   order to see backtraces, they must be enabled through the environment</span>
+<span class="doccomment">//!   variables described in [`std::backtrace`]:</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//!   - If you want panics and errors to both have backtraces, set</span>
+<span class="doccomment">//!     `RUST_BACKTRACE=1`;</span>
+<span class="doccomment">//!   - If you want only errors to have backtraces, set `RUST_LIB_BACKTRACE=1`;</span>
+<span class="doccomment">//!   - If you want only panics to have backtraces, set `RUST_BACKTRACE=1` and</span>
+<span class="doccomment">//!     `RUST_LIB_BACKTRACE=0`.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//!   The tracking issue for this feature is [rust-lang/rust#53487].</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//!   [`std::backtrace`]: https://doc.rust-lang.org/std/backtrace/index.html#environment-variables</span>
+<span class="doccomment">//!   [rust-lang/rust#53487]: https://github.com/rust-lang/rust/issues/53487</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! - Anyhow works with any error type that has an impl of `std::error::Error`,</span>
 <span class="doccomment">//!   including ones defined in your crate. We do not bundle a `derive(Error)`</span>
@@ -767,8 +792,9 @@
 <span class="doccomment">//! will require an explicit `.map_err(Error::msg)` when working with a</span>
 <span class="doccomment">//! non-Anyhow error type inside a function that returns Anyhow&#39;s error type.</span>
 
-<span class="attribute">#![<span class="ident">doc</span>(<span class="ident">html_root_url</span> <span class="op">=</span> <span class="string">&quot;https://docs.rs/anyhow/1.0.26&quot;</span>)]</span>
+<span class="attribute">#![<span class="ident">doc</span>(<span class="ident">html_root_url</span> <span class="op">=</span> <span class="string">&quot;https://docs.rs/anyhow/1.0.28&quot;</span>)]</span>
 <span class="attribute">#![<span class="ident">cfg_attr</span>(<span class="ident">backtrace</span>, <span class="ident">feature</span>(<span class="ident">backtrace</span>))]</span>
+<span class="attribute">#![<span class="ident">cfg_attr</span>(<span class="ident">doc_cfg</span>, <span class="ident">feature</span>(<span class="ident">doc_cfg</span>))]</span>
 <span class="attribute">#![<span class="ident">cfg_attr</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;std&quot;</span>), <span class="ident">no_std</span>)]</span>
 <span class="attribute">#![<span class="ident">allow</span>(
     <span class="ident">clippy</span>::<span class="ident">needless_doctest_main</span>,

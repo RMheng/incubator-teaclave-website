@@ -149,6 +149,14 @@
 <span id="149">149</span>
 <span id="150">150</span>
 <span id="151">151</span>
+<span id="152">152</span>
+<span id="153">153</span>
+<span id="154">154</span>
+<span id="155">155</span>
+<span id="156">156</span>
+<span id="157">157</span>
+<span id="158">158</span>
+<span id="159">159</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! libc - Raw FFI bindings to platforms&#39; system libraries</span>
 <span class="doccomment">//!</span>
@@ -157,13 +165,13 @@
 <span class="doccomment">//! [pd]: https://rust-lang.github.io/libc/#platform-specific-documentation</span>
 <span class="attribute">#![<span class="ident">crate_name</span> <span class="op">=</span> <span class="string">&quot;libc&quot;</span>]</span>
 <span class="attribute">#![<span class="ident">crate_type</span> <span class="op">=</span> <span class="string">&quot;rlib&quot;</span>]</span>
-<span class="comment">// FIXME: Remove this and redundant_semicolon once renamed lint reaches stable.</span>
-<span class="attribute">#![<span class="ident">allow</span>(<span class="ident">renamed_and_removed_lints</span>)]</span>
 <span class="attribute">#![<span class="ident">allow</span>(
+    <span class="ident">renamed_and_removed_lints</span>, <span class="comment">// Keep this order.</span>
+    <span class="ident">unknown_lints</span>, <span class="comment">// Keep this order.</span>
     <span class="ident">bad_style</span>,
     <span class="ident">overflowing_literals</span>,
     <span class="ident">improper_ctypes</span>,
-    <span class="ident">unknown_lints</span>,
+    <span class="comment">// This lint is renamed but we run CI for old stable rustc so should be here.</span>
     <span class="ident">redundant_semicolon</span>,
     <span class="ident">redundant_semicolons</span>
 )]</span>
@@ -190,6 +198,8 @@
         <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">rustc_std_workspace_core</span> <span class="kw">as</span> <span class="ident">core</span>;
         <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused_imports</span>)]</span>
         <span class="kw">use</span> <span class="ident">core</span>::<span class="ident">iter</span>;
+        <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused_imports</span>)]</span>
+        <span class="kw">use</span> <span class="ident">core</span>::<span class="ident">ops</span>;
         <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused_imports</span>)]</span>
         <span class="kw">use</span> <span class="ident">core</span>::<span class="ident">option</span>;
     }
@@ -267,6 +277,12 @@
 
         <span class="kw">mod</span> <span class="ident">switch</span>;
         <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">switch</span>::<span class="kw-2">*</span>;
+    } <span class="kw">else</span> <span class="kw">if</span> <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_os</span> <span class="op">=</span> <span class="string">&quot;psp&quot;</span>)]</span> {
+        <span class="kw">mod</span> <span class="ident">fixed_width_ints</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">fixed_width_ints</span>::<span class="kw-2">*</span>;
+
+        <span class="kw">mod</span> <span class="ident">psp</span>;
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">psp</span>::<span class="kw-2">*</span>;
     } <span class="kw">else</span> <span class="kw">if</span> <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_os</span> <span class="op">=</span> <span class="string">&quot;vxworks&quot;</span>)]</span> {
         <span class="kw">mod</span> <span class="ident">fixed_width_ints</span>;
         <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">fixed_width_ints</span>::<span class="kw-2">*</span>;

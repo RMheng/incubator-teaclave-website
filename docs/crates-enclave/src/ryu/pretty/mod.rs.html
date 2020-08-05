@@ -223,22 +223,16 @@
 <span id="223">223</span>
 <span id="224">224</span>
 <span id="225">225</span>
-<span id="226">226</span>
-<span id="227">227</span>
-<span id="228">228</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="kw">mod</span> <span class="ident">exponent</span>;
 <span class="kw">mod</span> <span class="ident">mantissa</span>;
 
-<span class="kw">use</span> <span class="ident">core</span>::{<span class="ident">mem</span>, <span class="ident">ptr</span>};
-
 <span class="kw">use</span> <span class="self">self</span>::<span class="ident">exponent</span>::<span class="kw-2">*</span>;
 <span class="kw">use</span> <span class="self">self</span>::<span class="ident">mantissa</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">common</span>;
-<span class="kw">use</span> <span class="ident">d2s</span>;
-<span class="kw">use</span> <span class="ident">d2s</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">f2s</span>::<span class="kw-2">*</span>;
-
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">common</span>;
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">d2s</span>::{<span class="self">self</span>, <span class="kw-2">*</span>};
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">f2s</span>::<span class="kw-2">*</span>;
+<span class="kw">use</span> <span class="ident">core</span>::{<span class="ident">mem</span>, <span class="ident">ptr</span>};
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;no-panic&quot;</span>)]</span>
 <span class="kw">use</span> <span class="ident">no_panic</span>::<span class="ident">no_panic</span>;
 
@@ -266,7 +260,7 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// ## Example</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ```edition2018</span>
+<span class="doccomment">/// ```</span>
 <span class="doccomment">/// use std::{mem::MaybeUninit, slice, str};</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// let f = 1.234f64;</span>
@@ -279,7 +273,7 @@
 <span class="doccomment">///     assert_eq!(print, &quot;1.234&quot;);</span>
 <span class="doccomment">/// }</span>
 <span class="doccomment">/// ```</span>
-<span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">must_use_return</span>, <span class="ident">must_use</span>)]</span>
+<span class="attribute">#[<span class="ident">must_use</span>]</span>
 <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;no-panic&quot;</span>, <span class="ident">no_panic</span>)]</span>
 <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">format64</span>(<span class="ident">f</span>: <span class="ident">f64</span>, <span class="ident">result</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">usize</span> {
     <span class="kw">let</span> <span class="ident">bits</span> <span class="op">=</span> <span class="ident">mem</span>::<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="ident">f64</span>, <span class="ident">u64</span><span class="op">&gt;</span>(<span class="ident">f</span>);
@@ -373,7 +367,7 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// ## Example</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ```edition2018</span>
+<span class="doccomment">/// ```</span>
 <span class="doccomment">/// use std::{mem::MaybeUninit, slice, str};</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// let f = 1.234f32;</span>
@@ -386,7 +380,7 @@
 <span class="doccomment">///     assert_eq!(print, &quot;1.234&quot;);</span>
 <span class="doccomment">/// }</span>
 <span class="doccomment">/// ```</span>
-<span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">must_use_return</span>, <span class="ident">must_use</span>)]</span>
+<span class="attribute">#[<span class="ident">must_use</span>]</span>
 <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;no-panic&quot;</span>, <span class="ident">no_panic</span>)]</span>
 <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">format32</span>(<span class="ident">f</span>: <span class="ident">f32</span>, <span class="ident">result</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">usize</span> {
     <span class="kw">let</span> <span class="ident">bits</span> <span class="op">=</span> <span class="ident">mem</span>::<span class="ident">transmute</span>::<span class="op">&lt;</span><span class="ident">f32</span>, <span class="ident">u32</span><span class="op">&gt;</span>(<span class="ident">f</span>);

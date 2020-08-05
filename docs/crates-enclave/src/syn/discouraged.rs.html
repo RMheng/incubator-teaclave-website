@@ -192,7 +192,6 @@
 <span id="192">192</span>
 <span id="193">193</span>
 <span id="194">194</span>
-<span id="195">195</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! Extensions to the parsing API with niche applicability.</span>
 
@@ -268,7 +267,6 @@
     <span class="doccomment">///             || input.peek(Token![self])</span>
     <span class="doccomment">///             || input.peek(Token![Self])</span>
     <span class="doccomment">///             || input.peek(Token![crate])</span>
-    <span class="doccomment">///             || input.peek(Token![extern])</span>
     <span class="doccomment">///         {</span>
     <span class="doccomment">///             let ident = input.call(Ident::parse_any)?;</span>
     <span class="doccomment">///             return Ok(PathSegment::from(ident));</span>
