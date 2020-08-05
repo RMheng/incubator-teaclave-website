@@ -277,7 +277,7 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">byte</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">u8</span> {
         <span class="comment">// SAFETY: This is safe because all dense transitions have</span>
         <span class="comment">// exactly 256 elements, so all u8 values are valid indices.</span>
-        <span class="kw">unsafe</span> { <span class="kw-2">*</span><span class="self">self</span>.<span class="number">0</span>.<span class="ident">get_unchecked</span>(<span class="ident">byte</span> <span class="kw">as</span> <span class="ident">usize</span>) }
+        <span class="self">self</span>.<span class="number">0</span>[<span class="ident">byte</span> <span class="kw">as</span> <span class="ident">usize</span>]
     }
 
     <span class="doccomment">/// Return the total number of elements in the alphabet represented by</span>

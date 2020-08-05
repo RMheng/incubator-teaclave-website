@@ -443,7 +443,7 @@
     <span class="doccomment">/// Makes a new `Date` with given *UTC* date and offset.</span>
     <span class="doccomment">/// The local date should be constructed via the `TimeZone` trait.</span>
     <span class="comment">//</span>
-    <span class="comment">// note: this constructor is purposedly not named to `new` to discourage the direct usage.</span>
+    <span class="comment">// note: this constructor is purposely not named to `new` to discourage the direct usage.</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_utc</span>(<span class="ident">date</span>: <span class="ident">NaiveDate</span>, <span class="ident">offset</span>: <span class="ident">Tz</span>::<span class="ident">Offset</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Date</span><span class="op">&lt;</span><span class="ident">Tz</span><span class="op">&gt;</span> {
         <span class="ident">Date</span> { <span class="ident">date</span>: <span class="ident">date</span>, <span class="ident">offset</span>: <span class="ident">offset</span> }

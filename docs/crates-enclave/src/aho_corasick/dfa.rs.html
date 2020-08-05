@@ -901,9 +901,9 @@
         <span class="self">self</span>.<span class="ident">repr</span>().<span class="ident">match_count</span>(<span class="ident">id</span>)
     }
 
-    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">next_state_unchecked</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">current</span>: <span class="ident">S</span>, <span class="ident">input</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">S</span> {
+    <span class="kw">fn</span> <span class="ident">next_state</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">current</span>: <span class="ident">S</span>, <span class="ident">input</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">S</span> {
         <span class="kw">let</span> <span class="ident">o</span> <span class="op">=</span> <span class="ident">current</span>.<span class="ident">to_usize</span>() <span class="op">*</span> <span class="number">256</span> <span class="op">+</span> <span class="ident">input</span> <span class="kw">as</span> <span class="ident">usize</span>;
-        <span class="kw-2">*</span><span class="self">self</span>.<span class="ident">repr</span>().<span class="ident">trans</span>.<span class="ident">get_unchecked</span>(<span class="ident">o</span>)
+        <span class="self">self</span>.<span class="ident">repr</span>().<span class="ident">trans</span>[<span class="ident">o</span>]
     }
 }
 
@@ -960,11 +960,11 @@
         <span class="self">self</span>.<span class="ident">repr</span>().<span class="ident">match_count</span>(<span class="ident">id</span>)
     }
 
-    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">next_state_unchecked</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">current</span>: <span class="ident">S</span>, <span class="ident">input</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">S</span> {
+    <span class="kw">fn</span> <span class="ident">next_state</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">current</span>: <span class="ident">S</span>, <span class="ident">input</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">S</span> {
         <span class="kw">let</span> <span class="ident">alphabet_len</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">repr</span>().<span class="ident">byte_classes</span>.<span class="ident">alphabet_len</span>();
         <span class="kw">let</span> <span class="ident">input</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">repr</span>().<span class="ident">byte_classes</span>.<span class="ident">get</span>(<span class="ident">input</span>);
         <span class="kw">let</span> <span class="ident">o</span> <span class="op">=</span> <span class="ident">current</span>.<span class="ident">to_usize</span>() <span class="op">*</span> <span class="ident">alphabet_len</span> <span class="op">+</span> <span class="ident">input</span> <span class="kw">as</span> <span class="ident">usize</span>;
-        <span class="kw-2">*</span><span class="self">self</span>.<span class="ident">repr</span>().<span class="ident">trans</span>.<span class="ident">get_unchecked</span>(<span class="ident">o</span>)
+        <span class="self">self</span>.<span class="ident">repr</span>().<span class="ident">trans</span>[<span class="ident">o</span>]
     }
 }
 
@@ -1029,9 +1029,9 @@
         <span class="self">self</span>.<span class="ident">repr</span>().<span class="ident">matches</span>[<span class="ident">o</span>].<span class="ident">len</span>()
     }
 
-    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">next_state_unchecked</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">current</span>: <span class="ident">S</span>, <span class="ident">input</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">S</span> {
+    <span class="kw">fn</span> <span class="ident">next_state</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">current</span>: <span class="ident">S</span>, <span class="ident">input</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">S</span> {
         <span class="kw">let</span> <span class="ident">o</span> <span class="op">=</span> <span class="ident">current</span>.<span class="ident">to_usize</span>() <span class="op">+</span> <span class="ident">input</span> <span class="kw">as</span> <span class="ident">usize</span>;
-        <span class="kw-2">*</span><span class="self">self</span>.<span class="ident">repr</span>().<span class="ident">trans</span>.<span class="ident">get_unchecked</span>(<span class="ident">o</span>)
+        <span class="self">self</span>.<span class="ident">repr</span>().<span class="ident">trans</span>[<span class="ident">o</span>]
     }
 }
 
@@ -1096,10 +1096,10 @@
         <span class="self">self</span>.<span class="ident">repr</span>().<span class="ident">matches</span>[<span class="ident">o</span>].<span class="ident">len</span>()
     }
 
-    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">next_state_unchecked</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">current</span>: <span class="ident">S</span>, <span class="ident">input</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">S</span> {
+    <span class="kw">fn</span> <span class="ident">next_state</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">current</span>: <span class="ident">S</span>, <span class="ident">input</span>: <span class="ident">u8</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">S</span> {
         <span class="kw">let</span> <span class="ident">input</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">repr</span>().<span class="ident">byte_classes</span>.<span class="ident">get</span>(<span class="ident">input</span>);
         <span class="kw">let</span> <span class="ident">o</span> <span class="op">=</span> <span class="ident">current</span>.<span class="ident">to_usize</span>() <span class="op">+</span> <span class="ident">input</span> <span class="kw">as</span> <span class="ident">usize</span>;
-        <span class="kw-2">*</span><span class="self">self</span>.<span class="ident">repr</span>().<span class="ident">trans</span>.<span class="ident">get_unchecked</span>(<span class="ident">o</span>)
+        <span class="self">self</span>.<span class="ident">repr</span>().<span class="ident">trans</span>[<span class="ident">o</span>]
     }
 }
 
@@ -1349,8 +1349,8 @@
             <span class="ident">heap_bytes</span>: <span class="number">0</span>,
             <span class="ident">prefilter</span>: <span class="ident">nfa</span>.<span class="ident">prefilter_obj</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">p</span>.<span class="ident">clone</span>()),
             <span class="ident">byte_classes</span>: <span class="ident">byte_classes</span>.<span class="ident">clone</span>(),
-            <span class="ident">trans</span>: <span class="ident">trans</span>,
-            <span class="ident">matches</span>: <span class="ident">matches</span>,
+            <span class="ident">trans</span>,
+            <span class="ident">matches</span>,
         };
         <span class="kw">for</span> <span class="ident">id</span> <span class="kw">in</span> (<span class="number">0</span>..<span class="ident">nfa</span>.<span class="ident">state_len</span>()).<span class="ident">map</span>(<span class="ident">S</span>::<span class="ident">from_usize</span>) {
             <span class="ident">repr</span>.<span class="ident">matches</span>[<span class="ident">id</span>.<span class="ident">to_usize</span>()].<span class="ident">extend_from_slice</span>(<span class="ident">nfa</span>.<span class="ident">matches</span>(<span class="ident">id</span>));

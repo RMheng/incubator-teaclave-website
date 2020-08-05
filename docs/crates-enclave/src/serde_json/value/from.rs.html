@@ -212,13 +212,37 @@
 <span id="212">212</span>
 <span id="213">213</span>
 <span id="214">214</span>
+<span id="215">215</span>
+<span id="216">216</span>
+<span id="217">217</span>
+<span id="218">218</span>
+<span id="219">219</span>
+<span id="220">220</span>
+<span id="221">221</span>
+<span id="222">222</span>
+<span id="223">223</span>
+<span id="224">224</span>
+<span id="225">225</span>
+<span id="226">226</span>
+<span id="227">227</span>
+<span id="228">228</span>
+<span id="229">229</span>
+<span id="230">230</span>
+<span id="231">231</span>
+<span id="232">232</span>
+<span id="233">233</span>
+<span id="234">234</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">prelude</span>::<span class="ident">v1</span>::<span class="kw-2">*</span>;
-<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">borrow</span>::<span class="ident">Cow</span>;
 
 <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">Value</span>;
-<span class="kw">use</span> <span class="ident">map</span>::<span class="ident">Map</span>;
-<span class="kw">use</span> <span class="ident">number</span>::<span class="ident">Number</span>;
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">lib</span>::<span class="ident">iter</span>::<span class="ident">FromIterator</span>;
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">lib</span>::<span class="kw-2">*</span>;
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">map</span>::<span class="ident">Map</span>;
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">number</span>::<span class="ident">Number</span>;
+
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;arbitrary_precision&quot;</span>)]</span>
+<span class="kw">use</span> <span class="ident">serde</span>::<span class="ident">serde_if_integer128</span>;
 
 <span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">from_integer</span> {
     ($(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">ty</span>:<span class="ident">ident</span>)<span class="kw-2">*</span>) <span class="op">=</span><span class="op">&gt;</span> {
@@ -249,7 +273,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Examples</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// ```edition2018</span>
+    <span class="doccomment">/// ```</span>
     <span class="doccomment">/// use serde_json::Value;</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// let f: f32 = 13.37;</span>
@@ -265,7 +289,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Examples</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// ```edition2018</span>
+    <span class="doccomment">/// ```</span>
     <span class="doccomment">/// use serde_json::Value;</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// let f: f64 = 13.37;</span>
@@ -281,7 +305,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Examples</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// ```edition2018</span>
+    <span class="doccomment">/// ```</span>
     <span class="doccomment">/// use serde_json::Value;</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// let b = false;</span>
@@ -297,7 +321,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Examples</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// ```edition2018</span>
+    <span class="doccomment">/// ```</span>
     <span class="doccomment">/// use serde_json::Value;</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// let s: String = &quot;lorem&quot;.to_string();</span>
@@ -313,7 +337,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Examples</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// ```edition2018</span>
+    <span class="doccomment">/// ```</span>
     <span class="doccomment">/// use serde_json::Value;</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// let s: &amp;str = &quot;lorem&quot;;</span>
@@ -329,7 +353,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Examples</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// ```edition2018</span>
+    <span class="doccomment">/// ```</span>
     <span class="doccomment">/// use serde_json::Value;</span>
     <span class="doccomment">/// use std::borrow::Cow;</span>
     <span class="doccomment">///</span>
@@ -337,7 +361,7 @@
     <span class="doccomment">/// let x: Value = s.into();</span>
     <span class="doccomment">/// ```</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// ```edition2018</span>
+    <span class="doccomment">/// ```</span>
     <span class="doccomment">/// use serde_json::Value;</span>
     <span class="doccomment">/// use std::borrow::Cow;</span>
     <span class="doccomment">///</span>
@@ -354,7 +378,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Examples</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// ```edition2018</span>
+    <span class="doccomment">/// ```</span>
     <span class="doccomment">/// use serde_json::{Map, Value};</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// let mut m = Map::new();</span>
@@ -371,7 +395,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Examples</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// ```edition2018</span>
+    <span class="doccomment">/// ```</span>
     <span class="doccomment">/// use serde_json::Value;</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// let v = vec![&quot;lorem&quot;, &quot;ipsum&quot;, &quot;dolor&quot;];</span>
@@ -387,7 +411,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Examples</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// ```edition2018</span>
+    <span class="doccomment">/// ```</span>
     <span class="doccomment">/// use serde_json::Value;</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// let v: &amp;[&amp;str] = &amp;[&quot;lorem&quot;, &quot;ipsum&quot;, &quot;dolor&quot;];</span>
@@ -398,26 +422,26 @@
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">Value</span><span class="op">&gt;</span><span class="op">&gt;</span> ::<span class="ident">std</span>::<span class="ident">iter</span>::<span class="ident">FromIterator</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Value</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">Value</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="ident">FromIterator</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Value</span> {
     <span class="doccomment">/// Convert an iteratable type to a `Value`</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Examples</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// ```edition2018</span>
+    <span class="doccomment">/// ```</span>
     <span class="doccomment">/// use serde_json::Value;</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// let v = std::iter::repeat(42).take(5);</span>
     <span class="doccomment">/// let x: Value = v.collect();</span>
     <span class="doccomment">/// ```</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// ```edition2018</span>
+    <span class="doccomment">/// ```</span>
     <span class="doccomment">/// use serde_json::Value;</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// let v: Vec&lt;_&gt; = vec![&quot;lorem&quot;, &quot;ipsum&quot;, &quot;dolor&quot;];</span>
     <span class="doccomment">/// let x: Value = v.into_iter().collect();</span>
     <span class="doccomment">/// ```</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// ```edition2018</span>
+    <span class="doccomment">/// ```</span>
     <span class="doccomment">/// use std::iter::FromIterator;</span>
     <span class="doccomment">/// use serde_json::Value;</span>
     <span class="doccomment">///</span>
@@ -425,6 +449,22 @@
     <span class="doccomment">/// ```</span>
     <span class="kw">fn</span> <span class="ident">from_iter</span><span class="op">&lt;</span><span class="ident">I</span>: <span class="ident">IntoIterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> <span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="ident">iter</span>: <span class="ident">I</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="ident">Value</span>::<span class="ident">Array</span>(<span class="ident">iter</span>.<span class="ident">into_iter</span>().<span class="ident">map</span>(<span class="ident">Into</span>::<span class="ident">into</span>).<span class="ident">collect</span>())
+    }
+}
+
+<span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span>()<span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Value</span> {
+    <span class="doccomment">/// Convert `()` to `Value`</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # Examples</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ```</span>
+    <span class="doccomment">/// use serde_json::Value;</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// let u = ();</span>
+    <span class="doccomment">/// let x: Value = u.into();</span>
+    <span class="doccomment">/// ```</span>
+    <span class="kw">fn</span> <span class="ident">from</span>((): ()) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+        <span class="ident">Value</span>::<span class="ident">Null</span>
     }
 }
 </pre></div>

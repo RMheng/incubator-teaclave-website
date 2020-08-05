@@ -339,7 +339,7 @@
 <span class="doccomment">///     }</span>
 <span class="doccomment">/// }</span>
 <span class="doccomment">/// ```</span>
-<span class="attribute">#[<span class="ident">macro_export</span>(<span class="ident">local_inner_macros</span>)]</span>
+<span class="attribute">#[<span class="ident">macro_export</span>]</span>
 <span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">custom_keyword</span> {
     (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">ident</span>:<span class="ident">ident</span>) <span class="op">=</span><span class="op">&gt;</span> {
         <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">non_camel_case_types</span>)]</span>
@@ -365,10 +365,10 @@
             }
         }
 
-        <span class="macro">impl_parse_for_custom_keyword</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">ident</span>);
-        <span class="macro">impl_to_tokens_for_custom_keyword</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">ident</span>);
-        <span class="macro">impl_clone_for_custom_keyword</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">ident</span>);
-        <span class="macro">impl_extra_traits_for_custom_keyword</span><span class="macro">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">ident</span>);
+        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">impl_parse_for_custom_keyword</span><span class="op">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">ident</span>);
+        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">impl_to_tokens_for_custom_keyword</span><span class="op">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">ident</span>);
+        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">impl_clone_for_custom_keyword</span><span class="op">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">ident</span>);
+        <span class="macro-nonterminal">$</span><span class="kw">crate</span>::<span class="macro-nonterminal">impl_extra_traits_for_custom_keyword</span><span class="op">!</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">ident</span>);
     };
 }
 

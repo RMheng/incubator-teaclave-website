@@ -45,6 +45,7 @@
 <span id="45">45</span>
 <span id="46">46</span>
 <span id="47">47</span>
+<span id="48">48</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="kw">use</span> <span class="ident">proc_macro2</span>::{<span class="ident">Ident</span>, <span class="ident">Span</span>, <span class="ident">TokenStream</span>};
 
@@ -77,6 +78,7 @@
     };
 
     <span class="macro">quote</span><span class="macro">!</span> {
+        <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
         <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">non_upper_case_globals</span>, <span class="ident">unused_attributes</span>, <span class="ident">unused_qualifications</span>)]</span>
         <span class="kw">const</span> #<span class="ident">dummy_const</span>: () <span class="op">=</span> {
             #<span class="ident">use_serde</span>
