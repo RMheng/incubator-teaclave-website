@@ -175,8 +175,6 @@
 <span id="175">175</span>
 <span id="176">176</span>
 <span id="177">177</span>
-<span id="178">178</span>
-<span id="179">179</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// Licensed to the Apache Software Foundation (ASF) under one</span>
 <span class="comment">// or more contributor license agreements.  See the NOTICE file</span>
@@ -210,7 +208,7 @@
 
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">serde</span>::<span class="ident">Deserialize</span>)]</span>
 <span class="kw">struct</span> <span class="ident">FaceDetectionArguments</span> {
-    <span class="ident">image_base64</span>: <span class="ident">String</span>,
+    <span class="ident">image</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span>,
     <span class="doccomment">/// Set the size of the sliding window.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// The minimum size is constrained as no smaller than 20.</span>
@@ -288,10 +286,8 @@
         <span class="ident">_runtime</span>: <span class="ident">FunctionRuntime</span>,
     ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">anyhow</span>::<span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">arguments</span> <span class="op">=</span> <span class="ident">FaceDetectionArguments</span>::<span class="ident">try_from</span>(<span class="ident">arguments</span>)<span class="question-mark">?</span>;
-        <span class="kw">let</span> <span class="ident">image_base64</span> <span class="op">=</span> <span class="ident">arguments</span>.<span class="ident">image_base64</span>;
-        <span class="kw">let</span> <span class="ident">vec</span> <span class="op">=</span> <span class="ident">base64</span>::<span class="ident">decode</span>(<span class="kw-2">&amp;</span><span class="ident">image_base64</span>).<span class="ident">unwrap</span>();
-        <span class="kw">let</span> <span class="ident">bytes</span>: <span class="kw-2">&amp;</span>[<span class="ident">u8</span>] <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">vec</span>;
-        <span class="kw">let</span> <span class="ident">img</span> <span class="op">=</span> <span class="ident">image</span>::<span class="ident">load_from_memory</span>(<span class="kw-2">&amp;</span><span class="ident">bytes</span>)<span class="question-mark">?</span>;
+        <span class="kw">let</span> <span class="ident">image</span> <span class="op">=</span> <span class="ident">arguments</span>.<span class="ident">image</span>;
+        <span class="kw">let</span> <span class="ident">img</span> <span class="op">=</span> <span class="ident">image</span>::<span class="ident">load_from_memory</span>(<span class="kw-2">&amp;</span><span class="ident">image</span>)<span class="question-mark">?</span>;
 
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">detector</span> <span class="op">=</span> <span class="ident">rustface</span>::<span class="ident">create_default_detector</span>()<span class="question-mark">?</span>;
         <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">window_size</span>) <span class="op">=</span> <span class="ident">arguments</span>.<span class="ident">window_size</span> {
@@ -337,9 +333,9 @@
 
     <span class="kw">fn</span> <span class="ident">test_face_detection</span>() {
         <span class="kw">let</span> <span class="ident">input</span> <span class="op">=</span> <span class="string">&quot;fixtures/functions/face_detection/input.jpg&quot;</span>;
-        <span class="kw">let</span> <span class="ident">image_base64</span> <span class="op">=</span> <span class="ident">base64</span>::<span class="ident">encode</span>(<span class="kw-2">&amp;</span><span class="ident">fs</span>::<span class="ident">read</span>(<span class="ident">input</span>).<span class="ident">unwrap</span>());
+        <span class="kw">let</span> <span class="ident">image</span> <span class="op">=</span> <span class="ident">fs</span>::<span class="ident">read</span>(<span class="ident">input</span>).<span class="ident">unwrap</span>();
         <span class="kw">let</span> <span class="ident">arguments</span> <span class="op">=</span> <span class="ident">FunctionArguments</span>::<span class="ident">from_json</span>(<span class="macro">json</span><span class="macro">!</span>({
-            <span class="string">&quot;image_base64&quot;</span>: <span class="ident">image_base64</span>,
+            <span class="string">&quot;image&quot;</span>: <span class="kw-2">&amp;</span><span class="ident">image</span>,
             <span class="string">&quot;min_face_size&quot;</span>: <span class="number">20</span>,
             <span class="string">&quot;score_thresh&quot;</span>: <span class="number">2.0</span>,
             <span class="string">&quot;pyramid_scale_factor&quot;</span>: <span class="number">0.8</span>,

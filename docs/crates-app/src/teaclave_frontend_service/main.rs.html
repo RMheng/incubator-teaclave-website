@@ -51,6 +51,9 @@
 <span id="51">51</span>
 <span id="52">52</span>
 <span id="53">53</span>
+<span id="54">54</span>
+<span id="55">55</span>
+<span id="56">56</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// Licensed to the Apache Software Foundation (ASF) under one</span>
 <span class="comment">// or more contributor license agreements.  See the NOTICE file</span>
@@ -102,6 +105,9 @@
     }
 
     <span class="ident">launcher</span>.<span class="ident">finalize</span>();
+    <span class="kw">unsafe</span> {
+        <span class="ident">launcher</span>.<span class="ident">destroy</span>(); <span class="comment">// force to destroy the enclave</span>
+    }
 
     <span class="prelude-val">Ok</span>(())
 }
