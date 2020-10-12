@@ -52,6 +52,12 @@
 <span id="52">52</span>
 <span id="53">53</span>
 <span id="54">54</span>
+<span id="55">55</span>
+<span id="56">56</span>
+<span id="57">57</span>
+<span id="58">58</span>
+<span id="59">59</span>
+<span id="60">60</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// Licensed to the Apache Software Foundation (ASF) under one</span>
 <span class="comment">// or more contributor license agreements.  See the NOTICE file</span>
@@ -73,6 +79,7 @@
 <span class="kw">use</span> <span class="ident">log</span>::<span class="ident">error</span>;
 <span class="kw">use</span> <span class="ident">teaclave_binder</span>::<span class="ident">proto</span>::{<span class="ident">ECallCommand</span>, <span class="ident">RunTestInput</span>, <span class="ident">RunTestOutput</span>};
 <span class="kw">use</span> <span class="ident">teaclave_binder</span>::<span class="ident">TeeBinder</span>;
+<span class="kw">use</span> <span class="ident">teaclave_test_utils</span>::<span class="kw-2">*</span>;
 <span class="kw">use</span> <span class="ident">teaclave_types</span>::<span class="ident">TeeServiceResult</span>;
 
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">teaclave_file_agent</span>::<span class="ident">ocall_handle_file_request</span>;
@@ -83,11 +90,17 @@
             .<span class="ident">filter_or</span>(<span class="string">&quot;TEACLAVE_LOG&quot;</span>, <span class="string">&quot;RUST_LOG&quot;</span>)
             .<span class="ident">write_style_or</span>(<span class="string">&quot;TEACLAVE_LOG_STYLE&quot;</span>, <span class="string">&quot;RUST_LOG_STYLE&quot;</span>),
     );
-    <span class="kw">let</span> <span class="ident">tee</span> <span class="op">=</span> <span class="ident">TeeBinder</span>::<span class="ident">new</span>(<span class="macro">env</span><span class="macro">!</span>(<span class="string">&quot;CARGO_PKG_NAME&quot;</span>))<span class="question-mark">?</span>;
-    <span class="ident">run</span>(<span class="kw-2">&amp;</span><span class="ident">tee</span>)<span class="question-mark">?</span>;
-    <span class="ident">tee</span>.<span class="ident">finalize</span>();
+
+    <span class="macro">run_tests</span><span class="macro">!</span>(<span class="ident">test_app_and_enclave</span>);
 
     <span class="prelude-val">Ok</span>(())
+}
+
+<span class="kw">fn</span> <span class="ident">test_app_and_enclave</span>() {
+    <span class="kw">let</span> <span class="ident">tee</span> <span class="op">=</span> <span class="ident">TeeBinder</span>::<span class="ident">new</span>(<span class="macro">env</span><span class="macro">!</span>(<span class="string">&quot;CARGO_PKG_NAME&quot;</span>)).<span class="ident">unwrap</span>();
+    <span class="ident">tee</span>.<span class="ident">run_app_tests</span>();
+    <span class="ident">run_enclave_tests</span>(<span class="kw-2">&amp;</span><span class="ident">tee</span>).<span class="ident">unwrap</span>();
+    <span class="ident">tee</span>.<span class="ident">finalize</span>();
 }
 
 <span class="kw">fn</span> <span class="ident">start_enclave_unit_test_driver</span>(<span class="ident">tee</span>: <span class="kw-2">&amp;</span><span class="ident">TeeBinder</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">anyhow</span>::<span class="prelude-ty">Result</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
@@ -102,9 +115,8 @@
     <span class="prelude-val">Ok</span>(())
 }
 
-<span class="kw">fn</span> <span class="ident">run</span>(<span class="ident">tee</span>: <span class="kw-2">&amp;</span><span class="ident">TeeBinder</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">anyhow</span>::<span class="prelude-ty">Result</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
+<span class="kw">fn</span> <span class="ident">run_enclave_tests</span>(<span class="ident">tee</span>: <span class="kw-2">&amp;</span><span class="ident">TeeBinder</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">anyhow</span>::<span class="prelude-ty">Result</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
     <span class="ident">start_enclave_unit_test_driver</span>(<span class="ident">tee</span>)<span class="question-mark">?</span>;
-
     <span class="prelude-val">Ok</span>(())
 }
 </pre></div>
