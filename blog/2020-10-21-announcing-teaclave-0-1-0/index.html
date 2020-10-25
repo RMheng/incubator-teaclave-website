@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Announcing Apache Teaclave (incubating) 0.1.0 | Apache Teaclave (Incubating)</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    
+    <meta name="description" content="Apache Teaclave (incubating) is an open source universal secure computing platform, making computation on privacy-sensitive data safe and simple.">
+    <meta property="article:published_time" content="2020-10-22T00:00:00.000Z">
+    <meta property="article:modified_time" content="2020-10-23T04:49:01.000Z">
+    <meta property="og:site_name" content="Apache Teaclave (Incubating)">
+    <meta property="og:title" content="Announcing Apache Teaclave (incubating) 0.1.0">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://teaclave.apache.org/blog/2020-10-21-announcing-teaclave-0-1-0/">
+    <meta name="twitter:title" content="Announcing Apache Teaclave (incubating) 0.1.0">
+    <meta name="twitter:url" content="https://teaclave.apache.org/blog/2020-10-21-announcing-teaclave-0-1-0/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@ApacheTeaclave">
+    <link rel="preload" href="/assets/css/0.styles.12831543.css" as="style"><link rel="preload" href="/assets/js/app.345e3c88.js" as="script"><link rel="preload" href="/assets/js/9.2ab21334.js" as="script"><link rel="preload" href="/assets/js/1.2d737bba.js" as="script"><link rel="preload" href="/assets/js/18.f19032f5.js" as="script"><link rel="prefetch" href="/assets/js/10.3e39fa47.js"><link rel="prefetch" href="/assets/js/100.04b63499.js"><link rel="prefetch" href="/assets/js/101.f3adb1f6.js"><link rel="prefetch" href="/assets/js/102.b9316a8d.js"><link rel="prefetch" href="/assets/js/103.40ebbc97.js"><link rel="prefetch" href="/assets/js/104.2c87fd81.js"><link rel="prefetch" href="/assets/js/105.166f51d5.js"><link rel="prefetch" href="/assets/js/106.b61a171e.js"><link rel="prefetch" href="/assets/js/107.400f7e36.js"><link rel="prefetch" href="/assets/js/108.681996cb.js"><link rel="prefetch" href="/assets/js/109.2f9a96b5.js"><link rel="prefetch" href="/assets/js/11.81048395.js"><link rel="prefetch" href="/assets/js/110.48d8b7ee.js"><link rel="prefetch" href="/assets/js/111.60e3f47c.js"><link rel="prefetch" href="/assets/js/112.d34fe85d.js"><link rel="prefetch" href="/assets/js/113.1e121025.js"><link rel="prefetch" href="/assets/js/114.10e23e3e.js"><link rel="prefetch" href="/assets/js/115.9c6b301b.js"><link rel="prefetch" href="/assets/js/116.ef29539a.js"><link rel="prefetch" href="/assets/js/12.8c95b2f4.js"><link rel="prefetch" href="/assets/js/13.1975693d.js"><link rel="prefetch" href="/assets/js/14.7c24955f.js"><link rel="prefetch" href="/assets/js/15.76915a1d.js"><link rel="prefetch" href="/assets/js/16.373b16fb.js"><link rel="prefetch" href="/assets/js/17.d46a4324.js"><link rel="prefetch" href="/assets/js/19.b8211799.js"><link rel="prefetch" href="/assets/js/2.d83380d9.js"><link rel="prefetch" href="/assets/js/20.bbfdbee0.js"><link rel="prefetch" href="/assets/js/21.65eb0bf2.js"><link rel="prefetch" href="/assets/js/22.84925a69.js"><link rel="prefetch" href="/assets/js/23.02b6f70b.js"><link rel="prefetch" href="/assets/js/24.12d3175b.js"><link rel="prefetch" href="/assets/js/25.9d7eda2c.js"><link rel="prefetch" href="/assets/js/26.27550a99.js"><link rel="prefetch" href="/assets/js/27.eb2d04b0.js"><link rel="prefetch" href="/assets/js/28.52a0864c.js"><link rel="prefetch" href="/assets/js/29.efdd2637.js"><link rel="prefetch" href="/assets/js/30.4bb6559e.js"><link rel="prefetch" href="/assets/js/31.96841ccf.js"><link rel="prefetch" href="/assets/js/32.e7c3b222.js"><link rel="prefetch" href="/assets/js/33.774f70ec.js"><link rel="prefetch" href="/assets/js/34.90ad2124.js"><link rel="prefetch" href="/assets/js/35.b27d3373.js"><link rel="prefetch" href="/assets/js/36.e5c2eb19.js"><link rel="prefetch" href="/assets/js/37.c29e67c8.js"><link rel="prefetch" href="/assets/js/38.4e100886.js"><link rel="prefetch" href="/assets/js/39.8dcb8e81.js"><link rel="prefetch" href="/assets/js/40.beb6a38b.js"><link rel="prefetch" href="/assets/js/41.54ebc727.js"><link rel="prefetch" href="/assets/js/42.dab161d7.js"><link rel="prefetch" href="/assets/js/43.282961a2.js"><link rel="prefetch" href="/assets/js/44.0f93fc90.js"><link rel="prefetch" href="/assets/js/45.0f5fcd4f.js"><link rel="prefetch" href="/assets/js/46.6ce24466.js"><link rel="prefetch" href="/assets/js/47.84077554.js"><link rel="prefetch" href="/assets/js/48.56ac1dd6.js"><link rel="prefetch" href="/assets/js/49.cb169f76.js"><link rel="prefetch" href="/assets/js/5.3188ae74.js"><link rel="prefetch" href="/assets/js/50.c06a85cb.js"><link rel="prefetch" href="/assets/js/51.c8c65cfa.js"><link rel="prefetch" href="/assets/js/52.b3c8d21f.js"><link rel="prefetch" href="/assets/js/53.871842c0.js"><link rel="prefetch" href="/assets/js/54.f054d7c7.js"><link rel="prefetch" href="/assets/js/55.f745723f.js"><link rel="prefetch" href="/assets/js/56.c99b717d.js"><link rel="prefetch" href="/assets/js/57.acd4a8ef.js"><link rel="prefetch" href="/assets/js/58.5fc51bde.js"><link rel="prefetch" href="/assets/js/59.704bacb4.js"><link rel="prefetch" href="/assets/js/6.d7bb1465.js"><link rel="prefetch" href="/assets/js/60.1ac9976a.js"><link rel="prefetch" href="/assets/js/61.e9c5cee2.js"><link rel="prefetch" href="/assets/js/62.4848470e.js"><link rel="prefetch" href="/assets/js/63.3c21c8e4.js"><link rel="prefetch" href="/assets/js/64.e3a4d2cb.js"><link rel="prefetch" href="/assets/js/65.4317a91d.js"><link rel="prefetch" href="/assets/js/66.1591fe38.js"><link rel="prefetch" href="/assets/js/67.d0ae3941.js"><link rel="prefetch" href="/assets/js/68.094b6669.js"><link rel="prefetch" href="/assets/js/69.3f9fdc6b.js"><link rel="prefetch" href="/assets/js/7.33bbf133.js"><link rel="prefetch" href="/assets/js/70.36c8bd7c.js"><link rel="prefetch" href="/assets/js/71.db239d72.js"><link rel="prefetch" href="/assets/js/72.93d8dd56.js"><link rel="prefetch" href="/assets/js/73.21c19c8b.js"><link rel="prefetch" href="/assets/js/74.0cf2fb64.js"><link rel="prefetch" href="/assets/js/75.99ccc763.js"><link rel="prefetch" href="/assets/js/76.6093bbd6.js"><link rel="prefetch" href="/assets/js/77.3f97122e.js"><link rel="prefetch" href="/assets/js/78.7f6ed445.js"><link rel="prefetch" href="/assets/js/79.902a9198.js"><link rel="prefetch" href="/assets/js/8.b562afe7.js"><link rel="prefetch" href="/assets/js/80.6020c953.js"><link rel="prefetch" href="/assets/js/81.2ef7a1ec.js"><link rel="prefetch" href="/assets/js/82.bc019489.js"><link rel="prefetch" href="/assets/js/83.4d562750.js"><link rel="prefetch" href="/assets/js/84.ff83f0d7.js"><link rel="prefetch" href="/assets/js/85.f5a0456c.js"><link rel="prefetch" href="/assets/js/86.d7702893.js"><link rel="prefetch" href="/assets/js/87.59d6600f.js"><link rel="prefetch" href="/assets/js/88.2dd0d944.js"><link rel="prefetch" href="/assets/js/89.16fd3ab9.js"><link rel="prefetch" href="/assets/js/90.14a9d07d.js"><link rel="prefetch" href="/assets/js/91.b77b35cd.js"><link rel="prefetch" href="/assets/js/92.c5e67915.js"><link rel="prefetch" href="/assets/js/93.0ac4dd54.js"><link rel="prefetch" href="/assets/js/94.05cbd6d7.js"><link rel="prefetch" href="/assets/js/95.fec1323e.js"><link rel="prefetch" href="/assets/js/96.2e6208ac.js"><link rel="prefetch" href="/assets/js/97.5722ac2e.js"><link rel="prefetch" href="/assets/js/98.5b539799.js"><link rel="prefetch" href="/assets/js/99.1c29120e.js"><link rel="prefetch" href="/assets/js/vuejs-paginate.fabc2147.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.12831543.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Apache Teaclave (Incubating)</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  About
+</a></div><div class="nav-item"><a href="/community/" class="nav-link">
+  Community
+</a></div><div class="nav-item"><a href="/download/" class="nav-link">
+  Download
+</a></div><div class="nav-item"><a href="/contributors/" class="nav-link">
+  Contributors
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Documentation" class="dropdown-title"><span class="title">Documentation</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/" class="nav-link">
+  Teaclave
+</a></li><li class="dropdown-item"><!----> <a href="/sgx-sdk-docs/" class="nav-link">
+  Teaclave SGX SDK
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/" class="nav-link router-link-active">
+  Blog
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="API Docs" class="dropdown-title"><span class="title">API Docs</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://teaclave.apache.org/api-docs/client-sdk-python/" target="_self" rel="" class="nav-link external">
+  Teaclave Client SDK (Python)
+  <!----></a></li><li class="dropdown-item"><!----> <a href="https://teaclave.apache.org/api-docs/sgx-sdk/" target="_self" rel="" class="nav-link external">
+  Teaclave SGX SDK
+  <!----></a></li><li class="dropdown-item"><!----> <a href="https://teaclave.apache.org/api-docs/crates-enclave/" target="_self" rel="" class="nav-link external">
+  Crates in Teaclave (Enclave)
+  <!----></a></li><li class="dropdown-item"><!----> <a href="https://teaclave.apache.org/api-docs/crates-app/" target="_self" rel="" class="nav-link external">
+  Crates in Teaclave (App)
+  <!----></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Repository" class="dropdown-title"><span class="title">Repository</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/apache/incubator-teaclave" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Teaclave
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://github.com/apache/incubator-teaclave-sgx-sdk" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Teaclave SGX SDK
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://github.com/apache/incubator-teaclave-website" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Teaclave Website
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Apache Software Foundation" class="dropdown-title"><span class="title">ASF</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.apache.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  ASF Homepage
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.apache.org/licenses/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  License
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.apache.org/foundation/sponsorship.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Sponsorship
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.apache.org/security/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Security
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.apache.org/foundation/thanks.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Thanks
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.apache.org/events/current-event.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Current Event
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  About
+</a></div><div class="nav-item"><a href="/community/" class="nav-link">
+  Community
+</a></div><div class="nav-item"><a href="/download/" class="nav-link">
+  Download
+</a></div><div class="nav-item"><a href="/contributors/" class="nav-link">
+  Contributors
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Documentation" class="dropdown-title"><span class="title">Documentation</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/docs/" class="nav-link">
+  Teaclave
+</a></li><li class="dropdown-item"><!----> <a href="/sgx-sdk-docs/" class="nav-link">
+  Teaclave SGX SDK
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/" class="nav-link router-link-active">
+  Blog
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="API Docs" class="dropdown-title"><span class="title">API Docs</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://teaclave.apache.org/api-docs/client-sdk-python/" target="_self" rel="" class="nav-link external">
+  Teaclave Client SDK (Python)
+  <!----></a></li><li class="dropdown-item"><!----> <a href="https://teaclave.apache.org/api-docs/sgx-sdk/" target="_self" rel="" class="nav-link external">
+  Teaclave SGX SDK
+  <!----></a></li><li class="dropdown-item"><!----> <a href="https://teaclave.apache.org/api-docs/crates-enclave/" target="_self" rel="" class="nav-link external">
+  Crates in Teaclave (Enclave)
+  <!----></a></li><li class="dropdown-item"><!----> <a href="https://teaclave.apache.org/api-docs/crates-app/" target="_self" rel="" class="nav-link external">
+  Crates in Teaclave (App)
+  <!----></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Repository" class="dropdown-title"><span class="title">Repository</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://github.com/apache/incubator-teaclave" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Teaclave
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://github.com/apache/incubator-teaclave-sgx-sdk" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Teaclave SGX SDK
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://github.com/apache/incubator-teaclave-website" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Teaclave Website
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Apache Software Foundation" class="dropdown-title"><span class="title">ASF</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.apache.org/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  ASF Homepage
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.apache.org/licenses/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  License
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.apache.org/foundation/sponsorship.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Sponsorship
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.apache.org/security/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Security
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.apache.org/foundation/thanks.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Thanks
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.apache.org/events/current-event.html" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Current Event
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav>  <!----> </aside> <main class="page"> <div id="base-list-layout" class="theme-default-content"><article itemscope="itemscope" itemtype="https://schema.org/BlogPosting" class="vuepress-blog-theme-content"><header><h1 itemprop="name headline" class="post-title">
+        Announcing Apache Teaclave (incubating) 0.1.0
+      </h1> <div class="publish-date-author">October 21, 2020 · Mingshen Sun</div></header> <div itemprop="articleBody" class="content__default"><p>On behalf of the Teaclave community, I am happy to announce the <em>first</em> Apache
+Incubator release of Teaclave, 0.1.0. Teaclave is a universal secure computing
+platform, making computation on privacy-sensitive data safe and simple.</p> <p>The 0.1.0 release marks an important milestone for the Teaclave community. This
+is the first public release of the Teaclave platform, moreover, this is the
+first official release since we entered Apache Incubator on August 19, 2019.</p> <h2 id="project-highlights"><a href="#project-highlights" class="header-anchor">#</a> Project highlights</h2> <p>Since this is our first public release, I still want to emphasize the highlights
+of the Teaclave project.</p> <p>Apache Teaclave (incubating) has following highlights:</p> <ul><li><strong>Security</strong>: Teaclave adopts multiple security technologies to enable secure
+computing, in particular, Teaclave uses Intel SGX to serve the most
+security-sensitive tasks with <em>hardware-based isolation</em>, <em>memory encryption</em>
+and <em>attestation</em>. Also, Teaclave is written in Rust to prevent
+<em>memory-safety</em> issues.</li> <li><strong>Functionality</strong>: Teaclave is provided as a <em>function-as-a-service platform</em>.
+With many built-in functions, it supports tasks like machine learning, private
+set intersection, crypto computation, etc. In addition, developers can also
+deploy and execute Python scripts in Teaclave. More importantly, unlike
+traditional FaaS, Teaclave supports both general secure computing tasks and
+<em>flexible single- and multi-party secure computation</em>.</li> <li><strong>Usability</strong>: Teaclave builds its components in containers, therefore, it
+supports deployment both locally and within cloud infrastructures. Teaclave
+also provides convenient endpoint APIs, client SDKs and command line tools.</li> <li><strong>Modularity</strong>: Components in Teaclave are designed in modular, and some like
+remote attestation can be easily embedded in other projects. In addition,
+Teaclave SGX SDK can also be used separately to write standalone SGX enclaves
+for other purposes.</li></ul> <h2 id="changes-since-entering-apache-incubator"><a href="#changes-since-entering-apache-incubator" class="header-anchor">#</a> Changes since entering Apache Incubator</h2> <p>Since we entered Apache Incubator, we started an ambitious task of refactoring
+and improving the project in many perspectives. These include:</p> <ul><li>Supporting function and data registration.
+<ul><li>input data of a function can be fetched from external storage</li> <li>reuse registered function in new tasks</li></ul></li> <li>Redesigning function development workflow.
+<ul><li>developers only need to write python script with native libraries written in Rust</li></ul></li> <li>Providing persistent database implementation.
+<ul><li>port rusty-leveldb to SGX enclave using protected FS to secure file I/O</li> <li>add dedicated database service called &quot;storage service&quot; for data persistency</li></ul></li> <li>Supporting protobuf compatible RPC protocol.
+<ul><li>refactor existing service protocol with <code>.proto</code> files</li> <li>redesign PRC protocol with remote attestation</li></ul></li> <li>Supporting distributed workers.
+<ul><li>support docker deployment</li> <li>decouple services into different containers</li></ul></li> <li>Supporting customized workers.
+<ul><li>service provider can deploy with other kinds of customized workers besides builtin worker</li></ul></li> <li>Providing better documentation.</li> <li>Providing better error handling.
+<ul><li>errors can be propagated through RPC</li> <li>better error triage</li></ul></li> <li>Testsuite cleanup/refactoring.</li> <li>Implementing more built-in functions: we have 9 built-in functions including
+echo, face detection, gbdt predict/train, logistic regression predict/train,
+online decrypt, ordered set intersect, private join and comput, and RSA sign.</li> <li>Supporting more flexible attestation mechanisms (DCAP): providing a reference
+implementation of DCAP attestation service and supporting DCAP in our
+attestation library and build system as well.</li> <li>RPC enhancement.
+<ul><li>multi-language client</li></ul></li> <li>Many other changes.</li></ul> <p>These changes include 876 files changed, 78,237 insertions and 54,846 deletions.
+We have also closed 102 issues on GitHub to answer questions from the community
+and implementing feature requests.</p> <h2 id="download"><a href="#download" class="header-anchor">#</a> Download</h2> <p>Teaclave 0.1.0 can be downloaded at <a href="/download/">the download page</a>. Note that
+it is essential that you verify the integrity of the downloaded file using the
+PGP signature (.asc file) or a hash (.md5 or .sha* file).</p> <h2 id="documentation"><a href="#documentation" class="header-anchor">#</a> Documentation</h2> <p>If it is the first time to try Teaclave, we provide a simple but clear tutorial
+to guide you getting stated with Teaclave by invoking
+<a href="/docs/my-first-function/">your first function</a> in Teaclave.</p> <p>Basically, you can build the Teaclave platform using docker with these commands:</p> <div class="language-sh extra-class"><pre class="language-sh"><code>$ <span class="token builtin class-name">cd</span> incubator-teaclave
+$ docker run --rm -v <span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">pwd</span><span class="token variable">)</span></span>:/teaclave -w /teaclave <span class="token punctuation">\</span>
+  -it teaclave/teaclave-build-ubuntu-1804-sgx-2.9.1:latest <span class="token punctuation">\</span>
+   <span class="token function">bash</span> -c <span class="token string">&quot;. /root/.cargo/env &amp;&amp; \
+     . /opt/sgxsdk/environment &amp;&amp; \
+     mkdir -p build &amp;&amp; cd build &amp;&amp; \
+     cmake -DTEST_MODE=ON .. &amp;&amp; \
+     make&quot;</span>
+</code></pre></div><p>Launch all services with <code>docker-compose</code>:</p> <div class="language-sh extra-class"><pre class="language-sh"><code>$ <span class="token punctuation">(</span>cd docker <span class="token operator">&amp;&amp;</span> docker-compose -f docker-compose-ubuntu-1804.yml up --build<span class="token punctuation">)</span>
+</code></pre></div><p>And invoke function with a Python client:</p> <div class="language-sh extra-class"><pre class="language-sh"><code>$ <span class="token builtin class-name">cd</span> examples/python
+$ <span class="token assign-left variable">PYTHONPATH</span><span class="token operator">=</span><span class="token punctuation">..</span>/<span class="token punctuation">..</span>/sdk/python python3 builtin_echo.py <span class="token string">'Hello, Teaclave!'</span>
+<span class="token punctuation">[</span>+<span class="token punctuation">]</span> registering user
+<span class="token punctuation">[</span>+<span class="token punctuation">]</span> login
+<span class="token punctuation">[</span>+<span class="token punctuation">]</span> registering <span class="token keyword">function</span>
+<span class="token punctuation">[</span>+<span class="token punctuation">]</span> creating task
+<span class="token punctuation">[</span>+<span class="token punctuation">]</span> approving task
+<span class="token punctuation">[</span>+<span class="token punctuation">]</span> invoking task
+<span class="token punctuation">[</span>+<span class="token punctuation">]</span> getting result
+<span class="token punctuation">[</span>+<span class="token punctuation">]</span> <span class="token keyword">done</span>
+<span class="token punctuation">[</span>+<span class="token punctuation">]</span> <span class="token keyword">function</span> return:  b<span class="token string">'Hello, Teaclave!'</span>
+</code></pre></div><p>If you want to understand the internals of Teaclave, we provide several
+documents about the <a href="/docs/#design">design</a> of Teaclave. Also, we extensively
+document our <a href="/blog/docs/#codebase">codebase</a> in each sub directories. At last, <a href="/blog/docs/#api-references">API references</a>
+are automatically generated and uploaded to our homepage.</p> <h2 id="community"><a href="#community" class="header-anchor">#</a> Community</h2> <p>Along our road to the first public release, we also see the growth of the
+community who started to follow the project and using in their products. We have
+seen at least four <a href="/blog/community/#organizations">organizations</a> using Teaclave in
+their products, and more than nine open source <a href="/blog/community/#projects">projects</a>
+building on top of Teaclave platform or Teaclave SGX SDK.</p> <p>We build several channels to communicate with the community including GitHub issues,
+<a href="https://lists.apache.org/list.html?dev@teaclave.apache.org" target="_blank" rel="noopener noreferrer">mailing lists<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>, and
+Twitter account (<a href="https://twitter.com/ApacheTeaclave" target="_blank" rel="noopener noreferrer">@ApacheTeaclave<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>).</p> <p>We also attended ApacheCon this year to introduce Teaclave to the Apache community.
+If you missed the talk, please find the slides and other materials of talks,
+papers, and related articles at <a href="/docs/papers-talks/">this page</a>.</p> <h2 id="thanks"><a href="#thanks" class="header-anchor">#</a> Thanks</h2> <p>I'd like to thank all <a href="/contributors/">contributors</a> to build this community.
+Thanks to our project <a href="/contributors/#mentors">mentors</a>, who help us to
+understand the Apache way of open source. Furthermore,
+thanks to all <a href="/contributors/#committers">PPMC members and committers</a>
+for governing and expanding the community, organizing meetups, discussing
+roadmap, designing components, writing documents, contributing code, and
+advertising the project. Moreover, thanks to all <a href="/contributors/#contributors-2">external contributors</a>
+who send pull requests to fix bugs
+and implementing features. In addition, I'd like to thank people who tries
+Teaclave themselves, files bugs or feature requests. This also helps us to
+understand the project and figure out where we can improve.
+Finally, I'd like to thank companies who use Teaclave and contributing back to
+the community.</p> <p>At last, 0.1.0 is just the start of Teaclave, we will continue working hard with
+the community implementing new features, writing documents, and expanding the
+community.</p> <p>Happy Teaclaving. Cheers!</p></div></article></div>  <div class="footer">
+    Apache Teaclave (incubating) is an effort undergoing incubation at The Apache
+    Software Foundation (ASF), sponsored by the Apache Incubator.
+    Incubation is required of all newly accepted projects until a further review
+    indicates that the infrastructure, communications, and decision making process
+    have stabilized in a manner consistent with other successful ASF projects. While
+    incubation status is not necessarily a reflection of the completeness or
+    stability of the code, it does indicate that the project has yet to be fully
+    endorsed by the ASF.
+    Copyright © 2020 The Apache Software Foundation.
+    Licensed under the Apache License, Version 2.0.
+    Apache Teaclave, Apache, the Apache feather, and the Apache Teaclave project logo are either
+    trademarks or registered trademarks of the Apache Software Foundation.
+  </div></main></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.345e3c88.js" defer></script><script src="/assets/js/9.2ab21334.js" defer></script><script src="/assets/js/1.2d737bba.js" defer></script><script src="/assets/js/18.f19032f5.js" defer></script>
+  </body>
+</html>
