@@ -1,0 +1,82 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Apache Teaclave (incubating)",
+    "home_page_url": "https://teaclave.apache.org",
+    "feed_url": "https://teaclave.apache.org/feed.json",
+    "description": "Apache Teaclave (incubating) is an open source universal secure computing platform, making computation on privacy-sensitive data safe and simple.",
+    "items": [
+        {
+            "id": "https://teaclave.apache.org/blog/2019-08-19-apache-incubation-proposal/",
+            "url": "https://teaclave.apache.org/blog/2019-08-19-apache-incubation-proposal/",
+            "title": "Aapache Incubation Proposal",
+            "summary": "MesaTEE Apache Incubation Proposal",
+            "date_modified": "2019-08-20T00:00:00.000Z"
+        },
+        {
+            "id": "https://teaclave.apache.org/blog/2019-12-02-mitigation-of-intel-sa-00219-in-teaclave-sgx-sdk/",
+            "url": "https://teaclave.apache.org/blog/2019-12-02-mitigation-of-intel-sa-00219-in-teaclave-sgx-sdk/",
+            "title": "Mitigation of Intel-SA-00219 in Teaclave SGX SDK",
+            "summary": "This article is to help people understand Intel-SA-00219, and how Teaclave SGX SDK handles it.",
+            "date_modified": "2019-12-03T00:00:00.000Z"
+        },
+        {
+            "id": "https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/",
+            "url": "https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/",
+            "title": "Podling Teaclave Report - January 2020",
+            "summary": "Resolve all renaming issues of INFRA (INFRA-19532)\n  Refactor components: teaclaveutils, teaclaveconfig,\nteaclavecli, teaclavebinder\n  Rewrite README.md to clearly explain the project's highlights in\nsecurity, functionality, and usability.\n  Start to use protobuf for RPC definition\n  SGX SDK starts to use Intel SGX SDK v2.7.1",
+            "date_modified": "2020-01-01T00:00:00.000Z"
+        },
+        {
+            "id": "https://teaclave.apache.org/blog/2020-03-31-podling-teaclave-report-april-2020/",
+            "url": "https://teaclave.apache.org/blog/2020-03-31-podling-teaclave-report-april-2020/",
+            "title": "Podling Teaclave Report - April 2020",
+            "summary": "have redesigned current services into seven core services\nincluding access control,\n    authentication, execution, frontend, management, scheduler, and storage\n    service. Communication protocols between services are defined in protobuf.\n  RPC between services has been redesigned to supported TLS-based attestation.\n  We have added DCAP attestation algorithm in the platform so that people can\n    deploy the system in environments without Intel's attestation service.\n  Communication between app and enclave has been also redesigned\nwith better APIs.\n  All updates is currently in the develop branch. We plan to merge\ninto master\n    when main refactoring is done.",
+            "date_modified": "2020-04-01T00:00:00.000Z"
+        },
+        {
+            "id": "https://teaclave.apache.org/blog/2020-06-28-podling-teaclave-report-july-2020/",
+            "url": "https://teaclave.apache.org/blog/2020-06-28-podling-teaclave-report-july-2020/",
+            "title": "Podling Teaclave Report - July 2020",
+            "summary": "debugging tips and Rust development guideline.\n Codebase: Documents for each sub-directory (i.e., libraries in Teaclave).\n API Docs: Generated API documentations like APIs of Client SDK.",
+            "date_modified": "2020-06-29T00:00:00.000Z"
+        },
+        {
+            "id": "https://teaclave.apache.org/blog/2020-10-11-podling-teaclave-report-october-2020/",
+            "url": "https://teaclave.apache.org/blog/2020-10-11-podling-teaclave-report-october-2020/",
+            "title": "Podling Teaclave Report - October 2020",
+            "date_modified": "2020-10-12T00:00:00.000Z"
+        },
+        {
+            "id": "https://teaclave.apache.org/blog/2020-10-21-announcing-teaclave-0-1-0/",
+            "url": "https://teaclave.apache.org/blog/2020-10-21-announcing-teaclave-0-1-0/",
+            "title": "Announcing Apache Teaclave (incubating) 0.1.0",
+            "summary": "English | 中文",
+            "image": "https://teaclave.apache.org/./img/teaclave-architecture.png",
+            "date_modified": "2020-10-22T00:00:00.000Z"
+        },
+        {
+            "id": "https://teaclave.apache.org/blog/2020-10-28-announcing-teaclave-0-1-0-cn/",
+            "url": "https://teaclave.apache.org/blog/2020-10-28-announcing-teaclave-0-1-0-cn/",
+            "title": "让安全计算更简单 - Apache Teaclave (incubating) 0.1.0 正式发布",
+            "summary": "Apache Teaclave (incubating) 作为全球首个开源通用安全计算平台，在 2020 年 10 月\n21 日社区投票正式通过 0.1.0 的版本发布。0.1.0 版是 Teaclave 社区发展重要的里程碑，\n它是暨 Teaclave 进入 Apache 孵化器后发布的第一个正式版本，这意味着 Teaclave 通向\nApache 顶级项目之路走上了正轨。",
+            "image": "https://teaclave.apache.org/./img/teaclave-architecture.png",
+            "date_modified": "2020-10-29T00:00:00.000Z"
+        },
+        {
+            "id": "https://teaclave.apache.org/blog/2020-12-03-teaclave-ecosystem-cn/",
+            "url": "https://teaclave.apache.org/blog/2020-12-03-teaclave-ecosystem-cn/",
+            "title": "Teaclave 安全计算开源生态 - 由 Teaclave 驱动的开源项目一览",
+            "summary": "简单来说，Teaclave 有四大亮点：",
+            "image": "https://teaclave.apache.org/./img/secure-computing-intel-sgx.png",
+            "date_modified": "2020-12-04T00:00:00.000Z"
+        },
+        {
+            "id": "https://teaclave.apache.org/blog/2020-12-08-teaclave-ecosystem/",
+            "url": "https://teaclave.apache.org/blog/2020-12-08-teaclave-ecosystem/",
+            "title": "The Teaclave Secure Computing Ecosystem - Projects Powered by Teaclave",
+            "summary": "providing muti-party interfaces, Teaclave can help to \"bridge the data islands\"\nwithin/among organizations and companies.",
+            "image": "https://teaclave.apache.org/./img/secure-computing-intel-sgx.png",
+            "date_modified": "2020-12-09T00:00:00.000Z"
+        }
+    ]
+}
