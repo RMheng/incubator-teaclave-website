@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Apache Teaclave (incubating)</title>
+        <link>https://teaclave.apache.org</link>
+        <description>Apache Teaclave (incubating) is an open source universal secure computing platform, making computation on privacy-sensitive data safe and simple.</description>
+        <lastBuildDate>Fri, 11 Dec 2020 20:08:12 GMT</lastBuildDate>
+        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+        <generator>https://github.com/webmasterish/vuepress-plugin-feed</generator>
+        <atom:link href="https://teaclave.apache.org/feed.atom" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Aapache Incubation Proposal]]></title>
+            <link>https://teaclave.apache.org/blog/2019-08-19-apache-incubation-proposal/</link>
+            <guid>https://teaclave.apache.org/blog/2019-08-19-apache-incubation-proposal/</guid>
+            <pubDate>Tue, 20 Aug 2019 00:00:00 GMT</pubDate>
+            <description><![CDATA[MesaTEE Apache Incubation Proposal]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Mitigation of Intel-SA-00219 in Teaclave SGX SDK]]></title>
+            <link>https://teaclave.apache.org/blog/2019-12-02-mitigation-of-intel-sa-00219-in-teaclave-sgx-sdk/</link>
+            <guid>https://teaclave.apache.org/blog/2019-12-02-mitigation-of-intel-sa-00219-in-teaclave-sgx-sdk/</guid>
+            <pubDate>Tue, 03 Dec 2019 00:00:00 GMT</pubDate>
+            <description><![CDATA[This article is to help people understand Intel-SA-00219, and how Teaclave SGX SDK handles it.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Podling Teaclave Report - January 2020]]></title>
+            <link>https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/</link>
+            <guid>https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/</guid>
+            <pubDate>Wed, 01 Jan 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Resolve all renaming issues of INFRA (INFRA-19532)
+  Refactor components: teaclaveutils, teaclaveconfig,
+teaclavecli, teaclavebinder
+  Rewrite README.md to clearly explain the project's highlights in
+security, functionality, and usability.
+  Start to use protobuf for RPC definition
+  SGX SDK starts to use Intel SGX SDK v2.7.1]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Podling Teaclave Report - April 2020]]></title>
+            <link>https://teaclave.apache.org/blog/2020-03-31-podling-teaclave-report-april-2020/</link>
+            <guid>https://teaclave.apache.org/blog/2020-03-31-podling-teaclave-report-april-2020/</guid>
+            <pubDate>Wed, 01 Apr 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[have redesigned current services into seven core services
+including access control,
+    authentication, execution, frontend, management, scheduler, and storage
+    service. Communication protocols between services are defined in protobuf.
+  RPC between services has been redesigned to supported TLS-based attestation.
+  We have added DCAP attestation algorithm in the platform so that people can
+    deploy the system in environments without Intel's attestation service.
+  Communication between app and enclave has been also redesigned
+with better APIs.
+  All updates is currently in the develop branch. We plan to merge
+into master
+    when main refactoring is done.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Podling Teaclave Report - July 2020]]></title>
+            <link>https://teaclave.apache.org/blog/2020-06-28-podling-teaclave-report-july-2020/</link>
+            <guid>https://teaclave.apache.org/blog/2020-06-28-podling-teaclave-report-july-2020/</guid>
+            <pubDate>Mon, 29 Jun 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[debugging tips and Rust development guideline.
+ Codebase: Documents for each sub-directory (i.e., libraries in Teaclave).
+ API Docs: Generated API documentations like APIs of Client SDK.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Podling Teaclave Report - October 2020]]></title>
+            <link>https://teaclave.apache.org/blog/2020-10-11-podling-teaclave-report-october-2020/</link>
+            <guid>https://teaclave.apache.org/blog/2020-10-11-podling-teaclave-report-october-2020/</guid>
+            <pubDate>Mon, 12 Oct 2020 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Announcing Apache Teaclave (incubating) 0.1.0]]></title>
+            <link>https://teaclave.apache.org/blog/2020-10-21-announcing-teaclave-0-1-0/</link>
+            <guid>https://teaclave.apache.org/blog/2020-10-21-announcing-teaclave-0-1-0/</guid>
+            <pubDate>Thu, 22 Oct 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[English | 中文]]></description>
+            <enclosure url="https://teaclave.apache.org/./img/teaclave-architecture.png">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[让安全计算更简单 - Apache Teaclave (incubating) 0.1.0 正式发布]]></title>
+            <link>https://teaclave.apache.org/blog/2020-10-28-announcing-teaclave-0-1-0-cn/</link>
+            <guid>https://teaclave.apache.org/blog/2020-10-28-announcing-teaclave-0-1-0-cn/</guid>
+            <pubDate>Thu, 29 Oct 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Apache Teaclave (incubating) 作为全球首个开源通用安全计算平台，在 2020 年 10 月
+21 日社区投票正式通过 0.1.0 的版本发布。0.1.0 版是 Teaclave 社区发展重要的里程碑，
+它是暨 Teaclave 进入 Apache 孵化器后发布的第一个正式版本，这意味着 Teaclave 通向
+Apache 顶级项目之路走上了正轨。]]></description>
+            <enclosure url="https://teaclave.apache.org/./img/teaclave-architecture.png">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[Teaclave 安全计算开源生态 - 由 Teaclave 驱动的开源项目一览]]></title>
+            <link>https://teaclave.apache.org/blog/2020-12-03-teaclave-ecosystem-cn/</link>
+            <guid>https://teaclave.apache.org/blog/2020-12-03-teaclave-ecosystem-cn/</guid>
+            <pubDate>Fri, 04 Dec 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[简单来说，Teaclave 有四大亮点：]]></description>
+            <enclosure url="https://teaclave.apache.org/./img/secure-computing-intel-sgx.png">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[The Teaclave Secure Computing Ecosystem - Projects Powered by Teaclave]]></title>
+            <link>https://teaclave.apache.org/blog/2020-12-08-teaclave-ecosystem/</link>
+            <guid>https://teaclave.apache.org/blog/2020-12-08-teaclave-ecosystem/</guid>
+            <pubDate>Wed, 09 Dec 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[providing muti-party interfaces, Teaclave can help to "bridge the data islands"
+within/among organizations and companies.]]></description>
+            <enclosure url="https://teaclave.apache.org/./img/secure-computing-intel-sgx.png">
+            </enclosure>
+        </item>
+    </channel>
+</rss>
