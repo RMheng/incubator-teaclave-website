@@ -6,6 +6,7 @@ ALIASES["arc_swap"] = {};
 ALIASES["atty"] = {};
 ALIASES["base64"] = {};
 ALIASES["bitflags"] = {};
+ALIASES["byteorder"] = {};
 ALIASES["bytes"] = {};
 ALIASES["cfg_if"] = {};
 ALIASES["clap"] = {};

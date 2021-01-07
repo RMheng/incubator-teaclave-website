@@ -67,6 +67,9 @@
 <span id="67">67</span>
 <span id="68">68</span>
 <span id="69">69</span>
+<span id="70">70</span>
+<span id="71">71</span>
+<span id="72">72</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// Licensed to the Apache Software Foundation (ASF) under one</span>
 <span class="comment">// or more contributor license agreements.  See the NOTICE file</span>
@@ -100,6 +103,7 @@
 <span class="kw">mod</span> <span class="ident">logistic_regression_train</span>;
 <span class="kw">mod</span> <span class="ident">online_decrypt</span>;
 <span class="kw">mod</span> <span class="ident">ordered_set_intersect</span>;
+<span class="kw">mod</span> <span class="ident">password_check</span>;
 <span class="kw">mod</span> <span class="ident">principal_components_analysis</span>;
 <span class="kw">mod</span> <span class="ident">private_join_and_compute</span>;
 <span class="kw">mod</span> <span class="ident">rsa_sign</span>;
@@ -112,6 +116,7 @@
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">logistic_regression_train</span>::<span class="ident">LogisticRegressionTrain</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">online_decrypt</span>::<span class="ident">OnlineDecrypt</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">ordered_set_intersect</span>::<span class="ident">OrderedSetIntersect</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">password_check</span>::<span class="ident">PasswordCheck</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">principal_components_analysis</span>::<span class="ident">PrincipalComponentsAnalysis</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">private_join_and_compute</span>::<span class="ident">PrivateJoinAndCompute</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">rsa_sign</span>::<span class="ident">RsaSign</span>;
@@ -124,16 +129,17 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">run_tests</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
         <span class="macro">check_all_passed</span><span class="macro">!</span>(
             <span class="ident">echo</span>::<span class="ident">tests</span>::<span class="ident">run_tests</span>(),
-            <span class="ident">gbdt_train</span>::<span class="ident">tests</span>::<span class="ident">run_tests</span>(),
-            <span class="ident">gbdt_predict</span>::<span class="ident">tests</span>::<span class="ident">run_tests</span>(),
-            <span class="ident">logistic_regression_train</span>::<span class="ident">tests</span>::<span class="ident">run_tests</span>(),
-            <span class="ident">logistic_regression_predict</span>::<span class="ident">tests</span>::<span class="ident">run_tests</span>(),
-            <span class="ident">online_decrypt</span>::<span class="ident">tests</span>::<span class="ident">run_tests</span>(),
-            <span class="ident">private_join_and_compute</span>::<span class="ident">tests</span>::<span class="ident">run_tests</span>(),
-            <span class="ident">ordered_set_intersect</span>::<span class="ident">tests</span>::<span class="ident">run_tests</span>(),
-            <span class="ident">rsa_sign</span>::<span class="ident">tests</span>::<span class="ident">run_tests</span>(),
             <span class="ident">face_detection</span>::<span class="ident">tests</span>::<span class="ident">run_tests</span>(),
+            <span class="ident">gbdt_predict</span>::<span class="ident">tests</span>::<span class="ident">run_tests</span>(),
+            <span class="ident">gbdt_train</span>::<span class="ident">tests</span>::<span class="ident">run_tests</span>(),
+            <span class="ident">logistic_regression_predict</span>::<span class="ident">tests</span>::<span class="ident">run_tests</span>(),
+            <span class="ident">logistic_regression_train</span>::<span class="ident">tests</span>::<span class="ident">run_tests</span>(),
+            <span class="ident">password_check</span>::<span class="ident">tests</span>::<span class="ident">run_tests</span>(),
+            <span class="ident">online_decrypt</span>::<span class="ident">tests</span>::<span class="ident">run_tests</span>(),
+            <span class="ident">ordered_set_intersect</span>::<span class="ident">tests</span>::<span class="ident">run_tests</span>(),
             <span class="ident">principal_components_analysis</span>::<span class="ident">tests</span>::<span class="ident">run_tests</span>(),
+            <span class="ident">private_join_and_compute</span>::<span class="ident">tests</span>::<span class="ident">run_tests</span>(),
+            <span class="ident">rsa_sign</span>::<span class="ident">tests</span>::<span class="ident">run_tests</span>(),
         )
     }
 }
