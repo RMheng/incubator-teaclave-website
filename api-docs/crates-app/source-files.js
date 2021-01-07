@@ -6,6 +6,7 @@ sourcesIndex["arc_swap"] = {"name":"","files":["access.rs","as_raw.rs","cache.rs
 sourcesIndex["atty"] = {"name":"","files":["lib.rs"]};
 sourcesIndex["base64"] = {"name":"","dirs":[{"name":"write","files":["encoder.rs","mod.rs"]}],"files":["chunked_encoder.rs","decode.rs","display.rs","encode.rs","lib.rs","tables.rs"]};
 sourcesIndex["bitflags"] = {"name":"","files":["lib.rs"]};
+sourcesIndex["byteorder"] = {"name":"","files":["io.rs","lib.rs"]};
 sourcesIndex["bytes"] = {"name":"","dirs":[{"name":"buf","dirs":[{"name":"ext","files":["chain.rs","limit.rs","mod.rs","reader.rs","take.rs","writer.rs"]}],"files":["buf_impl.rs","buf_mut.rs","iter.rs","mod.rs","vec_deque.rs"]},{"name":"fmt","files":["debug.rs","hex.rs","mod.rs"]}],"files":["bytes.rs","bytes_mut.rs","lib.rs","loom.rs"]};
 sourcesIndex["cfg_if"] = {"name":"","files":["lib.rs"]};
 sourcesIndex["clap"] = {"name":"","dirs":[{"name":"app","files":["help.rs","meta.rs","mod.rs","parser.rs","settings.rs","usage.rs","validator.rs"]},{"name":"args","dirs":[{"name":"arg_builder","files":["base.rs","flag.rs","mod.rs","option.rs","positional.rs","switched.rs","valued.rs"]}],"files":["any_arg.rs","arg.rs","arg_matcher.rs","arg_matches.rs","group.rs","macros.rs","matched_arg.rs","mod.rs","settings.rs","subcommand.rs"]},{"name":"completions","files":["bash.rs","elvish.rs","fish.rs","macros.rs","mod.rs","powershell.rs","shell.rs","zsh.rs"]}],"files":["errors.rs","fmt.rs","lib.rs","macros.rs","map.rs","osstringext.rs","strext.rs","suggestions.rs","usage_parser.rs"]};
