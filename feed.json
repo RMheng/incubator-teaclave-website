@@ -84,6 +84,13 @@
             "title": "Podling Teaclave Report - January 2021",
             "summary": "Please feel free to add your own commentary.",
             "date_modified": "2021-01-01T00:00:00.000Z"
+        },
+        {
+            "id": "https://teaclave.apache.org/blog/2021-01-19-roadmap-in-2021-project-maturity-and-community-buildup/",
+            "url": "https://teaclave.apache.org/blog/2021-01-19-roadmap-in-2021-project-maturity-and-community-buildup/",
+            "title": "Roadmap in 2021: Project Maturity and Community Buildup",
+            "summary": "building a healthier and more sustainable community. Therefore, I summarize\nseveral to-do lists here. There are mainly four parts. The first three are about\nthe project's features and enhancements, which include Teaclave FaaS framework,\nTeaclave SGX SDK, and Teaclave TrustZone SDK (this project just completed the\ndonation voting, more things need to do later). The last one is about community\nbuildup. Yes, this is a very long list. Please let me know if you are interested\nin. I'm more than happy to help you if not familiar with Teaclave, SGX, or Rust.\nAt last, this is not a complete list. Feel free to comment and discuss in this\nthread.",
+            "date_modified": "2021-01-20T00:00:00.000Z"
         }
     ]
 }
