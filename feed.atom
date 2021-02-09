@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://teaclave.apache.org</id>
     <title>Apache Teaclave (incubating)</title>
-    <updated>2021-01-30T06:23:33.318Z</updated>
+    <updated>2021-02-09T22:35:29.547Z</updated>
     <generator>https://github.com/webmasterish/vuepress-plugin-feed</generator>
     <link rel="alternate" href="https://teaclave.apache.org"/>
     <link rel="self" href="https://teaclave.apache.org/feed.atom"/>
@@ -14,14 +14,6 @@
         </link>
         <updated>2019-08-20T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[MesaTEE Apache Incubation Proposal]]></summary>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Podling Teaclave Report - January 2020]]></title>
-        <id>https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/</id>
-        <link href="https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/">
-        </link>
-        <updated>2020-01-01T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Teaclave has been incubating since 2019-08-20.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Mitigation of Intel-SA-00219 in Teaclave SGX SDK]]></title>
@@ -42,22 +34,21 @@
     we can sync the notifications of GitHub with our mailing list.]]></summary>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Podling Teaclave Report - October 2020]]></title>
-        <id>https://teaclave.apache.org/blog/2020-10-11-podling-teaclave-report-october-2020/</id>
-        <link href="https://teaclave.apache.org/blog/2020-10-11-podling-teaclave-report-october-2020/">
-        </link>
-        <updated>2020-10-12T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[towards the first Apache release. This includes license checking, building
-system improvement, documentation and write-ups. On Oct 9th, the Teaclave
-community and incubator has passed 0.1.0 release voting.]]></summary>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Podling Teaclave Report - July 2020]]></title>
         <id>https://teaclave.apache.org/blog/2020-06-28-podling-teaclave-report-july-2020/</id>
         <link href="https://teaclave.apache.org/blog/2020-06-28-podling-teaclave-report-july-2020/">
         </link>
         <updated>2020-06-29T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[contribute bug fixes and introduce new examples.]]></summary>
+        <summary type="html"><![CDATA[community, contributors, documentations and blog posts.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Podling Teaclave Report - October 2020]]></title>
+        <id>https://teaclave.apache.org/blog/2020-10-11-podling-teaclave-report-october-2020/</id>
+        <link href="https://teaclave.apache.org/blog/2020-10-11-podling-teaclave-report-october-2020/">
+        </link>
+        <updated>2020-10-12T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[system improvement, documentation and write-ups. On Oct 9th, the Teaclave
+community and incubator has passed 0.1.0 release voting.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Announcing Apache Teaclave (incubating) 0.1.0]]></title>
@@ -105,21 +96,19 @@ Teaclave 相关的演讲、论文和文章，包括今年在 ApacheCon 的演讲
   This project plans to join the Confidiential Computing Consortium in the near future.]]></summary>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Podling Teaclave Report - January 2021]]></title>
-        <id>https://teaclave.apache.org/blog/2020-12-31-podling-teaclave-report-january-2021/</id>
-        <link href="https://teaclave.apache.org/blog/2020-12-31-podling-teaclave-report-january-2021/">
-        </link>
-        <updated>2021-01-01T00:00:00.000Z</updated>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Roadmap in 2021: Project Maturity and Community Buildup]]></title>
         <id>https://teaclave.apache.org/blog/2021-01-19-roadmap-in-2021-project-maturity-and-community-buildup/</id>
         <link href="https://teaclave.apache.org/blog/2021-01-19-roadmap-in-2021-project-maturity-and-community-buildup/">
         </link>
         <updated>2021-01-20T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Last year, we published an RFC - "Roadmap: Towards the First Public Release". Thanks
-for the continuous efforts made by the community. We have completed several
-milestones and amazing achievements.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Podling Teaclave Report - January 2021]]></title>
+        <id>https://teaclave.apache.org/blog/2020-12-31-podling-teaclave-report-january-2021/</id>
+        <link href="https://teaclave.apache.org/blog/2020-12-31-podling-teaclave-report-january-2021/">
+        </link>
+        <updated>2021-01-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Teaclave is a universal secure computing platform.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Teaclave Meetup #1]]></title>
@@ -127,7 +116,16 @@ milestones and amazing achievements.]]></summary>
         <link href="https://teaclave.apache.org/blog/2021-01-27-teaclave-meetup-1/">
         </link>
         <updated>2021-01-28T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[scripting VM for SGX. More versatile scenarios: data analytics, machine
-  learning, and smart contract.]]></summary>
+        <summary type="html"><![CDATA[community show up in the virtual meetup. Thanks for attending the meetup.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Podling Teaclave Report - January 2020]]></title>
+        <id>https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/</id>
+        <link href="https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/">
+        </link>
+        <updated>2020-01-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Improving project structure and documentation
+  Grow the community (committers, contributors, users)
+  Publish Apache release]]></summary>
     </entry>
 </feed>

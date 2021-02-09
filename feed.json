@@ -13,13 +13,6 @@
             "date_modified": "2019-08-20T00:00:00.000Z"
         },
         {
-            "id": "https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/",
-            "url": "https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/",
-            "title": "Podling Teaclave Report - January 2020",
-            "summary": "Teaclave has been incubating since 2019-08-20.",
-            "date_modified": "2020-01-01T00:00:00.000Z"
-        },
-        {
             "id": "https://teaclave.apache.org/blog/2019-12-02-mitigation-of-intel-sa-00219-in-teaclave-sgx-sdk/",
             "url": "https://teaclave.apache.org/blog/2019-12-02-mitigation-of-intel-sa-00219-in-teaclave-sgx-sdk/",
             "title": "Mitigation of Intel-SA-00219 in Teaclave SGX SDK",
@@ -34,18 +27,18 @@
             "date_modified": "2020-04-01T00:00:00.000Z"
         },
         {
-            "id": "https://teaclave.apache.org/blog/2020-10-11-podling-teaclave-report-october-2020/",
-            "url": "https://teaclave.apache.org/blog/2020-10-11-podling-teaclave-report-october-2020/",
-            "title": "Podling Teaclave Report - October 2020",
-            "summary": "towards the first Apache release. This includes license checking, building\nsystem improvement, documentation and write-ups. On Oct 9th, the Teaclave\ncommunity and incubator has passed 0.1.0 release voting.",
-            "date_modified": "2020-10-12T00:00:00.000Z"
-        },
-        {
             "id": "https://teaclave.apache.org/blog/2020-06-28-podling-teaclave-report-july-2020/",
             "url": "https://teaclave.apache.org/blog/2020-06-28-podling-teaclave-report-july-2020/",
             "title": "Podling Teaclave Report - July 2020",
-            "summary": "contribute bug fixes and introduce new examples.",
+            "summary": "community, contributors, documentations and blog posts.",
             "date_modified": "2020-06-29T00:00:00.000Z"
+        },
+        {
+            "id": "https://teaclave.apache.org/blog/2020-10-11-podling-teaclave-report-october-2020/",
+            "url": "https://teaclave.apache.org/blog/2020-10-11-podling-teaclave-report-october-2020/",
+            "title": "Podling Teaclave Report - October 2020",
+            "summary": "system improvement, documentation and write-ups. On Oct 9th, the Teaclave\ncommunity and incubator has passed 0.1.0 release voting.",
+            "date_modified": "2020-10-12T00:00:00.000Z"
         },
         {
             "id": "https://teaclave.apache.org/blog/2020-10-21-announcing-teaclave-0-1-0/",
@@ -80,25 +73,32 @@
             "date_modified": "2020-12-09T00:00:00.000Z"
         },
         {
-            "id": "https://teaclave.apache.org/blog/2020-12-31-podling-teaclave-report-january-2021/",
-            "url": "https://teaclave.apache.org/blog/2020-12-31-podling-teaclave-report-january-2021/",
-            "title": "Podling Teaclave Report - January 2021",
-            "date_modified": "2021-01-01T00:00:00.000Z"
-        },
-        {
             "id": "https://teaclave.apache.org/blog/2021-01-19-roadmap-in-2021-project-maturity-and-community-buildup/",
             "url": "https://teaclave.apache.org/blog/2021-01-19-roadmap-in-2021-project-maturity-and-community-buildup/",
             "title": "Roadmap in 2021: Project Maturity and Community Buildup",
-            "summary": "Last year, we published an RFC - \"Roadmap: Towards the First Public Release\". Thanks\nfor the continuous efforts made by the community. We have completed several\nmilestones and amazing achievements.",
             "date_modified": "2021-01-20T00:00:00.000Z"
+        },
+        {
+            "id": "https://teaclave.apache.org/blog/2020-12-31-podling-teaclave-report-january-2021/",
+            "url": "https://teaclave.apache.org/blog/2020-12-31-podling-teaclave-report-january-2021/",
+            "title": "Podling Teaclave Report - January 2021",
+            "summary": "Teaclave is a universal secure computing platform.",
+            "date_modified": "2021-01-01T00:00:00.000Z"
         },
         {
             "id": "https://teaclave.apache.org/blog/2021-01-27-teaclave-meetup-1/",
             "url": "https://teaclave.apache.org/blog/2021-01-27-teaclave-meetup-1/",
             "title": "Teaclave Meetup #1",
-            "summary": "scripting VM for SGX. More versatile scenarios: data analytics, machine\n  learning, and smart contract.",
+            "summary": "community show up in the virtual meetup. Thanks for attending the meetup.",
             "image": "https://teaclave.apache.org/./img/teaclave-meetup-1-zoom.png",
             "date_modified": "2021-01-28T00:00:00.000Z"
+        },
+        {
+            "id": "https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/",
+            "url": "https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/",
+            "title": "Podling Teaclave Report - January 2020",
+            "summary": "Improving project structure and documentation\n  Grow the community (committers, contributors, users)\n  Publish Apache release",
+            "date_modified": "2020-01-01T00:00:00.000Z"
         }
     ]
 }
