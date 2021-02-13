@@ -13,6 +13,13 @@
             "date_modified": "2019-08-20T00:00:00.000Z"
         },
         {
+            "id": "https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/",
+            "url": "https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/",
+            "title": "Podling Teaclave Report - January 2020",
+            "summary": "Teaclave has been incubating since 2019-08-20.",
+            "date_modified": "2020-01-01T00:00:00.000Z"
+        },
+        {
             "id": "https://teaclave.apache.org/blog/2019-12-02-mitigation-of-intel-sa-00219-in-teaclave-sgx-sdk/",
             "url": "https://teaclave.apache.org/blog/2019-12-02-mitigation-of-intel-sa-00219-in-teaclave-sgx-sdk/",
             "title": "Mitigation of Intel-SA-00219 in Teaclave SGX SDK",
@@ -41,6 +48,14 @@
             "date_modified": "2020-10-12T00:00:00.000Z"
         },
         {
+            "id": "https://teaclave.apache.org/blog/2020-10-28-announcing-teaclave-0-1-0-cn/",
+            "url": "https://teaclave.apache.org/blog/2020-10-28-announcing-teaclave-0-1-0-cn/",
+            "title": "让安全计算更简单 - Apache Teaclave (incubating) 0.1.0 正式发布",
+            "summary": "面做了代码重构和功能特性完善：提供了更完善的函数和数据注册执行，重新设计的函数的\n开发流程，支持兼容 protobuf 的 RPC 定义接口，支持分布式执行服务，支持自定义执行\n器，提供更佳完善的文档，重新设计了错误处理机制，完善测试框架和测试用例，实现了更\n多的内置函数，支持了更加灵活的远程证实方式（DCAP），重新设计 RPC 方式等等。更多\n更详细的修改可以看我们的版本发布文档。这次\n发布一共修改了 876 个源文件，新增了 78,237 行代码，删除了 54,846 行代码，并且在\nGitHub issue 上解决了来自社区的 102 个问题。",
+            "image": "https://teaclave.apache.org/./img/teaclave-architecture.png",
+            "date_modified": "2020-10-29T00:00:00.000Z"
+        },
+        {
             "id": "https://teaclave.apache.org/blog/2020-10-21-announcing-teaclave-0-1-0/",
             "url": "https://teaclave.apache.org/blog/2020-10-21-announcing-teaclave-0-1-0/",
             "title": "Announcing Apache Teaclave (incubating) 0.1.0",
@@ -49,12 +64,12 @@
             "date_modified": "2020-10-22T00:00:00.000Z"
         },
         {
-            "id": "https://teaclave.apache.org/blog/2020-10-28-announcing-teaclave-0-1-0-cn/",
-            "url": "https://teaclave.apache.org/blog/2020-10-28-announcing-teaclave-0-1-0-cn/",
-            "title": "让安全计算更简单 - Apache Teaclave (incubating) 0.1.0 正式发布",
-            "summary": "开源，无论是代码、文档、设计还是路线图规划，我们都会在社区的各个渠道中讨论。如果\n你想关注 Teaclave，亦或想加入我们的讨论，可以在 Github issues，邮件列\n表回复我们、发起新的话题。也可以关注我们的 Twitter 账号\n@ApacheTeaclave了解最新动态。除此之外，\n我们在官网中提供了\nTeaclave 相关的演讲、论文和文章，包括今年在 ApacheCon 的演讲 slides 和视频。",
-            "image": "https://teaclave.apache.org/./img/teaclave-architecture.png",
-            "date_modified": "2020-10-29T00:00:00.000Z"
+            "id": "https://teaclave.apache.org/blog/2020-12-08-teaclave-ecosystem/",
+            "url": "https://teaclave.apache.org/blog/2020-12-08-teaclave-ecosystem/",
+            "title": "The Teaclave Secure Computing Ecosystem - Projects Powered by Teaclave",
+            "summary": "users. In a border view, the Teaclave community aims to support commercial\nproducts, academic research projects, teaching platform, and other open source\nprojects powered by Teaclave.",
+            "image": "https://teaclave.apache.org/./img/secure-computing-intel-sgx.png",
+            "date_modified": "2020-12-09T00:00:00.000Z"
         },
         {
             "id": "https://teaclave.apache.org/blog/2020-12-03-teaclave-ecosystem-cn/",
@@ -65,40 +80,25 @@
             "date_modified": "2020-12-04T00:00:00.000Z"
         },
         {
-            "id": "https://teaclave.apache.org/blog/2020-12-08-teaclave-ecosystem/",
-            "url": "https://teaclave.apache.org/blog/2020-12-08-teaclave-ecosystem/",
-            "title": "The Teaclave Secure Computing Ecosystem - Projects Powered by Teaclave",
-            "summary": "blockchains.\n  substraTEE: Trusted Off-Chain Compute\n    Framework for substrate blockchains.\n  Veracruz: Veracruz is a\n    framework for defining and deploying collaborative, privacy-preserving\n    computations amongst a group of mutually mistrusting individuals.\n  This project plans to join the Confidiential Computing Consortium in the near future.",
-            "image": "https://teaclave.apache.org/./img/secure-computing-intel-sgx.png",
-            "date_modified": "2020-12-09T00:00:00.000Z"
+            "id": "https://teaclave.apache.org/blog/2020-12-31-podling-teaclave-report-january-2021/",
+            "url": "https://teaclave.apache.org/blog/2020-12-31-podling-teaclave-report-january-2021/",
+            "title": "Podling Teaclave Report - January 2021",
+            "date_modified": "2021-01-01T00:00:00.000Z"
         },
         {
             "id": "https://teaclave.apache.org/blog/2021-01-19-roadmap-in-2021-project-maturity-and-community-buildup/",
             "url": "https://teaclave.apache.org/blog/2021-01-19-roadmap-in-2021-project-maturity-and-community-buildup/",
             "title": "Roadmap in 2021: Project Maturity and Community Buildup",
+            "summary": "Last year, we published an RFC - \"Roadmap: Towards the First Public Release\". Thanks\nfor the continuous efforts made by the community. We have completed several\nmilestones and amazing achievements.",
             "date_modified": "2021-01-20T00:00:00.000Z"
-        },
-        {
-            "id": "https://teaclave.apache.org/blog/2020-12-31-podling-teaclave-report-january-2021/",
-            "url": "https://teaclave.apache.org/blog/2020-12-31-podling-teaclave-report-january-2021/",
-            "title": "Podling Teaclave Report - January 2021",
-            "summary": "Teaclave is a universal secure computing platform.",
-            "date_modified": "2021-01-01T00:00:00.000Z"
         },
         {
             "id": "https://teaclave.apache.org/blog/2021-01-27-teaclave-meetup-1/",
             "url": "https://teaclave.apache.org/blog/2021-01-27-teaclave-meetup-1/",
             "title": "Teaclave Meetup #1",
-            "summary": "community show up in the virtual meetup. Thanks for attending the meetup.",
+            "summary": "scripting VM for SGX. More versatile scenarios: data analytics, machine\n  learning, and smart contract.",
             "image": "https://teaclave.apache.org/./img/teaclave-meetup-1-zoom.png",
             "date_modified": "2021-01-28T00:00:00.000Z"
-        },
-        {
-            "id": "https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/",
-            "url": "https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/",
-            "title": "Podling Teaclave Report - January 2020",
-            "summary": "Improving project structure and documentation\n  Grow the community (committers, contributors, users)\n  Publish Apache release",
-            "date_modified": "2020-01-01T00:00:00.000Z"
         }
     ]
 }

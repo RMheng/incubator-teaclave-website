@@ -4,7 +4,7 @@
         <title>Apache Teaclave (incubating)</title>
         <link>https://teaclave.apache.org</link>
         <description>Apache Teaclave (incubating) is an open source universal secure computing platform, making computation on privacy-sensitive data safe and simple.</description>
-        <lastBuildDate>Tue, 09 Feb 2021 22:35:29 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 13 Feb 2021 01:23:41 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>https://github.com/webmasterish/vuepress-plugin-feed</generator>
         <atom:link href="https://teaclave.apache.org/feed.atom" rel="self" type="application/rss+xml"/>
@@ -14,6 +14,13 @@
             <guid>https://teaclave.apache.org/blog/2019-08-19-apache-incubation-proposal/</guid>
             <pubDate>Tue, 20 Aug 2019 00:00:00 GMT</pubDate>
             <description><![CDATA[MesaTEE Apache Incubation Proposal]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Podling Teaclave Report - January 2020]]></title>
+            <link>https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/</link>
+            <guid>https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/</guid>
+            <pubDate>Wed, 01 Jan 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Teaclave has been incubating since 2019-08-20.]]></description>
         </item>
         <item>
             <title><![CDATA[Mitigation of Intel-SA-00219 in Teaclave SGX SDK]]></title>
@@ -47,6 +54,21 @@
 community and incubator has passed 0.1.0 release voting.]]></description>
         </item>
         <item>
+            <title><![CDATA[让安全计算更简单 - Apache Teaclave (incubating) 0.1.0 正式发布]]></title>
+            <link>https://teaclave.apache.org/blog/2020-10-28-announcing-teaclave-0-1-0-cn/</link>
+            <guid>https://teaclave.apache.org/blog/2020-10-28-announcing-teaclave-0-1-0-cn/</guid>
+            <pubDate>Thu, 29 Oct 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[面做了代码重构和功能特性完善：提供了更完善的函数和数据注册执行，重新设计的函数的
+开发流程，支持兼容 protobuf 的 RPC 定义接口，支持分布式执行服务，支持自定义执行
+器，提供更佳完善的文档，重新设计了错误处理机制，完善测试框架和测试用例，实现了更
+多的内置函数，支持了更加灵活的远程证实方式（DCAP），重新设计 RPC 方式等等。更多
+更详细的修改可以看我们的版本发布文档。这次
+发布一共修改了 876 个源文件，新增了 78,237 行代码，删除了 54,846 行代码，并且在
+GitHub issue 上解决了来自社区的 102 个问题。]]></description>
+            <enclosure url="https://teaclave.apache.org/./img/teaclave-architecture.png">
+            </enclosure>
+        </item>
+        <item>
             <title><![CDATA[Announcing Apache Teaclave (incubating) 0.1.0]]></title>
             <link>https://teaclave.apache.org/blog/2020-10-21-announcing-teaclave-0-1-0/</link>
             <guid>https://teaclave.apache.org/blog/2020-10-21-announcing-teaclave-0-1-0/</guid>
@@ -58,17 +80,14 @@ community and incubator has passed 0.1.0 release voting.]]></description>
             </enclosure>
         </item>
         <item>
-            <title><![CDATA[让安全计算更简单 - Apache Teaclave (incubating) 0.1.0 正式发布]]></title>
-            <link>https://teaclave.apache.org/blog/2020-10-28-announcing-teaclave-0-1-0-cn/</link>
-            <guid>https://teaclave.apache.org/blog/2020-10-28-announcing-teaclave-0-1-0-cn/</guid>
-            <pubDate>Thu, 29 Oct 2020 00:00:00 GMT</pubDate>
-            <description><![CDATA[开源，无论是代码、文档、设计还是路线图规划，我们都会在社区的各个渠道中讨论。如果
-你想关注 Teaclave，亦或想加入我们的讨论，可以在 Github issues，邮件列
-表回复我们、发起新的话题。也可以关注我们的 Twitter 账号
-@ApacheTeaclave了解最新动态。除此之外，
-我们在官网中提供了
-Teaclave 相关的演讲、论文和文章，包括今年在 ApacheCon 的演讲 slides 和视频。]]></description>
-            <enclosure url="https://teaclave.apache.org/./img/teaclave-architecture.png">
+            <title><![CDATA[The Teaclave Secure Computing Ecosystem - Projects Powered by Teaclave]]></title>
+            <link>https://teaclave.apache.org/blog/2020-12-08-teaclave-ecosystem/</link>
+            <guid>https://teaclave.apache.org/blog/2020-12-08-teaclave-ecosystem/</guid>
+            <pubDate>Wed, 09 Dec 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[users. In a border view, the Teaclave community aims to support commercial
+products, academic research projects, teaching platform, and other open source
+projects powered by Teaclave.]]></description>
+            <enclosure url="https://teaclave.apache.org/./img/secure-computing-intel-sgx.png">
             </enclosure>
         </item>
         <item>
@@ -81,50 +100,29 @@ Teaclave 相关的演讲、论文和文章，包括今年在 ApacheCon 的演讲
             </enclosure>
         </item>
         <item>
-            <title><![CDATA[The Teaclave Secure Computing Ecosystem - Projects Powered by Teaclave]]></title>
-            <link>https://teaclave.apache.org/blog/2020-12-08-teaclave-ecosystem/</link>
-            <guid>https://teaclave.apache.org/blog/2020-12-08-teaclave-ecosystem/</guid>
-            <pubDate>Wed, 09 Dec 2020 00:00:00 GMT</pubDate>
-            <description><![CDATA[blockchains.
-  substraTEE: Trusted Off-Chain Compute
-    Framework for substrate blockchains.
-  Veracruz: Veracruz is a
-    framework for defining and deploying collaborative, privacy-preserving
-    computations amongst a group of mutually mistrusting individuals.
-  This project plans to join the Confidiential Computing Consortium in the near future.]]></description>
-            <enclosure url="https://teaclave.apache.org/./img/secure-computing-intel-sgx.png">
-            </enclosure>
+            <title><![CDATA[Podling Teaclave Report - January 2021]]></title>
+            <link>https://teaclave.apache.org/blog/2020-12-31-podling-teaclave-report-january-2021/</link>
+            <guid>https://teaclave.apache.org/blog/2020-12-31-podling-teaclave-report-january-2021/</guid>
+            <pubDate>Fri, 01 Jan 2021 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[Roadmap in 2021: Project Maturity and Community Buildup]]></title>
             <link>https://teaclave.apache.org/blog/2021-01-19-roadmap-in-2021-project-maturity-and-community-buildup/</link>
             <guid>https://teaclave.apache.org/blog/2021-01-19-roadmap-in-2021-project-maturity-and-community-buildup/</guid>
             <pubDate>Wed, 20 Jan 2021 00:00:00 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[Podling Teaclave Report - January 2021]]></title>
-            <link>https://teaclave.apache.org/blog/2020-12-31-podling-teaclave-report-january-2021/</link>
-            <guid>https://teaclave.apache.org/blog/2020-12-31-podling-teaclave-report-january-2021/</guid>
-            <pubDate>Fri, 01 Jan 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[Teaclave is a universal secure computing platform.]]></description>
+            <description><![CDATA[Last year, we published an RFC - "Roadmap: Towards the First Public Release". Thanks
+for the continuous efforts made by the community. We have completed several
+milestones and amazing achievements.]]></description>
         </item>
         <item>
             <title><![CDATA[Teaclave Meetup #1]]></title>
             <link>https://teaclave.apache.org/blog/2021-01-27-teaclave-meetup-1/</link>
             <guid>https://teaclave.apache.org/blog/2021-01-27-teaclave-meetup-1/</guid>
             <pubDate>Thu, 28 Jan 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[community show up in the virtual meetup. Thanks for attending the meetup.]]></description>
+            <description><![CDATA[scripting VM for SGX. More versatile scenarios: data analytics, machine
+  learning, and smart contract.]]></description>
             <enclosure url="https://teaclave.apache.org/./img/teaclave-meetup-1-zoom.png">
             </enclosure>
-        </item>
-        <item>
-            <title><![CDATA[Podling Teaclave Report - January 2020]]></title>
-            <link>https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/</link>
-            <guid>https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/</guid>
-            <pubDate>Wed, 01 Jan 2020 00:00:00 GMT</pubDate>
-            <description><![CDATA[Improving project structure and documentation
-  Grow the community (committers, contributors, users)
-  Publish Apache release]]></description>
         </item>
     </channel>
 </rss>
