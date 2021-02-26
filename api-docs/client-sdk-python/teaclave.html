@@ -308,7 +308,7 @@ class RegisterFunctionRequest:
 
 
 class RegisterInputFileRequest:
-    def __init__(self, metadata: Metadata, url: str, cmac: str,
+    def __init__(self, metadata: Metadata, url: str, cmac: List[int],
                  crypto_info: CryptoInfo):
         self.request = &#34;register_input_file&#34;
         self.metadata = metadata
@@ -408,7 +408,7 @@ class FrontendClient:
         return response[&#34;content&#34;][&#34;function_id&#34;]
 
     def register_input_file(self, url: str, schema: str, key: List[int],
-                            iv: List[int], cmac: str):
+                            iv: List[int], cmac: List[int]):
         request = RegisterInputFileRequest(self.metadata, url, cmac,
                                            CryptoInfo(schema, key, iv))
         _write_message(self.channel, request)
@@ -866,7 +866,7 @@ with other methods.</dd>
         return response[&#34;content&#34;][&#34;function_id&#34;]
 
     def register_input_file(self, url: str, schema: str, key: List[int],
-                            iv: List[int], cmac: str):
+                            iv: List[int], cmac: List[int]):
         request = RegisterInputFileRequest(self.metadata, url, cmac,
                                            CryptoInfo(schema, key, iv))
         _write_message(self.channel, request)
@@ -1080,7 +1080,7 @@ with other methods.</dd>
 </details>
 </dd>
 <dt id="teaclave.FrontendClient.register_input_file"><code class="name flex">
-<span>def <span class="ident">register_input_file</span></span>(<span>self, url: str, schema: str, key: List[int], iv: List[int], cmac: str)</span>
+<span>def <span class="ident">register_input_file</span></span>(<span>self, url: str, schema: str, key: List[int], iv: List[int], cmac: List[int])</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -1089,7 +1089,7 @@ with other methods.</dd>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def register_input_file(self, url: str, schema: str, key: List[int],
-                        iv: List[int], cmac: str):
+                        iv: List[int], cmac: List[int]):
     request = RegisterInputFileRequest(self.metadata, url, cmac,
                                        CryptoInfo(schema, key, iv))
     _write_message(self.channel, request)
