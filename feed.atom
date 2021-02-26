@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://teaclave.apache.org</id>
     <title>Apache Teaclave (incubating)</title>
-    <updated>2021-02-26T03:52:31.075Z</updated>
+    <updated>2021-02-26T03:58:36.758Z</updated>
     <generator>https://github.com/webmasterish/vuepress-plugin-feed</generator>
     <link rel="alternate" href="https://teaclave.apache.org"/>
     <link rel="self" href="https://teaclave.apache.org/feed.atom"/>
@@ -38,14 +38,21 @@ security, functionality, and usability.
   SGX SDK starts to use Intel SGX SDK v2.7.1]]></summary>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Podling Teaclave Report - July 2020]]></title>
+        <id>https://teaclave.apache.org/blog/2020-06-28-podling-teaclave-report-july-2020/</id>
+        <link href="https://teaclave.apache.org/blog/2020-06-28-podling-teaclave-report-july-2020/">
+        </link>
+        <updated>2020-06-29T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[build/deployment issues. More than five new contributors begin to
+contribute bug fixes and introduce new examples.]]></summary>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Podling Teaclave Report - April 2020]]></title>
         <id>https://teaclave.apache.org/blog/2020-03-31-podling-teaclave-report-april-2020/</id>
         <link href="https://teaclave.apache.org/blog/2020-03-31-podling-teaclave-report-april-2020/">
         </link>
         <updated>2020-04-01T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[have redesigned current services into seven core services
-including access control,
-    authentication, execution, frontend, management, scheduler, and storage
+        <summary type="html"><![CDATA[authentication, execution, frontend, management, scheduler, and storage
     service. Communication protocols between services are defined in protobuf.
   RPC between services has been redesigned to supported TLS-based attestation.
   We have added DCAP attestation algorithm in the platform so that people can
@@ -55,16 +62,6 @@ with better APIs.
   All updates is currently in the develop branch. We plan to merge
 into master
     when main refactoring is done.]]></summary>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Podling Teaclave Report - July 2020]]></title>
-        <id>https://teaclave.apache.org/blog/2020-06-28-podling-teaclave-report-july-2020/</id>
-        <link href="https://teaclave.apache.org/blog/2020-06-28-podling-teaclave-report-july-2020/">
-        </link>
-        <updated>2020-06-29T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[debugging tips and Rust development guideline.
- Codebase: Documents for each sub-directory (i.e., libraries in Teaclave).
- API Docs: Generated API documentations like APIs of Client SDK.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Podling Teaclave Report - October 2020]]></title>
@@ -146,7 +143,7 @@ thread.]]></summary>
         <link href="https://teaclave.apache.org/blog/2021-02-24-teaclave-meetup-2/">
         </link>
         <updated>2021-02-25T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Last time, we discussed about to set the meetup as a regular activity (i.e., the
+        <summary type="html"><![CDATA[Last time, we discussed setting the meetup as a regular activity (i.e., the
 last Thursday in each Month). On Feb 25, we organized the second Teaclave
 virtual meetup. Around ten people from the community showed up in the virtual
 meetup. Thanks for attending the meetup. Hope to see more people in the next
