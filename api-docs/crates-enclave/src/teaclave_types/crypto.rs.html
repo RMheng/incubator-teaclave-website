@@ -152,6 +152,10 @@
 <span id="152">152</span>
 <span id="153">153</span>
 <span id="154">154</span>
+<span id="155">155</span>
+<span id="156">156</span>
+<span id="157">157</span>
+<span id="158">158</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// Licensed to the Apache Software Foundation (ASF) under one</span>
 <span class="comment">// or more contributor license agreements.  See the NOTICE file</span>
@@ -206,6 +210,10 @@
 
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">to_hex</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">String</span> {
         <span class="ident">hex</span>::<span class="ident">encode</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">tag</span>)
+    }
+
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">to_bytes</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">tag</span>.<span class="ident">to_vec</span>()
     }
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test_mode</span>)]</span>
