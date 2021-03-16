@@ -6,18 +6,18 @@
     "description": "Apache Teaclave (incubating) is an open source universal secure computing platform, making computation on privacy-sensitive data safe and simple.",
     "items": [
         {
-            "id": "https://teaclave.apache.org/blog/2019-12-02-mitigation-of-intel-sa-00219-in-teaclave-sgx-sdk/",
-            "url": "https://teaclave.apache.org/blog/2019-12-02-mitigation-of-intel-sa-00219-in-teaclave-sgx-sdk/",
-            "title": "Mitigation of Intel-SA-00219 in Teaclave SGX SDK",
-            "summary": "Intel issued Intel SA-00219 on Nov 12, 2019, with CVE number CVE-2019-0117. Intel also published a guidance to instruct the developers/researchers. Then Intel released Intel SGX SDK v2.7.1, including new memory allocation primitives and corresponding patches in PSW enclaves.",
-            "date_modified": "2019-12-03T00:00:00.000Z"
-        },
-        {
             "id": "https://teaclave.apache.org/blog/2019-08-19-apache-incubation-proposal/",
             "url": "https://teaclave.apache.org/blog/2019-08-19-apache-incubation-proposal/",
             "title": "Aapache Incubation Proposal",
-            "summary": "Website: https://mesatee.org\n  Documentation: https://mesatee.org/doc/mesatee_sdk/",
+            "summary": "MesaTEE Apache Incubation Proposal",
             "date_modified": "2019-08-20T00:00:00.000Z"
+        },
+        {
+            "id": "https://teaclave.apache.org/blog/2019-12-02-mitigation-of-intel-sa-00219-in-teaclave-sgx-sdk/",
+            "url": "https://teaclave.apache.org/blog/2019-12-02-mitigation-of-intel-sa-00219-in-teaclave-sgx-sdk/",
+            "title": "Mitigation of Intel-SA-00219 in Teaclave SGX SDK",
+            "summary": "This article is to help people understand Intel-SA-00219, and how Teaclave SGX SDK handles it.",
+            "date_modified": "2019-12-03T00:00:00.000Z"
         },
         {
             "id": "https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/",
