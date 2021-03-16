@@ -93,17 +93,9 @@
             "date_modified": "2021-01-20T00:00:00.000Z"
         },
         {
-            "id": "https://teaclave.apache.org/blog/2021-01-27-teaclave-meetup-1/",
-            "url": "https://teaclave.apache.org/blog/2021-01-27-teaclave-meetup-1/",
-            "title": "Teaclave Meetup #1",
-            "image": "https://teaclave.apache.org/./img/teaclave-meetup-1-zoom.png",
-            "date_modified": "2021-01-28T00:00:00.000Z"
-        },
-        {
             "id": "https://teaclave.apache.org/blog/2021-02-24-teaclave-meetup-2/",
             "url": "https://teaclave.apache.org/blog/2021-02-24-teaclave-meetup-2/",
             "title": "Teaclave Meetup #2",
-            "summary": "Last time, we discussed setting the meetup as a regular activity (i.e., the\nlast Thursday in each Month). On Feb 25, we organized the second Teaclave\nvirtual meetup. Around ten people from the community showed up in the virtual\nmeetup. Thanks for attending the meetup. Hope to see more people in the next\nmeetup and sharing your ideas.",
             "image": "https://teaclave.apache.org/./img/teaclave-meetup-2-zoom.png",
             "date_modified": "2021-02-25T00:00:00.000Z"
         },
@@ -111,7 +103,7 @@
             "id": "https://teaclave.apache.org/blog/2021-03-01-announcing-teaclave-0-2-0-cn/",
             "url": "https://teaclave.apache.org/blog/2021-03-01-announcing-teaclave-0-2-0-cn/",
             "title": "Apache Teaclave (incubating) 0.2.0 发布",
-            "summary": "隐私计算任务。 Teaclave 平台提供了函数即服务（function-as-a-service）接口，降低\n了使用门槛。平台中也实现了众多内置函数，例如机器学习算法，多方联 合求交，加解密\n计算等等常用功能。更重要的是，开发者还可以使用 Python 自由编写函数来操作隐私数据，\n在中平台执行。最后，为了避免内存安全漏洞带来的安全风险，Teaclave 还使用内存安全\n编程语言 Rust 编写。",
+            "summary": "English | 中文",
             "image": "https://teaclave.apache.org/./img/teaclave-client-sdks.png",
             "date_modified": "2021-03-02T00:00:00.000Z"
         },
@@ -119,15 +111,23 @@
             "id": "https://teaclave.apache.org/blog/2021-03-01-announcing-teaclave-0-2-0/",
             "url": "https://teaclave.apache.org/blog/2021-03-01-announcing-teaclave-0-2-0/",
             "title": "Announcing Apache Teaclave (incubating) 0.2.0",
-            "summary": "even Swift. In Teaclave Meetup #2, we\nintroduced the design of client SDKs.\nBasically, we are using JSON serialization/deserialization to make the interface\nsimple and easy to work on.",
+            "summary": "On behalf of the Teaclave community, I am happy to announce the second Apache\nIncubator release of Teaclave, 0.2.0. Teaclave is a universal secure computing\nplatform, making computation on privacy-sensitive data safe and simple.",
             "image": "https://teaclave.apache.org/./img/teaclave-client-sdks.png",
             "date_modified": "2021-03-02T00:00:00.000Z"
+        },
+        {
+            "id": "https://teaclave.apache.org/blog/2021-01-27-teaclave-meetup-1/",
+            "url": "https://teaclave.apache.org/blog/2021-01-27-teaclave-meetup-1/",
+            "title": "Teaclave Meetup #1",
+            "summary": "scripting VM for SGX. More versatile scenarios: data analytics, machine\n  learning, and smart contract.",
+            "image": "https://teaclave.apache.org/./img/teaclave-meetup-1-zoom.png",
+            "date_modified": "2021-01-28T00:00:00.000Z"
         },
         {
             "id": "https://teaclave.apache.org/blog/2021-03-14-welcome-rust-optee-trustzone-sdk-cn/",
             "url": "https://teaclave.apache.org/blog/2021-03-14-welcome-rust-optee-trustzone-sdk-cn/",
             "title": "欢迎 Rust OP-TEE TrustZone SDK 成为 Teaclave 子项目",
-            "summary": "TrustZone SDK，新的项目代码库地址为：\nhttps://github.com/apache/incubator-teaclave-trustzone-sdk\n。Teaclave TrustZone SDK 与 Teaclave SGX SDK 一样，可以为 Teaclave FaaS 隐私安全\n计算平台提供底层支持，赋能多平台可信执行环境的隐私安全计算生态。",
+            "summary": "使用 Rust 编写 TA（图中的 trusted apps）和 app（图中 client apps）能够大大减少内\n存安全问题，确保可信执行环境的安全。",
             "image": "https://teaclave.apache.org/./img/teaclave-trustzone-sdk-design.png",
             "date_modified": "2021-03-15T00:00:00.000Z"
         },
@@ -135,7 +135,7 @@
             "id": "https://teaclave.apache.org/blog/2021-03-14-welcome-rust-optee-trustzone-sdk/",
             "url": "https://teaclave.apache.org/blog/2021-03-14-welcome-rust-optee-trustzone-sdk/",
             "title": "Welcome Rust OP-TEE TrustZone SDK to Teaclave",
-            "summary": "To accelerate the development of confidential computing ecosystem and improve\nTrustZone's foundation, Baidu has donated Rust OP-TEE TrustZone SDK to Apache Software\nFoundation as a subproject of Teaclave, and renamed it as Teaclave TrustZone SDK.\nThe location of new repository is\nhttps://github.com/apache/incubator-teaclave-trustzone-sdk.\nSimilar with Teaclave SGX SDK, Teaclave TrustZone SDK will be the foundation of\nTeaclave FaaS platform to support multiple trusted execution environments.",
+            "summary": "Foundation as a subproject of Teaclave, and renamed it as Teaclave TrustZone SDK.\nThe location of new repository is\nhttps://github.com/apache/incubator-teaclave-trustzone-sdk.\nSimilar with Teaclave SGX SDK, Teaclave TrustZone SDK will be the foundation of\nTeaclave FaaS platform to support multiple trusted execution environments.",
             "image": "https://teaclave.apache.org/./img/teaclave-trustzone-sdk-design.png",
             "date_modified": "2021-03-15T00:00:00.000Z"
         }
