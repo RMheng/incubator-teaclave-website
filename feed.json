@@ -41,10 +41,16 @@
             "date_modified": "2020-06-29T00:00:00.000Z"
         },
         {
+            "id": "https://teaclave.apache.org/blog/2020-10-11-podling-teaclave-report-october-2020/",
+            "url": "https://teaclave.apache.org/blog/2020-10-11-podling-teaclave-report-october-2020/",
+            "title": "Podling Teaclave Report - October 2020",
+            "date_modified": "2020-10-12T00:00:00.000Z"
+        },
+        {
             "id": "https://teaclave.apache.org/blog/2020-10-21-announcing-teaclave-0-1-0/",
             "url": "https://teaclave.apache.org/blog/2020-10-21-announcing-teaclave-0-1-0/",
             "title": "Announcing Apache Teaclave (incubating) 0.1.0",
-            "summary": "and improving the project in many perspectives. These include:",
+            "summary": "English | 中文",
             "image": "https://teaclave.apache.org/./img/teaclave-architecture.png",
             "date_modified": "2020-10-22T00:00:00.000Z"
         },
@@ -52,21 +58,15 @@
             "id": "https://teaclave.apache.org/blog/2020-10-28-announcing-teaclave-0-1-0-cn/",
             "url": "https://teaclave.apache.org/blog/2020-10-28-announcing-teaclave-0-1-0-cn/",
             "title": "让安全计算更简单 - Apache Teaclave (incubating) 0.1.0 正式发布",
-            "summary": "我们在官网中提供了\nTeaclave 相关的演讲、论文和文章，包括今年在 ApacheCon 的演讲 slides 和视频。",
+            "summary": "Apache Teaclave (incubating) 作为全球首个开源通用安全计算平台，在 2020 年 10 月\n21 日社区投票正式通过 0.1.0 的版本发布。0.1.0 版是 Teaclave 社区发展重要的里程碑，\n它是暨 Teaclave 进入 Apache 孵化器后发布的第一个正式版本，这意味着 Teaclave 通向\nApache 顶级项目之路走上了正轨。",
             "image": "https://teaclave.apache.org/./img/teaclave-architecture.png",
             "date_modified": "2020-10-29T00:00:00.000Z"
-        },
-        {
-            "id": "https://teaclave.apache.org/blog/2020-10-11-podling-teaclave-report-october-2020/",
-            "url": "https://teaclave.apache.org/blog/2020-10-11-podling-teaclave-report-october-2020/",
-            "title": "Podling Teaclave Report - October 2020",
-            "date_modified": "2020-10-12T00:00:00.000Z"
         },
         {
             "id": "https://teaclave.apache.org/blog/2020-12-03-teaclave-ecosystem-cn/",
             "url": "https://teaclave.apache.org/blog/2020-12-03-teaclave-ecosystem-cn/",
             "title": "Teaclave 安全计算开源生态 - 由 Teaclave 驱动的开源项目一览",
-            "summary": "English | 中文",
+            "summary": "简单来说，Teaclave 有四大亮点：",
             "image": "https://teaclave.apache.org/./img/secure-computing-intel-sgx.png",
             "date_modified": "2020-12-04T00:00:00.000Z"
         },
@@ -74,7 +74,7 @@
             "id": "https://teaclave.apache.org/blog/2020-12-08-teaclave-ecosystem/",
             "url": "https://teaclave.apache.org/blog/2020-12-08-teaclave-ecosystem/",
             "title": "The Teaclave Secure Computing Ecosystem - Projects Powered by Teaclave",
-            "summary": "Apache Teaclave (incubating) is an open source universal secure computing\nplatform, making computation on privacy-sensitive data safe and simple. With\nhardware-based security capabilities (e.g., Intel SGX), Teaclave enables\nsensitive data to be circulated and processed under security control, even in\noff-site and offshore environments, without being compromised or misused. By\nproviding muti-party interfaces, Teaclave can help to \"bridge the data islands\"\nwithin/among organizations and companies.",
+            "summary": "providing muti-party interfaces, Teaclave can help to \"bridge the data islands\"\nwithin/among organizations and companies.",
             "image": "https://teaclave.apache.org/./img/secure-computing-intel-sgx.png",
             "date_modified": "2020-12-09T00:00:00.000Z"
         },
