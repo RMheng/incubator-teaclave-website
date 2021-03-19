@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://teaclave.apache.org</id>
     <title>Apache Teaclave (incubating)</title>
-    <updated>2021-03-18T00:54:41.114Z</updated>
+    <updated>2021-03-19T17:53:57.557Z</updated>
     <generator>https://github.com/webmasterish/vuepress-plugin-feed</generator>
     <link rel="alternate" href="https://teaclave.apache.org"/>
     <link rel="self" href="https://teaclave.apache.org/feed.atom"/>
@@ -67,23 +67,6 @@ into master
  API Docs: Generated API documentations like APIs of Client SDK.]]></summary>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Announcing Apache Teaclave (incubating) 0.1.0]]></title>
-        <id>https://teaclave.apache.org/blog/2020-10-21-announcing-teaclave-0-1-0/</id>
-        <link href="https://teaclave.apache.org/blog/2020-10-21-announcing-teaclave-0-1-0/">
-        </link>
-        <updated>2020-10-22T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[and improving the project in many perspectives. These include:]]></summary>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[让安全计算更简单 - Apache Teaclave (incubating) 0.1.0 正式发布]]></title>
-        <id>https://teaclave.apache.org/blog/2020-10-28-announcing-teaclave-0-1-0-cn/</id>
-        <link href="https://teaclave.apache.org/blog/2020-10-28-announcing-teaclave-0-1-0-cn/">
-        </link>
-        <updated>2020-10-29T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[我们在官网中提供了
-Teaclave 相关的演讲、论文和文章，包括今年在 ApacheCon 的演讲 slides 和视频。]]></summary>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Podling Teaclave Report - October 2020]]></title>
         <id>https://teaclave.apache.org/blog/2020-10-11-podling-teaclave-report-october-2020/</id>
         <link href="https://teaclave.apache.org/blog/2020-10-11-podling-teaclave-report-october-2020/">
@@ -91,12 +74,31 @@ Teaclave 相关的演讲、论文和文章，包括今年在 ApacheCon 的演讲
         <updated>2020-10-12T00:00:00.000Z</updated>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Announcing Apache Teaclave (incubating) 0.1.0]]></title>
+        <id>https://teaclave.apache.org/blog/2020-10-21-announcing-teaclave-0-1-0/</id>
+        <link href="https://teaclave.apache.org/blog/2020-10-21-announcing-teaclave-0-1-0/">
+        </link>
+        <updated>2020-10-22T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[English | 中文]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[让安全计算更简单 - Apache Teaclave (incubating) 0.1.0 正式发布]]></title>
+        <id>https://teaclave.apache.org/blog/2020-10-28-announcing-teaclave-0-1-0-cn/</id>
+        <link href="https://teaclave.apache.org/blog/2020-10-28-announcing-teaclave-0-1-0-cn/">
+        </link>
+        <updated>2020-10-29T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Apache Teaclave (incubating) 作为全球首个开源通用安全计算平台，在 2020 年 10 月
+21 日社区投票正式通过 0.1.0 的版本发布。0.1.0 版是 Teaclave 社区发展重要的里程碑，
+它是暨 Teaclave 进入 Apache 孵化器后发布的第一个正式版本，这意味着 Teaclave 通向
+Apache 顶级项目之路走上了正轨。]]></summary>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Teaclave 安全计算开源生态 - 由 Teaclave 驱动的开源项目一览]]></title>
         <id>https://teaclave.apache.org/blog/2020-12-03-teaclave-ecosystem-cn/</id>
         <link href="https://teaclave.apache.org/blog/2020-12-03-teaclave-ecosystem-cn/">
         </link>
         <updated>2020-12-04T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[English | 中文]]></summary>
+        <summary type="html"><![CDATA[简单来说，Teaclave 有四大亮点：]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[The Teaclave Secure Computing Ecosystem - Projects Powered by Teaclave]]></title>
@@ -104,12 +106,7 @@ Teaclave 相关的演讲、论文和文章，包括今年在 ApacheCon 的演讲
         <link href="https://teaclave.apache.org/blog/2020-12-08-teaclave-ecosystem/">
         </link>
         <updated>2020-12-09T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Apache Teaclave (incubating) is an open source universal secure computing
-platform, making computation on privacy-sensitive data safe and simple. With
-hardware-based security capabilities (e.g., Intel SGX), Teaclave enables
-sensitive data to be circulated and processed under security control, even in
-off-site and offshore environments, without being compromised or misused. By
-providing muti-party interfaces, Teaclave can help to "bridge the data islands"
+        <summary type="html"><![CDATA[providing muti-party interfaces, Teaclave can help to "bridge the data islands"
 within/among organizations and companies.]]></summary>
     </entry>
     <entry>
@@ -156,13 +153,27 @@ meetup. Thanks for attending the meetup. Hope to see more people in the next
 meetup and sharing your ideas.]]></summary>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Apache Teaclave (incubating) 0.2.0 发布]]></title>
+        <id>https://teaclave.apache.org/blog/2021-03-01-announcing-teaclave-0-2-0-cn/</id>
+        <link href="https://teaclave.apache.org/blog/2021-03-01-announcing-teaclave-0-2-0-cn/">
+        </link>
+        <updated>2021-03-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[隐私计算任务。 Teaclave 平台提供了函数即服务（function-as-a-service）接口，降低
+了使用门槛。平台中也实现了众多内置函数，例如机器学习算法，多方联 合求交，加解密
+计算等等常用功能。更重要的是，开发者还可以使用 Python 自由编写函数来操作隐私数据，
+在中平台执行。最后，为了避免内存安全漏洞带来的安全风险，Teaclave 还使用内存安全
+编程语言 Rust 编写。]]></summary>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Announcing Apache Teaclave (incubating) 0.2.0]]></title>
         <id>https://teaclave.apache.org/blog/2021-03-01-announcing-teaclave-0-2-0/</id>
         <link href="https://teaclave.apache.org/blog/2021-03-01-announcing-teaclave-0-2-0/">
         </link>
         <updated>2021-03-02T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[In 0.2.0, we focus on various components including built-in functions, SDKs in
-different languages, docker, command line interface, documents, etc.]]></summary>
+        <summary type="html"><![CDATA[even Swift. In Teaclave Meetup #2, we
+introduced the design of client SDKs.
+Basically, we are using JSON serialization/deserialization to make the interface
+simple and easy to work on.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[欢迎 Rust OP-TEE TrustZone SDK 成为 Teaclave 子项目]]></title>
@@ -170,20 +181,10 @@ different languages, docker, command line interface, documents, etc.]]></summary
         <link href="https://teaclave.apache.org/blog/2021-03-14-welcome-rust-optee-trustzone-sdk-cn/">
         </link>
         <updated>2021-03-15T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[2019 年初百度开源了 Rust OP-TEE TrustZone SDK，为当今广泛使用的开源 TrustZone 实
-现 OP-TEE 提供了一套内存安全、使用方便的 SDK。SDK 基于 GlobalPlatform 的
-TEE 标准，为开发者提供标准的开发接口。除此之外 Rust OP-TEE TrustZone SDK **支持
-标准库和第三方库**，提高了 TA 的开发速度，并扩展了 TrustZone 的应用场景。]]></summary>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Apache Teaclave (incubating) 0.2.0 发布]]></title>
-        <id>https://teaclave.apache.org/blog/2021-03-01-announcing-teaclave-0-2-0-cn/</id>
-        <link href="https://teaclave.apache.org/blog/2021-03-01-announcing-teaclave-0-2-0-cn/">
-        </link>
-        <updated>2021-03-02T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Swift 四种语言的接口，在 Teaclave Meetup #2 中，我们已经介绍了不同语言 SDK 的组
-织结构和框架。简单来说，我们使用 JSON 序列化/反序列化的方式作为多语言的边界。下
-图描述了这几种语言 SDK 的关系，以及一些事例的接口。]]></summary>
+        <summary type="html"><![CDATA[TrustZone SDK，新的项目代码库地址为：
+https://github.com/apache/incubator-teaclave-trustzone-sdk
+。Teaclave TrustZone SDK 与 Teaclave SGX SDK 一样，可以为 Teaclave FaaS 隐私安全
+计算平台提供底层支持，赋能多平台可信执行环境的隐私安全计算生态。]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Welcome Rust OP-TEE TrustZone SDK to Teaclave]]></title>
@@ -191,7 +192,12 @@ TEE 标准，为开发者提供标准的开发接口。除此之外 Rust OP-TEE 
         <link href="https://teaclave.apache.org/blog/2021-03-14-welcome-rust-optee-trustzone-sdk/">
         </link>
         <updated>2021-03-15T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[third-party crates (i.e., libraries). This will improve the efficiency of
-developments of TrustZone apps, and also extend its usage scenarios.]]></summary>
+        <summary type="html"><![CDATA[To accelerate the development of confidential computing ecosystem and improve
+TrustZone's foundation, Baidu has donated Rust OP-TEE TrustZone SDK to Apache Software
+Foundation as a subproject of Teaclave, and renamed it as Teaclave TrustZone SDK.
+The location of new repository is
+https://github.com/apache/incubator-teaclave-trustzone-sdk.
+Similar to Teaclave SGX SDK, Teaclave TrustZone SDK will be the foundation of
+Teaclave FaaS platform to support multiple trusted execution environments.]]></summary>
     </entry>
 </feed>
