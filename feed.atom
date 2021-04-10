@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://teaclave.apache.org</id>
     <title>Apache Teaclave (incubating)</title>
-    <updated>2021-03-30T17:58:25.440Z</updated>
+    <updated>2021-04-10T22:33:02.994Z</updated>
     <generator>https://github.com/webmasterish/vuepress-plugin-feed</generator>
     <link rel="alternate" href="https://teaclave.apache.org"/>
     <link rel="self" href="https://teaclave.apache.org/feed.atom"/>
@@ -16,32 +16,6 @@
         <summary type="html"><![CDATA[MesaTEE Apache Incubation Proposal]]></summary>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Podling Teaclave Report - January 2020]]></title>
-        <id>https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/</id>
-        <link href="https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/">
-        </link>
-        <updated>2020-01-01T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Teaclave has been incubating since 2019-08-20.]]></summary>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Podling Teaclave Report - April 2020]]></title>
-        <id>https://teaclave.apache.org/blog/2020-03-31-podling-teaclave-report-april-2020/</id>
-        <link href="https://teaclave.apache.org/blog/2020-03-31-podling-teaclave-report-april-2020/">
-        </link>
-        <updated>2020-04-01T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Improving project structure and documentation
-  Grow the community (committers, contributors, users)
-  Publish Apache release]]></summary>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Podling Teaclave Report - July 2020]]></title>
-        <id>https://teaclave.apache.org/blog/2020-06-28-podling-teaclave-report-july-2020/</id>
-        <link href="https://teaclave.apache.org/blog/2020-06-28-podling-teaclave-report-july-2020/">
-        </link>
-        <updated>2020-06-29T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Publish Apache releases (resolving logistics on Apache release)]]></summary>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Mitigation of Intel-SA-00219 in Teaclave SGX SDK]]></title>
         <id>https://teaclave.apache.org/blog/2019-12-02-mitigation-of-intel-sa-00219-in-teaclave-sgx-sdk/</id>
         <link href="https://teaclave.apache.org/blog/2019-12-02-mitigation-of-intel-sa-00219-in-teaclave-sgx-sdk/">
@@ -50,12 +24,54 @@
         <summary type="html"><![CDATA[This article is to help people understand Intel-SA-00219, and how Teaclave SGX SDK handles it.]]></summary>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Podling Teaclave Report - January 2020]]></title>
+        <id>https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/</id>
+        <link href="https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/">
+        </link>
+        <updated>2020-01-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Resolve all renaming issues of INFRA (INFRA-19532)
+  Refactor components: teaclaveutils, teaclaveconfig,
+teaclavecli, teaclavebinder
+  Rewrite README.md to clearly explain the project's highlights in
+security, functionality, and usability.
+  Start to use protobuf for RPC definition
+  SGX SDK starts to use Intel SGX SDK v2.7.1]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Podling Teaclave Report - April 2020]]></title>
+        <id>https://teaclave.apache.org/blog/2020-03-31-podling-teaclave-report-april-2020/</id>
+        <link href="https://teaclave.apache.org/blog/2020-03-31-podling-teaclave-report-april-2020/">
+        </link>
+        <updated>2020-04-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[have redesigned current services into seven core services
+including access control,
+    authentication, execution, frontend, management, scheduler, and storage
+    service. Communication protocols between services are defined in protobuf.
+  RPC between services has been redesigned to supported TLS-based attestation.
+  We have added DCAP attestation algorithm in the platform so that people can
+    deploy the system in environments without Intel's attestation service.
+  Communication between app and enclave has been also redesigned
+with better APIs.
+  All updates is currently in the develop branch. We plan to merge
+into master
+    when main refactoring is done.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Podling Teaclave Report - July 2020]]></title>
+        <id>https://teaclave.apache.org/blog/2020-06-28-podling-teaclave-report-july-2020/</id>
+        <link href="https://teaclave.apache.org/blog/2020-06-28-podling-teaclave-report-july-2020/">
+        </link>
+        <updated>2020-06-29T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[debugging tips and Rust development guideline.
+ Codebase: Documents for each sub-directory (i.e., libraries in Teaclave).
+ API Docs: Generated API documentations like APIs of Client SDK.]]></summary>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Podling Teaclave Report - October 2020]]></title>
         <id>https://teaclave.apache.org/blog/2020-10-11-podling-teaclave-report-october-2020/</id>
         <link href="https://teaclave.apache.org/blog/2020-10-11-podling-teaclave-report-october-2020/">
         </link>
         <updated>2020-10-12T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[to the community and received some useful feedback.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Announcing Apache Teaclave (incubating) 0.1.0]]></title>
@@ -63,9 +79,7 @@
         <link href="https://teaclave.apache.org/blog/2020-10-21-announcing-teaclave-0-1-0/">
         </link>
         <updated>2020-10-22T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[like remote attestation can be easily embedded in other projects. In addition,
-  Teaclave SGX SDK can also be used separately to write standalone SGX enclaves
-  for other purposes.]]></summary>
+        <summary type="html"><![CDATA[English | 中文]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[让安全计算更简单 - Apache Teaclave (incubating) 0.1.0 正式发布]]></title>
@@ -73,25 +87,10 @@
         <link href="https://teaclave.apache.org/blog/2020-10-28-announcing-teaclave-0-1-0-cn/">
         </link>
         <updated>2020-10-29T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[开源，无论是代码、文档、设计还是路线图规划，我们都会在社区的各个渠道中讨论。如果
-你想关注 Teaclave，亦或想加入我们的讨论，可以在 Github issues，邮件列
-表回复我们、发起新的话题。也可以关注我们的 Twitter 账号
-@ApacheTeaclave了解最新动态。除此之外，
-我们在官网中提供了
-Teaclave 相关的演讲、论文和文章，包括今年在 ApacheCon 的演讲 slides 和视频。]]></summary>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[The Teaclave Secure Computing Ecosystem - Projects Powered by Teaclave]]></title>
-        <id>https://teaclave.apache.org/blog/2020-12-08-teaclave-ecosystem/</id>
-        <link href="https://teaclave.apache.org/blog/2020-12-08-teaclave-ecosystem/">
-        </link>
-        <updated>2020-12-09T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[in the trusted computing environments, we maintains hundreds of Rust's libraries
-for TEE, e.g., crypto, scientific computation, and machine learning libraries.
-With these libraries around the Teaclave ecosystem, this drives the development
-of other projects powered by Teaclave. Furthermore, we are also incubating many
-important TEE components like MesaPy for SGX,
-and Rust OP-TEE TrustZone SDK.]]></summary>
+        <summary type="html"><![CDATA[Apache Teaclave (incubating) 作为全球首个开源通用安全计算平台，在 2020 年 10 月
+21 日社区投票正式通过 0.1.0 的版本发布。0.1.0 版是 Teaclave 社区发展重要的里程碑，
+它是暨 Teaclave 进入 Apache 孵化器后发布的第一个正式版本，这意味着 Teaclave 通向
+Apache 顶级项目之路走上了正轨。]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Teaclave 安全计算开源生态 - 由 Teaclave 驱动的开源项目一览]]></title>
@@ -99,7 +98,16 @@ and Rust OP-TEE TrustZone SDK.]]></summary>
         <link href="https://teaclave.apache.org/blog/2020-12-03-teaclave-ecosystem-cn/">
         </link>
         <updated>2020-12-04T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[以上些项目都是利用 TEE 提供的硬件隔离、内存加密、远程证实等特性，保护业务中数据计算的隐私。一些项目在 SGX SDK 基础上提供了更为便利的可信执行环境框架，比如 Occlum 和 Veracruz。另外一些项目使用 SGX SDK 编写 TEE 应用保护其业务逻辑中的数据隐私，或提供可信的节点，如 Secret Network 和 substraTEE。还有一些项目移植使用 Teaclave 平台里的通用模块，比如远程证实代码库等等。更多关于由 Teaclave 驱动的开源项目列表可以在官网中查看（https://teaclave.apache.org/community/）。]]></summary>
+        <summary type="html"><![CDATA[简单来说，Teaclave 有四大亮点：]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[The Teaclave Secure Computing Ecosystem - Projects Powered by Teaclave]]></title>
+        <id>https://teaclave.apache.org/blog/2020-12-08-teaclave-ecosystem/</id>
+        <link href="https://teaclave.apache.org/blog/2020-12-08-teaclave-ecosystem/">
+        </link>
+        <updated>2020-12-09T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[providing muti-party interfaces, Teaclave can help to "bridge the data islands"
+within/among organizations and companies.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Podling Teaclave Report - January 2021]]></title>
@@ -107,6 +115,7 @@ and Rust OP-TEE TrustZone SDK.]]></summary>
         <link href="https://teaclave.apache.org/blog/2020-12-31-podling-teaclave-report-january-2021/">
         </link>
         <updated>2021-01-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Please feel free to add your own commentary.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Roadmap in 2021: Project Maturity and Community Buildup]]></title>
@@ -114,9 +123,15 @@ and Rust OP-TEE TrustZone SDK.]]></summary>
         <link href="https://teaclave.apache.org/blog/2021-01-19-roadmap-in-2021-project-maturity-and-community-buildup/">
         </link>
         <updated>2021-01-20T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Last year, we published an RFC - "Roadmap: Towards the First Public Release". Thanks
-for the continuous efforts made by the community. We have completed several
-milestones and amazing achievements.]]></summary>
+        <summary type="html"><![CDATA[building a healthier and more sustainable community. Therefore, I summarize
+several to-do lists here. There are mainly four parts. The first three are about
+the project's features and enhancements, which include Teaclave FaaS framework,
+Teaclave SGX SDK, and Teaclave TrustZone SDK (this project just completed the
+donation voting, more things need to do later). The last one is about community
+buildup. Yes, this is a very long list. Please let me know if you are interested
+in. I'm more than happy to help you if not familiar with Teaclave, SGX, or Rust.
+At last, this is not a complete list. Feel free to comment and discuss in this
+thread.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Teaclave Meetup #1]]></title>
@@ -124,8 +139,6 @@ milestones and amazing achievements.]]></summary>
         <link href="https://teaclave.apache.org/blog/2021-01-27-teaclave-meetup-1/">
         </link>
         <updated>2021-01-28T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[scripting VM for SGX. More versatile scenarios: data analytics, machine
-  learning, and smart contract.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Teaclave Meetup #2]]></title>
@@ -133,8 +146,33 @@ milestones and amazing achievements.]]></summary>
         <link href="https://teaclave.apache.org/blog/2021-02-24-teaclave-meetup-2/">
         </link>
         <updated>2021-02-25T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Mingshen also gave a brief introduction on the design and implementation of
-Teaclave client SDKs in different languages and their relationships.]]></summary>
+        <summary type="html"><![CDATA[Last time, we discussed setting the meetup as a regular activity (i.e., the
+last Thursday in each Month). On Feb 25, we organized the second Teaclave
+virtual meetup. Around ten people from the community showed up in the virtual
+meetup. Thanks for attending the meetup. Hope to see more people in the next
+meetup and sharing your ideas.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[欢迎 Rust OP-TEE TrustZone SDK 成为 Teaclave 子项目]]></title>
+        <id>https://teaclave.apache.org/blog/2021-03-14-welcome-rust-optee-trustzone-sdk-cn/</id>
+        <link href="https://teaclave.apache.org/blog/2021-03-14-welcome-rust-optee-trustzone-sdk-cn/">
+        </link>
+        <updated>2021-03-15T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[[1] 造成的安全世界（secure world) 的漏洞，
+后果甚至可以拿到全磁盘加密的密钥 [2]。]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[[Scheduled] Teaclave Meetup #3 on 7pm-8pm, Mar 25 PT]]></title>
+        <id>https://teaclave.apache.org/blog/2021-03-24-teaclave-meetup-3/</id>
+        <link href="https://teaclave.apache.org/blog/2021-03-24-teaclave-meetup-3/">
+        </link>
+        <updated>2021-03-25T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[public cloud service providers (e.g., Amazon AWS, Microsoft Azure, and Google
+Cloud) in order to help customers protect their sensitive data in the cloud
+environment. Some popular confidential computing services include Intel Software
+Guard Extensions (SGX) enclaves and AMD Secure Encrypted Virtualization (SEV)
+VMs. These services are usually atop different hardware-based Trusted Execution
+Environments (TEE) technologies.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Apache Teaclave (incubating) 0.2.0 发布]]></title>
@@ -155,13 +193,14 @@ it is essential to verify the integrity of the downloaded file using the
 PGP signature (the .asc file) or a hash (the .sha256 file).]]></summary>
     </entry>
     <entry>
-        <title type="html"><![CDATA[欢迎 Rust OP-TEE TrustZone SDK 成为 Teaclave 子项目]]></title>
-        <id>https://teaclave.apache.org/blog/2021-03-14-welcome-rust-optee-trustzone-sdk-cn/</id>
-        <link href="https://teaclave.apache.org/blog/2021-03-14-welcome-rust-optee-trustzone-sdk-cn/">
+        <title type="html"><![CDATA[Podling Teaclave Report - April 2021]]></title>
+        <id>https://teaclave.apache.org/blog/2021-04-09-podling-teaclave-report-april-2021/</id>
+        <link href="https://teaclave.apache.org/blog/2021-04-09-podling-teaclave-report-april-2021/">
         </link>
-        <updated>2021-03-15T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[。更多关于 Teaclave TrustZone SDK 的设计和性能等都在论文 RusTEE: Developing
-Memory-Safe ARM TrustZone Applications 中找到，此论文也收录于 ACSAC 2020。]]></summary>
+        <updated>2021-04-10T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[including built-in functions, SDKs in different languages, docker, command line
+interface, documents, etc.
+  Announcing Apache Teaclave (incubating) 0.2.0:]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Welcome Rust OP-TEE TrustZone SDK to Teaclave]]></title>
@@ -172,12 +211,5 @@ Memory-Safe ARM TrustZone Applications 中找到，此论文也收录于 ACSAC 2
         <summary type="html"><![CDATA[By using the rich type system of Rust, the memory safety issues will be reported
 at compile time. For example, in the following case, compared to C's APIs, the
 Rust APIs have clearer semantics and more strict type checking.]]></summary>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[[Scheduled] Teaclave Meetup #3 on 7pm-8pm, Mar 25 PT]]></title>
-        <id>https://teaclave.apache.org/blog/2021-03-24-teaclave-meetup-3/</id>
-        <link href="https://teaclave.apache.org/blog/2021-03-24-teaclave-meetup-3/">
-        </link>
-        <updated>2021-03-25T00:00:00.000Z</updated>
     </entry>
 </feed>
