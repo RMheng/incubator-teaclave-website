@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["register_signals",""]],"struct":[["TeaclaveServiceLauncher",""]]});
+initSidebarItems({"fn":[["launch_teaclave_service",""]]});

@@ -174,6 +174,10 @@
 <span id="174">174</span>
 <span id="175">175</span>
 <span id="176">176</span>
+<span id="177">177</span>
+<span id="178">178</span>
+<span id="179">179</span>
+<span id="180">180</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// Licensed to the Apache Software Foundation (ASF) under one</span>
 <span class="comment">// or more contributor license agreements.  See the NOTICE file</span>
@@ -224,7 +228,7 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">_name</span>: <span class="ident">String</span>,
         <span class="ident">arguments</span>: <span class="ident">FunctionArguments</span>,
-        <span class="ident">payload</span>: <span class="ident">String</span>,
+        <span class="kw-2">mut</span> <span class="ident">payload</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span>,
         <span class="ident">runtime</span>: <span class="ident">FunctionRuntime</span>,
     ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">anyhow</span>::<span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">py_argv</span> <span class="op">=</span> <span class="ident">arguments</span>.<span class="ident">into_vec</span>();
@@ -233,8 +237,7 @@
             .<span class="ident">map</span>(<span class="op">|</span><span class="ident">arg</span><span class="op">|</span> <span class="ident">CString</span>::<span class="ident">new</span>(<span class="ident">arg</span>.<span class="ident">as_str</span>()).<span class="ident">unwrap</span>())
             .<span class="ident">collect</span>();
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">script_bytes</span> <span class="op">=</span> <span class="ident">payload</span>.<span class="ident">into_bytes</span>();
-        <span class="ident">script_bytes</span>.<span class="ident">push</span>(<span class="number">0u8</span>);
+        <span class="ident">payload</span>.<span class="ident">push</span>(<span class="number">0u8</span>);
 
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">p_argv</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">cstr_argv</span>
             .<span class="ident">iter</span>() <span class="comment">// do NOT into_iter()</span>
@@ -249,7 +252,7 @@
 
         <span class="kw">let</span> <span class="ident">result</span> <span class="op">=</span> <span class="kw">unsafe</span> {
             <span class="ident">mesapy_exec</span>(
-                <span class="ident">script_bytes</span>.<span class="ident">as_ptr</span>(),
+                <span class="ident">payload</span>.<span class="ident">as_ptr</span>(),
                 <span class="ident">p_argv</span>.<span class="ident">len</span>() <span class="op">-</span> <span class="number">1</span>,
                 <span class="ident">p_argv</span>.<span class="ident">as_ptr</span>(),
                 <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">py_result</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u8</span>,
@@ -346,7 +349,12 @@ def entrypoint(argv):
 
         <span class="kw">let</span> <span class="ident">function</span> <span class="op">=</span> <span class="ident">MesaPy</span>::<span class="ident">default</span>();
         <span class="kw">let</span> <span class="ident">summary</span> <span class="op">=</span> <span class="ident">function</span>
-            .<span class="ident">execute</span>(<span class="string">&quot;&quot;</span>.<span class="ident">to_string</span>(), <span class="ident">py_args</span>, <span class="ident">py_payload</span>.<span class="ident">to_string</span>(), <span class="ident">runtime</span>)
+            .<span class="ident">execute</span>(
+                <span class="string">&quot;&quot;</span>.<span class="ident">to_string</span>(),
+                <span class="ident">py_args</span>,
+                <span class="ident">py_payload</span>.<span class="ident">as_bytes</span>().<span class="ident">to_vec</span>(),
+                <span class="ident">runtime</span>,
+            )
             .<span class="ident">unwrap</span>();
         <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">summary</span>, <span class="string">&quot;&quot;</span>);
     }
