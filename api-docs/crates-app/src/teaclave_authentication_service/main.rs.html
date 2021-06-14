@@ -23,37 +23,6 @@
 <span id="23">23</span>
 <span id="24">24</span>
 <span id="25">25</span>
-<span id="26">26</span>
-<span id="27">27</span>
-<span id="28">28</span>
-<span id="29">29</span>
-<span id="30">30</span>
-<span id="31">31</span>
-<span id="32">32</span>
-<span id="33">33</span>
-<span id="34">34</span>
-<span id="35">35</span>
-<span id="36">36</span>
-<span id="37">37</span>
-<span id="38">38</span>
-<span id="39">39</span>
-<span id="40">40</span>
-<span id="41">41</span>
-<span id="42">42</span>
-<span id="43">43</span>
-<span id="44">44</span>
-<span id="45">45</span>
-<span id="46">46</span>
-<span id="47">47</span>
-<span id="48">48</span>
-<span id="49">49</span>
-<span id="50">50</span>
-<span id="51">51</span>
-<span id="52">52</span>
-<span id="53">53</span>
-<span id="54">54</span>
-<span id="55">55</span>
-<span id="56">56</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// Licensed to the Apache Software Foundation (ASF) under one</span>
 <span class="comment">// or more contributor license agreements.  See the NOTICE file</span>
@@ -72,44 +41,13 @@
 <span class="comment">// specific language governing permissions and limitations</span>
 <span class="comment">// under the License.</span>
 
-<span class="kw">use</span> <span class="ident">anyhow</span>::{<span class="ident">Context</span>, <span class="prelude-ty">Result</span>};
-<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">sync</span>::<span class="ident">atomic</span>::{<span class="ident">AtomicBool</span>, <span class="ident">Ordering</span>};
-<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">sync</span>::<span class="ident">Arc</span>;
-<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">thread</span>;
-<span class="kw">use</span> <span class="ident">teaclave_service_app_utils</span>::{<span class="ident">register_signals</span>, <span class="ident">TeaclaveServiceLauncher</span>};
+<span class="kw">use</span> <span class="ident">anyhow</span>::<span class="prelude-ty">Result</span>;
+<span class="kw">use</span> <span class="ident">teaclave_service_app_utils</span>::<span class="ident">launch_teaclave_service</span>;
 
 <span class="kw">const</span> <span class="ident">PACKAGE_NAME</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="macro">env</span><span class="macro">!</span>(<span class="string">&quot;CARGO_PKG_NAME&quot;</span>);
 
 <span class="kw">fn</span> <span class="ident">main</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
-    <span class="ident">env_logger</span>::<span class="ident">init_from_env</span>(
-        <span class="ident">env_logger</span>::<span class="ident">Env</span>::<span class="ident">new</span>()
-            .<span class="ident">filter_or</span>(<span class="string">&quot;TEACLAVE_LOG&quot;</span>, <span class="string">&quot;RUST_LOG&quot;</span>)
-            .<span class="ident">write_style_or</span>(<span class="string">&quot;TEACLAVE_LOG_STYLE&quot;</span>, <span class="string">&quot;RUST_LOG_STYLE&quot;</span>),
-    );
-
-    <span class="kw">let</span> <span class="ident">launcher</span> <span class="op">=</span> <span class="ident">Arc</span>::<span class="ident">new</span>(<span class="ident">TeaclaveServiceLauncher</span>::<span class="ident">new</span>(
-        <span class="ident">PACKAGE_NAME</span>,
-        <span class="string">&quot;runtime.config.toml&quot;</span>,
-    )<span class="question-mark">?</span>);
-    <span class="kw">let</span> <span class="ident">launcher_ref</span> <span class="op">=</span> <span class="ident">launcher</span>.<span class="ident">clone</span>();
-    <span class="ident">thread</span>::<span class="ident">spawn</span>(<span class="kw">move</span> <span class="op">|</span><span class="op">|</span> {
-        <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">launcher_ref</span>.<span class="ident">start</span>();
-        <span class="kw">unsafe</span> { <span class="ident">libc</span>::<span class="ident">raise</span>(<span class="ident">signal_hook</span>::<span class="ident">SIGTERM</span>) }
-    });
-
-    <span class="kw">let</span> <span class="ident">term</span> <span class="op">=</span> <span class="ident">Arc</span>::<span class="ident">new</span>(<span class="ident">AtomicBool</span>::<span class="ident">new</span>(<span class="bool-val">false</span>));
-    <span class="ident">register_signals</span>(<span class="ident">term</span>.<span class="ident">clone</span>()).<span class="ident">context</span>(<span class="string">&quot;Failed to register signal handler&quot;</span>)<span class="question-mark">?</span>;
-
-    <span class="kw">while</span> <span class="op">!</span><span class="ident">term</span>.<span class="ident">load</span>(<span class="ident">Ordering</span>::<span class="ident">Relaxed</span>) {
-        <span class="ident">thread</span>::<span class="ident">park</span>();
-    }
-
-    <span class="ident">launcher</span>.<span class="ident">finalize</span>();
-    <span class="kw">unsafe</span> {
-        <span class="ident">launcher</span>.<span class="ident">destroy</span>(); <span class="comment">// force to destroy the enclave</span>
-    }
-
-    <span class="prelude-val">Ok</span>(())
+    <span class="ident">launch_teaclave_service</span>(<span class="ident">PACKAGE_NAME</span>)
 }
 </pre></div>
 </section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "teaclave_authentication_service";</script><script src="../../aliases.js"></script><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>

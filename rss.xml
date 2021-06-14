@@ -4,7 +4,7 @@
         <title>Apache Teaclave (incubating)</title>
         <link>https://teaclave.apache.org</link>
         <description>Apache Teaclave (incubating) is an open source universal secure computing platform, making computation on privacy-sensitive data safe and simple.</description>
-        <lastBuildDate>Tue, 13 Apr 2021 05:23:52 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 14 Jun 2021 03:53:33 GMT</lastBuildDate>
         <docs>http://blogs.law.harvard.edu/tech/rss</docs>
         <generator>https://github.com/webmasterish/vuepress-plugin-feed</generator>
         <atom:link href="https://teaclave.apache.org/feed.atom" rel="self" type="application/rss+xml"/>
@@ -23,13 +23,20 @@
             <description><![CDATA[This article is to help people understand Intel-SA-00219, and how Teaclave SGX SDK handles it.]]></description>
         </item>
         <item>
+            <title><![CDATA[Podling Teaclave Report - April 2020]]></title>
+            <link>https://teaclave.apache.org/blog/2020-03-31-podling-teaclave-report-april-2020/</link>
+            <guid>https://teaclave.apache.org/blog/2020-03-31-podling-teaclave-report-april-2020/</guid>
+            <pubDate>Wed, 01 Apr 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[community.
+  Since we are mainly working on GitHub, with the help of the INFRA team,
+    we can sync the notifications of GitHub with our mailing list.]]></description>
+        </item>
+        <item>
             <title><![CDATA[Podling Teaclave Report - January 2020]]></title>
             <link>https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/</link>
             <guid>https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/</guid>
             <pubDate>Wed, 01 Jan 2020 00:00:00 GMT</pubDate>
-            <description><![CDATA[Resolve all renaming issues of INFRA (INFRA-19532)
-  Refactor components: teaclaveutils, teaclaveconfig,
-teaclavecli, teaclavebinder
+            <description><![CDATA[teaclavecli, teaclavebinder
   Rewrite README.md to clearly explain the project's highlights in
 security, functionality, and usability.
   Start to use protobuf for RPC definition
@@ -127,39 +134,13 @@ milestones and amazing achievements.]]></description>
             </enclosure>
         </item>
         <item>
-            <title><![CDATA[Podling Teaclave Report - April 2020]]></title>
-            <link>https://teaclave.apache.org/blog/2020-03-31-podling-teaclave-report-april-2020/</link>
-            <guid>https://teaclave.apache.org/blog/2020-03-31-podling-teaclave-report-april-2020/</guid>
-            <pubDate>Wed, 01 Apr 2020 00:00:00 GMT</pubDate>
-            <description><![CDATA[We have rewrote the framework for implementing enclave services. Also, we
-    have redesigned current services into seven core services
-including access control,
-    authentication, execution, frontend, management, scheduler, and storage
-    service. Communication protocols between services are defined in protobuf.
-  RPC between services has been redesigned to supported TLS-based attestation.
-  We have added DCAP attestation algorithm in the platform so that people can
-    deploy the system in environments without Intel's attestation service.
-  Communication between app and enclave has been also redesigned
-with better APIs.
-  All updates is currently in the develop branch. We plan to merge
-into master
-    when main refactoring is done.]]></description>
-        </item>
-        <item>
             <title><![CDATA[Teaclave Meetup #2]]></title>
             <link>https://teaclave.apache.org/blog/2021-02-24-teaclave-meetup-2/</link>
             <guid>https://teaclave.apache.org/blog/2021-02-24-teaclave-meetup-2/</guid>
             <pubDate>Thu, 25 Feb 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Mingshen also gave a brief introduction on the design and implementation of
+Teaclave client SDKs in different languages and their relationships.]]></description>
             <enclosure url="https://teaclave.apache.org/./img/teaclave-meetup-2-zoom.png">
-            </enclosure>
-        </item>
-        <item>
-            <title><![CDATA[Announcing Apache Teaclave (incubating) 0.2.0]]></title>
-            <link>https://teaclave.apache.org/blog/2021-03-01-announcing-teaclave-0-2-0/</link>
-            <guid>https://teaclave.apache.org/blog/2021-03-01-announcing-teaclave-0-2-0/</guid>
-            <pubDate>Tue, 02 Mar 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[English | 中文]]></description>
-            <enclosure url="https://teaclave.apache.org/./img/teaclave-client-sdks.png">
             </enclosure>
         </item>
         <item>
@@ -167,11 +148,18 @@ into master
             <link>https://teaclave.apache.org/blog/2021-03-01-announcing-teaclave-0-2-0-cn/</link>
             <guid>https://teaclave.apache.org/blog/2021-03-01-announcing-teaclave-0-2-0-cn/</guid>
             <pubDate>Tue, 02 Mar 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[Apache Teaclave (incubating) 是一个隐私安全计算平台，为隐私数据计算赋能。基于硬
-件安全能力，Teaclave 确保敏感数据在可信域外和离岸场景下安全可控的流通和处理，无
-需担心隐私数据泄露和滥用。 Teaclave 同时支持多方参与的联合计算，打破企业和组织中
-的数据孤岛。Teaclave 于 2019 年由百度捐赠进入 Apache 基金会孵化器。在 2020 年 10
-月发布第一个开源社区版本。]]></description>
+            <description><![CDATA[Teaclave 0.2.0 版本可以在官网下载页面找到（注意验证 PGP 签名和 hash）。]]></description>
+            <enclosure url="https://teaclave.apache.org/./img/teaclave-client-sdks.png">
+            </enclosure>
+        </item>
+        <item>
+            <title><![CDATA[Announcing Apache Teaclave (incubating) 0.2.0]]></title>
+            <link>https://teaclave.apache.org/blog/2021-03-01-announcing-teaclave-0-2-0/</link>
+            <guid>https://teaclave.apache.org/blog/2021-03-01-announcing-teaclave-0-2-0/</guid>
+            <pubDate>Tue, 02 Mar 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Teaclave 0.2.0 can be downloaded at the download page. Note that
+it is essential to verify the integrity of the downloaded file using the
+PGP signature (the .asc file) or a hash (the .sha256 file).]]></description>
             <enclosure url="https://teaclave.apache.org/./img/teaclave-client-sdks.png">
             </enclosure>
         </item>
@@ -180,8 +168,8 @@ into master
             <link>https://teaclave.apache.org/blog/2021-03-14-welcome-rust-optee-trustzone-sdk-cn/</link>
             <guid>https://teaclave.apache.org/blog/2021-03-14-welcome-rust-optee-trustzone-sdk-cn/</guid>
             <pubDate>Mon, 15 Mar 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[[1] 造成的安全世界（secure world) 的漏洞，
-后果甚至可以拿到全磁盘加密的密钥 [2]。]]></description>
+            <description><![CDATA[。更多关于 Teaclave TrustZone SDK 的设计和性能等都在论文 RusTEE: Developing
+Memory-Safe ARM TrustZone Applications 中找到，此论文也收录于 ACSAC 2020。]]></description>
             <enclosure url="https://teaclave.apache.org/./img/teaclave-trustzone-sdk-design.png">
             </enclosure>
         </item>
@@ -190,26 +178,10 @@ into master
             <link>https://teaclave.apache.org/blog/2021-03-14-welcome-rust-optee-trustzone-sdk/</link>
             <guid>https://teaclave.apache.org/blog/2021-03-14-welcome-rust-optee-trustzone-sdk/</guid>
             <pubDate>Mon, 15 Mar 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[Attackers can even get the full-disk encryption key by exploiting such kind of
-vulnerability [2].]]></description>
+            <description><![CDATA[By using the rich type system of Rust, the memory safety issues will be reported
+at compile time. For example, in the following case, compared to C's APIs, the
+Rust APIs have clearer semantics and more strict type checking.]]></description>
             <enclosure url="https://teaclave.apache.org/./img/teaclave-trustzone-sdk-design.png">
-            </enclosure>
-        </item>
-        <item>
-            <title><![CDATA[Teaclave Meetup #3]]></title>
-            <link>https://teaclave.apache.org/blog/2021-03-24-teaclave-meetup-3/</link>
-            <guid>https://teaclave.apache.org/blog/2021-03-24-teaclave-meetup-3/</guid>
-            <pubDate>Thu, 25 Mar 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[The initial effort on this field is trying to formally describe the access
-control module in Teaclave. And then prove it with requirements defined in
-Common Criteria for Information Technology Security Evaluation.
-The security objective of access control module is to prevent unauthorized users
-from accessing the critical data through tasks and functions. By achieving the
-security objective, the threats of runtime tasks and functions abuse are
-eliminated under the assumptions identified in security problem definition.
-With these objectives, we can find some corresponding requirements in Common
-Criteria, e.g., FIA_UAU.2 for user authentication before any action.]]></description>
-            <enclosure url="https://teaclave.apache.org/./img/teaclave-meetup-3-zoom.jpg">
             </enclosure>
         </item>
         <item>
@@ -217,11 +189,19 @@ Criteria, e.g., FIA_UAU.2 for user authentication before any action.]]></descrip
             <link>https://teaclave.apache.org/blog/2021-04-09-podling-teaclave-report-april-2021/</link>
             <guid>https://teaclave.apache.org/blog/2021-04-09-podling-teaclave-report-april-2021/</guid>
             <pubDate>Sat, 10 Apr 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[During this period, we also accepted the Rust OP-TEE TrustZone SDK project to
-Teaclave as a sub-project, named as Teaclave TrustZone SDK. Similar to Teaclave
-SGX SDK, Teaclave TrustZone SDK will be the foundation of the Teaclave FaaS
-platform to support multiple trusted execution environments.
-  Welcome Rust OP-TEE TrustZone SDK TO Teaclave:]]></description>
+            <description><![CDATA[2020-10-22, Ran Duan (rduan), Committer]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Teaclave Meetup #3]]></title>
+            <link>https://teaclave.apache.org/blog/2021-03-24-teaclave-meetup-3/</link>
+            <guid>https://teaclave.apache.org/blog/2021-03-24-teaclave-meetup-3/</guid>
+            <pubDate>Thu, 25 Mar 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[and Fortanix. From the perspective of customers, we also focus on the
+attestation reports the customers can get. We then introduce Teaclave's current
+attestation design and discuss the attestation report standard Teaclave should
+follow.]]></description>
+            <enclosure url="https://teaclave.apache.org/./img/teaclave-meetup-3-zoom.jpg">
+            </enclosure>
         </item>
     </channel>
 </rss>
