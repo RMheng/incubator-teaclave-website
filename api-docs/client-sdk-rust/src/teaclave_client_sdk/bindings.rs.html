@@ -417,6 +417,34 @@
 <span id="417">417</span>
 <span id="418">418</span>
 <span id="419">419</span>
+<span id="420">420</span>
+<span id="421">421</span>
+<span id="422">422</span>
+<span id="423">423</span>
+<span id="424">424</span>
+<span id="425">425</span>
+<span id="426">426</span>
+<span id="427">427</span>
+<span id="428">428</span>
+<span id="429">429</span>
+<span id="430">430</span>
+<span id="431">431</span>
+<span id="432">432</span>
+<span id="433">433</span>
+<span id="434">434</span>
+<span id="435">435</span>
+<span id="436">436</span>
+<span id="437">437</span>
+<span id="438">438</span>
+<span id="439">439</span>
+<span id="440">440</span>
+<span id="441">441</span>
+<span id="442">442</span>
+<span id="443">443</span>
+<span id="444">444</span>
+<span id="445">445</span>
+<span id="446">446</span>
+<span id="447">447</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// Licensed to the Apache Software Foundation (ASF) under one</span>
 <span class="comment">// or more contributor license agreements.  See the NOTICE file</span>
@@ -482,8 +510,12 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// * The function returns an opaque pointer (handle) of the service. On error,</span>
 <span class="doccomment">/// the function returns NULL.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// # Safety</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// `address`, `enclave_info_path`, `as_root_ca_cert_path` should be C string (null terminated).</span>
 <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-<span class="kw">pub</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">teaclave_connect_authentication_service</span>(
+<span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">teaclave_connect_authentication_service</span>(
     <span class="ident">address</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>,
     <span class="ident">enclave_info_path</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>,
     <span class="ident">as_root_ca_cert_path</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>,
@@ -492,17 +524,13 @@
         <span class="kw">return</span> <span class="ident">ptr</span>::<span class="ident">null_mut</span>();
     }
 
-    <span class="kw">let</span> <span class="ident">address</span> <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">address</span>).<span class="ident">to_string_lossy</span>().<span class="ident">into_owned</span>() };
-    <span class="kw">let</span> <span class="ident">enclave_info_path</span> <span class="op">=</span> <span class="kw">unsafe</span> {
-        <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">enclave_info_path</span>)
-            .<span class="ident">to_string_lossy</span>()
-            .<span class="ident">into_owned</span>()
-    };
-    <span class="kw">let</span> <span class="ident">as_root_ca_cert_path</span> <span class="op">=</span> <span class="kw">unsafe</span> {
-        <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">as_root_ca_cert_path</span>)
-            .<span class="ident">to_string_lossy</span>()
-            .<span class="ident">into_owned</span>()
-    };
+    <span class="kw">let</span> <span class="ident">address</span> <span class="op">=</span> <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">address</span>).<span class="ident">to_string_lossy</span>().<span class="ident">into_owned</span>();
+    <span class="kw">let</span> <span class="ident">enclave_info_path</span> <span class="op">=</span> <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">enclave_info_path</span>)
+        .<span class="ident">to_string_lossy</span>()
+        .<span class="ident">into_owned</span>();
+    <span class="kw">let</span> <span class="ident">as_root_ca_cert_path</span> <span class="op">=</span> <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">as_root_ca_cert_path</span>)
+        .<span class="ident">to_string_lossy</span>()
+        .<span class="ident">into_owned</span>();
     <span class="kw">let</span> <span class="ident">enclave_info</span> <span class="op">=</span> <span class="macro">unwrap_or_return_null</span><span class="macro">!</span>(<span class="ident">EnclaveInfo</span>::<span class="ident">from_file</span>(<span class="ident">enclave_info_path</span>));
     <span class="kw">let</span> <span class="ident">bytes</span> <span class="op">=</span> <span class="macro">unwrap_or_return_null</span><span class="macro">!</span>(<span class="ident">fs</span>::<span class="ident">read</span>(<span class="ident">as_root_ca_cert_path</span>));
     <span class="kw">let</span> <span class="ident">as_root_ca_cert</span> <span class="op">=</span> <span class="macro">unwrap_or_return_null</span><span class="macro">!</span>(<span class="ident">pem</span>::<span class="ident">parse</span>(<span class="ident">bytes</span>)).<span class="ident">contents</span>;
@@ -518,6 +546,12 @@
 <span class="doccomment">/// Close and free the authentication service handle, i.e., the</span>
 <span class="doccomment">/// `AuthenticaionClient` type opaque pointer. The function returns 0 for</span>
 <span class="doccomment">/// success. On error, the function returns 1.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// # Safety</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// This function is unsafe because improper use may lead to</span>
+<span class="doccomment">/// memory problems. For example, a double-free may occur if the</span>
+<span class="doccomment">/// function is called twice on the same raw pointer.</span>
 <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
 <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">teaclave_close_authentication_service</span>(
     <span class="ident">client</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">AuthenticationClient</span>,
@@ -533,8 +567,12 @@
 
 <span class="doccomment">/// Register a new user with `user_id` and `user_password`. The function returns</span>
 <span class="doccomment">/// 0 for success. On error, the function returns 1.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// # Safety</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// `user_id`, `user_password` should be C string (null terminated).</span>
 <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-<span class="kw">pub</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">teaclave_user_register</span>(
+<span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">teaclave_user_register</span>(
     <span class="ident">client</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">AuthenticationClient</span>,
     <span class="ident">user_id</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>,
     <span class="ident">user_password</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>,
@@ -546,8 +584,8 @@
         <span class="kw">return</span> <span class="number">1</span>;
     }
 
-    <span class="kw">let</span> <span class="ident">user_id</span> <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">user_id</span>).<span class="ident">to_string_lossy</span>().<span class="ident">into_owned</span>() };
-    <span class="kw">let</span> <span class="ident">user_password</span> <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">user_password</span>).<span class="ident">to_string_lossy</span>().<span class="ident">into_owned</span>() };
+    <span class="kw">let</span> <span class="ident">user_id</span> <span class="op">=</span> <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">user_id</span>).<span class="ident">to_string_lossy</span>().<span class="ident">into_owned</span>();
+    <span class="kw">let</span> <span class="ident">user_password</span> <span class="op">=</span> <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">user_password</span>).<span class="ident">to_string_lossy</span>().<span class="ident">into_owned</span>();
     <span class="macro">unwrap_or_return_one</span><span class="macro">!</span>(<span class="ident">client</span>.<span class="ident">user_register</span>(<span class="kw-2">&amp;</span><span class="ident">user_id</span>, <span class="kw-2">&amp;</span><span class="ident">user_password</span>));
 
     <span class="number">0</span>
@@ -557,8 +595,12 @@
 <span class="doccomment">/// will be save in the `token` buffer, and length will be set in the</span>
 <span class="doccomment">/// `token_len` argument. The function returns 0 for success. On error, the</span>
 <span class="doccomment">/// function returns 1.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// # Safety</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// `user_id`, `user_password` should be C string (null terminated), token and token_len should be consistent.</span>
 <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-<span class="kw">pub</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">teaclave_user_login</span>(
+<span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">teaclave_user_login</span>(
     <span class="ident">client</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">AuthenticationClient</span>,
     <span class="ident">user_id</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>,
     <span class="ident">user_password</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>,
@@ -574,20 +616,18 @@
         <span class="kw">return</span> <span class="number">1</span>;
     }
 
-    <span class="kw">let</span> <span class="ident">user_id</span> <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">user_id</span>).<span class="ident">to_string_lossy</span>().<span class="ident">into_owned</span>() };
-    <span class="kw">let</span> <span class="ident">user_password</span> <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">user_password</span>).<span class="ident">to_string_lossy</span>().<span class="ident">into_owned</span>() };
+    <span class="kw">let</span> <span class="ident">user_id</span> <span class="op">=</span> <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">user_id</span>).<span class="ident">to_string_lossy</span>().<span class="ident">into_owned</span>();
+    <span class="kw">let</span> <span class="ident">user_password</span> <span class="op">=</span> <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">user_password</span>).<span class="ident">to_string_lossy</span>().<span class="ident">into_owned</span>();
 
     <span class="kw">let</span> <span class="ident">token_string</span> <span class="op">=</span> <span class="macro">unwrap_or_return_one</span><span class="macro">!</span>(<span class="ident">client</span>.<span class="ident">user_login</span>(<span class="kw-2">&amp;</span><span class="ident">user_id</span>, <span class="kw-2">&amp;</span><span class="ident">user_password</span>));
     <span class="kw">let</span> <span class="ident">token_c_string</span> <span class="op">=</span> <span class="macro">unwrap_or_return_one</span><span class="macro">!</span>(<span class="ident">CString</span>::<span class="ident">new</span>(<span class="ident">token_string</span>));
     <span class="kw">let</span> <span class="ident">bytes</span> <span class="op">=</span> <span class="ident">token_c_string</span>.<span class="ident">as_bytes_with_nul</span>();
 
-    <span class="kw">unsafe</span> {
-        <span class="kw">if</span> <span class="kw-2">*</span><span class="ident">token_len</span> <span class="op">&lt;</span> <span class="ident">bytes</span>.<span class="ident">len</span>() {
-            <span class="kw">return</span> <span class="number">1</span>;
-        } <span class="kw">else</span> {
-            <span class="ident">ptr</span>::<span class="ident">copy_nonoverlapping</span>(<span class="ident">bytes</span>.<span class="ident">as_ptr</span>(), <span class="ident">token</span> <span class="kw">as</span> <span class="kw">_</span>, <span class="ident">bytes</span>.<span class="ident">len</span>());
-            <span class="kw-2">*</span><span class="ident">token_len</span> <span class="op">=</span> <span class="ident">bytes</span>.<span class="ident">len</span>();
-        }
+    <span class="kw">if</span> <span class="kw-2">*</span><span class="ident">token_len</span> <span class="op">&lt;</span> <span class="ident">bytes</span>.<span class="ident">len</span>() {
+        <span class="kw">return</span> <span class="number">1</span>;
+    } <span class="kw">else</span> {
+        <span class="ident">ptr</span>::<span class="ident">copy_nonoverlapping</span>(<span class="ident">bytes</span>.<span class="ident">as_ptr</span>(), <span class="ident">token</span> <span class="kw">as</span> <span class="kw">_</span>, <span class="ident">bytes</span>.<span class="ident">len</span>());
+        <span class="kw-2">*</span><span class="ident">token_len</span> <span class="op">=</span> <span class="ident">bytes</span>.<span class="ident">len</span>();
     }
 
     <span class="number">0</span>
@@ -610,8 +650,12 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// * The function returns an opaque pointer (handle) of the service. On error,</span>
 <span class="doccomment">/// the function returns NULL.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// # Safety</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// All arguments should be C string (null terminated).</span>
 <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-<span class="kw">pub</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">teaclave_connect_frontend_service</span>(
+<span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">teaclave_connect_frontend_service</span>(
     <span class="ident">address</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>,
     <span class="ident">enclave_info_path</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>,
     <span class="ident">as_root_ca_cert_path</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>,
@@ -620,17 +664,13 @@
         <span class="kw">return</span> <span class="ident">ptr</span>::<span class="ident">null_mut</span>();
     }
 
-    <span class="kw">let</span> <span class="ident">address</span> <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">address</span>).<span class="ident">to_string_lossy</span>().<span class="ident">into_owned</span>() };
-    <span class="kw">let</span> <span class="ident">enclave_info_path</span> <span class="op">=</span> <span class="kw">unsafe</span> {
-        <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">enclave_info_path</span>)
-            .<span class="ident">to_string_lossy</span>()
-            .<span class="ident">into_owned</span>()
-    };
-    <span class="kw">let</span> <span class="ident">as_root_ca_cert_path</span> <span class="op">=</span> <span class="kw">unsafe</span> {
-        <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">as_root_ca_cert_path</span>)
-            .<span class="ident">to_string_lossy</span>()
-            .<span class="ident">into_owned</span>()
-    };
+    <span class="kw">let</span> <span class="ident">address</span> <span class="op">=</span> <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">address</span>).<span class="ident">to_string_lossy</span>().<span class="ident">into_owned</span>();
+    <span class="kw">let</span> <span class="ident">enclave_info_path</span> <span class="op">=</span> <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">enclave_info_path</span>)
+        .<span class="ident">to_string_lossy</span>()
+        .<span class="ident">into_owned</span>();
+    <span class="kw">let</span> <span class="ident">as_root_ca_cert_path</span> <span class="op">=</span> <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">as_root_ca_cert_path</span>)
+        .<span class="ident">to_string_lossy</span>()
+        .<span class="ident">into_owned</span>();
     <span class="kw">let</span> <span class="ident">enclave_info</span> <span class="op">=</span> <span class="macro">unwrap_or_return_null</span><span class="macro">!</span>(<span class="ident">EnclaveInfo</span>::<span class="ident">from_file</span>(<span class="ident">enclave_info_path</span>));
     <span class="kw">let</span> <span class="ident">bytes</span> <span class="op">=</span> <span class="macro">unwrap_or_return_null</span><span class="macro">!</span>(<span class="ident">fs</span>::<span class="ident">read</span>(<span class="ident">as_root_ca_cert_path</span>));
     <span class="kw">let</span> <span class="ident">as_root_ca_cert</span> <span class="op">=</span> <span class="macro">unwrap_or_return_null</span><span class="macro">!</span>(<span class="ident">pem</span>::<span class="ident">parse</span>(<span class="ident">bytes</span>)).<span class="ident">contents</span>;
@@ -646,6 +686,12 @@
 <span class="doccomment">/// Close and free the frontend service handle, i.e., the `FrontendClient` type</span>
 <span class="doccomment">/// opaque pointer. The function returns 0 for success. On error, the function</span>
 <span class="doccomment">/// returns 1.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// # Safety</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// This function is unsafe because improper use may lead to</span>
+<span class="doccomment">/// memory problems. For example, a double-free may occur if the</span>
+<span class="doccomment">/// function is called twice on the same raw pointer.</span>
 <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
 <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">teaclave_close_frontend_service</span>(<span class="ident">client</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">FrontendClient</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">c_int</span> {
     <span class="kw">if</span> <span class="ident">client</span>.<span class="ident">is_null</span>() {
@@ -659,8 +705,12 @@
 
 <span class="doccomment">/// Set user&#39;s credential with `user_id` and `user_token`. The function returns</span>
 <span class="doccomment">/// 0 for success. On error, the function returns 1.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// # Safety</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// `user_id` and `user_token` should be C string (null terminated).</span>
 <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-<span class="kw">pub</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">teaclave_set_credential</span>(
+<span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">teaclave_set_credential</span>(
     <span class="ident">client</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">FrontendClient</span>,
     <span class="ident">user_id</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>,
     <span class="ident">user_token</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>,
@@ -669,8 +719,8 @@
         <span class="kw">return</span> <span class="number">1</span>;
     }
 
-    <span class="kw">let</span> <span class="ident">user_id</span> <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">user_id</span>).<span class="ident">to_string_lossy</span>().<span class="ident">into_owned</span>() };
-    <span class="kw">let</span> <span class="ident">user_token</span> <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">user_token</span>).<span class="ident">to_string_lossy</span>().<span class="ident">into_owned</span>() };
+    <span class="kw">let</span> <span class="ident">user_id</span> <span class="op">=</span> <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">user_id</span>).<span class="ident">to_string_lossy</span>().<span class="ident">into_owned</span>();
+    <span class="kw">let</span> <span class="ident">user_token</span> <span class="op">=</span> <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">user_token</span>).<span class="ident">to_string_lossy</span>().<span class="ident">into_owned</span>();
     <span class="ident">client</span>.<span class="ident">set_credential</span>(<span class="kw-2">&amp;</span><span class="ident">user_id</span>, <span class="kw-2">&amp;</span><span class="ident">user_token</span>);
 
     <span class="number">0</span>
@@ -678,8 +728,12 @@
 
 <span class="doccomment">/// Invoke task with `task_id`. The function returns 0 for success. On error,</span>
 <span class="doccomment">/// the function returns 1.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// # Safety</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// `task_id` should be C string (null terminated).</span>
 <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-<span class="kw">pub</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">teaclave_invoke_task</span>(
+<span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">teaclave_invoke_task</span>(
     <span class="ident">client</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">FrontendClient</span>,
     <span class="ident">task_id</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>,
 ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">c_int</span> {
@@ -687,7 +741,7 @@
         <span class="kw">return</span> <span class="number">1</span>;
     }
 
-    <span class="kw">let</span> <span class="ident">task_id</span> <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">task_id</span>).<span class="ident">to_string_lossy</span>().<span class="ident">into_owned</span>() };
+    <span class="kw">let</span> <span class="ident">task_id</span> <span class="op">=</span> <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">task_id</span>).<span class="ident">to_string_lossy</span>().<span class="ident">into_owned</span>();
     <span class="kw">match</span> <span class="ident">client</span>.<span class="ident">invoke_task</span>(<span class="kw-2">&amp;</span><span class="ident">task_id</span>) {
         <span class="prelude-val">Ok</span>(<span class="kw">_</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="number">0</span>,
         <span class="prelude-val">Err</span>(<span class="kw">_</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="number">1</span>,
@@ -698,8 +752,12 @@
 <span class="doccomment">/// buffer, and set corresponding `task_result_len` argument. Note that this is</span>
 <span class="doccomment">/// a blocking function and wait for the return of the task. The function</span>
 <span class="doccomment">/// returns 0 for success. On error, the function returns 1.</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// # Safety</span>
+<span class="doccomment">///</span>
+<span class="doccomment">/// Inconsistent length of allocated buffer may caused overflow.</span>
 <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-<span class="kw">pub</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">teaclave_get_task_result</span>(
+<span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">teaclave_get_task_result</span>(
     <span class="ident">client</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">FrontendClient</span>,
     <span class="ident">task_id</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>,
     <span class="ident">task_result</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_char</span>,
@@ -709,16 +767,14 @@
         <span class="kw">return</span> <span class="number">1</span>;
     }
 
-    <span class="kw">let</span> <span class="ident">task_id</span> <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">task_id</span>).<span class="ident">to_string_lossy</span>().<span class="ident">into_owned</span>() };
+    <span class="kw">let</span> <span class="ident">task_id</span> <span class="op">=</span> <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">task_id</span>).<span class="ident">to_string_lossy</span>().<span class="ident">into_owned</span>();
     <span class="kw">match</span> <span class="ident">client</span>.<span class="ident">get_task_result</span>(<span class="kw-2">&amp;</span><span class="ident">task_id</span>) {
         <span class="prelude-val">Ok</span>(<span class="ident">result</span>) <span class="op">=</span><span class="op">&gt;</span> {
-            <span class="kw">unsafe</span> {
-                <span class="kw">if</span> <span class="kw-2">*</span><span class="ident">task_result_len</span> <span class="op">&lt;</span> <span class="ident">result</span>.<span class="ident">len</span>() {
-                    <span class="kw">return</span> <span class="number">1</span>;
-                } <span class="kw">else</span> {
-                    <span class="ident">ptr</span>::<span class="ident">copy_nonoverlapping</span>(<span class="ident">result</span>.<span class="ident">as_ptr</span>(), <span class="ident">task_result</span> <span class="kw">as</span> <span class="kw">_</span>, <span class="ident">result</span>.<span class="ident">len</span>());
-                    <span class="kw-2">*</span><span class="ident">task_result_len</span> <span class="op">=</span> <span class="ident">result</span>.<span class="ident">len</span>();
-                }
+            <span class="kw">if</span> <span class="kw-2">*</span><span class="ident">task_result_len</span> <span class="op">&lt;</span> <span class="ident">result</span>.<span class="ident">len</span>() {
+                <span class="kw">return</span> <span class="number">1</span>;
+            } <span class="kw">else</span> {
+                <span class="ident">ptr</span>::<span class="ident">copy_nonoverlapping</span>(<span class="ident">result</span>.<span class="ident">as_ptr</span>(), <span class="ident">task_result</span> <span class="kw">as</span> <span class="kw">_</span>, <span class="ident">result</span>.<span class="ident">len</span>());
+                <span class="kw-2">*</span><span class="ident">task_result_len</span> <span class="op">=</span> <span class="ident">result</span>.<span class="ident">len</span>();
             }
             <span class="number">0</span>
         }
@@ -743,8 +799,12 @@
         <span class="doccomment">/// # Return</span>
         <span class="doccomment">///</span>
         <span class="doccomment">/// The function returns 0 for success. On error, the function returns 1.</span>
+        <span class="doccomment">///</span>
+        <span class="doccomment">/// # Safety</span>
+        <span class="doccomment">///</span>
+        <span class="doccomment">/// Inconsistent length of allocated buffer may caused overflow.</span>
         <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
-        <span class="kw">pub</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">c_function_name</span>(
+        <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">c_function_name</span>(
             <span class="ident">client</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">client_type</span>,
             <span class="ident">serialized_request</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>,
             <span class="ident">serialized_response</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_char</span>,
@@ -758,23 +818,19 @@
                 <span class="kw">return</span> <span class="number">1</span>;
             }
 
-            <span class="kw">let</span> <span class="ident">serialized_request</span> <span class="op">=</span> <span class="kw">unsafe</span> {
-                <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">serialized_request</span>)
-                    .<span class="ident">to_string_lossy</span>()
-                    .<span class="ident">into_owned</span>()
-            };
+            <span class="kw">let</span> <span class="ident">serialized_request</span> <span class="op">=</span> <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">serialized_request</span>)
+                .<span class="ident">to_string_lossy</span>()
+                .<span class="ident">into_owned</span>();
             <span class="kw">let</span> <span class="ident">function_id_string</span> <span class="op">=</span>
                 <span class="macro">unwrap_or_return_one</span><span class="macro">!</span>(<span class="ident">client</span>.<span class="macro-nonterminal">$</span><span class="macro-nonterminal">rust_function_name</span>(<span class="kw-2">&amp;</span><span class="ident">serialized_request</span>));
             <span class="kw">let</span> <span class="ident">function_id_c_string</span> <span class="op">=</span> <span class="macro">unwrap_or_return_one</span><span class="macro">!</span>(<span class="ident">CString</span>::<span class="ident">new</span>(<span class="ident">function_id_string</span>));
             <span class="kw">let</span> <span class="ident">bytes</span> <span class="op">=</span> <span class="ident">function_id_c_string</span>.<span class="ident">as_bytes_with_nul</span>();
 
-            <span class="kw">unsafe</span> {
-                <span class="kw">if</span> <span class="kw-2">*</span><span class="ident">serialized_response_len</span> <span class="op">&lt;</span> <span class="ident">bytes</span>.<span class="ident">len</span>() {
-                    <span class="kw">return</span> <span class="number">1</span>;
-                } <span class="kw">else</span> {
-                    <span class="ident">ptr</span>::<span class="ident">copy_nonoverlapping</span>(<span class="ident">bytes</span>.<span class="ident">as_ptr</span>(), <span class="ident">serialized_response</span> <span class="kw">as</span> <span class="kw">_</span>, <span class="ident">bytes</span>.<span class="ident">len</span>());
-                    <span class="kw-2">*</span><span class="ident">serialized_response_len</span> <span class="op">=</span> <span class="ident">bytes</span>.<span class="ident">len</span>();
-                }
+            <span class="kw">if</span> <span class="kw-2">*</span><span class="ident">serialized_response_len</span> <span class="op">&lt;</span> <span class="ident">bytes</span>.<span class="ident">len</span>() {
+                <span class="kw">return</span> <span class="number">1</span>;
+            } <span class="kw">else</span> {
+                <span class="ident">ptr</span>::<span class="ident">copy_nonoverlapping</span>(<span class="ident">bytes</span>.<span class="ident">as_ptr</span>(), <span class="ident">serialized_response</span> <span class="kw">as</span> <span class="kw">_</span>, <span class="ident">bytes</span>.<span class="ident">len</span>());
+                <span class="kw-2">*</span><span class="ident">serialized_response_len</span> <span class="op">=</span> <span class="ident">bytes</span>.<span class="ident">len</span>();
             }
 
             <span class="number">0</span>
