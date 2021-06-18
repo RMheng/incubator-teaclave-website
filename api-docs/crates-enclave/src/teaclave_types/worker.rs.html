@@ -147,6 +147,12 @@
 <span id="147">147</span>
 <span id="148">148</span>
 <span id="149">149</span>
+<span id="150">150</span>
+<span id="151">151</span>
+<span id="152">152</span>
+<span id="153">153</span>
+<span id="154">154</span>
+<span id="155">155</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// Licensed to the Apache Software Foundation (ASF) under one</span>
 <span class="comment">// or more contributor license agreements.  See the NOTICE file</span>
@@ -191,6 +197,7 @@
 <span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">ExecutorType</span> {
     <span class="ident">Builtin</span>,
     <span class="ident">Python</span>,
+    <span class="ident">WAMicroRuntime</span>,
 }
 
 <span class="kw">impl</span> <span class="ident">std</span>::<span class="ident">default</span>::<span class="ident">Default</span> <span class="kw">for</span> <span class="ident">ExecutorType</span> {
@@ -206,6 +213,7 @@
         <span class="kw">let</span> <span class="ident">executor_type</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">selector</span> {
             <span class="string">&quot;python&quot;</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">ExecutorType</span>::<span class="ident">Python</span>,
             <span class="string">&quot;builtin&quot;</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">ExecutorType</span>::<span class="ident">Builtin</span>,
+            <span class="string">&quot;wamr&quot;</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">ExecutorType</span>::<span class="ident">WAMicroRuntime</span>,
             <span class="kw">_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">anyhow</span>::<span class="macro">bail</span><span class="macro">!</span>(<span class="string">&quot;Invalid executor type: {}&quot;</span>, <span class="ident">selector</span>),
         };
         <span class="prelude-val">Ok</span>(<span class="ident">executor_type</span>)
@@ -231,6 +239,7 @@
         <span class="kw">match</span> <span class="self">self</span> {
             <span class="ident">ExecutorType</span>::<span class="ident">Builtin</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">write</span><span class="macro">!</span>(<span class="ident">f</span>, <span class="string">&quot;builtin&quot;</span>),
             <span class="ident">ExecutorType</span>::<span class="ident">Python</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">write</span><span class="macro">!</span>(<span class="ident">f</span>, <span class="string">&quot;python&quot;</span>),
+            <span class="ident">ExecutorType</span>::<span class="ident">WAMicroRuntime</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">write</span><span class="macro">!</span>(<span class="ident">f</span>, <span class="string">&quot;wamr&quot;</span>),
         }
     }
 }
@@ -239,6 +248,7 @@
 <span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">Executor</span> {
     <span class="ident">MesaPy</span>,
     <span class="ident">Builtin</span>,
+    <span class="ident">WAMicroRuntime</span>,
 }
 
 <span class="kw">impl</span> <span class="ident">std</span>::<span class="ident">default</span>::<span class="ident">Default</span> <span class="kw">for</span> <span class="ident">Executor</span> {
@@ -254,6 +264,7 @@
         <span class="kw">let</span> <span class="ident">executor</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">selector</span> {
             <span class="string">&quot;mesapy&quot;</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">Executor</span>::<span class="ident">MesaPy</span>,
             <span class="string">&quot;builtin&quot;</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">Executor</span>::<span class="ident">Builtin</span>,
+            <span class="string">&quot;wamr&quot;</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">Executor</span>::<span class="ident">WAMicroRuntime</span>,
             <span class="kw">_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">anyhow</span>::<span class="macro">bail</span><span class="macro">!</span>(<span class="string">&quot;Unsupported executor: {}&quot;</span>, <span class="ident">selector</span>),
         };
         <span class="prelude-val">Ok</span>(<span class="ident">executor</span>)
@@ -273,6 +284,7 @@
         <span class="kw">match</span> <span class="self">self</span> {
             <span class="ident">Executor</span>::<span class="ident">MesaPy</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">write</span><span class="macro">!</span>(<span class="ident">f</span>, <span class="string">&quot;mesapy&quot;</span>),
             <span class="ident">Executor</span>::<span class="ident">Builtin</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">write</span><span class="macro">!</span>(<span class="ident">f</span>, <span class="string">&quot;builtin&quot;</span>),
+            <span class="ident">Executor</span>::<span class="ident">WAMicroRuntime</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">write</span><span class="macro">!</span>(<span class="ident">f</span>, <span class="string">&quot;wamr&quot;</span>),
         }
     }
 }

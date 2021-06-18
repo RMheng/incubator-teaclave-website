@@ -1,1 +1,1 @@
-initSidebarItems({"struct":[["BuiltinFunctionExecutor",""],["MesaPy",""]]});
+initSidebarItems({"struct":[["BuiltinFunctionExecutor",""],["MesaPy",""],["WAMicroRuntime",""]]});

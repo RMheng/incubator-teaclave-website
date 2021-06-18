@@ -242,7 +242,7 @@
         <span class="kw">let</span> <span class="ident">buf_len</span> <span class="op">=</span> <span class="ident">send_buf</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">u64</span>;
         <span class="kw">let</span> <span class="ident">header</span> <span class="op">=</span> <span class="ident">buf_len</span>.<span class="ident">to_be_bytes</span>();
 
-        <span class="self">self</span>.<span class="ident">transport</span>.<span class="ident">write</span>(<span class="kw-2">&amp;</span><span class="ident">header</span>)<span class="question-mark">?</span>;
+        <span class="self">self</span>.<span class="ident">transport</span>.<span class="ident">write_all</span>(<span class="kw-2">&amp;</span><span class="ident">header</span>)<span class="question-mark">?</span>;
         <span class="self">self</span>.<span class="ident">transport</span>.<span class="ident">write_all</span>(<span class="kw-2">&amp;</span><span class="ident">send_buf</span>)<span class="question-mark">?</span>;
         <span class="self">self</span>.<span class="ident">transport</span>.<span class="ident">flush</span>()<span class="question-mark">?</span>;
 
