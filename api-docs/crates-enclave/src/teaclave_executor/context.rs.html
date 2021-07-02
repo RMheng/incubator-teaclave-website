@@ -416,6 +416,102 @@
 <span id="416">416</span>
 <span id="417">417</span>
 <span id="418">418</span>
+<span id="419">419</span>
+<span id="420">420</span>
+<span id="421">421</span>
+<span id="422">422</span>
+<span id="423">423</span>
+<span id="424">424</span>
+<span id="425">425</span>
+<span id="426">426</span>
+<span id="427">427</span>
+<span id="428">428</span>
+<span id="429">429</span>
+<span id="430">430</span>
+<span id="431">431</span>
+<span id="432">432</span>
+<span id="433">433</span>
+<span id="434">434</span>
+<span id="435">435</span>
+<span id="436">436</span>
+<span id="437">437</span>
+<span id="438">438</span>
+<span id="439">439</span>
+<span id="440">440</span>
+<span id="441">441</span>
+<span id="442">442</span>
+<span id="443">443</span>
+<span id="444">444</span>
+<span id="445">445</span>
+<span id="446">446</span>
+<span id="447">447</span>
+<span id="448">448</span>
+<span id="449">449</span>
+<span id="450">450</span>
+<span id="451">451</span>
+<span id="452">452</span>
+<span id="453">453</span>
+<span id="454">454</span>
+<span id="455">455</span>
+<span id="456">456</span>
+<span id="457">457</span>
+<span id="458">458</span>
+<span id="459">459</span>
+<span id="460">460</span>
+<span id="461">461</span>
+<span id="462">462</span>
+<span id="463">463</span>
+<span id="464">464</span>
+<span id="465">465</span>
+<span id="466">466</span>
+<span id="467">467</span>
+<span id="468">468</span>
+<span id="469">469</span>
+<span id="470">470</span>
+<span id="471">471</span>
+<span id="472">472</span>
+<span id="473">473</span>
+<span id="474">474</span>
+<span id="475">475</span>
+<span id="476">476</span>
+<span id="477">477</span>
+<span id="478">478</span>
+<span id="479">479</span>
+<span id="480">480</span>
+<span id="481">481</span>
+<span id="482">482</span>
+<span id="483">483</span>
+<span id="484">484</span>
+<span id="485">485</span>
+<span id="486">486</span>
+<span id="487">487</span>
+<span id="488">488</span>
+<span id="489">489</span>
+<span id="490">490</span>
+<span id="491">491</span>
+<span id="492">492</span>
+<span id="493">493</span>
+<span id="494">494</span>
+<span id="495">495</span>
+<span id="496">496</span>
+<span id="497">497</span>
+<span id="498">498</span>
+<span id="499">499</span>
+<span id="500">500</span>
+<span id="501">501</span>
+<span id="502">502</span>
+<span id="503">503</span>
+<span id="504">504</span>
+<span id="505">505</span>
+<span id="506">506</span>
+<span id="507">507</span>
+<span id="508">508</span>
+<span id="509">509</span>
+<span id="510">510</span>
+<span id="511">511</span>
+<span id="512">512</span>
+<span id="513">513</span>
+<span id="514">514</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// Licensed to the Apache Software Foundation (ASF) under one</span>
 <span class="comment">// or more contributor license agreements.  See the NOTICE file</span>
@@ -448,8 +544,11 @@
 
 <span class="kw">use</span> <span class="ident">teaclave_types</span>::<span class="ident">TeaclaveRuntime</span>;
 
+<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">ffi</span>::<span class="ident">c_void</span>;
+
 <span class="kw">const</span> <span class="ident">FFI_OK</span>: <span class="ident">c_uint</span> <span class="op">=</span> <span class="number">0</span>;
 <span class="kw">const</span> <span class="ident">FFI_FILE_ERROR</span>: <span class="ident">c_uint</span> <span class="op">=</span> <span class="number">1</span>;
+<span class="kw">const</span> <span class="ident">FFI_FILE_ERROR_WASM</span>: <span class="ident">c_int</span> <span class="op">=</span> <span class="op">-</span><span class="number">1</span>;
 
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Context</span> {
     <span class="ident">runtime</span>: <span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">TeaclaveRuntime</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="ident">Sync</span><span class="op">&gt;</span>,
@@ -717,9 +816,7 @@
 
 <span class="comment">/*
  * uint c_open_input(char* file_id, int* out_fd);
- *
  */</span>
-
 <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused</span>)]</span>
 <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
 <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">c_open_input</span>(<span class="ident">fid</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_char</span>, <span class="ident">out_handle</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_int</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">c_uint</span> {
@@ -740,8 +837,24 @@
 }
 
 <span class="comment">/*
+ * int teaclave_open_input(char* file_id);
+ */</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused</span>)]</span>
+<span class="attribute">#[<span class="ident">no_mangle</span>]</span>
+<span class="kw">pub</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">wasm_open_input</span>(<span class="ident">_exec_env</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_void</span>, <span class="ident">fid</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_char</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">c_int</span> {
+    <span class="macro">debug</span><span class="macro">!</span>(<span class="string">&quot;wasm_open_input&quot;</span>);
+    <span class="kw">let</span> <span class="ident">fid</span> <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">fid</span>).<span class="ident">to_string_lossy</span>().<span class="ident">into_owned</span>() };
+    <span class="kw">match</span> <span class="ident">rtc_open_input</span>(<span class="kw-2">&amp;</span><span class="ident">fid</span>) {
+        <span class="prelude-val">Ok</span>(<span class="ident">handle</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="ident">handle</span> <span class="kw">as</span> <span class="ident">i32</span>,
+        <span class="prelude-val">Err</span>(<span class="ident">e</span>) <span class="op">=</span><span class="op">&gt;</span> {
+            <span class="macro">error</span><span class="macro">!</span>(<span class="string">&quot;wasm_open_input: {:?}&quot;</span>, <span class="ident">e</span>);
+            <span class="ident">FFI_FILE_ERROR_WASM</span>
+        }
+    }
+}
+
+<span class="comment">/*
  * uint c_create_output(char* file_id, int* out_fd);
- *
  */</span>
 <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused</span>)]</span>
 <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
@@ -763,10 +876,27 @@
 }
 
 <span class="comment">/*
- * uint c_read_file(int fd, void* out_buf, size_t buf_size, size_t* out_size_read);
+ * int teaclave_create_output(char* file_id);
  *
  */</span>
 
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused</span>)]</span>
+<span class="attribute">#[<span class="ident">no_mangle</span>]</span>
+<span class="kw">pub</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">wasm_create_output</span>(<span class="ident">_exec_env</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_void</span>, <span class="ident">fid</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_char</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">c_int</span> {
+    <span class="macro">debug</span><span class="macro">!</span>(<span class="string">&quot;wasm_create_output&quot;</span>);
+    <span class="kw">let</span> <span class="ident">fid</span> <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">fid</span>).<span class="ident">to_string_lossy</span>().<span class="ident">into_owned</span>() };
+    <span class="kw">match</span> <span class="ident">rtc_create_output</span>(<span class="kw-2">&amp;</span><span class="ident">fid</span>) {
+        <span class="prelude-val">Ok</span>(<span class="ident">handle</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="ident">handle</span> <span class="kw">as</span> <span class="ident">i32</span>,
+        <span class="prelude-val">Err</span>(<span class="ident">e</span>) <span class="op">=</span><span class="op">&gt;</span> {
+            <span class="macro">error</span><span class="macro">!</span>(<span class="string">&quot;wasm_create_output: {:?}&quot;</span>, <span class="ident">e</span>);
+            <span class="ident">FFI_FILE_ERROR_WASM</span>
+        }
+    }
+}
+
+<span class="comment">/*
+ * uint c_read_file(int fd, void* out_buf, size_t buf_size, size_t* out_size_read);
+ */</span>
 <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused</span>)]</span>
 <span class="attribute">#[<span class="ident">no_mangle</span>]</span>
 <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">c_read_file</span>(
@@ -788,6 +918,29 @@
         <span class="prelude-val">Err</span>(<span class="ident">e</span>) <span class="op">=</span><span class="op">&gt;</span> {
             <span class="macro">error</span><span class="macro">!</span>(<span class="string">&quot;c_read_file: {:?}&quot;</span>, <span class="ident">e</span>);
             <span class="ident">FFI_FILE_ERROR</span>
+        }
+    }
+}
+
+<span class="comment">/*
+ * int teaclave_read_file(int fd, void* out_buf, int buf_size);
+ */</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused</span>)]</span>
+<span class="attribute">#[<span class="ident">no_mangle</span>]</span>
+<span class="kw">pub</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">wasm_read_file</span>(
+    <span class="ident">_exec_env</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_void</span>,
+    <span class="ident">handle</span>: <span class="ident">c_int</span>,
+    <span class="ident">out_buf</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_uchar</span>,
+    <span class="ident">buf_size</span>: <span class="ident">c_int</span>,
+) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">c_int</span> {
+    <span class="macro">debug</span><span class="macro">!</span>(<span class="string">&quot;wasm_read_file&quot;</span>);
+    <span class="kw">let</span> <span class="ident">out</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> [<span class="ident">u8</span>] <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">slice</span>::<span class="ident">from_raw_parts_mut</span>(<span class="ident">out_buf</span>, <span class="ident">buf_size</span> <span class="kw">as</span> <span class="ident">usize</span>) };
+
+    <span class="kw">match</span> <span class="ident">rtc_read_handle</span>(<span class="ident">handle</span>, <span class="ident">out</span>) {
+        <span class="prelude-val">Ok</span>(<span class="ident">size</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="ident">size</span> <span class="kw">as</span> <span class="ident">i32</span>,
+        <span class="prelude-val">Err</span>(<span class="ident">e</span>) <span class="op">=</span><span class="op">&gt;</span> {
+            <span class="macro">error</span><span class="macro">!</span>(<span class="string">&quot;wasm_read_file: {:?}&quot;</span>, <span class="ident">e</span>);
+            <span class="ident">FFI_FILE_ERROR_WASM</span>
         }
     }
 }
@@ -821,6 +974,29 @@
 }
 
 <span class="comment">/*
+ * int teaclave_write_file(int fd, void* buf, size_t buf_size);
+ */</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused</span>)]</span>
+<span class="attribute">#[<span class="ident">no_mangle</span>]</span>
+<span class="kw">pub</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">wasm_write_file</span>(
+    <span class="ident">_exec_env</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_void</span>,
+    <span class="ident">handle</span>: <span class="ident">c_int</span>,
+    <span class="ident">in_buf</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_uchar</span>,
+    <span class="ident">buf_size</span>: <span class="ident">c_int</span>,
+) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">c_int</span> {
+    <span class="macro">debug</span><span class="macro">!</span>(<span class="string">&quot;wasm_write_file&quot;</span>);
+    <span class="kw">let</span> <span class="ident">in_buf</span>: <span class="kw-2">&amp;</span>[<span class="ident">u8</span>] <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">slice</span>::<span class="ident">from_raw_parts_mut</span>(<span class="ident">in_buf</span>, <span class="ident">buf_size</span> <span class="kw">as</span> <span class="ident">usize</span>) };
+
+    <span class="kw">match</span> <span class="ident">rtc_write_handle</span>(<span class="ident">handle</span>, <span class="ident">in_buf</span>) {
+        <span class="prelude-val">Ok</span>(<span class="ident">size</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="ident">size</span> <span class="kw">as</span> <span class="ident">i32</span>,
+        <span class="prelude-val">Err</span>(<span class="ident">e</span>) <span class="op">=</span><span class="op">&gt;</span> {
+            <span class="macro">error</span><span class="macro">!</span>(<span class="string">&quot;wasm_write_file: {:?}&quot;</span>, <span class="ident">e</span>);
+            <span class="ident">FFI_FILE_ERROR_WASM</span>
+        }
+    }
+}
+
+<span class="comment">/*
  * uint c_close_file(int fd);
  */</span>
 <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused</span>)]</span>
@@ -832,6 +1008,22 @@
         <span class="prelude-val">Err</span>(<span class="ident">e</span>) <span class="op">=</span><span class="op">&gt;</span> {
             <span class="macro">error</span><span class="macro">!</span>(<span class="string">&quot;c_close_file: {:?}&quot;</span>, <span class="ident">e</span>);
             <span class="ident">FFI_FILE_ERROR</span>
+        }
+    }
+}
+
+<span class="comment">/*
+ * int teaclave_close_file(int fd);
+ */</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused</span>)]</span>
+<span class="attribute">#[<span class="ident">no_mangle</span>]</span>
+<span class="kw">pub</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">wasm_close_file</span>(<span class="ident">_exec_env</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_void</span>, <span class="ident">handle</span>: <span class="ident">c_int</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">c_int</span> {
+    <span class="macro">debug</span><span class="macro">!</span>(<span class="string">&quot;wasm_close_file&quot;</span>);
+    <span class="kw">match</span> <span class="ident">rtc_close_handle</span>(<span class="ident">handle</span>) {
+        <span class="prelude-val">Ok</span>(<span class="ident">size</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="ident">FFI_OK</span> <span class="kw">as</span> <span class="ident">i32</span>,
+        <span class="prelude-val">Err</span>(<span class="ident">e</span>) <span class="op">=</span><span class="op">&gt;</span> {
+            <span class="macro">error</span><span class="macro">!</span>(<span class="string">&quot;wasm_close_file: {:?}&quot;</span>, <span class="ident">e</span>);
+            <span class="ident">FFI_FILE_ERROR_WASM</span>
         }
     }
 }
