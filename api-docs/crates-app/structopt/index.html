@@ -1,4 +1,7 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `structopt` crate."><meta name="keywords" content="rust, rustlang, rust-lang, structopt"><title>structopt - Rust</title><link rel="stylesheet" type="text/css" href="../normalize.css"><link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../dark.css"><link rel="stylesheet" type="text/css" href="../light.css" id="themeStyle"><script src="../storage.js"></script><noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="shortcut icon" href="../favicon.ico"><style type="text/css">#crate-search{background-image:url("../down-arrow.svg");}</style></head><body class="rustdoc mod"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../structopt/index.html'><div class='logo-container'><img src='../rust-logo.png' alt='logo'></div></a><p class='location'>Crate structopt</p><div class="sidebar-elems"><a id='all-types' href='all.html'><p>See all structopt's items</p></a><div class="block items"><ul><li><a href="#reexports">Re-exports</a></li><li><a href="#traits">Traits</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'structopt', ty: 'mod', relpath: '../'};</script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><a id="settings-menu" href="../settings.html"><img src="../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class='fqn'><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../src/structopt/lib.rs.html#9-1159' title='goto source code'>[src]</a></span><span class='in-band'>Crate <a class="mod" href=''>structopt</a></span></h1><div class='docblock'><p>This crate defines the <code>StructOpt</code> trait and its custom derive.</p>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `structopt` crate."><meta name="keywords" content="rust, rustlang, rust-lang, structopt"><title>structopt - Rust</title><link rel="stylesheet" type="text/css" href="../normalize.css"><link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../ayu.css" disabled ><script src="../storage.js"></script><noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="alternate icon" type="image/png" href="../favicon-16x16.png">
+<link rel="alternate icon" type="image/png" href="../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../down-arrow.svg");}</style></head><body class="rustdoc mod"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../structopt/index.html'><div class='logo-container rust-logo'><img src='../rust-logo.png' alt='logo'></div></a><p class="location">Crate structopt</p><div class="block version"><p>Version 0.3.22</p></div><div class="sidebar-elems"><a id="all-types" href="all.html"><p>See all structopt's items</p></a><div class="block items"><ul><li><a href="#reexports">Re-exports</a></li><li><a href="#traits">Traits</a></li></ul></div><p class="location"></p><script>window.sidebarCurrent = {name: "structopt", ty: "mod", relpath: "../"};</script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><span class="help-button">?</span>
+                <a id="settings-menu" href="../settings.html"><img src="../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class="fqn"><span class="out-of-band"><span id="render-detail"><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span><a class="srclink" href="../src/structopt/lib.rs.html#9-1218" title="goto source code">[src]</a></span><span class="in-band">Crate <a class="mod" href="">structopt</a></span></h1><div class="docblock"><p>This crate defines the <code>StructOpt</code> trait and its custom derive.</p>
 <h2 id="features" class="section-header"><a href="#features">Features</a></h2>
 <p>If you want to disable all the <code>clap</code> features (colors,
 suggestions, ..) add <code>default-features = false</code> to the <code>structopt</code>
@@ -42,11 +45,12 @@ paw = &quot;1.0&quot;
 </li>
 <li><a href="#flattening">Flattening</a></li>
 <li><a href="#custom-string-parsers">Custom string parsers</a></li>
+<li><a href="#generics">Generics</a></li>
 </ul>
 <h2 id="how-to-derivestructopt" class="section-header"><a href="#how-to-derivestructopt">How to <code>derive(StructOpt)</code></a></h2>
 <p>First, let's look at the example:</p>
 
-<div class="example-wrap"><pre class="rust rust-example-rendered">
+<div class='information'><div class='tooltip should_panic'>ⓘ<span class='tooltiptext'>This example panics</span></div></div><div class="example-wrap"><pre class="rust rust-example-rendered should_panic">
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">path</span>::<span class="ident">PathBuf</span>;
 <span class="kw">use</span> <span class="ident">structopt</span>::<span class="ident">StructOpt</span>;
 
@@ -75,9 +79,9 @@ paw = &quot;1.0&quot;
     <span class="attribute">#[<span class="ident">structopt</span>(<span class="ident">short</span>)]</span>
     <span class="ident">out_type</span>: <span class="ident">String</span>,
 
-    <span class="doccomment">/// File name: only required when `out` is set to `file`</span>
-    <span class="attribute">#[<span class="ident">structopt</span>(<span class="ident">name</span> <span class="op">=</span> <span class="string">&quot;FILE&quot;</span>, <span class="ident">required_if</span>(<span class="string">&quot;out_type&quot;</span>, <span class="string">&quot;file&quot;</span>))]</span>
-    <span class="ident">file_name</span>: <span class="ident">String</span>,
+    <span class="doccomment">/// File name: only required when `out-type` is set to `file`</span>
+    <span class="attribute">#[<span class="ident">structopt</span>(<span class="ident">name</span> <span class="op">=</span> <span class="string">&quot;FILE&quot;</span>, <span class="ident">required_if</span>(<span class="string">&quot;out-type&quot;</span>, <span class="string">&quot;file&quot;</span>))]</span>
+    <span class="ident">file_name</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span>,
 }
 
 <span class="kw">fn</span> <span class="ident">main</span>() {
@@ -100,7 +104,7 @@ It has a number of additional features, including access to underlying
 <hr />
 <h2 id="attributes" class="section-header"><a href="#attributes">Attributes</a></h2>
 <p>You can control the way <code>structopt</code> translates your struct into an actual
-<a href="../clap/app/struct.App.html" title="`clap::App`"><code>clap::App</code></a> invocation via <code>#[structopt(...)]</code> attributes.</p>
+<a href="../clap/app/struct.App.html" title="clap::App"><code>clap::App</code></a> invocation via <code>#[structopt(...)]</code> attributes.</p>
 <p>The attributes fall into two categories:</p>
 <ul>
 <li>
@@ -223,7 +227,7 @@ when no <code>version = &quot;version&quot;</code> mentioned.</p>
 </li>
 <li>
 <p><code>author</code>: <code>author [= &quot;author&quot;]</code></p>
-<p>Usable only on top level: <code>App::author(&quot;author&quot; or env!(CARGO_PKG_AUTHOR))</code>.</p>
+<p>Usable only on top level: <code>App::author(&quot;author&quot; or env!(CARGO_PKG_AUTHORS))</code>.</p>
 <p>Author/maintainer of the binary, this name appears in help messages.
 Defaults to the crate author given by cargo, but only when <code>author</code> explicitly mentioned.</p>
 </li>
@@ -248,7 +252,7 @@ but only when <code>about</code> explicitly mentioned.</p>
 </li>
 <li>
 <p><a href="#specifying-argument-types"><code>rename_all</code></a>:
-[<code>rename_all = &quot;kebab&quot;/&quot;snake&quot;/&quot;screaming-snake&quot;/&quot;camel&quot;/&quot;pascal&quot;/&quot;verbatim&quot;]</code></p>
+[<code>rename_all = &quot;kebab&quot;/&quot;snake&quot;/&quot;screaming-snake&quot;/&quot;camel&quot;/&quot;pascal&quot;/&quot;verbatim&quot;/&quot;lower&quot;/&quot;upper&quot;]</code></p>
 <p>Usable both on top level and field level.</p>
 </li>
 <li>
@@ -276,8 +280,8 @@ but only when <code>about</code> explicitly mentioned.</p>
 <p>Usable only on field-level.</p>
 </li>
 <li>
-<p><a href="##auto-deriving-environment-variables"><code>rename_all_env</code></a>:
-[<code>rename_all_env = &quot;kebab&quot;/&quot;snake&quot;/&quot;screaming-snake&quot;/&quot;camel&quot;/&quot;pascal&quot;/&quot;verbatim&quot;]</code></p>
+<p><a href="#auto-deriving-environment-variables"><code>rename_all_env</code></a>:
+[<code>rename_all_env = &quot;kebab&quot;/&quot;snake&quot;/&quot;screaming-snake&quot;/&quot;camel&quot;/&quot;pascal&quot;/&quot;verbatim&quot;/&quot;lower&quot;/&quot;upper&quot;]</code></p>
 <p>Usable both on top level and field level.</p>
 </li>
 <li>
@@ -452,7 +456,7 @@ If you really want to use the <code>App::help/long_help</code> methods (you like
 use a raw method to override the <code>App::about</code> call generated from the doc comment.</p>
 <hr />
 <h3 id="long_help-and---help" class="section-header"><a href="#long_help-and---help"><code>long_help</code> and <code>--help</code></a></h3>
-<p>A message passed to [<code>App::long_help</code>] or [<code>Arg::long_about</code>] will be displayed whenever
+<p>A message passed to <a href="https://docs.rs/clap/2/clap/struct.App.html#method.long_about"><code>App::long_about</code></a> or <a href="https://docs.rs/clap/2/clap/struct.Arg.html#method.long_help"><code>Arg::long_help</code></a> will be displayed whenever
 your program is called with <code>--help</code> instead of <code>-h</code>. Of course, you can
 use them via raw methods as described <a href="#help-messages">above</a>.</p>
 <p>The more convenient way is to use a so-called &quot;long&quot; doc comment:</p>
@@ -496,8 +500,8 @@ and the whole help message on <code>--help</code> (see below).</p>
 <span class="comment">// args...</span></pre></div>
 <h3 id="-h-vs---help-aka-help-vs-long_help" class="section-header"><a href="#-h-vs---help-aka-help-vs-long_help"><code>-h</code> vs <code>--help</code> (A.K.A <code>help()</code> vs <code>long_help()</code>)</a></h3>
 <p>The <code>-h</code> flag is not the same as <code>--help</code>.</p>
-<p>-h corresponds to Arg::help/App::about and requests short &quot;summary&quot; messages
-while --help corresponds to Arg::long_help/App::long_about and requests more
+<p>-h corresponds to <code>Arg::help/App::about</code> and requests short &quot;summary&quot; messages
+while --help corresponds to <code>Arg::long_help/App::long_about</code> and requests more
 detailed, descriptive messages.</p>
 <p>It is entirely up to <code>clap</code> what happens if you used only one of
 <a href="https://docs.rs/clap/2/clap/struct.Arg.html#method.help"><code>Arg::help</code></a>/<a href="https://docs.rs/clap/2/clap/struct.Arg.html#method.long_help"><code>Arg::long_help</code></a>, see <code>clap</code>'s documentation for these methods.</p>
@@ -890,7 +894,34 @@ flag even if it does not have type <code>bool</code>.</p>
 <p>In the <code>try_from_*</code> variants, the function will run twice on valid input:
 once to validate, and once to parse. Hence, make sure the function is
 side-effect-free.</p>
-</div><h2 id='reexports' class='section-header'><a href="#reexports">Re-exports</a></h2>
-<table><tr><td><code>pub use <a class="mod" href="../clap/index.html" title="mod clap">clap</a>;</code></td></tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
-<table><tr class='module-item'><td><a class="trait" href="trait.StructOpt.html" title='structopt::StructOpt trait'>StructOpt</a></td><td class='docblock-short'><p>A struct that is converted from command line arguments.</p>
-</td></tr></table></section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../";window.currentCrate = "structopt";</script><script src="../aliases.js"></script><script src="../main.js"></script><script defer src="../search-index.js"></script></body></html>
+<h2 id="generics" class="section-header"><a href="#generics">Generics</a></h2>
+<p>Generic structs and enums can be used. They require explicit trait bounds
+on any generic types that will be used by the <code>StructOpt</code> derive macro. In
+some cases, associated types will require additional bounds. See the usage
+of <code>FromStr</code> below for an example of this.</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered">
+<span class="kw">use</span> <span class="ident">std</span>::{<span class="ident">fmt</span>, <span class="ident">str</span>::<span class="ident">FromStr</span>};
+
+<span class="comment">// a struct with single custom argument</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">StructOpt</span>)]</span>
+<span class="kw">struct</span> <span class="ident">GenericArgs</span><span class="op">&lt;</span><span class="ident">T</span>:<span class="ident">FromStr</span><span class="op">&gt;</span> <span class="kw">where</span> <span class="op">&lt;</span><span class="ident">T</span> <span class="kw">as</span> <span class="ident">FromStr</span><span class="op">&gt;</span>::<span class="prelude-val">Err</span>: <span class="ident">fmt</span>::<span class="ident">Display</span> <span class="op">+</span> <span class="ident">fmt</span>::<span class="ident">Debug</span> {
+    <span class="ident">generic_arg_1</span>: <span class="ident">String</span>,
+    <span class="ident">generic_arg_2</span>: <span class="ident">String</span>,
+    <span class="ident">custom_arg_1</span>: <span class="ident">T</span>
+}</pre></div>
+<p>or</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered">
+<span class="comment">// a struct with multiple custom arguments in a substructure</span>
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">StructOpt</span>)]</span>
+<span class="kw">struct</span> <span class="ident">GenericArgs</span><span class="op">&lt;</span><span class="ident">T</span>:<span class="ident">StructOpt</span><span class="op">&gt;</span> {
+    <span class="ident">generic_arg_1</span>: <span class="ident">String</span>,
+    <span class="ident">generic_arg_2</span>: <span class="ident">String</span>,
+    <span class="attribute">#[<span class="ident">structopt</span>(<span class="ident">flatten</span>)]</span>
+    <span class="ident">custom_args</span>: <span class="ident">T</span>
+}</pre></div>
+</div><h2 id="reexports" class="section-header"><a href="#reexports">Re-exports</a></h2>
+<table><tr><td><code>pub use <a class="mod" href="../clap/index.html" title="mod clap">clap</a>;</code></td></tr></table><h2 id="traits" class="section-header"><a href="#traits">Traits</a></h2>
+<table><tr class="module-item"><td><a class="trait" href="trait.StructOpt.html" title="structopt::StructOpt trait">StructOpt</a></td><td class="docblock-short"><p>A struct that is converted from command line arguments.</p>
+</td></tr></table></section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../";window.currentCrate = "structopt";</script><script src="../main.js"></script><script defer src="../search-index.js"></script></body></html>

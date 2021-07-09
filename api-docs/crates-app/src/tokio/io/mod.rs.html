@@ -1,4 +1,7 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source to the Rust file `/home/mssun/incubator-teaclave/build/cmake_tomls/sgx_untrusted_app/third_party/crates-io/vendor/tokio/src/io/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs.html -- source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css"><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script src="../../../storage.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="shortcut icon" href="../../../favicon.ico"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../../tokio/index.html'><div class='logo-container'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/mssun/incubator-teaclave/build/cmake_tomls/sgx_untrusted_app/third_party/crates-io/vendor/tokio/src/io/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script src="../../../storage.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+<link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png">
+<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../../tokio/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><span class="help-button">?</span>
+                <a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -223,6 +226,37 @@
 <span id="223">223</span>
 <span id="224">224</span>
 <span id="225">225</span>
+<span id="226">226</span>
+<span id="227">227</span>
+<span id="228">228</span>
+<span id="229">229</span>
+<span id="230">230</span>
+<span id="231">231</span>
+<span id="232">232</span>
+<span id="233">233</span>
+<span id="234">234</span>
+<span id="235">235</span>
+<span id="236">236</span>
+<span id="237">237</span>
+<span id="238">238</span>
+<span id="239">239</span>
+<span id="240">240</span>
+<span id="241">241</span>
+<span id="242">242</span>
+<span id="243">243</span>
+<span id="244">244</span>
+<span id="245">245</span>
+<span id="246">246</span>
+<span id="247">247</span>
+<span id="248">248</span>
+<span id="249">249</span>
+<span id="250">250</span>
+<span id="251">251</span>
+<span id="252">252</span>
+<span id="253">253</span>
+<span id="254">254</span>
+<span id="255">255</span>
+<span id="256">256</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="attribute">#![<span class="ident">cfg_attr</span>(<span class="ident">loom</span>, <span class="ident">allow</span>(<span class="ident">dead_code</span>, <span class="ident">unreachable_pub</span>))]</span>
 
@@ -241,19 +275,19 @@
 <span class="doccomment">//! type will _yield_ to the Tokio scheduler when IO is not ready, rather than</span>
 <span class="doccomment">//! blocking. This allows other tasks to run while waiting on IO.</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! Another difference is that [`AsyncRead`] and [`AsyncWrite`] only contain</span>
+<span class="doccomment">//! Another difference is that `AsyncRead` and `AsyncWrite` only contain</span>
 <span class="doccomment">//! core methods needed to provide asynchronous reading and writing</span>
 <span class="doccomment">//! functionality. Instead, utility methods are defined in the [`AsyncReadExt`]</span>
 <span class="doccomment">//! and [`AsyncWriteExt`] extension traits. These traits are automatically</span>
-<span class="doccomment">//! implemented for all values that implement [`AsyncRead`] and [`AsyncWrite`]</span>
+<span class="doccomment">//! implemented for all values that implement `AsyncRead` and `AsyncWrite`</span>
 <span class="doccomment">//! respectively.</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! End users will rarely interact directly with [`AsyncRead`] and</span>
-<span class="doccomment">//! [`AsyncWrite`]. Instead, they will use the async functions defined in the</span>
-<span class="doccomment">//! extension traits. Library authors are expected to implement [`AsyncRead`]</span>
-<span class="doccomment">//! and [`AsyncWrite`] in order to provide types that behave like byte streams.</span>
+<span class="doccomment">//! End users will rarely interact directly with `AsyncRead` and</span>
+<span class="doccomment">//! `AsyncWrite`. Instead, they will use the async functions defined in the</span>
+<span class="doccomment">//! extension traits. Library authors are expected to implement `AsyncRead`</span>
+<span class="doccomment">//! and `AsyncWrite` in order to provide types that behave like byte streams.</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! Even with these differences, Tokio&#39;s [`AsyncRead`] and [`AsyncWrite`] traits</span>
+<span class="doccomment">//! Even with these differences, Tokio&#39;s `AsyncRead` and `AsyncWrite` traits</span>
 <span class="doccomment">//! can be used in almost exactly the same manner as the standard library&#39;s</span>
 <span class="doccomment">//! `Read` and `Write`. Most types in the standard library that implement `Read`</span>
 <span class="doccomment">//! and `Write` have asynchronous equivalents in `tokio` that implement</span>
@@ -283,7 +317,7 @@
 <span class="doccomment">//! [`File`]: crate::fs::File</span>
 <span class="doccomment">//! [`TcpStream`]: crate::net::TcpStream</span>
 <span class="doccomment">//! [`std::fs::File`]: std::fs::File</span>
-<span class="doccomment">//! [std_example]: https://doc.rust-lang.org/std/io/index.html#read-and-write</span>
+<span class="doccomment">//! [std_example]: std::io#read-and-write</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ## Buffered Readers and Writers</span>
 <span class="doccomment">//!</span>
@@ -319,7 +353,8 @@
 <span class="doccomment">//! ```</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! [`BufWriter`] doesn&#39;t add any new ways of writing; it just buffers every call</span>
-<span class="doccomment">//! to [`write`](crate::io::AsyncWriteExt::write):</span>
+<span class="doccomment">//! to [`write`](crate::io::AsyncWriteExt::write). However, you **must** flush</span>
+<span class="doccomment">//! [`BufWriter`] to ensure that any buffered data is written.</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ```no_run</span>
 <span class="doccomment">//! use tokio::io::{self, BufWriter, AsyncWriteExt};</span>
@@ -331,16 +366,19 @@
 <span class="doccomment">//!     {</span>
 <span class="doccomment">//!         let mut writer = BufWriter::new(f);</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//!         // write a byte to the buffer</span>
+<span class="doccomment">//!         // Write a byte to the buffer.</span>
 <span class="doccomment">//!         writer.write(&amp;[42u8]).await?;</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//!     } // the buffer is flushed once writer goes out of scope</span>
+<span class="doccomment">//!         // Flush the buffer before it goes out of scope.</span>
+<span class="doccomment">//!         writer.flush().await?;</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//!     } // Unless flushed or shut down, the contents of the buffer is discarded on drop.</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//!     Ok(())</span>
 <span class="doccomment">//! }</span>
 <span class="doccomment">//! ```</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! [stdbuf]: https://doc.rust-lang.org/std/io/index.html#bufreader-and-bufwriter</span>
+<span class="doccomment">//! [stdbuf]: std::io#bufreader-and-bufwriter</span>
 <span class="doccomment">//! [`std::io::BufRead`]: std::io::BufRead</span>
 <span class="doccomment">//! [`AsyncBufRead`]: crate::io::AsyncBufRead</span>
 <span class="doccomment">//! [`BufReader`]: crate::io::BufReader</span>
@@ -348,11 +386,25 @@
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ## Implementing AsyncRead and AsyncWrite</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! Because they are traits, we can implement `AsyncRead` and `AsyncWrite` for</span>
+<span class="doccomment">//! Because they are traits, we can implement [`AsyncRead`] and [`AsyncWrite`] for</span>
 <span class="doccomment">//! our own types, as well. Note that these traits must only be implemented for</span>
 <span class="doccomment">//! non-blocking I/O types that integrate with the futures type system. In</span>
 <span class="doccomment">//! other words, these types must never block the thread, and instead the</span>
 <span class="doccomment">//! current task is notified when the I/O resource is ready.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! ## Conversion to and from Sink/Stream</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! It is often convenient to encapsulate the reading and writing of</span>
+<span class="doccomment">//! bytes and instead work with a [`Sink`] or [`Stream`] of some data</span>
+<span class="doccomment">//! type that is encoded as bytes and/or decoded from bytes. Tokio</span>
+<span class="doccomment">//! provides some utility traits in the [tokio-util] crate that</span>
+<span class="doccomment">//! abstract the asynchronous buffering that is required and allows</span>
+<span class="doccomment">//! you to write [`Encoder`] and [`Decoder`] functions working with a</span>
+<span class="doccomment">//! buffer of bytes, and then use that [&quot;codec&quot;] to transform anything</span>
+<span class="doccomment">//! that implements [`AsyncRead`] and [`AsyncWrite`] into a `Sink`/`Stream` of</span>
+<span class="doccomment">//! your structured data.</span>
+<span class="doccomment">//!</span>
+<span class="doccomment">//! [tokio-util]: https://docs.rs/tokio-util/0.3/tokio_util/codec/index.html</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! # Standard input and output</span>
 <span class="doccomment">//!</span>
@@ -364,21 +416,29 @@
 <span class="doccomment">//! context of the Tokio runtime, as they require Tokio-specific features to</span>
 <span class="doccomment">//! function. Calling these functions outside of a Tokio runtime will panic.</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! [input]: fn.stdin.html</span>
-<span class="doccomment">//! [output]: fn.stdout.html</span>
-<span class="doccomment">//! [error]: fn.stderr.html</span>
+<span class="doccomment">//! [input]: fn@stdin</span>
+<span class="doccomment">//! [output]: fn@stdout</span>
+<span class="doccomment">//! [error]: fn@stderr</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! # `std` re-exports</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! Additionally, [`Error`], [`ErrorKind`], and [`Result`] are re-exported</span>
-<span class="doccomment">//! from `std::io` for ease of use.</span>
+<span class="doccomment">//! Additionally, [`Error`], [`ErrorKind`], [`Result`], and [`SeekFrom`] are</span>
+<span class="doccomment">//! re-exported from `std::io` for ease of use.</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! [`AsyncRead`]: trait.AsyncRead.html</span>
-<span class="doccomment">//! [`AsyncWrite`]: trait.AsyncWrite.html</span>
-<span class="doccomment">//! [`Error`]: struct.Error.html</span>
-<span class="doccomment">//! [`ErrorKind`]: enum.ErrorKind.html</span>
-<span class="doccomment">//! [`Result`]: type.Result.html</span>
+<span class="doccomment">//! [`AsyncRead`]: trait@AsyncRead</span>
+<span class="doccomment">//! [`AsyncWrite`]: trait@AsyncWrite</span>
+<span class="doccomment">//! [`AsyncReadExt`]: trait@AsyncReadExt</span>
+<span class="doccomment">//! [`AsyncWriteExt`]: trait@AsyncWriteExt</span>
+<span class="doccomment">//! [&quot;codec&quot;]: https://docs.rs/tokio-util/0.3/tokio_util/codec/index.html</span>
+<span class="doccomment">//! [`Encoder`]: https://docs.rs/tokio-util/0.3/tokio_util/codec/trait.Encoder.html</span>
+<span class="doccomment">//! [`Decoder`]: https://docs.rs/tokio-util/0.3/tokio_util/codec/trait.Decoder.html</span>
+<span class="doccomment">//! [`Error`]: struct@Error</span>
+<span class="doccomment">//! [`ErrorKind`]: enum@ErrorKind</span>
+<span class="doccomment">//! [`Result`]: type@Result</span>
 <span class="doccomment">//! [`Read`]: std::io::Read</span>
+<span class="doccomment">//! [`SeekFrom`]: enum@SeekFrom</span>
+<span class="doccomment">//! [`Sink`]: https://docs.rs/futures/0.3/futures/sink/trait.Sink.html</span>
+<span class="doccomment">//! [`Stream`]: crate::stream::Stream</span>
 <span class="doccomment">//! [`Write`]: std::io::Write</span>
 <span class="macro">cfg_io_blocking</span><span class="macro">!</span> {
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">mod</span> <span class="ident">blocking</span>;
@@ -395,6 +455,10 @@
 
 <span class="kw">mod</span> <span class="ident">async_write</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="self">self</span>::<span class="ident">async_write</span>::<span class="ident">AsyncWrite</span>;
+
+<span class="comment">// Re-export some types from `std::io` so that users don&#39;t have to deal</span>
+<span class="comment">// with conflicts when `use`ing `tokio::io` and `std::io`.</span>
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">io</span>::{<span class="ident">Error</span>, <span class="ident">ErrorKind</span>, <span class="prelude-ty">Result</span>, <span class="ident">SeekFrom</span>};
 
 <span class="macro">cfg_io_driver</span><span class="macro">!</span> {
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">mod</span> <span class="ident">driver</span>;
@@ -426,13 +490,14 @@
 
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">mod</span> <span class="ident">util</span>;
     <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">util</span>::{
-        <span class="ident">copy</span>, <span class="ident">empty</span>, <span class="ident">repeat</span>, <span class="ident">sink</span>, <span class="ident">AsyncBufReadExt</span>, <span class="ident">AsyncReadExt</span>, <span class="ident">AsyncSeekExt</span>, <span class="ident">AsyncWriteExt</span>, <span class="ident">BufReader</span>,
-        <span class="ident">BufStream</span>, <span class="ident">BufWriter</span>, <span class="ident">Copy</span>, <span class="ident">Empty</span>, <span class="ident">Lines</span>, <span class="ident">Repeat</span>, <span class="ident">Sink</span>, <span class="ident">Split</span>, <span class="ident">Take</span>,
+        <span class="ident">copy</span>, <span class="ident">duplex</span>, <span class="ident">empty</span>, <span class="ident">repeat</span>, <span class="ident">sink</span>, <span class="ident">AsyncBufReadExt</span>, <span class="ident">AsyncReadExt</span>, <span class="ident">AsyncSeekExt</span>, <span class="ident">AsyncWriteExt</span>,
+        <span class="ident">BufReader</span>, <span class="ident">BufStream</span>, <span class="ident">BufWriter</span>, <span class="ident">DuplexStream</span>, <span class="ident">Copy</span>, <span class="ident">Empty</span>, <span class="ident">Lines</span>, <span class="ident">Repeat</span>, <span class="ident">Sink</span>, <span class="ident">Split</span>, <span class="ident">Take</span>,
     };
 
-    <span class="comment">// Re-export io::Error so that users don&#39;t have to deal with conflicts when</span>
-    <span class="comment">// `use`ing `tokio::io` and `std::io`.</span>
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">io</span>::{<span class="ident">Error</span>, <span class="ident">ErrorKind</span>, <span class="prelude-ty">Result</span>};
+    <span class="macro">cfg_stream</span><span class="macro">!</span> {
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">util</span>::{<span class="ident">stream_reader</span>, <span class="ident">StreamReader</span>};
+        <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">util</span>::{<span class="ident">reader_stream</span>, <span class="ident">ReaderStream</span>};
+    }
 }
 
 <span class="macro">cfg_not_io_util</span><span class="macro">!</span> {
@@ -450,4 +515,4 @@
     }
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../../";window.currentCrate = "tokio";</script><script src="../../../aliases.js"></script><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script><script defer src="../../../search-index.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../../";window.currentCrate = "tokio";</script><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script><script defer src="../../../search-index.js"></script></body></html>

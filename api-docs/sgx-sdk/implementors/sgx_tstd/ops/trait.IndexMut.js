@@ -1,3 +1,3 @@
 (function() {var implementors = {};
-implementors["sgx_tstd"] = [{"text":"impl <a class=\"trait\" href=\"sgx_tstd/ops/trait.IndexMut.html\" title=\"trait sgx_tstd::ops::IndexMut\">IndexMut</a>&lt;<a class=\"struct\" href=\"sgx_tstd/ops/struct.RangeFull.html\" title=\"struct sgx_tstd::ops::RangeFull\">RangeFull</a>&gt; for <a class=\"struct\" href=\"sgx_tstd/ffi/struct.OsString.html\" title=\"struct sgx_tstd::ffi::OsString\">OsString</a>","synthetic":false,"types":["sgx_tstd::ffi::os_str::OsString"]}];
+implementors["sgx_tstd"] = [{"text":"impl IndexMut&lt;RangeFull&gt; for OsString","synthetic":false,"types":[]}];
 if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

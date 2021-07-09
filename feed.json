@@ -13,32 +13,32 @@
             "date_modified": "2019-12-03T00:00:00.000Z"
         },
         {
-            "id": "https://teaclave.apache.org/blog/2019-08-19-apache-incubation-proposal/",
-            "url": "https://teaclave.apache.org/blog/2019-08-19-apache-incubation-proposal/",
-            "title": "Aapache Incubation Proposal",
-            "summary": "Website: https://mesatee.org\n  Documentation: https://mesatee.org/doc/mesatee_sdk/",
-            "date_modified": "2019-08-20T00:00:00.000Z"
-        },
-        {
             "id": "https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/",
             "url": "https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/",
             "title": "Podling Teaclave Report - January 2020",
-            "summary": "Resolve all renaming issues of INFRA (INFRA-19532)\n  Refactor components: teaclaveutils, teaclaveconfig,\nteaclavecli, teaclavebinder\n  Rewrite README.md to clearly explain the project's highlights in\nsecurity, functionality, and usability.\n  Start to use protobuf for RPC definition\n  SGX SDK starts to use Intel SGX SDK v2.7.1",
+            "summary": "labeled with \"good first issues\" is more approachable for newcomers.",
             "date_modified": "2020-01-01T00:00:00.000Z"
         },
         {
-            "id": "https://teaclave.apache.org/blog/2020-03-31-podling-teaclave-report-april-2020/",
-            "url": "https://teaclave.apache.org/blog/2020-03-31-podling-teaclave-report-april-2020/",
-            "title": "Podling Teaclave Report - April 2020",
-            "summary": "have redesigned current services into seven core services\nincluding access control,\n    authentication, execution, frontend, management, scheduler, and storage\n    service. Communication protocols between services are defined in protobuf.\n  RPC between services has been redesigned to supported TLS-based attestation.\n  We have added DCAP attestation algorithm in the platform so that people can\n    deploy the system in environments without Intel's attestation service.\n  Communication between app and enclave has been also redesigned\nwith better APIs.\n  All updates is currently in the develop branch. We plan to merge\ninto master\n    when main refactoring is done.",
-            "date_modified": "2020-04-01T00:00:00.000Z"
+            "id": "https://teaclave.apache.org/blog/2019-08-19-apache-incubation-proposal/",
+            "url": "https://teaclave.apache.org/blog/2019-08-19-apache-incubation-proposal/",
+            "title": "Aapache Incubation Proposal",
+            "summary": "computing, and blockchain are significantly boosting our productivity, but at\nthe same time they are bringing new confidentiality and integrity concerns. On\npublic cloud and blockchain, sensitive data like health and financial records\nmay be consumed at runtime by untrusted computing processes running on\ncompromised platforms; during in-house data exchange, confidential information\nmay cross different clearance boundaries and possibly fall into the wrong hands;\nalso not to mention the privacy issue arises in offshore data supply chains.",
+            "date_modified": "2019-08-20T00:00:00.000Z"
         },
         {
             "id": "https://teaclave.apache.org/blog/2020-06-28-podling-teaclave-report-july-2020/",
             "url": "https://teaclave.apache.org/blog/2020-06-28-podling-teaclave-report-july-2020/",
             "title": "Podling Teaclave Report - July 2020",
-            "summary": "debugging tips and Rust development guideline.\n Codebase: Documents for each sub-directory (i.e., libraries in Teaclave).\n API Docs: Generated API documentations like APIs of Client SDK.",
+            "summary": "licenses of third-party libraries.",
             "date_modified": "2020-06-29T00:00:00.000Z"
+        },
+        {
+            "id": "https://teaclave.apache.org/blog/2020-03-31-podling-teaclave-report-april-2020/",
+            "url": "https://teaclave.apache.org/blog/2020-03-31-podling-teaclave-report-april-2020/",
+            "title": "Podling Teaclave Report - April 2020",
+            "summary": "RPC between services has been redesigned to supported TLS-based attestation.\n  We have added DCAP attestation algorithm in the platform so that people can\n    deploy the system in environments without Intel's attestation service.\n  Communication between app and enclave has been also redesigned\nwith better APIs.\n  All updates is currently in the develop branch. We plan to merge\ninto master\n    when main refactoring is done.",
+            "date_modified": "2020-04-01T00:00:00.000Z"
         },
         {
             "id": "https://teaclave.apache.org/blog/2020-10-11-podling-teaclave-report-october-2020/",

@@ -1,4 +1,7 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source to the Rust file `/home/mssun/incubator-teaclave/build/cmake_tomls/sgx_untrusted_app/third_party/crates-io/vendor/http/src/header/map.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>map.rs.html -- source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css"><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script src="../../../storage.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="shortcut icon" href="../../../favicon.ico"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../../http/index.html'><div class='logo-container'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">   1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/mssun/incubator-teaclave/build/cmake_tomls/sgx_untrusted_app/third_party/crates-io/vendor/http/src/header/map.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>map.rs - source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled ><script src="../../../storage.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../../favicon.svg">
+<link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png">
+<link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../../http/index.html'><div class='logo-container rust-logo'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><span class="help-button">?</span>
+                <a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">   1</span>
 <span id="2">   2</span>
 <span id="3">   3</span>
 <span id="4">   4</span>
@@ -3487,6 +3490,37 @@
 <span id="3487">3487</span>
 <span id="3488">3488</span>
 <span id="3489">3489</span>
+<span id="3490">3490</span>
+<span id="3491">3491</span>
+<span id="3492">3492</span>
+<span id="3493">3493</span>
+<span id="3494">3494</span>
+<span id="3495">3495</span>
+<span id="3496">3496</span>
+<span id="3497">3497</span>
+<span id="3498">3498</span>
+<span id="3499">3499</span>
+<span id="3500">3500</span>
+<span id="3501">3501</span>
+<span id="3502">3502</span>
+<span id="3503">3503</span>
+<span id="3504">3504</span>
+<span id="3505">3505</span>
+<span id="3506">3506</span>
+<span id="3507">3507</span>
+<span id="3508">3508</span>
+<span id="3509">3509</span>
+<span id="3510">3510</span>
+<span id="3511">3511</span>
+<span id="3512">3512</span>
+<span id="3513">3513</span>
+<span id="3514">3514</span>
+<span id="3515">3515</span>
+<span id="3516">3516</span>
+<span id="3517">3517</span>
+<span id="3518">3518</span>
+<span id="3519">3519</span>
+<span id="3520">3520</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">collections</span>::<span class="ident">HashMap</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">collections</span>::<span class="ident">hash_map</span>::<span class="ident">RandomState</span>;
@@ -3696,10 +3730,8 @@
 <span class="doccomment">/// An drain iterator of all values associated with a single header name.</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ValueDrain</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">T</span><span class="op">&gt;</span> {
-    <span class="ident">raw_links</span>: <span class="ident">RawLinks</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>,
-    <span class="ident">extra_values</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">ExtraValue</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span>,
     <span class="ident">first</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>,
-    <span class="ident">next</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;</span>,
+    <span class="ident">next</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span>::<span class="ident">std</span>::<span class="ident">vec</span>::<span class="ident">IntoIter</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span>,
     <span class="ident">lt</span>: <span class="ident">PhantomData</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="kw-2">mut</span> <span class="ident">HeaderMap</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span>,
 }
 
@@ -3722,10 +3754,10 @@
 <span class="doccomment">/// You may notice that `u16` may represent more than 32,768 values. This is</span>
 <span class="doccomment">/// true, but 32,768 should be plenty and it allows us to reserve the top bit</span>
 <span class="doccomment">/// for future usage.</span>
-<span class="kw">type</span> <span class="ident">Size</span> <span class="op">=</span> <span class="ident">usize</span>;
+<span class="kw">type</span> <span class="ident">Size</span> <span class="op">=</span> <span class="ident">u16</span>;
 
 <span class="doccomment">/// This limit falls out from above.</span>
-<span class="kw">const</span> <span class="ident">MAX_SIZE</span>: <span class="ident">usize</span> <span class="op">=</span> (<span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">15</span>);
+<span class="kw">const</span> <span class="ident">MAX_SIZE</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="number">15</span>;
 
 <span class="doccomment">/// An entry in the hash table. This represents the full hash code for an entry</span>
 <span class="doccomment">/// as well as the position of the entry in the `entries` vector.</span>
@@ -3742,7 +3774,7 @@
 <span class="doccomment">/// bits is fine since we know that the `indices` vector will never grow beyond</span>
 <span class="doccomment">/// that size.</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">Eq</span>, <span class="ident">PartialEq</span>)]</span>
-<span class="kw">struct</span> <span class="ident">HashValue</span>(<span class="ident">usize</span>);
+<span class="kw">struct</span> <span class="ident">HashValue</span>(<span class="ident">u16</span>);
 
 <span class="doccomment">/// Stores the data associated with a `HeaderMap` entry. Only the first value is</span>
 <span class="doccomment">/// included in this struct. If a header name has more than one associated</span>
@@ -3888,11 +3920,11 @@
                     <span class="comment">//</span>
                     <span class="comment">// Check if this insertion is above the danger threshold.</span>
                     <span class="kw">let</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">danger</span> <span class="op">=</span>
-                        <span class="ident">dist</span> <span class="op">&gt;</span><span class="op">=</span> <span class="ident">FORWARD_SHIFT_THRESHOLD</span> <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="op">!</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">map</span>.<span class="ident">danger</span>.<span class="ident">is_red</span>();
+                        <span class="ident">dist</span> <span class="op">&gt;</span><span class="op">=</span> <span class="ident">FORWARD_SHIFT_THRESHOLD</span> <span class="op">&amp;&amp;</span> <span class="op">!</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">map</span>.<span class="ident">danger</span>.<span class="ident">is_red</span>();
 
                     <span class="ident">ret</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">robinhood</span>;
                     <span class="kw">break</span> <span class="lifetime">&#39;probe</span>;
-                } <span class="kw">else</span> <span class="kw">if</span> <span class="ident">entry_hash</span> <span class="op">=</span><span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">hash</span> <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">map</span>.<span class="ident">entries</span>[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">pos</span>].<span class="ident">key</span> <span class="op">=</span><span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">key</span> {
+                } <span class="kw">else</span> <span class="kw">if</span> <span class="ident">entry_hash</span> <span class="op">=</span><span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">hash</span> <span class="op">&amp;&amp;</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">map</span>.<span class="ident">entries</span>[<span class="macro-nonterminal">$</span><span class="macro-nonterminal">pos</span>].<span class="ident">key</span> <span class="op">=</span><span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">key</span> {
                     <span class="comment">// There already is an entry with the same key.</span>
                     <span class="ident">ret</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">occupied</span>;
                     <span class="kw">break</span> <span class="lifetime">&#39;probe</span>;
@@ -3900,7 +3932,7 @@
             } <span class="kw">else</span> {
                 <span class="comment">// The entry is vacant, use it for this key.</span>
                 <span class="kw">let</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">danger</span> <span class="op">=</span>
-                    <span class="ident">dist</span> <span class="op">&gt;</span><span class="op">=</span> <span class="ident">FORWARD_SHIFT_THRESHOLD</span> <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="op">!</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">map</span>.<span class="ident">danger</span>.<span class="ident">is_red</span>();
+                    <span class="ident">dist</span> <span class="op">&gt;</span><span class="op">=</span> <span class="ident">FORWARD_SHIFT_THRESHOLD</span> <span class="op">&amp;&amp;</span> <span class="op">!</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">map</span>.<span class="ident">danger</span>.<span class="ident">is_red</span>();
 
                 <span class="ident">ret</span> <span class="op">=</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">vacant</span>;
                 <span class="kw">break</span> <span class="lifetime">&#39;probe</span>;
@@ -3955,8 +3987,6 @@
     <span class="doccomment">/// assert_eq!(12, map.capacity());</span>
     <span class="doccomment">/// ```</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">with_capacity</span>(<span class="ident">capacity</span>: <span class="ident">usize</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">HeaderMap</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
-        <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">capacity</span> <span class="op">&lt;</span><span class="op">=</span> <span class="ident">MAX_SIZE</span>, <span class="string">&quot;requested capacity too large&quot;</span>);
-
         <span class="kw">if</span> <span class="ident">capacity</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> {
             <span class="ident">HeaderMap</span> {
                 <span class="ident">mask</span>: <span class="number">0</span>,
@@ -3967,6 +3997,7 @@
             }
         } <span class="kw">else</span> {
             <span class="kw">let</span> <span class="ident">raw_cap</span> <span class="op">=</span> <span class="ident">to_raw_capacity</span>(<span class="ident">capacity</span>).<span class="ident">next_power_of_two</span>();
+            <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">raw_cap</span> <span class="op">&lt;</span><span class="op">=</span> <span class="ident">MAX_SIZE</span>, <span class="string">&quot;requested capacity too large&quot;</span>);
             <span class="macro">debug_assert</span><span class="macro">!</span>(<span class="ident">raw_cap</span> <span class="op">&gt;</span> <span class="number">0</span>);
 
             <span class="ident">HeaderMap</span> {
@@ -4132,11 +4163,11 @@
 
         <span class="kw">if</span> <span class="ident">cap</span> <span class="op">&gt;</span> <span class="self">self</span>.<span class="ident">indices</span>.<span class="ident">len</span>() {
             <span class="kw">let</span> <span class="ident">cap</span> <span class="op">=</span> <span class="ident">cap</span>.<span class="ident">next_power_of_two</span>();
-            <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">cap</span> <span class="op">&lt;</span> <span class="ident">MAX_SIZE</span>, <span class="string">&quot;header map reserve over max capacity&quot;</span>);
+            <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">cap</span> <span class="op">&lt;</span><span class="op">=</span> <span class="ident">MAX_SIZE</span>, <span class="string">&quot;header map reserve over max capacity&quot;</span>);
             <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">cap</span> <span class="op">!</span><span class="op">=</span> <span class="number">0</span>, <span class="string">&quot;header map reserve overflowed&quot;</span>);
 
             <span class="kw">if</span> <span class="self">self</span>.<span class="ident">entries</span>.<span class="ident">len</span>() <span class="op">=</span><span class="op">=</span> <span class="number">0</span> {
-                <span class="self">self</span>.<span class="ident">mask</span> <span class="op">=</span> <span class="ident">cap</span> <span class="op">-</span> <span class="number">1</span>;
+                <span class="self">self</span>.<span class="ident">mask</span> <span class="op">=</span> <span class="ident">cap</span> <span class="kw">as</span> <span class="ident">Size</span> <span class="op">-</span> <span class="number">1</span>;
                 <span class="self">self</span>.<span class="ident">indices</span> <span class="op">=</span> <span class="macro">vec</span><span class="macro">!</span>[<span class="ident">Pos</span>::<span class="ident">none</span>(); <span class="ident">cap</span>].<span class="ident">into_boxed_slice</span>();
                 <span class="self">self</span>.<span class="ident">entries</span> <span class="op">=</span> <span class="ident">Vec</span>::<span class="ident">with_capacity</span>(<span class="ident">usable_capacity</span>(<span class="ident">cap</span>));
             } <span class="kw">else</span> {
@@ -4684,13 +4715,16 @@
         }
 
         <span class="kw">let</span> <span class="ident">raw_links</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">raw_links</span>();
-        <span class="kw">let</span> <span class="ident">extra_values</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>.<span class="ident">extra_values</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>;
+        <span class="kw">let</span> <span class="ident">extra_values</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>.<span class="ident">extra_values</span>;
+
+        <span class="kw">let</span> <span class="ident">next</span> <span class="op">=</span> <span class="ident">links</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">l</span><span class="op">|</span> {
+            <span class="ident">drain_all_extra_values</span>(<span class="ident">raw_links</span>, <span class="ident">extra_values</span>, <span class="ident">l</span>.<span class="ident">next</span>)
+                .<span class="ident">into_iter</span>()
+        });
 
         <span class="ident">ValueDrain</span> {
-            <span class="ident">raw_links</span>,
-            <span class="ident">extra_values</span>,
             <span class="ident">first</span>: <span class="prelude-val">Some</span>(<span class="ident">old</span>),
-            <span class="ident">next</span>: <span class="ident">links</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">l</span><span class="op">|</span> <span class="ident">l</span>.<span class="ident">next</span>),
+            <span class="ident">next</span>: <span class="ident">next</span>,
             <span class="ident">lt</span>: <span class="ident">PhantomData</span>,
         }
     }
@@ -4785,7 +4819,7 @@
                 <span class="kw">if</span> <span class="ident">dist</span> <span class="op">&gt;</span> <span class="ident">probe_distance</span>(<span class="ident">mask</span>, <span class="ident">entry_hash</span>, <span class="ident">probe</span>) {
                     <span class="comment">// give up when probe distance is too long</span>
                     <span class="kw">return</span> <span class="prelude-val">None</span>;
-                } <span class="kw">else</span> <span class="kw">if</span> <span class="ident">entry_hash</span> <span class="op">=</span><span class="op">=</span> <span class="ident">hash</span> <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="self">self</span>.<span class="ident">entries</span>[<span class="ident">i</span>].<span class="ident">key</span> <span class="op">=</span><span class="op">=</span> <span class="kw-2">*</span><span class="ident">key</span> {
+                } <span class="kw">else</span> <span class="kw">if</span> <span class="ident">entry_hash</span> <span class="op">=</span><span class="op">=</span> <span class="ident">hash</span> <span class="op">&amp;&amp;</span> <span class="self">self</span>.<span class="ident">entries</span>[<span class="ident">i</span>].<span class="ident">key</span> <span class="op">=</span><span class="op">=</span> <span class="kw-2">*</span><span class="ident">key</span> {
                     <span class="kw">return</span> <span class="prelude-val">Some</span>((<span class="ident">probe</span>, <span class="ident">i</span>));
                 }
             } <span class="kw">else</span> {
@@ -4859,6 +4893,10 @@
     }
 
     <span class="doccomment">/// Remove an entry from the map.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// Warning: To avoid inconsistent state, extra values _must_ be removed</span>
+    <span class="doccomment">/// for the `found` index (via `remove_all_extra_values` or similar)</span>
+    <span class="doccomment">/// _before_ this method is called.</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">fn</span> <span class="ident">remove_found</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">probe</span>: <span class="ident">usize</span>, <span class="ident">found</span>: <span class="ident">usize</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Bucket</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
         <span class="comment">// index `probe` and entry `found` is to be removed</span>
@@ -5033,6 +5071,7 @@
 
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">fn</span> <span class="ident">grow</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">new_raw_cap</span>: <span class="ident">usize</span>) {
+        <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">new_raw_cap</span> <span class="op">&lt;</span><span class="op">=</span> <span class="ident">MAX_SIZE</span>, <span class="string">&quot;requested capacity too large&quot;</span>);
         <span class="comment">// This path can never be reached when handling the first allocation in</span>
         <span class="comment">// the map.</span>
 
@@ -5077,7 +5116,12 @@
 
 <span class="doccomment">/// Removes the `ExtraValue` at the given index.</span>
 <span class="attribute">#[<span class="ident">inline</span>]</span>
-<span class="kw">fn</span> <span class="ident">remove_extra_value</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>(<span class="kw-2">mut</span> <span class="ident">raw_links</span>: <span class="ident">RawLinks</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>, <span class="ident">extra_values</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">ExtraValue</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span>, <span class="ident">idx</span>: <span class="ident">usize</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ExtraValue</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
+<span class="kw">fn</span> <span class="ident">remove_extra_value</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>(
+    <span class="kw-2">mut</span> <span class="ident">raw_links</span>: <span class="ident">RawLinks</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>,
+    <span class="ident">extra_values</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">ExtraValue</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span>,
+    <span class="ident">idx</span>: <span class="ident">usize</span>)
+    <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ExtraValue</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>
+{
     <span class="kw">let</span> <span class="ident">prev</span>;
     <span class="kw">let</span> <span class="ident">next</span>;
 
@@ -5191,6 +5235,26 @@
     });
 
     <span class="ident">extra</span>
+}
+
+<span class="kw">fn</span> <span class="ident">drain_all_extra_values</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>(
+    <span class="ident">raw_links</span>: <span class="ident">RawLinks</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>,
+    <span class="ident">extra_values</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">ExtraValue</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span>,
+    <span class="kw-2">mut</span> <span class="ident">head</span>: <span class="ident">usize</span>)
+    <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>
+{
+    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">vec</span> <span class="op">=</span> <span class="ident">Vec</span>::<span class="ident">new</span>();
+    <span class="kw">loop</span> {
+        <span class="kw">let</span> <span class="ident">extra</span> <span class="op">=</span> <span class="ident">remove_extra_value</span>(<span class="ident">raw_links</span>, <span class="ident">extra_values</span>, <span class="ident">head</span>);
+        <span class="ident">vec</span>.<span class="ident">push</span>(<span class="ident">extra</span>.<span class="ident">value</span>);
+
+        <span class="kw">if</span> <span class="kw">let</span> <span class="ident">Link</span>::<span class="ident">Extra</span>(<span class="ident">idx</span>) <span class="op">=</span> <span class="ident">extra</span>.<span class="ident">next</span> {
+            <span class="ident">head</span> <span class="op">=</span> <span class="ident">idx</span>;
+        } <span class="kw">else</span> {
+            <span class="kw">break</span>;
+        }
+    }
+    <span class="ident">vec</span>
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">T</span><span class="op">&gt;</span> <span class="ident">IntoIterator</span> <span class="kw">for</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">HeaderMap</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
@@ -6412,11 +6476,11 @@
     <span class="doccomment">/// assert!(!map.contains_key(&quot;host&quot;));</span>
     <span class="doccomment">/// ```</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">remove_entry</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> (<span class="ident">HeaderName</span>, <span class="ident">T</span>) {
-        <span class="kw">let</span> <span class="ident">entry</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">map</span>.<span class="ident">remove_found</span>(<span class="self">self</span>.<span class="ident">probe</span>, <span class="self">self</span>.<span class="ident">index</span>);
-
-        <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">links</span>) <span class="op">=</span> <span class="ident">entry</span>.<span class="ident">links</span> {
+        <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">links</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">map</span>.<span class="ident">entries</span>[<span class="self">self</span>.<span class="ident">index</span>].<span class="ident">links</span> {
             <span class="self">self</span>.<span class="ident">map</span>.<span class="ident">remove_all_extra_values</span>(<span class="ident">links</span>.<span class="ident">next</span>);
         }
+
+        <span class="kw">let</span> <span class="ident">entry</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">map</span>.<span class="ident">remove_found</span>(<span class="self">self</span>.<span class="ident">probe</span>, <span class="self">self</span>.<span class="ident">index</span>);
 
         (<span class="ident">entry</span>.<span class="ident">key</span>, <span class="ident">entry</span>.<span class="ident">value</span>)
     }
@@ -6426,14 +6490,19 @@
     <span class="doccomment">/// The key and all values associated with the entry are removed and</span>
     <span class="doccomment">/// returned.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">remove_entry_mult</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> (<span class="ident">HeaderName</span>, <span class="ident">ValueDrain</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">T</span><span class="op">&gt;</span>) {
-        <span class="kw">let</span> <span class="ident">entry</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">map</span>.<span class="ident">remove_found</span>(<span class="self">self</span>.<span class="ident">probe</span>, <span class="self">self</span>.<span class="ident">index</span>);
         <span class="kw">let</span> <span class="ident">raw_links</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">map</span>.<span class="ident">raw_links</span>();
-        <span class="kw">let</span> <span class="ident">extra_values</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>.<span class="ident">map</span>.<span class="ident">extra_values</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="kw">_</span>;
+        <span class="kw">let</span> <span class="ident">extra_values</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>.<span class="ident">map</span>.<span class="ident">extra_values</span>;
+
+        <span class="kw">let</span> <span class="ident">next</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">map</span>.<span class="ident">entries</span>[<span class="self">self</span>.<span class="ident">index</span>].<span class="ident">links</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">l</span><span class="op">|</span> {
+            <span class="ident">drain_all_extra_values</span>(<span class="ident">raw_links</span>, <span class="ident">extra_values</span>, <span class="ident">l</span>.<span class="ident">next</span>)
+                .<span class="ident">into_iter</span>()
+        });
+
+        <span class="kw">let</span> <span class="ident">entry</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">map</span>.<span class="ident">remove_found</span>(<span class="self">self</span>.<span class="ident">probe</span>, <span class="self">self</span>.<span class="ident">index</span>);
+
         <span class="kw">let</span> <span class="ident">drain</span> <span class="op">=</span> <span class="ident">ValueDrain</span> {
-            <span class="ident">raw_links</span>,
-            <span class="ident">extra_values</span>,
             <span class="ident">first</span>: <span class="prelude-val">Some</span>(<span class="ident">entry</span>.<span class="ident">value</span>),
-            <span class="ident">next</span>: <span class="ident">entry</span>.<span class="ident">links</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">l</span><span class="op">|</span> <span class="ident">l</span>.<span class="ident">next</span>),
+            <span class="ident">next</span>,
             <span class="ident">lt</span>: <span class="ident">PhantomData</span>,
         };
         (<span class="ident">entry</span>.<span class="ident">key</span>, <span class="ident">drain</span>)
@@ -6526,31 +6595,26 @@
     <span class="kw">fn</span> <span class="ident">next</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
         <span class="kw">if</span> <span class="self">self</span>.<span class="ident">first</span>.<span class="ident">is_some</span>() {
             <span class="self">self</span>.<span class="ident">first</span>.<span class="ident">take</span>()
-        } <span class="kw">else</span> <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">next</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">next</span> {
-            <span class="comment">// Remove the extra value</span>
-            <span class="kw">let</span> <span class="ident">extra</span> <span class="op">=</span> <span class="kw">unsafe</span> {
-                <span class="ident">remove_extra_value</span>(<span class="self">self</span>.<span class="ident">raw_links</span>, <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="kw-2">*</span><span class="self">self</span>.<span class="ident">extra_values</span>, <span class="ident">next</span>)
-            };
-
-            <span class="kw">match</span> <span class="ident">extra</span>.<span class="ident">next</span> {
-                <span class="ident">Link</span>::<span class="ident">Extra</span>(<span class="ident">idx</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="self">self</span>.<span class="ident">next</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">idx</span>),
-                <span class="ident">Link</span>::<span class="ident">Entry</span>(<span class="kw">_</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="self">self</span>.<span class="ident">next</span> <span class="op">=</span> <span class="prelude-val">None</span>,
-            }
-
-            <span class="prelude-val">Some</span>(<span class="ident">extra</span>.<span class="ident">value</span>)
+        } <span class="kw">else</span> <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="kw-2">ref</span> <span class="kw-2">mut</span> <span class="ident">extras</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">next</span> {
+            <span class="ident">extras</span>.<span class="ident">next</span>()
         } <span class="kw">else</span> {
             <span class="prelude-val">None</span>
         }
     }
 
     <span class="kw">fn</span> <span class="ident">size_hint</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> (<span class="ident">usize</span>, <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;</span>) {
-        <span class="kw">match</span> (<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">first</span>, <span class="self">self</span>.<span class="ident">next</span>) {
+        <span class="kw">match</span> (<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">first</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">next</span>) {
             <span class="comment">// Exactly 1</span>
-            (<span class="kw-2">&amp;</span><span class="prelude-val">Some</span>(<span class="kw">_</span>), <span class="prelude-val">None</span>) <span class="op">=</span><span class="op">&gt;</span> (<span class="number">1</span>, <span class="prelude-val">Some</span>(<span class="number">1</span>)),
-            <span class="comment">// At least 1</span>
-            (<span class="kw-2">&amp;</span><span class="kw">_</span>, <span class="prelude-val">Some</span>(<span class="kw">_</span>)) <span class="op">=</span><span class="op">&gt;</span> (<span class="number">1</span>, <span class="prelude-val">None</span>),
+            (<span class="kw-2">&amp;</span><span class="prelude-val">Some</span>(<span class="kw">_</span>), <span class="kw-2">&amp;</span><span class="prelude-val">None</span>) <span class="op">=</span><span class="op">&gt;</span> (<span class="number">1</span>, <span class="prelude-val">Some</span>(<span class="number">1</span>)),
+            <span class="comment">// 1 + extras</span>
+            (<span class="kw-2">&amp;</span><span class="prelude-val">Some</span>(<span class="kw">_</span>), <span class="kw-2">&amp;</span><span class="prelude-val">Some</span>(<span class="kw-2">ref</span> <span class="ident">extras</span>)) <span class="op">=</span><span class="op">&gt;</span> {
+                <span class="kw">let</span> (<span class="ident">l</span>, <span class="ident">u</span>) <span class="op">=</span> <span class="ident">extras</span>.<span class="ident">size_hint</span>();
+                (<span class="ident">l</span> <span class="op">+</span> <span class="number">1</span>, <span class="ident">u</span>.<span class="ident">map</span>(<span class="op">|</span><span class="ident">u</span><span class="op">|</span> <span class="ident">u</span> <span class="op">+</span> <span class="number">1</span>))
+            },
+            <span class="comment">// Extras only</span>
+            (<span class="kw-2">&amp;</span><span class="prelude-val">None</span>, <span class="kw-2">&amp;</span><span class="prelude-val">Some</span>(<span class="kw-2">ref</span> <span class="ident">extras</span>)) <span class="op">=</span><span class="op">&gt;</span> <span class="ident">extras</span>.<span class="ident">size_hint</span>(),
             <span class="comment">// No more</span>
-            (<span class="kw-2">&amp;</span><span class="prelude-val">None</span>, <span class="prelude-val">None</span>) <span class="op">=</span><span class="op">&gt;</span> (<span class="number">0</span>, <span class="prelude-val">Some</span>(<span class="number">0</span>)),
+            (<span class="kw-2">&amp;</span><span class="prelude-val">None</span>, <span class="kw-2">&amp;</span><span class="prelude-val">None</span>) <span class="op">=</span><span class="op">&gt;</span> (<span class="number">0</span>, <span class="prelude-val">Some</span>(<span class="number">0</span>)),
         }
     }
 }
@@ -6599,6 +6663,7 @@
 <span class="kw">impl</span> <span class="ident">Pos</span> {
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">index</span>: <span class="ident">usize</span>, <span class="ident">hash</span>: <span class="ident">HashValue</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+        <span class="macro">debug_assert</span><span class="macro">!</span>(<span class="ident">index</span> <span class="op">&lt;</span> <span class="ident">MAX_SIZE</span>);
         <span class="ident">Pos</span> {
             <span class="ident">index</span>: <span class="ident">index</span> <span class="kw">as</span> <span class="ident">Size</span>,
             <span class="ident">hash</span>: <span class="ident">hash</span>,
@@ -6626,7 +6691,7 @@
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">fn</span> <span class="ident">resolve</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">usize</span>, <span class="ident">HashValue</span>)<span class="op">&gt;</span> {
         <span class="kw">if</span> <span class="self">self</span>.<span class="ident">is_some</span>() {
-            <span class="prelude-val">Some</span>((<span class="self">self</span>.<span class="ident">index</span>, <span class="self">self</span>.<span class="ident">hash</span>))
+            <span class="prelude-val">Some</span>((<span class="self">self</span>.<span class="ident">index</span> <span class="kw">as</span> <span class="ident">usize</span>, <span class="self">self</span>.<span class="ident">hash</span>))
         } <span class="kw">else</span> {
             <span class="prelude-val">None</span>
         }
@@ -6682,13 +6747,13 @@
 
 <span class="attribute">#[<span class="ident">inline</span>]</span>
 <span class="kw">fn</span> <span class="ident">desired_pos</span>(<span class="ident">mask</span>: <span class="ident">Size</span>, <span class="ident">hash</span>: <span class="ident">HashValue</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">usize</span> {
-    (<span class="ident">hash</span>.<span class="number">0</span> <span class="op">&amp;</span> <span class="ident">mask</span>)
+    (<span class="ident">hash</span>.<span class="number">0</span> <span class="op">&amp;</span> <span class="ident">mask</span>) <span class="kw">as</span> <span class="ident">usize</span>
 }
 
 <span class="doccomment">/// The number of steps that `current` is forward of the desired position for hash</span>
 <span class="attribute">#[<span class="ident">inline</span>]</span>
 <span class="kw">fn</span> <span class="ident">probe_distance</span>(<span class="ident">mask</span>: <span class="ident">Size</span>, <span class="ident">hash</span>: <span class="ident">HashValue</span>, <span class="ident">current</span>: <span class="ident">usize</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">usize</span> {
-    <span class="ident">current</span>.<span class="ident">wrapping_sub</span>(<span class="ident">desired_pos</span>(<span class="ident">mask</span>, <span class="ident">hash</span>)) <span class="op">&amp;</span> <span class="ident">mask</span>
+    <span class="ident">current</span>.<span class="ident">wrapping_sub</span>(<span class="ident">desired_pos</span>(<span class="ident">mask</span>, <span class="ident">hash</span>)) <span class="op">&amp;</span> <span class="ident">mask</span> <span class="kw">as</span> <span class="ident">usize</span>
 }
 
 <span class="kw">fn</span> <span class="ident">hash_elem_using</span><span class="op">&lt;</span><span class="ident">K</span>: <span class="question-mark">?</span><span class="ident">Sized</span><span class="op">&gt;</span>(<span class="ident">danger</span>: <span class="kw-2">&amp;</span><span class="ident">Danger</span>, <span class="ident">k</span>: <span class="kw-2">&amp;</span><span class="ident">K</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">HashValue</span>
@@ -6714,7 +6779,7 @@
         }
     };
 
-    <span class="ident">HashValue</span>((<span class="ident">hash</span> <span class="op">&amp;</span> <span class="ident">MASK</span>) <span class="kw">as</span> <span class="ident">usize</span>)
+    <span class="ident">HashValue</span>((<span class="ident">hash</span> <span class="op">&amp;</span> <span class="ident">MASK</span>) <span class="kw">as</span> <span class="ident">u16</span>)
 }
 
 <span class="comment">/*
@@ -6978,4 +7043,4 @@
     <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">map</span>.<span class="ident">keys</span>().<span class="ident">count</span>(), <span class="ident">map</span>.<span class="ident">keys_len</span>());
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../../";window.currentCrate = "http";</script><script src="../../../aliases.js"></script><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script><script defer src="../../../search-index.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../../";window.currentCrate = "http";</script><script src="../../../main.js"></script><script src="../../../source-script.js"></script><script src="../../../source-files.js"></script><script defer src="../../../search-index.js"></script></body></html>

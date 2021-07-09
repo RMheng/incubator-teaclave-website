@@ -1,3 +1,3 @@
 (function() {var implementors = {};
-implementors["teaclave_types"] = [{"text":"impl <a class=\"trait\" href=\"https://doc.rust-lang.org/nightly/alloc/string/trait.ToString.html\" title=\"trait alloc::string::ToString\">ToString</a> for <a class=\"struct\" href=\"teaclave_types/struct.ExternalID.html\" title=\"struct teaclave_types::ExternalID\">ExternalID</a>","synthetic":false,"types":["teaclave_types::task::ExternalID"]}];
+implementors["teaclave_types"] = [{"text":"impl ToString for ExternalID","synthetic":false,"types":[]}];
 if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

@@ -1,3 +1,3 @@
 (function() {var implementors = {};
-implementors["teaclave_runtime"] = [{"text":"impl <a class=\"trait\" href=\"teaclave_types/worker/trait.TeaclaveRuntime.html\" title=\"trait teaclave_types::worker::TeaclaveRuntime\">TeaclaveRuntime</a> for <a class=\"struct\" href=\"teaclave_runtime/struct.DefaultRuntime.html\" title=\"struct teaclave_runtime::DefaultRuntime\">DefaultRuntime</a>","synthetic":false,"types":["teaclave_runtime::default::DefaultRuntime"]}];
+implementors["teaclave_runtime"] = [{"text":"impl TeaclaveRuntime for DefaultRuntime","synthetic":false,"types":[]}];
 if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()
