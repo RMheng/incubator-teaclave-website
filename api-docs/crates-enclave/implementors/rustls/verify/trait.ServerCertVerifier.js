@@ -1,3 +1,3 @@
 (function() {var implementors = {};
-implementors["teaclave_attestation"] = [{"text":"impl <a class=\"trait\" href=\"rustls/verify/trait.ServerCertVerifier.html\" title=\"trait rustls::verify::ServerCertVerifier\">ServerCertVerifier</a> for <a class=\"struct\" href=\"teaclave_attestation/verifier/struct.AttestationReportVerifier.html\" title=\"struct teaclave_attestation::verifier::AttestationReportVerifier\">AttestationReportVerifier</a>","synthetic":false,"types":["teaclave_attestation::verifier::AttestationReportVerifier"]}];
+implementors["teaclave_attestation"] = [{"text":"impl ServerCertVerifier for AttestationReportVerifier","synthetic":false,"types":[]}];
 if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

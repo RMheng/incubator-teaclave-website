@@ -1,4 +1,7 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source to the Rust file `/home/mssun/incubator-teaclave/build/cmake_tomls/sgx_trusted_lib/third_party/crates-sgx/vendor/sgx_alloc/src/system.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>system.rs.html -- source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css"><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script src="../../storage.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="shortcut icon" href="../../favicon.ico"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../sgx_alloc/index.html'><div class='logo-container'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/mssun/incubator-teaclave/build/cmake_tomls/sgx_trusted_lib/third_party/crates-sgx/vendor/sgx_alloc/src/system.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>system.rs - source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script src="../../storage.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="alternate icon" type="image/png" href="../../favicon-16x16.png">
+<link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../sgx_alloc/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><span class="help-button">?</span>
+                <a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -236,6 +239,43 @@
 <span id="236">236</span>
 <span id="237">237</span>
 <span id="238">238</span>
+<span id="239">239</span>
+<span id="240">240</span>
+<span id="241">241</span>
+<span id="242">242</span>
+<span id="243">243</span>
+<span id="244">244</span>
+<span id="245">245</span>
+<span id="246">246</span>
+<span id="247">247</span>
+<span id="248">248</span>
+<span id="249">249</span>
+<span id="250">250</span>
+<span id="251">251</span>
+<span id="252">252</span>
+<span id="253">253</span>
+<span id="254">254</span>
+<span id="255">255</span>
+<span id="256">256</span>
+<span id="257">257</span>
+<span id="258">258</span>
+<span id="259">259</span>
+<span id="260">260</span>
+<span id="261">261</span>
+<span id="262">262</span>
+<span id="263">263</span>
+<span id="264">264</span>
+<span id="265">265</span>
+<span id="266">266</span>
+<span id="267">267</span>
+<span id="268">268</span>
+<span id="269">269</span>
+<span id="270">270</span>
+<span id="271">271</span>
+<span id="272">272</span>
+<span id="273">273</span>
+<span id="274">274</span>
+<span id="275">275</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// Licensed to the Apache Software Foundation (ASF) under one</span>
 <span class="comment">// or more contributor license agreements.  See the NOTICE file</span>
@@ -262,16 +302,10 @@
 <span class="doccomment">//! 2018-06-22 Add liballoc components here</span>
 
 <span class="kw">use</span> <span class="ident">core</span>::<span class="ident">alloc</span>::{
-    <span class="ident">AllocInit</span>,
-    <span class="ident">AllocRef</span>,
-    <span class="ident">AllocErr</span>,
-    <span class="ident">GlobalAlloc</span>,
-    <span class="ident">Layout</span>,
-    <span class="ident">MemoryBlock</span>,
-    <span class="ident">ReallocPlacement</span>
+    <span class="ident">AllocError</span>, <span class="ident">AllocRef</span>, <span class="ident">GlobalAlloc</span>, <span class="ident">Layout</span>,
 };
 <span class="kw">use</span> <span class="ident">core</span>::<span class="ident">intrinsics</span>;
-<span class="kw">use</span> <span class="ident">core</span>::<span class="ident">ptr</span>::<span class="ident">NonNull</span>;
+<span class="kw">use</span> <span class="ident">core</span>::<span class="ident">ptr</span>::{<span class="self">self</span>, <span class="ident">NonNull</span>};
 
 <span class="comment">// The minimum alignment guaranteed by the architecture. This value is used to</span>
 <span class="comment">// add fast paths for low alignment values. In practice, the alignment is a</span>
@@ -286,26 +320,85 @@
 
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">System</span>;
 
-<span class="kw">unsafe</span> <span class="kw">impl</span> <span class="ident">AllocRef</span> <span class="kw">for</span> <span class="ident">System</span> {
+<span class="kw">impl</span> <span class="ident">System</span> {
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">fn</span> <span class="ident">alloc</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">layout</span>: <span class="ident">Layout</span>, <span class="ident">init</span>: <span class="ident">AllocInit</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">MemoryBlock</span>, <span class="ident">AllocErr</span><span class="op">&gt;</span> {
-        <span class="kw">unsafe</span> {
-            <span class="kw">let</span> <span class="ident">size</span> <span class="op">=</span> <span class="ident">layout</span>.<span class="ident">size</span>();
-            <span class="kw">if</span> <span class="ident">size</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> {
-                <span class="prelude-val">Ok</span>(<span class="ident">MemoryBlock</span> { <span class="ident">ptr</span>: <span class="ident">layout</span>.<span class="ident">dangling</span>(), <span class="ident">size</span>: <span class="number">0</span> })
-            } <span class="kw">else</span> {
-                <span class="kw">let</span> <span class="ident">raw_ptr</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">init</span> {
-                    <span class="ident">AllocInit</span>::<span class="ident">Uninitialized</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">GlobalAlloc</span>::<span class="ident">alloc</span>(<span class="self">self</span>, <span class="ident">layout</span>),
-                    <span class="ident">AllocInit</span>::<span class="ident">Zeroed</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">GlobalAlloc</span>::<span class="ident">alloc_zeroed</span>(<span class="self">self</span>, <span class="ident">layout</span>),
+    <span class="kw">fn</span> <span class="ident">alloc_impl</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">layout</span>: <span class="ident">Layout</span>, <span class="ident">zeroed</span>: <span class="ident">bool</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">NonNull</span><span class="op">&lt;</span>[<span class="ident">u8</span>]<span class="op">&gt;</span>, <span class="ident">AllocError</span><span class="op">&gt;</span> {
+        <span class="kw">match</span> <span class="ident">layout</span>.<span class="ident">size</span>() {
+            <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> <span class="prelude-val">Ok</span>(<span class="ident">NonNull</span>::<span class="ident">slice_from_raw_parts</span>(<span class="ident">layout</span>.<span class="ident">dangling</span>(), <span class="number">0</span>)),
+            <span class="comment">// SAFETY: `layout` is non-zero in size,</span>
+            <span class="ident">size</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">unsafe</span> {
+                <span class="kw">let</span> <span class="ident">raw_ptr</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">zeroed</span> {
+                    <span class="ident">GlobalAlloc</span>::<span class="ident">alloc_zeroed</span>(<span class="self">self</span>, <span class="ident">layout</span>)
+                } <span class="kw">else</span> {
+                    <span class="ident">GlobalAlloc</span>::<span class="ident">alloc</span>(<span class="self">self</span>, <span class="ident">layout</span>)
                 };
-                <span class="kw">let</span> <span class="ident">ptr</span> <span class="op">=</span> <span class="ident">NonNull</span>::<span class="ident">new</span>(<span class="ident">raw_ptr</span>).<span class="ident">ok_or</span>(<span class="ident">AllocErr</span>)<span class="question-mark">?</span>;
-                <span class="prelude-val">Ok</span>(<span class="ident">MemoryBlock</span> { <span class="ident">ptr</span>, <span class="ident">size</span> })
-            }
+                <span class="kw">let</span> <span class="ident">ptr</span> <span class="op">=</span> <span class="ident">NonNull</span>::<span class="ident">new</span>(<span class="ident">raw_ptr</span>).<span class="ident">ok_or</span>(<span class="ident">AllocError</span>)<span class="question-mark">?</span>;
+                <span class="prelude-val">Ok</span>(<span class="ident">NonNull</span>::<span class="ident">slice_from_raw_parts</span>(<span class="ident">ptr</span>, <span class="ident">size</span>))
+            },
         }
     }
 
+    <span class="comment">// Safety: Same as `AllocRef::grow`</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">dealloc</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">ptr</span>: <span class="ident">NonNull</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span>, <span class="ident">layout</span>: <span class="ident">Layout</span>) {
+    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">grow_impl</span>(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        <span class="ident">ptr</span>: <span class="ident">NonNull</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span>,
+        <span class="ident">old_layout</span>: <span class="ident">Layout</span>,
+        <span class="ident">new_layout</span>: <span class="ident">Layout</span>,
+        <span class="ident">zeroed</span>: <span class="ident">bool</span>,
+    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">NonNull</span><span class="op">&lt;</span>[<span class="ident">u8</span>]<span class="op">&gt;</span>, <span class="ident">AllocError</span><span class="op">&gt;</span> {
+        <span class="macro">debug_assert</span><span class="macro">!</span>(
+            <span class="ident">new_layout</span>.<span class="ident">size</span>() <span class="op">&gt;</span><span class="op">=</span> <span class="ident">old_layout</span>.<span class="ident">size</span>(),
+            <span class="string">&quot;`new_layout.size()` must be greater than or equal to `old_layout.size()`&quot;</span>
+        );
+
+        <span class="kw">match</span> <span class="ident">old_layout</span>.<span class="ident">size</span>() {
+            <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> <span class="self">self</span>.<span class="ident">alloc_impl</span>(<span class="ident">new_layout</span>, <span class="ident">zeroed</span>),
+
+            <span class="comment">// SAFETY: `new_size` is non-zero as `old_size` is greater than or equal to `new_size`</span>
+            <span class="comment">// as required by safety conditions. Other conditions must be upheld by the caller</span>
+            <span class="ident">old_size</span> <span class="kw">if</span> <span class="ident">old_layout</span>.<span class="ident">align</span>() <span class="op">=</span><span class="op">=</span> <span class="ident">new_layout</span>.<span class="ident">align</span>() <span class="op">=</span><span class="op">&gt;</span> {
+                <span class="kw">let</span> <span class="ident">new_size</span> <span class="op">=</span> <span class="ident">new_layout</span>.<span class="ident">size</span>();
+
+                <span class="comment">// `realloc` probably checks for `new_size &gt;= old_layout.size()` or something similar.</span>
+                <span class="ident">intrinsics</span>::<span class="ident">assume</span>(<span class="ident">new_size</span> <span class="op">&gt;</span><span class="op">=</span> <span class="ident">old_layout</span>.<span class="ident">size</span>());
+
+                <span class="kw">let</span> <span class="ident">raw_ptr</span> <span class="op">=</span> <span class="ident">GlobalAlloc</span>::<span class="ident">realloc</span>(<span class="self">self</span>, <span class="ident">ptr</span>.<span class="ident">as_ptr</span>(), <span class="ident">old_layout</span>, <span class="ident">new_size</span>);
+                <span class="kw">let</span> <span class="ident">ptr</span> <span class="op">=</span> <span class="ident">NonNull</span>::<span class="ident">new</span>(<span class="ident">raw_ptr</span>).<span class="ident">ok_or</span>(<span class="ident">AllocError</span>)<span class="question-mark">?</span>;
+                <span class="kw">if</span> <span class="ident">zeroed</span> {
+                    <span class="ident">raw_ptr</span>.<span class="ident">add</span>(<span class="ident">old_size</span>).<span class="ident">write_bytes</span>(<span class="number">0</span>, <span class="ident">new_size</span> <span class="op">-</span> <span class="ident">old_size</span>);
+                }
+                <span class="prelude-val">Ok</span>(<span class="ident">NonNull</span>::<span class="ident">slice_from_raw_parts</span>(<span class="ident">ptr</span>, <span class="ident">new_size</span>))
+            },
+
+            <span class="comment">// SAFETY: because `new_layout.size()` must be greater than or equal to `old_size`,</span>
+            <span class="comment">// both the old and new memory allocation are valid for reads and writes for `old_size`</span>
+            <span class="comment">// bytes. Also, because the old allocation wasn&#39;t yet deallocated, it cannot overlap</span>
+            <span class="comment">// `new_ptr`. Thus, the call to `copy_nonoverlapping` is safe. The safety contract</span>
+            <span class="comment">// for `dealloc` must be upheld by the caller.</span>
+            <span class="ident">old_size</span> <span class="op">=</span><span class="op">&gt;</span> {
+                <span class="kw">let</span> <span class="ident">new_ptr</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">alloc_impl</span>(<span class="ident">new_layout</span>, <span class="ident">zeroed</span>)<span class="question-mark">?</span>;
+                <span class="ident">ptr</span>::<span class="ident">copy_nonoverlapping</span>(<span class="ident">ptr</span>.<span class="ident">as_ptr</span>(), <span class="ident">new_ptr</span>.<span class="ident">as_mut_ptr</span>(), <span class="ident">old_size</span>);
+                <span class="ident">AllocRef</span>::<span class="ident">dealloc</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">ptr</span>, <span class="ident">old_layout</span>);
+                <span class="prelude-val">Ok</span>(<span class="ident">new_ptr</span>)
+            },
+        }
+    }
+}
+
+<span class="kw">unsafe</span> <span class="kw">impl</span> <span class="ident">AllocRef</span> <span class="kw">for</span> <span class="ident">System</span> {
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">fn</span> <span class="ident">alloc</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">layout</span>: <span class="ident">Layout</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">NonNull</span><span class="op">&lt;</span>[<span class="ident">u8</span>]<span class="op">&gt;</span>, <span class="ident">AllocError</span><span class="op">&gt;</span> {
+        <span class="self">self</span>.<span class="ident">alloc_impl</span>(<span class="ident">layout</span>, <span class="bool-val">false</span>)
+    }
+
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">fn</span> <span class="ident">alloc_zeroed</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">layout</span>: <span class="ident">Layout</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">NonNull</span><span class="op">&lt;</span>[<span class="ident">u8</span>]<span class="op">&gt;</span>, <span class="ident">AllocError</span><span class="op">&gt;</span> {
+         <span class="self">self</span>.<span class="ident">alloc_impl</span>(<span class="ident">layout</span>, <span class="bool-val">true</span>)
+    }
+
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">dealloc</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">ptr</span>: <span class="ident">NonNull</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span>, <span class="ident">layout</span>: <span class="ident">Layout</span>) {
         <span class="kw">if</span> <span class="ident">layout</span>.<span class="ident">size</span>() <span class="op">!</span><span class="op">=</span> <span class="number">0</span> {
             <span class="ident">GlobalAlloc</span>::<span class="ident">dealloc</span>(<span class="self">self</span>, <span class="ident">ptr</span>.<span class="ident">as_ptr</span>(), <span class="ident">layout</span>)
         }
@@ -313,72 +406,61 @@
 
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">grow</span>(
-        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>,
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">ptr</span>: <span class="ident">NonNull</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span>,
-        <span class="ident">layout</span>: <span class="ident">Layout</span>,
-        <span class="ident">new_size</span>: <span class="ident">usize</span>,
-        <span class="ident">placement</span>: <span class="ident">ReallocPlacement</span>,
-        <span class="ident">init</span>: <span class="ident">AllocInit</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">MemoryBlock</span>, <span class="ident">AllocErr</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">size</span> <span class="op">=</span> <span class="ident">layout</span>.<span class="ident">size</span>();
-        <span class="macro">debug_assert</span><span class="macro">!</span>(
-            <span class="ident">new_size</span> <span class="op">&gt;</span><span class="op">=</span> <span class="ident">size</span>,
-            <span class="string">&quot;`new_size` must be greater than or equal to `memory.size()`&quot;</span>
-        );
+        <span class="ident">old_layout</span>: <span class="ident">Layout</span>,
+        <span class="ident">new_layout</span>: <span class="ident">Layout</span>,
+    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">NonNull</span><span class="op">&lt;</span>[<span class="ident">u8</span>]<span class="op">&gt;</span>, <span class="ident">AllocError</span><span class="op">&gt;</span> {
+         <span class="comment">// SAFETY: all conditions must be upheld by the caller</span>
+         <span class="self">self</span>.<span class="ident">grow_impl</span>(<span class="ident">ptr</span>, <span class="ident">old_layout</span>, <span class="ident">new_layout</span>, <span class="bool-val">false</span>)
+    }
 
-        <span class="kw">if</span> <span class="ident">size</span> <span class="op">=</span><span class="op">=</span> <span class="ident">new_size</span> {
-            <span class="kw">return</span> <span class="prelude-val">Ok</span>(<span class="ident">MemoryBlock</span> { <span class="ident">ptr</span>, <span class="ident">size</span> });
-        }
-
-        <span class="kw">match</span> <span class="ident">placement</span> {
-            <span class="ident">ReallocPlacement</span>::<span class="ident">InPlace</span> <span class="op">=</span><span class="op">&gt;</span> <span class="prelude-val">Err</span>(<span class="ident">AllocErr</span>),
-            <span class="ident">ReallocPlacement</span>::<span class="ident">MayMove</span> <span class="kw">if</span> <span class="ident">layout</span>.<span class="ident">size</span>() <span class="op">=</span><span class="op">=</span> <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> {
-                <span class="kw">let</span> <span class="ident">new_layout</span> <span class="op">=</span> <span class="ident">Layout</span>::<span class="ident">from_size_align_unchecked</span>(<span class="ident">new_size</span>, <span class="ident">layout</span>.<span class="ident">align</span>());
-                <span class="self">self</span>.<span class="ident">alloc</span>(<span class="ident">new_layout</span>, <span class="ident">init</span>)
-            }
-            <span class="ident">ReallocPlacement</span>::<span class="ident">MayMove</span> <span class="op">=</span><span class="op">&gt;</span> {
-                <span class="comment">// `realloc` probably checks for `new_size &gt; size` or something similar.</span>
-                <span class="ident">intrinsics</span>::<span class="ident">assume</span>(<span class="ident">new_size</span> <span class="op">&gt;</span> <span class="ident">size</span>);
-                <span class="kw">let</span> <span class="ident">ptr</span> <span class="op">=</span> <span class="ident">GlobalAlloc</span>::<span class="ident">realloc</span>(<span class="self">self</span>, <span class="ident">ptr</span>.<span class="ident">as_ptr</span>(), <span class="ident">layout</span>, <span class="ident">new_size</span>);
-                <span class="kw">let</span> <span class="ident">memory</span> <span class="op">=</span>
-                    <span class="ident">MemoryBlock</span> { <span class="ident">ptr</span>: <span class="ident">NonNull</span>::<span class="ident">new</span>(<span class="ident">ptr</span>).<span class="ident">ok_or</span>(<span class="ident">AllocErr</span>)<span class="question-mark">?</span>, <span class="ident">size</span>: <span class="ident">new_size</span> };
-                <span class="ident">init</span>.<span class="ident">init_offset</span>(<span class="ident">memory</span>, <span class="ident">size</span>);
-                <span class="prelude-val">Ok</span>(<span class="ident">memory</span>)
-            }
-        }
+    <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">grow_zeroed</span>(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        <span class="ident">ptr</span>: <span class="ident">NonNull</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span>,
+        <span class="ident">old_layout</span>: <span class="ident">Layout</span>,
+        <span class="ident">new_layout</span>: <span class="ident">Layout</span>,
+    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">NonNull</span><span class="op">&lt;</span>[<span class="ident">u8</span>]<span class="op">&gt;</span>, <span class="ident">AllocError</span><span class="op">&gt;</span> {
+        <span class="comment">// SAFETY: all conditions must be upheld by the caller</span>
+        <span class="self">self</span>.<span class="ident">grow_impl</span>(<span class="ident">ptr</span>, <span class="ident">old_layout</span>, <span class="ident">new_layout</span>, <span class="bool-val">true</span>)
     }
 
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">shrink</span>(
-        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>,
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">ptr</span>: <span class="ident">NonNull</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span>,
-        <span class="ident">layout</span>: <span class="ident">Layout</span>,
-        <span class="ident">new_size</span>: <span class="ident">usize</span>,
-        <span class="ident">placement</span>: <span class="ident">ReallocPlacement</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">MemoryBlock</span>, <span class="ident">AllocErr</span><span class="op">&gt;</span> {
-        <span class="kw">let</span> <span class="ident">size</span> <span class="op">=</span> <span class="ident">layout</span>.<span class="ident">size</span>();
-        <span class="macro">debug_assert</span><span class="macro">!</span>(
-            <span class="ident">new_size</span> <span class="op">&lt;</span><span class="op">=</span> <span class="ident">size</span>,
-            <span class="string">&quot;`new_size` must be smaller than or equal to `memory.size()`&quot;</span>
-        );
+        <span class="ident">old_layout</span>: <span class="ident">Layout</span>,
+        <span class="ident">new_layout</span>: <span class="ident">Layout</span>,
+    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">NonNull</span><span class="op">&lt;</span>[<span class="ident">u8</span>]<span class="op">&gt;</span>, <span class="ident">AllocError</span><span class="op">&gt;</span> {
+         <span class="kw">match</span> <span class="ident">new_layout</span>.<span class="ident">size</span>() {
+             <span class="comment">// SAFETY: conditions must be upheld by the caller</span>
+             <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> {
+                <span class="ident">AllocRef</span>::<span class="ident">dealloc</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">ptr</span>, <span class="ident">old_layout</span>);
+                <span class="prelude-val">Ok</span>(<span class="ident">NonNull</span>::<span class="ident">slice_from_raw_parts</span>(<span class="ident">new_layout</span>.<span class="ident">dangling</span>(), <span class="number">0</span>))
+             },
+             <span class="comment">// SAFETY: `new_size` is non-zero. Other conditions must be upheld by the caller</span>
+             <span class="ident">new_size</span> <span class="kw">if</span> <span class="ident">old_layout</span>.<span class="ident">align</span>() <span class="op">=</span><span class="op">=</span> <span class="ident">new_layout</span>.<span class="ident">align</span>() <span class="op">=</span><span class="op">&gt;</span> {
+                <span class="comment">// `realloc` probably checks for `new_size &lt;= old_layout.size()` or something similar.</span>
+                <span class="ident">intrinsics</span>::<span class="ident">assume</span>(<span class="ident">new_size</span> <span class="op">&lt;</span><span class="op">=</span> <span class="ident">old_layout</span>.<span class="ident">size</span>());
 
-        <span class="kw">if</span> <span class="ident">size</span> <span class="op">=</span><span class="op">=</span> <span class="ident">new_size</span> {
-            <span class="kw">return</span> <span class="prelude-val">Ok</span>(<span class="ident">MemoryBlock</span> { <span class="ident">ptr</span>, <span class="ident">size</span> });
-        }
+                <span class="kw">let</span> <span class="ident">raw_ptr</span> <span class="op">=</span> <span class="ident">GlobalAlloc</span>::<span class="ident">realloc</span>(<span class="self">self</span>, <span class="ident">ptr</span>.<span class="ident">as_ptr</span>(), <span class="ident">old_layout</span>, <span class="ident">new_size</span>);
+                <span class="kw">let</span> <span class="ident">ptr</span> <span class="op">=</span> <span class="ident">NonNull</span>::<span class="ident">new</span>(<span class="ident">raw_ptr</span>).<span class="ident">ok_or</span>(<span class="ident">AllocError</span>)<span class="question-mark">?</span>;
+                <span class="prelude-val">Ok</span>(<span class="ident">NonNull</span>::<span class="ident">slice_from_raw_parts</span>(<span class="ident">ptr</span>, <span class="ident">new_size</span>))
+             },
 
-        <span class="kw">match</span> <span class="ident">placement</span> {
-            <span class="ident">ReallocPlacement</span>::<span class="ident">InPlace</span> <span class="op">=</span><span class="op">&gt;</span> <span class="prelude-val">Err</span>(<span class="ident">AllocErr</span>),
-            <span class="ident">ReallocPlacement</span>::<span class="ident">MayMove</span> <span class="kw">if</span> <span class="ident">new_size</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> {
-                <span class="self">self</span>.<span class="ident">dealloc</span>(<span class="ident">ptr</span>, <span class="ident">layout</span>);
-                <span class="prelude-val">Ok</span>(<span class="ident">MemoryBlock</span> { <span class="ident">ptr</span>: <span class="ident">layout</span>.<span class="ident">dangling</span>(), <span class="ident">size</span>: <span class="number">0</span> })
-            }
-            <span class="ident">ReallocPlacement</span>::<span class="ident">MayMove</span> <span class="op">=</span><span class="op">&gt;</span> {
-                <span class="comment">// `realloc` probably checks for `new_size &lt; size` or something similar.</span>
-                <span class="ident">intrinsics</span>::<span class="ident">assume</span>(<span class="ident">new_size</span> <span class="op">&lt;</span> <span class="ident">size</span>);
-                <span class="kw">let</span> <span class="ident">ptr</span> <span class="op">=</span> <span class="ident">GlobalAlloc</span>::<span class="ident">realloc</span>(<span class="self">self</span>, <span class="ident">ptr</span>.<span class="ident">as_ptr</span>(), <span class="ident">layout</span>, <span class="ident">new_size</span>);
-                <span class="prelude-val">Ok</span>(<span class="ident">MemoryBlock</span> { <span class="ident">ptr</span>: <span class="ident">NonNull</span>::<span class="ident">new</span>(<span class="ident">ptr</span>).<span class="ident">ok_or</span>(<span class="ident">AllocErr</span>)<span class="question-mark">?</span>, <span class="ident">size</span>: <span class="ident">new_size</span> })
-            }
-        }
+             <span class="comment">// SAFETY: because `new_size` must be smaller than or equal to `old_layout.size()`,</span>
+             <span class="comment">// both the old and new memory allocation are valid for reads and writes for `new_size`</span>
+             <span class="comment">// bytes. Also, because the old allocation wasn&#39;t yet deallocated, it cannot overlap</span>
+             <span class="comment">// `new_ptr`. Thus, the call to `copy_nonoverlapping` is safe. The safety contract</span>
+             <span class="comment">// for `dealloc` must be upheld by the caller.</span>
+             <span class="ident">new_size</span> <span class="op">=</span><span class="op">&gt;</span> {
+                <span class="kw">let</span> <span class="ident">new_ptr</span> <span class="op">=</span> <span class="ident">AllocRef</span>::<span class="ident">alloc</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">new_layout</span>)<span class="question-mark">?</span>;
+                <span class="ident">ptr</span>::<span class="ident">copy_nonoverlapping</span>(<span class="ident">ptr</span>.<span class="ident">as_ptr</span>(), <span class="ident">new_ptr</span>.<span class="ident">as_mut_ptr</span>(), <span class="ident">new_size</span>);
+                <span class="ident">AllocRef</span>::<span class="ident">dealloc</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">ptr</span>, <span class="ident">old_layout</span>);
+                <span class="prelude-val">Ok</span>(<span class="ident">new_ptr</span>)
+             },
+         }
     }
 }
 
@@ -410,15 +492,15 @@
 
 <span class="kw">mod</span> <span class="ident">platform</span> {
     <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
-    <span class="kw">use</span> <span class="ident">libc</span>;
+    <span class="kw">use</span> <span class="ident">core</span>::<span class="ident">alloc</span>::{<span class="ident">GlobalAlloc</span>, <span class="ident">Layout</span>};
     <span class="kw">use</span> <span class="ident">core</span>::<span class="ident">ffi</span>::<span class="ident">c_void</span>;
     <span class="kw">use</span> <span class="ident">core</span>::<span class="ident">ptr</span>;
-    <span class="kw">use</span> <span class="ident">core</span>::<span class="ident">alloc</span>::{<span class="ident">GlobalAlloc</span>, <span class="ident">Layout</span>};
+    <span class="kw">use</span> <span class="ident">libc</span>;
 
     <span class="kw">unsafe</span> <span class="kw">impl</span> <span class="ident">GlobalAlloc</span> <span class="kw">for</span> <span class="ident">System</span> {
         <span class="attribute">#[<span class="ident">inline</span>]</span>
         <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">alloc</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">layout</span>: <span class="ident">Layout</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u8</span> {
-            <span class="kw">if</span> <span class="ident">layout</span>.<span class="ident">align</span>() <span class="op">&lt;</span><span class="op">=</span> <span class="ident">MIN_ALIGN</span> <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="ident">layout</span>.<span class="ident">align</span>() <span class="op">&lt;</span><span class="op">=</span> <span class="ident">layout</span>.<span class="ident">size</span>() {
+            <span class="kw">if</span> <span class="ident">layout</span>.<span class="ident">align</span>() <span class="op">&lt;</span><span class="op">=</span> <span class="ident">MIN_ALIGN</span> <span class="op">&amp;&amp;</span> <span class="ident">layout</span>.<span class="ident">align</span>() <span class="op">&lt;</span><span class="op">=</span> <span class="ident">layout</span>.<span class="ident">size</span>() {
                 <span class="ident">libc</span>::<span class="ident">malloc</span>(<span class="ident">layout</span>.<span class="ident">size</span>()) <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u8</span>
             } <span class="kw">else</span> {
                 <span class="ident">aligned_malloc</span>(<span class="kw-2">&amp;</span><span class="ident">layout</span>)
@@ -426,13 +508,11 @@
         }
 
         <span class="attribute">#[<span class="ident">inline</span>]</span>
-        <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">alloc_zeroed</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">layout</span>: <span class="ident">Layout</span>)
-            <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u8</span>
-        {
-            <span class="kw">if</span> <span class="ident">layout</span>.<span class="ident">align</span>() <span class="op">&lt;</span><span class="op">=</span> <span class="ident">MIN_ALIGN</span> <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="ident">layout</span>.<span class="ident">align</span>() <span class="op">&lt;</span><span class="op">=</span> <span class="ident">layout</span>.<span class="ident">size</span>() {
+        <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">alloc_zeroed</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">layout</span>: <span class="ident">Layout</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u8</span> {
+            <span class="kw">if</span> <span class="ident">layout</span>.<span class="ident">align</span>() <span class="op">&lt;</span><span class="op">=</span> <span class="ident">MIN_ALIGN</span> <span class="op">&amp;&amp;</span> <span class="ident">layout</span>.<span class="ident">align</span>() <span class="op">&lt;</span><span class="op">=</span> <span class="ident">layout</span>.<span class="ident">size</span>() {
                 <span class="ident">libc</span>::<span class="ident">calloc</span>(<span class="ident">layout</span>.<span class="ident">size</span>(), <span class="number">1</span>) <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u8</span>
             } <span class="kw">else</span> {
-                <span class="kw">let</span> <span class="ident">ptr</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">alloc</span>(<span class="ident">layout</span>);
+                <span class="kw">let</span> <span class="ident">ptr</span> <span class="op">=</span> <span class="ident">GlobalAlloc</span>::<span class="ident">alloc</span>(<span class="self">self</span>, <span class="ident">layout</span>);
                 <span class="kw">if</span> <span class="op">!</span><span class="ident">ptr</span>.<span class="ident">is_null</span>() {
                     <span class="ident">ptr</span>::<span class="ident">write_bytes</span>(<span class="ident">ptr</span>, <span class="number">0</span>, <span class="ident">layout</span>.<span class="ident">size</span>());
                 }
@@ -446,11 +526,8 @@
         }
 
         <span class="attribute">#[<span class="ident">inline</span>]</span>
-        <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">realloc</span>(<span class="kw-2">&amp;</span><span class="self">self</span>,
-                          <span class="ident">ptr</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u8</span>,
-                          <span class="ident">layout</span>: <span class="ident">Layout</span>,
-                          <span class="ident">new_size</span>: <span class="ident">usize</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u8</span> {
-            <span class="kw">if</span> <span class="ident">layout</span>.<span class="ident">align</span>() <span class="op">&lt;</span><span class="op">=</span> <span class="ident">MIN_ALIGN</span> <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="ident">layout</span>.<span class="ident">align</span>() <span class="op">&lt;</span><span class="op">=</span> <span class="ident">new_size</span> {
+        <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">realloc</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">ptr</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u8</span>, <span class="ident">layout</span>: <span class="ident">Layout</span>, <span class="ident">new_size</span>: <span class="ident">usize</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u8</span> {
+            <span class="kw">if</span> <span class="ident">layout</span>.<span class="ident">align</span>() <span class="op">&lt;</span><span class="op">=</span> <span class="ident">MIN_ALIGN</span> <span class="op">&amp;&amp;</span> <span class="ident">layout</span>.<span class="ident">align</span>() <span class="op">&lt;</span><span class="op">=</span> <span class="ident">new_size</span> {
                 <span class="ident">libc</span>::<span class="ident">realloc</span>(<span class="ident">ptr</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_void</span>, <span class="ident">new_size</span>) <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u8</span>
             } <span class="kw">else</span> {
                 <span class="self">self</span>.<span class="ident">realloc_fallback</span>(<span class="ident">ptr</span>, <span class="ident">layout</span>, <span class="ident">new_size</span>)
@@ -476,4 +553,4 @@
     }
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "sgx_alloc";</script><script src="../../aliases.js"></script><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "sgx_alloc";</script><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>

@@ -1,4 +1,7 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source to the Rust file `/home/mssun/incubator-teaclave/build/cmake_tomls/sgx_untrusted_app/third_party/crates-io/vendor/url/src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs.html -- source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css"><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script src="../../storage.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="shortcut icon" href="../../favicon.ico"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../url/index.html'><div class='logo-container'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">   1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/mssun/incubator-teaclave/build/cmake_tomls/sgx_untrusted_app/third_party/crates-io/vendor/url/src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs - source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script src="../../storage.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="alternate icon" type="image/png" href="../../favicon-16x16.png">
+<link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../url/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><span class="help-button">?</span>
+                <a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">   1</span>
 <span id="2">   2</span>
 <span id="3">   3</span>
 <span id="4">   4</span>
@@ -2665,6 +2668,228 @@
 <span id="2665">2665</span>
 <span id="2666">2666</span>
 <span id="2667">2667</span>
+<span id="2668">2668</span>
+<span id="2669">2669</span>
+<span id="2670">2670</span>
+<span id="2671">2671</span>
+<span id="2672">2672</span>
+<span id="2673">2673</span>
+<span id="2674">2674</span>
+<span id="2675">2675</span>
+<span id="2676">2676</span>
+<span id="2677">2677</span>
+<span id="2678">2678</span>
+<span id="2679">2679</span>
+<span id="2680">2680</span>
+<span id="2681">2681</span>
+<span id="2682">2682</span>
+<span id="2683">2683</span>
+<span id="2684">2684</span>
+<span id="2685">2685</span>
+<span id="2686">2686</span>
+<span id="2687">2687</span>
+<span id="2688">2688</span>
+<span id="2689">2689</span>
+<span id="2690">2690</span>
+<span id="2691">2691</span>
+<span id="2692">2692</span>
+<span id="2693">2693</span>
+<span id="2694">2694</span>
+<span id="2695">2695</span>
+<span id="2696">2696</span>
+<span id="2697">2697</span>
+<span id="2698">2698</span>
+<span id="2699">2699</span>
+<span id="2700">2700</span>
+<span id="2701">2701</span>
+<span id="2702">2702</span>
+<span id="2703">2703</span>
+<span id="2704">2704</span>
+<span id="2705">2705</span>
+<span id="2706">2706</span>
+<span id="2707">2707</span>
+<span id="2708">2708</span>
+<span id="2709">2709</span>
+<span id="2710">2710</span>
+<span id="2711">2711</span>
+<span id="2712">2712</span>
+<span id="2713">2713</span>
+<span id="2714">2714</span>
+<span id="2715">2715</span>
+<span id="2716">2716</span>
+<span id="2717">2717</span>
+<span id="2718">2718</span>
+<span id="2719">2719</span>
+<span id="2720">2720</span>
+<span id="2721">2721</span>
+<span id="2722">2722</span>
+<span id="2723">2723</span>
+<span id="2724">2724</span>
+<span id="2725">2725</span>
+<span id="2726">2726</span>
+<span id="2727">2727</span>
+<span id="2728">2728</span>
+<span id="2729">2729</span>
+<span id="2730">2730</span>
+<span id="2731">2731</span>
+<span id="2732">2732</span>
+<span id="2733">2733</span>
+<span id="2734">2734</span>
+<span id="2735">2735</span>
+<span id="2736">2736</span>
+<span id="2737">2737</span>
+<span id="2738">2738</span>
+<span id="2739">2739</span>
+<span id="2740">2740</span>
+<span id="2741">2741</span>
+<span id="2742">2742</span>
+<span id="2743">2743</span>
+<span id="2744">2744</span>
+<span id="2745">2745</span>
+<span id="2746">2746</span>
+<span id="2747">2747</span>
+<span id="2748">2748</span>
+<span id="2749">2749</span>
+<span id="2750">2750</span>
+<span id="2751">2751</span>
+<span id="2752">2752</span>
+<span id="2753">2753</span>
+<span id="2754">2754</span>
+<span id="2755">2755</span>
+<span id="2756">2756</span>
+<span id="2757">2757</span>
+<span id="2758">2758</span>
+<span id="2759">2759</span>
+<span id="2760">2760</span>
+<span id="2761">2761</span>
+<span id="2762">2762</span>
+<span id="2763">2763</span>
+<span id="2764">2764</span>
+<span id="2765">2765</span>
+<span id="2766">2766</span>
+<span id="2767">2767</span>
+<span id="2768">2768</span>
+<span id="2769">2769</span>
+<span id="2770">2770</span>
+<span id="2771">2771</span>
+<span id="2772">2772</span>
+<span id="2773">2773</span>
+<span id="2774">2774</span>
+<span id="2775">2775</span>
+<span id="2776">2776</span>
+<span id="2777">2777</span>
+<span id="2778">2778</span>
+<span id="2779">2779</span>
+<span id="2780">2780</span>
+<span id="2781">2781</span>
+<span id="2782">2782</span>
+<span id="2783">2783</span>
+<span id="2784">2784</span>
+<span id="2785">2785</span>
+<span id="2786">2786</span>
+<span id="2787">2787</span>
+<span id="2788">2788</span>
+<span id="2789">2789</span>
+<span id="2790">2790</span>
+<span id="2791">2791</span>
+<span id="2792">2792</span>
+<span id="2793">2793</span>
+<span id="2794">2794</span>
+<span id="2795">2795</span>
+<span id="2796">2796</span>
+<span id="2797">2797</span>
+<span id="2798">2798</span>
+<span id="2799">2799</span>
+<span id="2800">2800</span>
+<span id="2801">2801</span>
+<span id="2802">2802</span>
+<span id="2803">2803</span>
+<span id="2804">2804</span>
+<span id="2805">2805</span>
+<span id="2806">2806</span>
+<span id="2807">2807</span>
+<span id="2808">2808</span>
+<span id="2809">2809</span>
+<span id="2810">2810</span>
+<span id="2811">2811</span>
+<span id="2812">2812</span>
+<span id="2813">2813</span>
+<span id="2814">2814</span>
+<span id="2815">2815</span>
+<span id="2816">2816</span>
+<span id="2817">2817</span>
+<span id="2818">2818</span>
+<span id="2819">2819</span>
+<span id="2820">2820</span>
+<span id="2821">2821</span>
+<span id="2822">2822</span>
+<span id="2823">2823</span>
+<span id="2824">2824</span>
+<span id="2825">2825</span>
+<span id="2826">2826</span>
+<span id="2827">2827</span>
+<span id="2828">2828</span>
+<span id="2829">2829</span>
+<span id="2830">2830</span>
+<span id="2831">2831</span>
+<span id="2832">2832</span>
+<span id="2833">2833</span>
+<span id="2834">2834</span>
+<span id="2835">2835</span>
+<span id="2836">2836</span>
+<span id="2837">2837</span>
+<span id="2838">2838</span>
+<span id="2839">2839</span>
+<span id="2840">2840</span>
+<span id="2841">2841</span>
+<span id="2842">2842</span>
+<span id="2843">2843</span>
+<span id="2844">2844</span>
+<span id="2845">2845</span>
+<span id="2846">2846</span>
+<span id="2847">2847</span>
+<span id="2848">2848</span>
+<span id="2849">2849</span>
+<span id="2850">2850</span>
+<span id="2851">2851</span>
+<span id="2852">2852</span>
+<span id="2853">2853</span>
+<span id="2854">2854</span>
+<span id="2855">2855</span>
+<span id="2856">2856</span>
+<span id="2857">2857</span>
+<span id="2858">2858</span>
+<span id="2859">2859</span>
+<span id="2860">2860</span>
+<span id="2861">2861</span>
+<span id="2862">2862</span>
+<span id="2863">2863</span>
+<span id="2864">2864</span>
+<span id="2865">2865</span>
+<span id="2866">2866</span>
+<span id="2867">2867</span>
+<span id="2868">2868</span>
+<span id="2869">2869</span>
+<span id="2870">2870</span>
+<span id="2871">2871</span>
+<span id="2872">2872</span>
+<span id="2873">2873</span>
+<span id="2874">2874</span>
+<span id="2875">2875</span>
+<span id="2876">2876</span>
+<span id="2877">2877</span>
+<span id="2878">2878</span>
+<span id="2879">2879</span>
+<span id="2880">2880</span>
+<span id="2881">2881</span>
+<span id="2882">2882</span>
+<span id="2883">2883</span>
+<span id="2884">2884</span>
+<span id="2885">2885</span>
+<span id="2886">2886</span>
+<span id="2887">2887</span>
+<span id="2888">2888</span>
+<span id="2889">2889</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// Copyright 2013-2015 The rust-url developers.</span>
 <span class="comment">//</span>
@@ -2741,6 +2966,9 @@ assert!(data_url.fragment() == Some(&quot;&quot;));
 # run().unwrap();
 ```
 
+## Serde
+
+Enable the `serde` feature to include `Deserialize` and `Serialize` implementations for `url::Url`.
 
 # Base URL
 
@@ -2771,24 +2999,34 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
 # Ok(())
 # }
 # run().unwrap();
+```
+
+# Feature: `serde`
+
+If you enable the `serde` feature, [`Url`](struct.Url.html) will implement
+[`serde::Serialize`](https://docs.rs/serde/1/serde/trait.Serialize.html) and
+[`serde::Deserialize`](https://docs.rs/serde/1/serde/trait.Deserialize.html).
+See [serde documentation](https://serde.rs) for more information.
+
+```toml
+url = { version = &quot;2&quot;, features = [&quot;serde&quot;] }
+```
 */</span>
 
-<span class="attribute">#![<span class="ident">doc</span>(<span class="ident">html_root_url</span> <span class="op">=</span> <span class="string">&quot;https://docs.rs/url/2.1.1&quot;</span>)]</span>
+<span class="attribute">#![<span class="ident">doc</span>(<span class="ident">html_root_url</span> <span class="op">=</span> <span class="string">&quot;https://docs.rs/url/2.2.2&quot;</span>)]</span>
 
 <span class="attribute">#[<span class="ident">macro_use</span>]</span>
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">matches</span>;
-<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">idna</span>;
-<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">percent_encoding</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">form_urlencoded</span>;
+
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;serde&quot;</span>)]</span>
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">serde</span>;
 
-<span class="kw">use</span> <span class="ident">host</span>::<span class="ident">HostInternal</span>;
-<span class="kw">use</span> <span class="ident">parser</span>::{<span class="ident">to_u32</span>, <span class="ident">Context</span>, <span class="ident">Parser</span>, <span class="ident">SchemeType</span>, <span class="ident">PATH_SEGMENT</span>, <span class="ident">USERINFO</span>};
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">host</span>::<span class="ident">HostInternal</span>;
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">parser</span>::{<span class="ident">to_u32</span>, <span class="ident">Context</span>, <span class="ident">Parser</span>, <span class="ident">SchemeType</span>, <span class="ident">PATH_SEGMENT</span>, <span class="ident">USERINFO</span>};
 <span class="kw">use</span> <span class="ident">percent_encoding</span>::{<span class="ident">percent_decode</span>, <span class="ident">percent_encode</span>, <span class="ident">utf8_percent_encode</span>};
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">borrow</span>::<span class="ident">Borrow</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">cmp</span>;
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;serde&quot;</span>)]</span>
-<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">error</span>::<span class="ident">Error</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">fmt</span>::{<span class="self">self</span>, <span class="ident">Write</span>};
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">hash</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">io</span>;
@@ -2798,21 +3036,21 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">path</span>::{<span class="ident">Path</span>, <span class="ident">PathBuf</span>};
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">str</span>;
 
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">host</span>::<span class="ident">Host</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">origin</span>::{<span class="ident">OpaqueOrigin</span>, <span class="ident">Origin</span>};
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">parser</span>::{<span class="ident">ParseError</span>, <span class="ident">SyntaxViolation</span>};
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">path_segments</span>::<span class="ident">PathSegmentsMut</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">query_encoding</span>::<span class="ident">EncodingOverride</span>;
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">slicing</span>::<span class="ident">Position</span>;
+<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">convert</span>::<span class="ident">TryFrom</span>;
+
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">host</span>::<span class="ident">Host</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">origin</span>::{<span class="ident">OpaqueOrigin</span>, <span class="ident">Origin</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">parser</span>::{<span class="ident">ParseError</span>, <span class="ident">SyntaxViolation</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">path_segments</span>::<span class="ident">PathSegmentsMut</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">slicing</span>::<span class="ident">Position</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">form_urlencoded</span>::<span class="ident">EncodingOverride</span>;
 
 <span class="kw">mod</span> <span class="ident">host</span>;
 <span class="kw">mod</span> <span class="ident">origin</span>;
 <span class="kw">mod</span> <span class="ident">parser</span>;
 <span class="kw">mod</span> <span class="ident">path_segments</span>;
-<span class="kw">mod</span> <span class="ident">query_encoding</span>;
 <span class="kw">mod</span> <span class="ident">slicing</span>;
 
-<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">form_urlencoded</span>;
 <span class="attribute">#[<span class="ident">doc</span>(<span class="ident">hidden</span>)]</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">quirks</span>;
 
@@ -2892,7 +3130,7 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
     }
 
     <span class="doccomment">/// Parse an URL string with the configuration so far.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">parse</span>(<span class="self">self</span>, <span class="ident">input</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Url</span>, ::<span class="ident">ParseError</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">parse</span>(<span class="self">self</span>, <span class="ident">input</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Url</span>, <span class="kw">crate</span>::<span class="ident">ParseError</span><span class="op">&gt;</span> {
         <span class="ident">Parser</span> {
             <span class="ident">serialization</span>: <span class="ident">String</span>::<span class="ident">with_capacity</span>(<span class="ident">input</span>.<span class="ident">len</span>()),
             <span class="ident">base_url</span>: <span class="self">self</span>.<span class="ident">base_url</span>,
@@ -2927,7 +3165,7 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
     <span class="doccomment">///</span>
     <span class="doccomment">/// [`ParseError`]: enum.ParseError.html</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">parse</span>(<span class="ident">input</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Url</span>, ::<span class="ident">ParseError</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">parse</span>(<span class="ident">input</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Url</span>, <span class="kw">crate</span>::<span class="ident">ParseError</span><span class="op">&gt;</span> {
         <span class="ident">Url</span>::<span class="ident">options</span>().<span class="ident">parse</span>(<span class="ident">input</span>)
     }
 
@@ -2944,6 +3182,7 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
     <span class="doccomment">/// # fn run() -&gt; Result&lt;(), ParseError&gt; {</span>
     <span class="doccomment">/// let url = Url::parse_with_params(&quot;https://example.net?dont=clobberme&quot;,</span>
     <span class="doccomment">///                                  &amp;[(&quot;lang&quot;, &quot;rust&quot;), (&quot;browser&quot;, &quot;servo&quot;)])?;</span>
+    <span class="doccomment">/// assert_eq!(&quot;https://example.net/?dont=clobberme&amp;lang=rust&amp;browser=servo&quot;, url.as_str());</span>
     <span class="doccomment">/// # Ok(())</span>
     <span class="doccomment">/// # }</span>
     <span class="doccomment">/// # run().unwrap();</span>
@@ -2956,7 +3195,7 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
     <span class="doccomment">///</span>
     <span class="doccomment">/// [`ParseError`]: enum.ParseError.html</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">parse_with_params</span><span class="op">&lt;</span><span class="ident">I</span>, <span class="ident">K</span>, <span class="ident">V</span><span class="op">&gt;</span>(<span class="ident">input</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">iter</span>: <span class="ident">I</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Url</span>, ::<span class="ident">ParseError</span><span class="op">&gt;</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">parse_with_params</span><span class="op">&lt;</span><span class="ident">I</span>, <span class="ident">K</span>, <span class="ident">V</span><span class="op">&gt;</span>(<span class="ident">input</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="ident">iter</span>: <span class="ident">I</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Url</span>, <span class="kw">crate</span>::<span class="ident">ParseError</span><span class="op">&gt;</span>
     <span class="kw">where</span>
         <span class="ident">I</span>: <span class="ident">IntoIterator</span>,
         <span class="ident">I</span>::<span class="ident">Item</span>: <span class="ident">Borrow</span><span class="op">&lt;</span>(<span class="ident">K</span>, <span class="ident">V</span>)<span class="op">&gt;</span>,
@@ -2973,6 +3212,8 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
     }
 
     <span class="doccomment">/// Parse a string as an URL, with this URL as the base URL.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// The inverse of this is [`make_relative`].</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// Note: a trailing slash is significant.</span>
     <span class="doccomment">/// Without it, the last path component is considered to be a “file” name</span>
@@ -3003,9 +3244,142 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
     <span class="doccomment">/// with this URL as the base URL, a [`ParseError`] variant will be returned.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// [`ParseError`]: enum.ParseError.html</span>
+    <span class="doccomment">/// [`make_relative`]: #method.make_relative</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">join</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">input</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Url</span>, ::<span class="ident">ParseError</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">join</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">input</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Url</span>, <span class="kw">crate</span>::<span class="ident">ParseError</span><span class="op">&gt;</span> {
         <span class="ident">Url</span>::<span class="ident">options</span>().<span class="ident">base_url</span>(<span class="prelude-val">Some</span>(<span class="self">self</span>)).<span class="ident">parse</span>(<span class="ident">input</span>)
+    }
+
+    <span class="doccomment">/// Creates a relative URL if possible, with this URL as the base URL.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// This is the inverse of [`join`].</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # Examples</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// ```rust</span>
+    <span class="doccomment">/// use url::Url;</span>
+    <span class="doccomment">/// # use url::ParseError;</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # fn run() -&gt; Result&lt;(), ParseError&gt; {</span>
+    <span class="doccomment">/// let base = Url::parse(&quot;https://example.net/a/b.html&quot;)?;</span>
+    <span class="doccomment">/// let url = Url::parse(&quot;https://example.net/a/c.png&quot;)?;</span>
+    <span class="doccomment">/// let relative = base.make_relative(&amp;url);</span>
+    <span class="doccomment">/// assert_eq!(relative.as_ref().map(|s| s.as_str()), Some(&quot;c.png&quot;));</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// let base = Url::parse(&quot;https://example.net/a/b/&quot;)?;</span>
+    <span class="doccomment">/// let url = Url::parse(&quot;https://example.net/a/b/c.png&quot;)?;</span>
+    <span class="doccomment">/// let relative = base.make_relative(&amp;url);</span>
+    <span class="doccomment">/// assert_eq!(relative.as_ref().map(|s| s.as_str()), Some(&quot;c.png&quot;));</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// let base = Url::parse(&quot;https://example.net/a/b/&quot;)?;</span>
+    <span class="doccomment">/// let url = Url::parse(&quot;https://example.net/a/d/c.png&quot;)?;</span>
+    <span class="doccomment">/// let relative = base.make_relative(&amp;url);</span>
+    <span class="doccomment">/// assert_eq!(relative.as_ref().map(|s| s.as_str()), Some(&quot;../d/c.png&quot;));</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// let base = Url::parse(&quot;https://example.net/a/b.html?c=d&quot;)?;</span>
+    <span class="doccomment">/// let url = Url::parse(&quot;https://example.net/a/b.html?e=f&quot;)?;</span>
+    <span class="doccomment">/// let relative = base.make_relative(&amp;url);</span>
+    <span class="doccomment">/// assert_eq!(relative.as_ref().map(|s| s.as_str()), Some(&quot;?e=f&quot;));</span>
+    <span class="doccomment">/// # Ok(())</span>
+    <span class="doccomment">/// # }</span>
+    <span class="doccomment">/// # run().unwrap();</span>
+    <span class="doccomment">/// ```</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// # Errors</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// If this URL can&#39;t be a base for the given URL, `None` is returned.</span>
+    <span class="doccomment">/// This is for example the case if the scheme, host or port are not the same.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// [`join`]: #method.join</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">make_relative</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">url</span>: <span class="kw-2">&amp;</span><span class="ident">Url</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span> {
+        <span class="kw">if</span> <span class="self">self</span>.<span class="ident">cannot_be_a_base</span>() {
+            <span class="kw">return</span> <span class="prelude-val">None</span>;
+        }
+
+        <span class="comment">// Scheme, host and port need to be the same</span>
+        <span class="kw">if</span> <span class="self">self</span>.<span class="ident">scheme</span>() <span class="op">!</span><span class="op">=</span> <span class="ident">url</span>.<span class="ident">scheme</span>() <span class="op">|</span><span class="op">|</span> <span class="self">self</span>.<span class="ident">host</span>() <span class="op">!</span><span class="op">=</span> <span class="ident">url</span>.<span class="ident">host</span>() <span class="op">|</span><span class="op">|</span> <span class="self">self</span>.<span class="ident">port</span>() <span class="op">!</span><span class="op">=</span> <span class="ident">url</span>.<span class="ident">port</span>() {
+            <span class="kw">return</span> <span class="prelude-val">None</span>;
+        }
+
+        <span class="comment">// We ignore username/password at this point</span>
+
+        <span class="comment">// The path has to be transformed</span>
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">relative</span> <span class="op">=</span> <span class="ident">String</span>::<span class="ident">new</span>();
+
+        <span class="comment">// Extract the filename of both URIs, these need to be handled separately</span>
+        <span class="kw">fn</span> <span class="ident">extract_path_filename</span>(<span class="ident">s</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> (<span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="ident">str</span>) {
+            <span class="kw">let</span> <span class="ident">last_slash_idx</span> <span class="op">=</span> <span class="ident">s</span>.<span class="ident">rfind</span>(<span class="string">&#39;/&#39;</span>).<span class="ident">unwrap_or</span>(<span class="number">0</span>);
+            <span class="kw">let</span> (<span class="ident">path</span>, <span class="ident">filename</span>) <span class="op">=</span> <span class="ident">s</span>.<span class="ident">split_at</span>(<span class="ident">last_slash_idx</span>);
+            <span class="kw">if</span> <span class="ident">filename</span>.<span class="ident">is_empty</span>() {
+                (<span class="ident">path</span>, <span class="string">&quot;&quot;</span>)
+            } <span class="kw">else</span> {
+                (<span class="ident">path</span>, <span class="kw-2">&amp;</span><span class="ident">filename</span>[<span class="number">1</span>..])
+            }
+        }
+
+        <span class="kw">let</span> (<span class="ident">base_path</span>, <span class="ident">base_filename</span>) <span class="op">=</span> <span class="ident">extract_path_filename</span>(<span class="self">self</span>.<span class="ident">path</span>());
+        <span class="kw">let</span> (<span class="ident">url_path</span>, <span class="ident">url_filename</span>) <span class="op">=</span> <span class="ident">extract_path_filename</span>(<span class="ident">url</span>.<span class="ident">path</span>());
+
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">base_path</span> <span class="op">=</span> <span class="ident">base_path</span>.<span class="ident">split</span>(<span class="string">&#39;/&#39;</span>).<span class="ident">peekable</span>();
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">url_path</span> <span class="op">=</span> <span class="ident">url_path</span>.<span class="ident">split</span>(<span class="string">&#39;/&#39;</span>).<span class="ident">peekable</span>();
+
+        <span class="comment">// Skip over the common prefix</span>
+        <span class="kw">while</span> <span class="ident">base_path</span>.<span class="ident">peek</span>().<span class="ident">is_some</span>() <span class="op">&amp;&amp;</span> <span class="ident">base_path</span>.<span class="ident">peek</span>() <span class="op">=</span><span class="op">=</span> <span class="ident">url_path</span>.<span class="ident">peek</span>() {
+            <span class="ident">base_path</span>.<span class="ident">next</span>();
+            <span class="ident">url_path</span>.<span class="ident">next</span>();
+        }
+
+        <span class="comment">// Add `..` segments for the remainder of the base path</span>
+        <span class="kw">for</span> <span class="ident">base_path_segment</span> <span class="kw">in</span> <span class="ident">base_path</span> {
+            <span class="comment">// Skip empty last segments</span>
+            <span class="kw">if</span> <span class="ident">base_path_segment</span>.<span class="ident">is_empty</span>() {
+                <span class="kw">break</span>;
+            }
+
+            <span class="kw">if</span> <span class="op">!</span><span class="ident">relative</span>.<span class="ident">is_empty</span>() {
+                <span class="ident">relative</span>.<span class="ident">push</span>(<span class="string">&#39;/&#39;</span>);
+            }
+
+            <span class="ident">relative</span>.<span class="ident">push_str</span>(<span class="string">&quot;..&quot;</span>);
+        }
+
+        <span class="comment">// Append the remainder of the other URI</span>
+        <span class="kw">for</span> <span class="ident">url_path_segment</span> <span class="kw">in</span> <span class="ident">url_path</span> {
+            <span class="kw">if</span> <span class="op">!</span><span class="ident">relative</span>.<span class="ident">is_empty</span>() {
+                <span class="ident">relative</span>.<span class="ident">push</span>(<span class="string">&#39;/&#39;</span>);
+            }
+
+            <span class="ident">relative</span>.<span class="ident">push_str</span>(<span class="ident">url_path_segment</span>);
+        }
+
+        <span class="comment">// Add the filename if they are not the same</span>
+        <span class="kw">if</span> <span class="ident">base_filename</span> <span class="op">!</span><span class="op">=</span> <span class="ident">url_filename</span> {
+            <span class="comment">// If the URIs filename is empty this means that it was a directory</span>
+            <span class="comment">// so we&#39;ll have to append a &#39;/&#39;.</span>
+            <span class="comment">//</span>
+            <span class="comment">// Otherwise append it directly as the new filename.</span>
+            <span class="kw">if</span> <span class="ident">url_filename</span>.<span class="ident">is_empty</span>() {
+                <span class="ident">relative</span>.<span class="ident">push</span>(<span class="string">&#39;/&#39;</span>);
+            } <span class="kw">else</span> {
+                <span class="kw">if</span> <span class="op">!</span><span class="ident">relative</span>.<span class="ident">is_empty</span>() {
+                    <span class="ident">relative</span>.<span class="ident">push</span>(<span class="string">&#39;/&#39;</span>);
+                }
+                <span class="ident">relative</span>.<span class="ident">push_str</span>(<span class="ident">url_filename</span>);
+            }
+        }
+
+        <span class="comment">// Query and fragment are only taken from the other URI</span>
+        <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">query</span>) <span class="op">=</span> <span class="ident">url</span>.<span class="ident">query</span>() {
+            <span class="ident">relative</span>.<span class="ident">push</span>(<span class="string">&#39;?&#39;</span>);
+            <span class="ident">relative</span>.<span class="ident">push_str</span>(<span class="ident">query</span>);
+        }
+
+        <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">fragment</span>) <span class="op">=</span> <span class="ident">url</span>.<span class="ident">fragment</span>() {
+            <span class="ident">relative</span>.<span class="ident">push</span>(<span class="string">&#39;#&#39;</span>);
+            <span class="ident">relative</span>.<span class="ident">push_str</span>(<span class="ident">fragment</span>);
+        }
+
+        <span class="prelude-val">Some</span>(<span class="ident">relative</span>)
     }
 
     <span class="doccomment">/// Return a default `ParseOptions` that can fully configure the URL parser.</span>
@@ -3071,14 +3445,15 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
     <span class="doccomment">/// # fn run() -&gt; Result&lt;(), ParseError&gt; {</span>
     <span class="doccomment">/// let url_str = &quot;https://example.net/&quot;;</span>
     <span class="doccomment">/// let url = Url::parse(url_str)?;</span>
-    <span class="doccomment">/// assert_eq!(url.into_string(), url_str);</span>
+    <span class="doccomment">/// assert_eq!(String::from(url), url_str);</span>
     <span class="doccomment">/// # Ok(())</span>
     <span class="doccomment">/// # }</span>
     <span class="doccomment">/// # run().unwrap();</span>
     <span class="doccomment">/// ```</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
+    <span class="attribute">#[<span class="ident">deprecated</span>(<span class="ident">since</span> <span class="op">=</span> <span class="string">&quot;2.3.0&quot;</span>, <span class="ident">note</span> <span class="op">=</span> <span class="string">&quot;use Into&lt;String&gt;&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">into_string</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">String</span> {
-        <span class="self">self</span>.<span class="ident">serialization</span>
+        <span class="self">self</span>.<span class="ident">into</span>()
     }
 
     <span class="doccomment">/// For internal testing, not part of the public API.</span>
@@ -3384,8 +3759,9 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
     <span class="doccomment">/// # run().unwrap();</span>
     <span class="doccomment">/// ```</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">username</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="ident">str</span> {
-        <span class="kw">if</span> <span class="self">self</span>.<span class="ident">has_authority</span>() {
-            <span class="self">self</span>.<span class="ident">slice</span>(<span class="self">self</span>.<span class="ident">scheme_end</span> <span class="op">+</span> (<span class="string">&quot;://&quot;</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">u32</span>)..<span class="self">self</span>.<span class="ident">username_end</span>)
+        <span class="kw">let</span> <span class="ident">scheme_separator_len</span> <span class="op">=</span> <span class="string">&quot;://&quot;</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">u32</span>;
+        <span class="kw">if</span> <span class="self">self</span>.<span class="ident">has_authority</span>() <span class="op">&amp;&amp;</span> <span class="self">self</span>.<span class="ident">username_end</span> <span class="op">&gt;</span> <span class="self">self</span>.<span class="ident">scheme_end</span> <span class="op">+</span> <span class="ident">scheme_separator_len</span> {
+            <span class="self">self</span>.<span class="ident">slice</span>(<span class="self">self</span>.<span class="ident">scheme_end</span> <span class="op">+</span> <span class="ident">scheme_separator_len</span>..<span class="self">self</span>.<span class="ident">username_end</span>)
         } <span class="kw">else</span> {
             <span class="string">&quot;&quot;</span>
         }
@@ -3419,8 +3795,8 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
         <span class="comment">// This &#39;:&#39; is not the one marking a port number since a host can not be empty.</span>
         <span class="comment">// (Except for file: URLs, which do not have port numbers.)</span>
         <span class="kw">if</span> <span class="self">self</span>.<span class="ident">has_authority</span>()
-            <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="self">self</span>.<span class="ident">username_end</span> <span class="op">!</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">serialization</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">u32</span>
-            <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="self">self</span>.<span class="ident">byte_at</span>(<span class="self">self</span>.<span class="ident">username_end</span>) <span class="op">=</span><span class="op">=</span> <span class="string">b&#39;:&#39;</span>
+            <span class="op">&amp;&amp;</span> <span class="self">self</span>.<span class="ident">username_end</span> <span class="op">!</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">serialization</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">u32</span>
+            <span class="op">&amp;&amp;</span> <span class="self">self</span>.<span class="ident">byte_at</span>(<span class="self">self</span>.<span class="ident">username_end</span>) <span class="op">=</span><span class="op">=</span> <span class="string">b&#39;:&#39;</span>
         {
             <span class="macro">debug_assert</span><span class="macro">!</span>(<span class="self">self</span>.<span class="ident">byte_at</span>(<span class="self">self</span>.<span class="ident">host_start</span> <span class="op">-</span> <span class="number">1</span>) <span class="op">=</span><span class="op">=</span> <span class="string">b&#39;@&#39;</span>);
             <span class="prelude-val">Some</span>(<span class="self">self</span>.<span class="ident">slice</span>(<span class="self">self</span>.<span class="ident">username_end</span> <span class="op">+</span> <span class="number">1</span>..<span class="self">self</span>.<span class="ident">host_start</span> <span class="op">-</span> <span class="number">1</span>))
@@ -3456,7 +3832,8 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
 
     <span class="doccomment">/// Return the string representation of the host (domain or IP address) for this URL, if any.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Non-ASCII domains are punycode-encoded per IDNA.</span>
+    <span class="doccomment">/// Non-ASCII domains are punycode-encoded per IDNA if this is the host</span>
+    <span class="doccomment">/// of a special URL, or percent encoded for non-special URLs.</span>
     <span class="doccomment">/// IPv6 addresses are given between `[` and `]` brackets.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// Cannot-be-a-base URLs (typical of `data:` and `mailto:`) and some `file:` URLs</span>
@@ -3495,7 +3872,8 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
     }
 
     <span class="doccomment">/// Return the parsed representation of the host for this URL.</span>
-    <span class="doccomment">/// Non-ASCII domain labels are punycode-encoded per IDNA.</span>
+    <span class="doccomment">/// Non-ASCII domain labels are punycode-encoded per IDNA if this is the host</span>
+    <span class="doccomment">/// of a special URL, or percent encoded for non-special URLs.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// Cannot-be-a-base URLs (typical of `data:` and `mailto:`) and some `file:` URLs</span>
     <span class="doccomment">/// don’t have a host.</span>
@@ -3534,6 +3912,8 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
     }
 
     <span class="doccomment">/// If this URL has a host and it is a domain name (not an IP address), return it.</span>
+    <span class="doccomment">/// Non-ASCII domains are punycode-encoded per IDNA if this is the host</span>
+    <span class="doccomment">/// of a special URL, or percent encoded for non-special URLs.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Examples</span>
     <span class="doccomment">///</span>
@@ -3593,7 +3973,7 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
     <span class="doccomment">/// Return the port number for this URL, or the default port number if it is known.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This method only knows the default port number</span>
-    <span class="doccomment">/// of the `http`, `https`, `ws`, `wss`, `ftp`, and `gopher` schemes.</span>
+    <span class="doccomment">/// of the `http`, `https`, `ws`, `wss` and `ftp` schemes.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// For URLs in these schemes, this method always returns `Some(_)`.</span>
     <span class="doccomment">/// For other schemes, it is the same as `Url::port()`.</span>
@@ -3724,7 +4104,7 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
     <span class="doccomment">/// use url::Url;</span>
     <span class="doccomment">/// # use std::error::Error;</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// # fn run() -&gt; Result&lt;(), Box&lt;Error&gt;&gt; {</span>
+    <span class="doccomment">/// # fn run() -&gt; Result&lt;(), Box&lt;dyn Error&gt;&gt; {</span>
     <span class="doccomment">/// let url = Url::parse(&quot;https://example.com/foo/bar&quot;)?;</span>
     <span class="doccomment">/// let mut path_segments = url.path_segments().ok_or_else(|| &quot;cannot be base&quot;)?;</span>
     <span class="doccomment">/// assert_eq!(path_segments.next(), Some(&quot;foo&quot;));</span>
@@ -3747,7 +4127,8 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
     <span class="doccomment">/// # }</span>
     <span class="doccomment">/// # run().unwrap();</span>
     <span class="doccomment">/// ```</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">path_segments</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">str</span>::<span class="ident">Split</span><span class="op">&lt;</span><span class="ident">char</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy</span>::<span class="ident">manual_strip</span>)]</span> <span class="comment">// introduced in 1.45, MSRV is 1.36</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">path_segments</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">str</span>::<span class="ident">Split</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span>, <span class="ident">char</span><span class="op">&gt;</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">path</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">path</span>();
         <span class="kw">if</span> <span class="ident">path</span>.<span class="ident">starts_with</span>(<span class="string">&#39;/&#39;</span>) {
             <span class="prelude-val">Some</span>(<span class="ident">path</span>[<span class="number">1</span>..].<span class="ident">split</span>(<span class="string">&#39;/&#39;</span>))
@@ -3819,7 +4200,7 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
     <span class="doccomment">///</span>
 
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">query_pairs</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">form_urlencoded</span>::<span class="ident">Parse</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">query_pairs</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">form_urlencoded</span>::<span class="ident">Parse</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span><span class="op">&gt;</span> {
         <span class="ident">form_urlencoded</span>::<span class="ident">parse</span>(<span class="self">self</span>.<span class="ident">query</span>().<span class="ident">unwrap_or</span>(<span class="string">&quot;&quot;</span>).<span class="ident">as_bytes</span>())
     }
 
@@ -3862,7 +4243,7 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
         })
     }
 
-    <span class="kw">fn</span> <span class="ident">mutate</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">FnOnce</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">Parser</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">R</span>, <span class="ident">R</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">R</span> {
+    <span class="kw">fn</span> <span class="ident">mutate</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">FnOnce</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">Parser</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">R</span>, <span class="ident">R</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">f</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">R</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">parser</span> <span class="op">=</span> <span class="ident">Parser</span>::<span class="ident">for_setter</span>(<span class="ident">mem</span>::<span class="ident">replace</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>.<span class="ident">serialization</span>, <span class="ident">String</span>::<span class="ident">new</span>()));
         <span class="kw">let</span> <span class="ident">result</span> <span class="op">=</span> <span class="ident">f</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">parser</span>);
         <span class="self">self</span>.<span class="ident">serialization</span> <span class="op">=</span> <span class="ident">parser</span>.<span class="ident">serialization</span>;
@@ -4004,7 +4385,7 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
     <span class="doccomment">/// not `url.set_query(None)`.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// The state of `Url` is unspecified if this return value is leaked without being dropped.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">query_pairs_mut</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">form_urlencoded</span>::<span class="ident">Serializer</span><span class="op">&lt;</span><span class="ident">UrlQuery</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">query_pairs_mut</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">form_urlencoded</span>::<span class="ident">Serializer</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span>, <span class="ident">UrlQuery</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span><span class="op">&gt;</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">fragment</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">take_fragment</span>();
 
         <span class="kw">let</span> <span class="ident">query_start</span>;
@@ -4081,7 +4462,8 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
     <span class="doccomment">/// Return an object with methods to manipulate this URL’s path segments.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// Return `Err(())` if this URL is cannot-be-a-base.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">path_segments_mut</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">PathSegmentsMut</span>, ()<span class="op">&gt;</span> {
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy</span>::<span class="ident">result_unit_err</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">path_segments_mut</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">PathSegmentsMut</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span><span class="op">&gt;</span>, ()<span class="op">&gt;</span> {
         <span class="kw">if</span> <span class="self">self</span>.<span class="ident">cannot_be_a_base</span>() {
             <span class="prelude-val">Err</span>(())
         } <span class="kw">else</span> {
@@ -4117,7 +4499,7 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
     <span class="doccomment">/// use url::Url;</span>
     <span class="doccomment">/// # use std::error::Error;</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// # fn run() -&gt; Result&lt;(), Box&lt;Error&gt;&gt; {</span>
+    <span class="doccomment">/// # fn run() -&gt; Result&lt;(), Box&lt;dyn Error&gt;&gt; {</span>
     <span class="doccomment">/// let mut url = Url::parse(&quot;ssh://example.net:2048/&quot;)?;</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// url.set_port(Some(4096)).map_err(|_| &quot;cannot be base&quot;)?;</span>
@@ -4136,7 +4518,7 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
     <span class="doccomment">/// use url::Url;</span>
     <span class="doccomment">/// # use std::error::Error;</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// # fn run() -&gt; Result&lt;(), Box&lt;Error&gt;&gt; {</span>
+    <span class="doccomment">/// # fn run() -&gt; Result&lt;(), Box&lt;dyn Error&gt;&gt; {</span>
     <span class="doccomment">/// let mut url = Url::parse(&quot;https://example.org/&quot;)?;</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// url.set_port(Some(443)).map_err(|_| &quot;cannot be base&quot;)?;</span>
@@ -4164,12 +4546,13 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
     <span class="doccomment">/// # }</span>
     <span class="doccomment">/// # run().unwrap();</span>
     <span class="doccomment">/// ```</span>
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy</span>::<span class="ident">result_unit_err</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_port</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="kw-2">mut</span> <span class="ident">port</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">u16</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), ()<span class="op">&gt;</span> {
         <span class="comment">// has_host implies !cannot_be_a_base</span>
         <span class="kw">if</span> <span class="op">!</span><span class="self">self</span>.<span class="ident">has_host</span>() <span class="op">|</span><span class="op">|</span> <span class="self">self</span>.<span class="ident">host</span>() <span class="op">=</span><span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">Host</span>::<span class="ident">Domain</span>(<span class="string">&quot;&quot;</span>)) <span class="op">|</span><span class="op">|</span> <span class="self">self</span>.<span class="ident">scheme</span>() <span class="op">=</span><span class="op">=</span> <span class="string">&quot;file&quot;</span> {
             <span class="kw">return</span> <span class="prelude-val">Err</span>(());
         }
-        <span class="kw">if</span> <span class="ident">port</span>.<span class="ident">is_some</span>() <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="ident">port</span> <span class="op">=</span><span class="op">=</span> <span class="ident">parser</span>::<span class="ident">default_port</span>(<span class="self">self</span>.<span class="ident">scheme</span>()) {
+        <span class="kw">if</span> <span class="ident">port</span>.<span class="ident">is_some</span>() <span class="op">&amp;&amp;</span> <span class="ident">port</span> <span class="op">=</span><span class="op">=</span> <span class="ident">parser</span>::<span class="ident">default_port</span>(<span class="self">self</span>.<span class="ident">scheme</span>()) {
             <span class="ident">port</span> <span class="op">=</span> <span class="prelude-val">None</span>
         }
         <span class="self">self</span>.<span class="ident">set_port_internal</span>(<span class="ident">port</span>);
@@ -4303,7 +4686,7 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
         }
 
         <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">host</span>) <span class="op">=</span> <span class="ident">host</span> {
-            <span class="kw">if</span> <span class="ident">host</span> <span class="op">=</span><span class="op">=</span> <span class="string">&quot;&quot;</span> <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="ident">SchemeType</span>::<span class="ident">from</span>(<span class="self">self</span>.<span class="ident">scheme</span>()).<span class="ident">is_special</span>() {
+            <span class="kw">if</span> <span class="ident">host</span>.<span class="ident">is_empty</span>() <span class="op">&amp;&amp;</span> <span class="ident">SchemeType</span>::<span class="ident">from</span>(<span class="self">self</span>.<span class="ident">scheme</span>()).<span class="ident">is_special</span>() {
                 <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="ident">ParseError</span>::<span class="ident">EmptyHost</span>);
             }
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">host_substr</span> <span class="op">=</span> <span class="ident">host</span>;
@@ -4330,10 +4713,8 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
             <span class="kw">let</span> <span class="ident">scheme_type</span> <span class="op">=</span> <span class="ident">SchemeType</span>::<span class="ident">from</span>(<span class="self">self</span>.<span class="ident">scheme</span>());
             <span class="kw">if</span> <span class="ident">scheme_type</span>.<span class="ident">is_special</span>() {
                 <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="ident">ParseError</span>::<span class="ident">EmptyHost</span>);
-            } <span class="kw">else</span> {
-                <span class="kw">if</span> <span class="self">self</span>.<span class="ident">serialization</span>.<span class="ident">len</span>() <span class="op">=</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">path_start</span> <span class="kw">as</span> <span class="ident">usize</span> {
-                    <span class="self">self</span>.<span class="ident">serialization</span>.<span class="ident">push</span>(<span class="string">&#39;/&#39;</span>);
-                }
+            } <span class="kw">else</span> <span class="kw">if</span> <span class="self">self</span>.<span class="ident">serialization</span>.<span class="ident">len</span>() <span class="op">=</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">path_start</span> <span class="kw">as</span> <span class="ident">usize</span> {
+                <span class="self">self</span>.<span class="ident">serialization</span>.<span class="ident">push</span>(<span class="string">&#39;/&#39;</span>);
             }
             <span class="macro">debug_assert</span><span class="macro">!</span>(<span class="self">self</span>.<span class="ident">byte_at</span>(<span class="self">self</span>.<span class="ident">scheme_end</span>) <span class="op">=</span><span class="op">=</span> <span class="string">b&#39;:&#39;</span>);
             <span class="macro">debug_assert</span><span class="macro">!</span>(<span class="self">self</span>.<span class="ident">byte_at</span>(<span class="self">self</span>.<span class="ident">path_start</span>) <span class="op">=</span><span class="op">=</span> <span class="string">b&#39;/&#39;</span>);
@@ -4436,6 +4817,7 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
     <span class="doccomment">/// # run().unwrap();</span>
     <span class="doccomment">/// ```</span>
     <span class="doccomment">///</span>
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy</span>::<span class="ident">result_unit_err</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_ip_host</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">address</span>: <span class="ident">IpAddr</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), ()<span class="op">&gt;</span> {
         <span class="kw">if</span> <span class="self">self</span>.<span class="ident">cannot_be_a_base</span>() {
             <span class="kw">return</span> <span class="prelude-val">Err</span>(());
@@ -4475,6 +4857,7 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
     <span class="doccomment">/// # }</span>
     <span class="doccomment">/// # run().unwrap();</span>
     <span class="doccomment">/// ```</span>
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy</span>::<span class="ident">result_unit_err</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_password</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">password</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), ()<span class="op">&gt;</span> {
         <span class="comment">// has_host implies !cannot_be_a_base</span>
         <span class="kw">if</span> <span class="op">!</span><span class="self">self</span>.<span class="ident">has_host</span>() <span class="op">|</span><span class="op">|</span> <span class="self">self</span>.<span class="ident">host</span>() <span class="op">=</span><span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">Host</span>::<span class="ident">Domain</span>(<span class="string">&quot;&quot;</span>)) <span class="op">|</span><span class="op">|</span> <span class="self">self</span>.<span class="ident">scheme</span>() <span class="op">=</span><span class="op">=</span> <span class="string">&quot;file&quot;</span> {
@@ -4567,6 +4950,7 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
     <span class="doccomment">/// # }</span>
     <span class="doccomment">/// # run().unwrap();</span>
     <span class="doccomment">/// ```</span>
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy</span>::<span class="ident">result_unit_err</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_username</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">username</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), ()<span class="op">&gt;</span> {
         <span class="comment">// has_host implies !cannot_be_a_base</span>
         <span class="kw">if</span> <span class="op">!</span><span class="self">self</span>.<span class="ident">has_host</span>() <span class="op">|</span><span class="op">|</span> <span class="self">self</span>.<span class="ident">host</span>() <span class="op">=</span><span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">Host</span>::<span class="ident">Domain</span>(<span class="string">&quot;&quot;</span>)) <span class="op">|</span><span class="op">|</span> <span class="self">self</span>.<span class="ident">scheme</span>() <span class="op">=</span><span class="op">=</span> <span class="string">&quot;file&quot;</span> {
@@ -4620,11 +5004,19 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
 
     <span class="doccomment">/// Change this URL’s scheme.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// Do nothing and return `Err` if:</span>
+    <span class="doccomment">/// Do nothing and return `Err` under the following circumstances:</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// * The new scheme is not in `[a-zA-Z][a-zA-Z0-9+.-]+`</span>
-    <span class="doccomment">/// * This URL is cannot-be-a-base and the new scheme is one of</span>
-    <span class="doccomment">///   `http`, `https`, `ws`, `wss`, `ftp`, or `gopher`</span>
+    <span class="doccomment">/// * If the new scheme is not in `[a-zA-Z][a-zA-Z0-9+.-]+`</span>
+    <span class="doccomment">/// * If this URL is cannot-be-a-base and the new scheme is one of</span>
+    <span class="doccomment">///   `http`, `https`, `ws`, `wss` or `ftp`</span>
+    <span class="doccomment">/// * If either the old or new scheme is `http`, `https`, `ws`,</span>
+    <span class="doccomment">///   `wss` or `ftp` and the other is not one of these</span>
+    <span class="doccomment">/// * If the new scheme is `file` and this URL includes credentials</span>
+    <span class="doccomment">///   or has a non-null port</span>
+    <span class="doccomment">/// * If this URL&#39;s scheme is `file` and its host is empty or null</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// See also [the URL specification&#39;s section on legal scheme state</span>
+    <span class="doccomment">/// overrides](https://url.spec.whatwg.org/#scheme-state).</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Examples</span>
     <span class="doccomment">///</span>
@@ -4720,23 +5112,24 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
     <span class="doccomment">/// # }</span>
     <span class="doccomment">/// # run().unwrap();</span>
     <span class="doccomment">/// ```</span>
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy</span>::<span class="ident">result_unit_err</span>, <span class="ident">clippy</span>::<span class="ident">suspicious_operation_groupings</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_scheme</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">scheme</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), ()<span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">parser</span> <span class="op">=</span> <span class="ident">Parser</span>::<span class="ident">for_setter</span>(<span class="ident">String</span>::<span class="ident">new</span>());
         <span class="kw">let</span> <span class="ident">remaining</span> <span class="op">=</span> <span class="ident">parser</span>.<span class="ident">parse_scheme</span>(<span class="ident">parser</span>::<span class="ident">Input</span>::<span class="ident">new</span>(<span class="ident">scheme</span>))<span class="question-mark">?</span>;
         <span class="kw">let</span> <span class="ident">new_scheme_type</span> <span class="op">=</span> <span class="ident">SchemeType</span>::<span class="ident">from</span>(<span class="kw-2">&amp;</span><span class="ident">parser</span>.<span class="ident">serialization</span>);
         <span class="kw">let</span> <span class="ident">old_scheme_type</span> <span class="op">=</span> <span class="ident">SchemeType</span>::<span class="ident">from</span>(<span class="self">self</span>.<span class="ident">scheme</span>());
         <span class="comment">// If url’s scheme is a special scheme and buffer is not a special scheme, then return.</span>
-        <span class="kw">if</span> (<span class="ident">new_scheme_type</span>.<span class="ident">is_special</span>() <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="op">!</span><span class="ident">old_scheme_type</span>.<span class="ident">is_special</span>()) <span class="op">|</span><span class="op">|</span>
+        <span class="kw">if</span> (<span class="ident">new_scheme_type</span>.<span class="ident">is_special</span>() <span class="op">&amp;&amp;</span> <span class="op">!</span><span class="ident">old_scheme_type</span>.<span class="ident">is_special</span>()) <span class="op">|</span><span class="op">|</span>
             <span class="comment">// If url’s scheme is not a special scheme and buffer is a special scheme, then return.</span>
-            (<span class="op">!</span><span class="ident">new_scheme_type</span>.<span class="ident">is_special</span>() <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="ident">old_scheme_type</span>.<span class="ident">is_special</span>()) <span class="op">|</span><span class="op">|</span>
+            (<span class="op">!</span><span class="ident">new_scheme_type</span>.<span class="ident">is_special</span>() <span class="op">&amp;&amp;</span> <span class="ident">old_scheme_type</span>.<span class="ident">is_special</span>()) <span class="op">|</span><span class="op">|</span>
             <span class="comment">// If url includes credentials or has a non-null port, and buffer is &quot;file&quot;, then return.</span>
             <span class="comment">// If url’s scheme is &quot;file&quot; and its host is an empty host or null, then return.</span>
-            (<span class="ident">new_scheme_type</span>.<span class="ident">is_file</span>() <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="self">self</span>.<span class="ident">has_authority</span>())
+            (<span class="ident">new_scheme_type</span>.<span class="ident">is_file</span>() <span class="op">&amp;&amp;</span> <span class="self">self</span>.<span class="ident">has_authority</span>())
         {
             <span class="kw">return</span> <span class="prelude-val">Err</span>(());
         }
 
-        <span class="kw">if</span> <span class="op">!</span><span class="ident">remaining</span>.<span class="ident">is_empty</span>() <span class="op">|</span><span class="op">|</span> (<span class="op">!</span><span class="self">self</span>.<span class="ident">has_host</span>() <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="ident">new_scheme_type</span>.<span class="ident">is_special</span>()) {
+        <span class="kw">if</span> <span class="op">!</span><span class="ident">remaining</span>.<span class="ident">is_empty</span>() <span class="op">|</span><span class="op">|</span> (<span class="op">!</span><span class="self">self</span>.<span class="ident">has_host</span>() <span class="op">&amp;&amp;</span> <span class="ident">new_scheme_type</span>.<span class="ident">is_special</span>()) {
             <span class="kw">return</span> <span class="prelude-val">Err</span>(());
         }
         <span class="kw">let</span> <span class="ident">old_scheme_end</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">scheme_end</span>;
@@ -4799,6 +5192,7 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
     <span class="doccomment">/// # }</span>
     <span class="doccomment">/// ```</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">unix</span>, <span class="ident">windows</span>, <span class="ident">target_os</span> <span class="op">=</span> <span class="string">&quot;redox&quot;</span>))]</span>
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy</span>::<span class="ident">result_unit_err</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_file_path</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">AsRef</span><span class="op">&lt;</span><span class="ident">Path</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="ident">path</span>: <span class="ident">P</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Url</span>, ()<span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">serialization</span> <span class="op">=</span> <span class="string">&quot;file://&quot;</span>.<span class="ident">to_owned</span>();
         <span class="kw">let</span> <span class="ident">host_start</span> <span class="op">=</span> <span class="ident">serialization</span>.<span class="ident">len</span>() <span class="kw">as</span> <span class="ident">u32</span>;
@@ -4835,6 +5229,7 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
     <span class="doccomment">/// Note that `std::path` does not consider trailing slashes significant</span>
     <span class="doccomment">/// and usually does not include them (e.g. in `Path::parent()`).</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">unix</span>, <span class="ident">windows</span>, <span class="ident">target_os</span> <span class="op">=</span> <span class="string">&quot;redox&quot;</span>))]</span>
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy</span>::<span class="ident">result_unit_err</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_directory_path</span><span class="op">&lt;</span><span class="ident">P</span>: <span class="ident">AsRef</span><span class="op">&lt;</span><span class="ident">Path</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="ident">path</span>: <span class="ident">P</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Url</span>, ()<span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">url</span> <span class="op">=</span> <span class="ident">Url</span>::<span class="ident">from_file_path</span>(<span class="ident">path</span>)<span class="question-mark">?</span>;
         <span class="kw">if</span> <span class="op">!</span><span class="ident">url</span>.<span class="ident">serialization</span>.<span class="ident">ends_with</span>(<span class="string">&#39;/&#39;</span>) {
@@ -4951,11 +5346,12 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
     <span class="doccomment">/// for a Windows path, is not UTF-8.)</span>
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">unix</span>, <span class="ident">windows</span>, <span class="ident">target_os</span> <span class="op">=</span> <span class="string">&quot;redox&quot;</span>))]</span>
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy</span>::<span class="ident">result_unit_err</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">to_file_path</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">PathBuf</span>, ()<span class="op">&gt;</span> {
         <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">segments</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">path_segments</span>() {
             <span class="kw">let</span> <span class="ident">host</span> <span class="op">=</span> <span class="kw">match</span> <span class="self">self</span>.<span class="ident">host</span>() {
                 <span class="prelude-val">None</span> <span class="op">|</span> <span class="prelude-val">Some</span>(<span class="ident">Host</span>::<span class="ident">Domain</span>(<span class="string">&quot;localhost&quot;</span>)) <span class="op">=</span><span class="op">&gt;</span> <span class="prelude-val">None</span>,
-                <span class="prelude-val">Some</span>(<span class="kw">_</span>) <span class="kw">if</span> <span class="macro">cfg</span><span class="macro">!</span>(<span class="ident">windows</span>) <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="self">self</span>.<span class="ident">scheme</span>() <span class="op">=</span><span class="op">=</span> <span class="string">&quot;file&quot;</span> <span class="op">=</span><span class="op">&gt;</span> {
+                <span class="prelude-val">Some</span>(<span class="kw">_</span>) <span class="kw">if</span> <span class="macro">cfg</span><span class="macro">!</span>(<span class="ident">windows</span>) <span class="op">&amp;&amp;</span> <span class="self">self</span>.<span class="ident">scheme</span>() <span class="op">=</span><span class="op">=</span> <span class="string">&quot;file&quot;</span> <span class="op">=</span><span class="op">&gt;</span> {
                     <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">serialization</span>[<span class="self">self</span>.<span class="ident">host_start</span> <span class="kw">as</span> <span class="ident">usize</span>..<span class="self">self</span>.<span class="ident">host_end</span> <span class="kw">as</span> <span class="ident">usize</span>])
                 }
                 <span class="kw">_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">return</span> <span class="prelude-val">Err</span>(()),
@@ -4987,16 +5383,31 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
     <span class="kw">type</span> <span class="prelude-val">Err</span> <span class="op">=</span> <span class="ident">ParseError</span>;
 
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">fn</span> <span class="ident">from_str</span>(<span class="ident">input</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Url</span>, ::<span class="ident">ParseError</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">from_str</span>(<span class="ident">input</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Url</span>, <span class="kw">crate</span>::<span class="ident">ParseError</span><span class="op">&gt;</span> {
         <span class="ident">Url</span>::<span class="ident">parse</span>(<span class="ident">input</span>)
+    }
+}
+
+<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">TryFrom</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Url</span> {
+    <span class="kw">type</span> <span class="ident">Error</span> <span class="op">=</span> <span class="ident">ParseError</span>;
+
+    <span class="kw">fn</span> <span class="ident">try_from</span>(<span class="ident">s</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span>, <span class="self">Self</span>::<span class="ident">Error</span><span class="op">&gt;</span> {
+        <span class="ident">Url</span>::<span class="ident">parse</span>(<span class="ident">s</span>)
     }
 }
 
 <span class="doccomment">/// Display the serialization of this URL.</span>
 <span class="kw">impl</span> <span class="ident">fmt</span>::<span class="ident">Display</span> <span class="kw">for</span> <span class="ident">Url</span> {
     <span class="attribute">#[<span class="ident">inline</span>]</span>
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">formatter</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt</span>::<span class="ident">Formatter</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">fmt</span>::<span class="prelude-ty">Result</span> {
+    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">formatter</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt</span>::<span class="ident">Formatter</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">fmt</span>::<span class="prelude-ty">Result</span> {
         <span class="ident">fmt</span>::<span class="ident">Display</span>::<span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">serialization</span>, <span class="ident">formatter</span>)
+    }
+}
+
+<span class="doccomment">/// String converstion.</span>
+<span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">Url</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">String</span> {
+    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">value</span>: <span class="ident">Url</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">String</span> {
+        <span class="ident">value</span>.<span class="ident">serialization</span>
     }
 }
 
@@ -5004,7 +5415,18 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
 <span class="kw">impl</span> <span class="ident">fmt</span>::<span class="ident">Debug</span> <span class="kw">for</span> <span class="ident">Url</span> {
     <span class="attribute">#[<span class="ident">inline</span>]</span>
     <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">formatter</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt</span>::<span class="ident">Formatter</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">fmt</span>::<span class="prelude-ty">Result</span> {
-        <span class="ident">fmt</span>::<span class="ident">Debug</span>::<span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">serialization</span>, <span class="ident">formatter</span>)
+        <span class="ident">formatter</span>
+            .<span class="ident">debug_struct</span>(<span class="string">&quot;Url&quot;</span>)
+            .<span class="ident">field</span>(<span class="string">&quot;scheme&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">scheme</span>())
+            .<span class="ident">field</span>(<span class="string">&quot;cannot_be_a_base&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">cannot_be_a_base</span>())
+            .<span class="ident">field</span>(<span class="string">&quot;username&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">username</span>())
+            .<span class="ident">field</span>(<span class="string">&quot;password&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">password</span>())
+            .<span class="ident">field</span>(<span class="string">&quot;host&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">host</span>())
+            .<span class="ident">field</span>(<span class="string">&quot;port&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">port</span>())
+            .<span class="ident">field</span>(<span class="string">&quot;path&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">path</span>())
+            .<span class="ident">field</span>(<span class="string">&quot;query&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">query</span>())
+            .<span class="ident">field</span>(<span class="string">&quot;fragment&quot;</span>, <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">fragment</span>())
+            .<span class="ident">finish</span>()
     }
 }
 
@@ -5116,8 +5538,10 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
             <span class="kw">where</span>
                 <span class="ident">E</span>: <span class="ident">Error</span>,
             {
-                <span class="ident">Url</span>::<span class="ident">parse</span>(<span class="ident">s</span>)
-                    .<span class="ident">map_err</span>(<span class="op">|</span><span class="ident">err</span><span class="op">|</span> <span class="ident">Error</span>::<span class="ident">invalid_value</span>(<span class="ident">Unexpected</span>::<span class="ident">Str</span>(<span class="ident">s</span>), <span class="kw-2">&amp;</span><span class="ident">err</span>.<span class="ident">description</span>()))
+                <span class="ident">Url</span>::<span class="ident">parse</span>(<span class="ident">s</span>).<span class="ident">map_err</span>(<span class="op">|</span><span class="ident">err</span><span class="op">|</span> {
+                    <span class="kw">let</span> <span class="ident">err_s</span> <span class="op">=</span> <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{}&quot;</span>, <span class="ident">err</span>);
+                    <span class="ident">Error</span>::<span class="ident">invalid_value</span>(<span class="ident">Unexpected</span>::<span class="ident">Str</span>(<span class="ident">s</span>), <span class="kw-2">&amp;</span><span class="ident">err_s</span>.<span class="ident">as_str</span>())
+                })
             }
         }
 
@@ -5212,8 +5636,8 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
     }
     <span class="comment">// A windows drive letter must end with a slash.</span>
     <span class="kw">if</span> <span class="ident">serialization</span>.<span class="ident">len</span>() <span class="op">&gt;</span> <span class="ident">host_start</span>
-        <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="ident">parser</span>::<span class="ident">is_windows_drive_letter</span>(<span class="kw-2">&amp;</span><span class="ident">serialization</span>[<span class="ident">host_start</span>..])
-        <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="ident">path_only_has_prefix</span>
+        <span class="op">&amp;&amp;</span> <span class="ident">parser</span>::<span class="ident">is_windows_drive_letter</span>(<span class="kw-2">&amp;</span><span class="ident">serialization</span>[<span class="ident">host_start</span>..])
+        <span class="op">&amp;&amp;</span> <span class="ident">path_only_has_prefix</span>
     {
         <span class="ident">serialization</span>.<span class="ident">push</span>(<span class="string">&#39;/&#39;</span>);
     }
@@ -5223,7 +5647,7 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">unix</span>, <span class="ident">target_os</span> <span class="op">=</span> <span class="string">&quot;redox&quot;</span>))]</span>
 <span class="kw">fn</span> <span class="ident">file_url_segments_to_pathbuf</span>(
     <span class="ident">host</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>,
-    <span class="ident">segments</span>: <span class="ident">str</span>::<span class="ident">Split</span><span class="op">&lt;</span><span class="ident">char</span><span class="op">&gt;</span>,
+    <span class="ident">segments</span>: <span class="ident">str</span>::<span class="ident">Split</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span>, <span class="ident">char</span><span class="op">&gt;</span>,
 ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">PathBuf</span>, ()<span class="op">&gt;</span> {
     <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">ffi</span>::<span class="ident">OsStr</span>;
     <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">os</span>::<span class="ident">unix</span>::<span class="ident">prelude</span>::<span class="ident">OsStrExt</span>;
@@ -5242,12 +5666,11 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
         <span class="ident">bytes</span>.<span class="ident">extend</span>(<span class="ident">percent_decode</span>(<span class="ident">segment</span>.<span class="ident">as_bytes</span>()));
     }
     <span class="comment">// A windows drive letter must end with a slash.</span>
-    <span class="kw">if</span> <span class="ident">bytes</span>.<span class="ident">len</span>() <span class="op">&gt;</span> <span class="number">2</span> {
-        <span class="kw">if</span> <span class="macro">matches</span><span class="macro">!</span>(<span class="ident">bytes</span>[<span class="ident">bytes</span>.<span class="ident">len</span>() <span class="op">-</span> <span class="number">2</span>], <span class="string">b&#39;a&#39;</span>..<span class="op">=</span><span class="string">b&#39;z&#39;</span> <span class="op">|</span> <span class="string">b&#39;A&#39;</span>..<span class="op">=</span><span class="string">b&#39;Z&#39;</span>)
-            <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="macro">matches</span><span class="macro">!</span>(<span class="ident">bytes</span>[<span class="ident">bytes</span>.<span class="ident">len</span>() <span class="op">-</span> <span class="number">1</span>], <span class="string">b&#39;:&#39;</span> <span class="op">|</span> <span class="string">b&#39;|&#39;</span>)
-        {
-            <span class="ident">bytes</span>.<span class="ident">push</span>(<span class="string">b&#39;/&#39;</span>);
-        }
+    <span class="kw">if</span> <span class="ident">bytes</span>.<span class="ident">len</span>() <span class="op">&gt;</span> <span class="number">2</span>
+        <span class="op">&amp;&amp;</span> <span class="macro">matches</span><span class="macro">!</span>(<span class="ident">bytes</span>[<span class="ident">bytes</span>.<span class="ident">len</span>() <span class="op">-</span> <span class="number">2</span>], <span class="string">b&#39;a&#39;</span>..<span class="op">=</span><span class="string">b&#39;z&#39;</span> <span class="op">|</span> <span class="string">b&#39;A&#39;</span>..<span class="op">=</span><span class="string">b&#39;Z&#39;</span>)
+        <span class="op">&amp;&amp;</span> <span class="macro">matches</span><span class="macro">!</span>(<span class="ident">bytes</span>[<span class="ident">bytes</span>.<span class="ident">len</span>() <span class="op">-</span> <span class="number">1</span>], <span class="string">b&#39;:&#39;</span> <span class="op">|</span> <span class="string">b&#39;|&#39;</span>)
+    {
+        <span class="ident">bytes</span>.<span class="ident">push</span>(<span class="string">b&#39;/&#39;</span>);
     }
     <span class="kw">let</span> <span class="ident">os_str</span> <span class="op">=</span> <span class="ident">OsStr</span>::<span class="ident">from_bytes</span>(<span class="kw-2">&amp;</span><span class="ident">bytes</span>);
     <span class="kw">let</span> <span class="ident">path</span> <span class="op">=</span> <span class="ident">PathBuf</span>::<span class="ident">from</span>(<span class="ident">os_str</span>);
@@ -5270,7 +5693,7 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
 <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">not</span>(<span class="ident">windows</span>), <span class="ident">allow</span>(<span class="ident">dead_code</span>))]</span>
 <span class="kw">fn</span> <span class="ident">file_url_segments_to_pathbuf_windows</span>(
     <span class="ident">host</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span>,
-    <span class="kw-2">mut</span> <span class="ident">segments</span>: <span class="ident">str</span>::<span class="ident">Split</span><span class="op">&lt;</span><span class="ident">char</span><span class="op">&gt;</span>,
+    <span class="kw-2">mut</span> <span class="ident">segments</span>: <span class="ident">str</span>::<span class="ident">Split</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span>, <span class="ident">char</span><span class="op">&gt;</span>,
 ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">PathBuf</span>, ()<span class="op">&gt;</span> {
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">string</span> <span class="op">=</span> <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">host</span>) <span class="op">=</span> <span class="ident">host</span> {
         <span class="string">r&quot;\\&quot;</span>.<span class="ident">to_owned</span>() <span class="op">+</span> <span class="ident">host</span>
@@ -5291,7 +5714,7 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
                     <span class="kw">return</span> <span class="prelude-val">Err</span>(());
                 }
                 <span class="kw">let</span> <span class="ident">bytes</span> <span class="op">=</span> <span class="ident">first</span>.<span class="ident">as_bytes</span>();
-                <span class="kw">if</span> <span class="ident">bytes</span>[<span class="number">1</span>] <span class="op">!</span><span class="op">=</span> <span class="string">b&#39;%&#39;</span> <span class="op">|</span><span class="op">|</span> <span class="ident">bytes</span>[<span class="number">2</span>] <span class="op">!</span><span class="op">=</span> <span class="string">b&#39;3&#39;</span> <span class="op">|</span><span class="op">|</span> (<span class="ident">bytes</span>[<span class="number">3</span>] <span class="op">!</span><span class="op">=</span> <span class="string">b&#39;a&#39;</span> <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="ident">bytes</span>[<span class="number">3</span>] <span class="op">!</span><span class="op">=</span> <span class="string">b&#39;A&#39;</span>) {
+                <span class="kw">if</span> <span class="ident">bytes</span>[<span class="number">1</span>] <span class="op">!</span><span class="op">=</span> <span class="string">b&#39;%&#39;</span> <span class="op">|</span><span class="op">|</span> <span class="ident">bytes</span>[<span class="number">2</span>] <span class="op">!</span><span class="op">=</span> <span class="string">b&#39;3&#39;</span> <span class="op">|</span><span class="op">|</span> (<span class="ident">bytes</span>[<span class="number">3</span>] <span class="op">!</span><span class="op">=</span> <span class="string">b&#39;a&#39;</span> <span class="op">&amp;&amp;</span> <span class="ident">bytes</span>[<span class="number">3</span>] <span class="op">!</span><span class="op">=</span> <span class="string">b&#39;A&#39;</span>) {
                     <span class="kw">return</span> <span class="prelude-val">Err</span>(());
                 }
 
@@ -5326,6 +5749,30 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
     <span class="ident">fragment</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span>,
 }
 
+<span class="comment">// `as_mut_string` string here exposes the internal serialization of an `Url`,</span>
+<span class="comment">// which should not be exposed to users.</span>
+<span class="comment">// We achieve that by not giving users direct access to `UrlQuery`:</span>
+<span class="comment">// * Its fields are private</span>
+<span class="comment">//   (and so can not be constructed with struct literal syntax outside of this crate),</span>
+<span class="comment">// * It has no constructor</span>
+<span class="comment">// * It is only visible (on the type level) to users in the return type of</span>
+<span class="comment">//   `Url::query_pairs_mut` which is `Serializer&lt;UrlQuery&gt;`</span>
+<span class="comment">// * `Serializer` keeps its target in a private field</span>
+<span class="comment">// * Unlike in other `Target` impls, `UrlQuery::finished` does not return `Self`.</span>
+<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">form_urlencoded</span>::<span class="ident">Target</span> <span class="kw">for</span> <span class="ident">UrlQuery</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">as_mut_string</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">String</span> {
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>.<span class="ident">url</span>.<span class="ident">as_mut</span>().<span class="ident">unwrap</span>().<span class="ident">serialization</span>
+    }
+
+    <span class="kw">fn</span> <span class="ident">finish</span>(<span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="kw-2">mut</span> <span class="ident">Url</span> {
+        <span class="kw">let</span> <span class="ident">url</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">url</span>.<span class="ident">take</span>().<span class="ident">unwrap</span>();
+        <span class="ident">url</span>.<span class="ident">restore_already_parsed_fragment</span>(<span class="self">self</span>.<span class="ident">fragment</span>.<span class="ident">take</span>());
+        <span class="ident">url</span>
+    }
+
+    <span class="kw">type</span> <span class="ident">Finished</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="kw-2">mut</span> <span class="ident">Url</span>;
+}
+
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">Drop</span> <span class="kw">for</span> <span class="ident">UrlQuery</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
     <span class="kw">fn</span> <span class="ident">drop</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) {
         <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">url</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">url</span>.<span class="ident">take</span>() {
@@ -5334,4 +5781,4 @@ assert_eq!(css_url.as_str(), &quot;http://servo.github.io/rust-url/main.css&quot
     }
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "url";</script><script src="../../aliases.js"></script><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "url";</script><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>

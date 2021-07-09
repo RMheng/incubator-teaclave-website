@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://teaclave.apache.org</id>
     <title>Apache Teaclave (incubating)</title>
-    <updated>2021-07-03T03:25:20.463Z</updated>
+    <updated>2021-07-09T23:37:06.287Z</updated>
     <generator>https://github.com/webmasterish/vuepress-plugin-feed</generator>
     <link rel="alternate" href="https://teaclave.apache.org"/>
     <link rel="self" href="https://teaclave.apache.org/feed.atom"/>
@@ -16,46 +16,26 @@
         <summary type="html"><![CDATA[Intel issued Intel SA-00219 on Nov 12, 2019, with CVE number CVE-2019-0117. Intel also published a guidance to instruct the developers/researchers. Then Intel released Intel SGX SDK v2.7.1, including new memory allocation primitives and corresponding patches in PSW enclaves.]]></summary>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Aapache Incubation Proposal]]></title>
-        <id>https://teaclave.apache.org/blog/2019-08-19-apache-incubation-proposal/</id>
-        <link href="https://teaclave.apache.org/blog/2019-08-19-apache-incubation-proposal/">
-        </link>
-        <updated>2019-08-20T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Website: https://mesatee.org
-  Documentation: https://mesatee.org/doc/mesatee_sdk/]]></summary>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Podling Teaclave Report - January 2020]]></title>
         <id>https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/</id>
         <link href="https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/">
         </link>
         <updated>2020-01-01T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Resolve all renaming issues of INFRA (INFRA-19532)
-  Refactor components: teaclaveutils, teaclaveconfig,
-teaclavecli, teaclavebinder
-  Rewrite README.md to clearly explain the project's highlights in
-security, functionality, and usability.
-  Start to use protobuf for RPC definition
-  SGX SDK starts to use Intel SGX SDK v2.7.1]]></summary>
+        <summary type="html"><![CDATA[labeled with "good first issues" is more approachable for newcomers.]]></summary>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Podling Teaclave Report - April 2020]]></title>
-        <id>https://teaclave.apache.org/blog/2020-03-31-podling-teaclave-report-april-2020/</id>
-        <link href="https://teaclave.apache.org/blog/2020-03-31-podling-teaclave-report-april-2020/">
+        <title type="html"><![CDATA[Aapache Incubation Proposal]]></title>
+        <id>https://teaclave.apache.org/blog/2019-08-19-apache-incubation-proposal/</id>
+        <link href="https://teaclave.apache.org/blog/2019-08-19-apache-incubation-proposal/">
         </link>
-        <updated>2020-04-01T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[have redesigned current services into seven core services
-including access control,
-    authentication, execution, frontend, management, scheduler, and storage
-    service. Communication protocols between services are defined in protobuf.
-  RPC between services has been redesigned to supported TLS-based attestation.
-  We have added DCAP attestation algorithm in the platform so that people can
-    deploy the system in environments without Intel's attestation service.
-  Communication between app and enclave has been also redesigned
-with better APIs.
-  All updates is currently in the develop branch. We plan to merge
-into master
-    when main refactoring is done.]]></summary>
+        <updated>2019-08-20T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[computing, and blockchain are significantly boosting our productivity, but at
+the same time they are bringing new confidentiality and integrity concerns. On
+public cloud and blockchain, sensitive data like health and financial records
+may be consumed at runtime by untrusted computing processes running on
+compromised platforms; during in-house data exchange, confidential information
+may cross different clearance boundaries and possibly fall into the wrong hands;
+also not to mention the privacy issue arises in offshore data supply chains.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Podling Teaclave Report - July 2020]]></title>
@@ -63,9 +43,22 @@ into master
         <link href="https://teaclave.apache.org/blog/2020-06-28-podling-teaclave-report-july-2020/">
         </link>
         <updated>2020-06-29T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[debugging tips and Rust development guideline.
- Codebase: Documents for each sub-directory (i.e., libraries in Teaclave).
- API Docs: Generated API documentations like APIs of Client SDK.]]></summary>
+        <summary type="html"><![CDATA[licenses of third-party libraries.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Podling Teaclave Report - April 2020]]></title>
+        <id>https://teaclave.apache.org/blog/2020-03-31-podling-teaclave-report-april-2020/</id>
+        <link href="https://teaclave.apache.org/blog/2020-03-31-podling-teaclave-report-april-2020/">
+        </link>
+        <updated>2020-04-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[RPC between services has been redesigned to supported TLS-based attestation.
+  We have added DCAP attestation algorithm in the platform so that people can
+    deploy the system in environments without Intel's attestation service.
+  Communication between app and enclave has been also redesigned
+with better APIs.
+  All updates is currently in the develop branch. We plan to merge
+into master
+    when main refactoring is done.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Podling Teaclave Report - October 2020]]></title>

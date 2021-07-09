@@ -1,4 +1,4 @@
 (function() {var implementors = {};
-implementors["protected_fs"] = [{"text":"impl <a class=\"trait\" href=\"sgx_tstd/io/trait.Seek.html\" title=\"trait sgx_tstd::io::Seek\">Seek</a> for <a class=\"struct\" href=\"protected_fs/struct.ProtectedFile.html\" title=\"struct protected_fs::ProtectedFile\">ProtectedFile</a>","synthetic":false,"types":["protected_fs::protected_fs::ProtectedFile"]},{"text":"impl&lt;'a&gt; <a class=\"trait\" href=\"sgx_tstd/io/trait.Seek.html\" title=\"trait sgx_tstd::io::Seek\">Seek</a> for &amp;'a <a class=\"struct\" href=\"protected_fs/struct.ProtectedFile.html\" title=\"struct protected_fs::ProtectedFile\">ProtectedFile</a>","synthetic":false,"types":["protected_fs::protected_fs::ProtectedFile"]}];
+implementors["protected_fs"] = [{"text":"impl Seek for ProtectedFile","synthetic":false,"types":[]},{"text":"impl&lt;'a&gt; Seek for &amp;'a ProtectedFile","synthetic":false,"types":[]}];
 implementors["sgx_tstd"] = [];
 if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

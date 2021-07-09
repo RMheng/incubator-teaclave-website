@@ -1,1 +1,1 @@
-initSidebarItems({"enum":[["CalcType","Type of calculations: - `Normal`: Forward calculation, MSB first.   - Used with `new_custom()`. - `Reverse`: Reverse calculation, LSB first.   - Used with `new_custom()`. - `Compat`: `Reverse` CalcType with value reflected in and out.   - Used internally."]],"mod":[["crc16",""],["crc32",""],["crc64",""]]});
+initSidebarItems({"enum":[["CalcType","Type of calculations:"]],"mod":[["crc16",""],["crc32",""],["crc64",""]]});

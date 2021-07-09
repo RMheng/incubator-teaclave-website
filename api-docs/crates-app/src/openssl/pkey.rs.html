@@ -1,4 +1,7 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source to the Rust file `/home/mssun/incubator-teaclave/build/cmake_tomls/sgx_untrusted_app/third_party/crates-io/vendor/openssl/src/pkey.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>pkey.rs.html -- source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css"><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script src="../../storage.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="shortcut icon" href="../../favicon.ico"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../openssl/index.html'><div class='logo-container'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/mssun/incubator-teaclave/build/cmake_tomls/sgx_untrusted_app/third_party/crates-io/vendor/openssl/src/pkey.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>pkey.rs - source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script src="../../storage.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="alternate icon" type="image/png" href="../../favicon-16x16.png">
+<link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../openssl/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><span class="help-button">?</span>
+                <a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -761,6 +764,154 @@
 <span id="761">761</span>
 <span id="762">762</span>
 <span id="763">763</span>
+<span id="764">764</span>
+<span id="765">765</span>
+<span id="766">766</span>
+<span id="767">767</span>
+<span id="768">768</span>
+<span id="769">769</span>
+<span id="770">770</span>
+<span id="771">771</span>
+<span id="772">772</span>
+<span id="773">773</span>
+<span id="774">774</span>
+<span id="775">775</span>
+<span id="776">776</span>
+<span id="777">777</span>
+<span id="778">778</span>
+<span id="779">779</span>
+<span id="780">780</span>
+<span id="781">781</span>
+<span id="782">782</span>
+<span id="783">783</span>
+<span id="784">784</span>
+<span id="785">785</span>
+<span id="786">786</span>
+<span id="787">787</span>
+<span id="788">788</span>
+<span id="789">789</span>
+<span id="790">790</span>
+<span id="791">791</span>
+<span id="792">792</span>
+<span id="793">793</span>
+<span id="794">794</span>
+<span id="795">795</span>
+<span id="796">796</span>
+<span id="797">797</span>
+<span id="798">798</span>
+<span id="799">799</span>
+<span id="800">800</span>
+<span id="801">801</span>
+<span id="802">802</span>
+<span id="803">803</span>
+<span id="804">804</span>
+<span id="805">805</span>
+<span id="806">806</span>
+<span id="807">807</span>
+<span id="808">808</span>
+<span id="809">809</span>
+<span id="810">810</span>
+<span id="811">811</span>
+<span id="812">812</span>
+<span id="813">813</span>
+<span id="814">814</span>
+<span id="815">815</span>
+<span id="816">816</span>
+<span id="817">817</span>
+<span id="818">818</span>
+<span id="819">819</span>
+<span id="820">820</span>
+<span id="821">821</span>
+<span id="822">822</span>
+<span id="823">823</span>
+<span id="824">824</span>
+<span id="825">825</span>
+<span id="826">826</span>
+<span id="827">827</span>
+<span id="828">828</span>
+<span id="829">829</span>
+<span id="830">830</span>
+<span id="831">831</span>
+<span id="832">832</span>
+<span id="833">833</span>
+<span id="834">834</span>
+<span id="835">835</span>
+<span id="836">836</span>
+<span id="837">837</span>
+<span id="838">838</span>
+<span id="839">839</span>
+<span id="840">840</span>
+<span id="841">841</span>
+<span id="842">842</span>
+<span id="843">843</span>
+<span id="844">844</span>
+<span id="845">845</span>
+<span id="846">846</span>
+<span id="847">847</span>
+<span id="848">848</span>
+<span id="849">849</span>
+<span id="850">850</span>
+<span id="851">851</span>
+<span id="852">852</span>
+<span id="853">853</span>
+<span id="854">854</span>
+<span id="855">855</span>
+<span id="856">856</span>
+<span id="857">857</span>
+<span id="858">858</span>
+<span id="859">859</span>
+<span id="860">860</span>
+<span id="861">861</span>
+<span id="862">862</span>
+<span id="863">863</span>
+<span id="864">864</span>
+<span id="865">865</span>
+<span id="866">866</span>
+<span id="867">867</span>
+<span id="868">868</span>
+<span id="869">869</span>
+<span id="870">870</span>
+<span id="871">871</span>
+<span id="872">872</span>
+<span id="873">873</span>
+<span id="874">874</span>
+<span id="875">875</span>
+<span id="876">876</span>
+<span id="877">877</span>
+<span id="878">878</span>
+<span id="879">879</span>
+<span id="880">880</span>
+<span id="881">881</span>
+<span id="882">882</span>
+<span id="883">883</span>
+<span id="884">884</span>
+<span id="885">885</span>
+<span id="886">886</span>
+<span id="887">887</span>
+<span id="888">888</span>
+<span id="889">889</span>
+<span id="890">890</span>
+<span id="891">891</span>
+<span id="892">892</span>
+<span id="893">893</span>
+<span id="894">894</span>
+<span id="895">895</span>
+<span id="896">896</span>
+<span id="897">897</span>
+<span id="898">898</span>
+<span id="899">899</span>
+<span id="900">900</span>
+<span id="901">901</span>
+<span id="902">902</span>
+<span id="903">903</span>
+<span id="904">904</span>
+<span id="905">905</span>
+<span id="906">906</span>
+<span id="907">907</span>
+<span id="908">908</span>
+<span id="909">909</span>
+<span id="910">910</span>
+<span id="911">911</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! Public/private key processing.</span>
 <span class="doccomment">//!</span>
@@ -793,37 +944,36 @@
 <span class="doccomment">//! Generate a 2048-bit RSA public/private key pair and print the public key.</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ```rust</span>
-<span class="doccomment">//!</span>
-<span class="doccomment">//! extern crate openssl;</span>
-<span class="doccomment">//!</span>
 <span class="doccomment">//! use openssl::rsa::Rsa;</span>
 <span class="doccomment">//! use openssl::pkey::PKey;</span>
 <span class="doccomment">//! use std::str;</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! fn main() {</span>
-<span class="doccomment">//!     let rsa = Rsa::generate(2048).unwrap();</span>
-<span class="doccomment">//!     let pkey = PKey::from_rsa(rsa).unwrap();</span>
+<span class="doccomment">//! let rsa = Rsa::generate(2048).unwrap();</span>
+<span class="doccomment">//! let pkey = PKey::from_rsa(rsa).unwrap();</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//!     let pub_key: Vec&lt;u8&gt; = pkey.public_key_to_pem().unwrap();</span>
-<span class="doccomment">//!     println!(&quot;{:?}&quot;, str::from_utf8(pub_key.as_slice()).unwrap());</span>
-<span class="doccomment">//! }</span>
+<span class="doccomment">//! let pub_key: Vec&lt;u8&gt; = pkey.public_key_to_pem().unwrap();</span>
+<span class="doccomment">//! println!(&quot;{:?}&quot;, str::from_utf8(pub_key.as_slice()).unwrap());</span>
 <span class="doccomment">//! ```</span>
 
-<span class="kw">use</span> <span class="ident">ffi</span>;
+<span class="kw">use</span> <span class="ident">cfg_if</span>::<span class="ident">cfg_if</span>;
 <span class="kw">use</span> <span class="ident">foreign_types</span>::{<span class="ident">ForeignType</span>, <span class="ident">ForeignTypeRef</span>};
 <span class="kw">use</span> <span class="ident">libc</span>::{<span class="ident">c_int</span>, <span class="ident">c_long</span>};
+<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">convert</span>::<span class="ident">TryFrom</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">ffi</span>::<span class="ident">CString</span>;
+<span class="kw">use</span> <span class="ident">std</span>::<span class="ident">fmt</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">mem</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">ptr</span>;
 
-<span class="kw">use</span> <span class="ident">bio</span>::<span class="ident">MemBioSlice</span>;
-<span class="kw">use</span> <span class="ident">dh</span>::<span class="ident">Dh</span>;
-<span class="kw">use</span> <span class="ident">dsa</span>::<span class="ident">Dsa</span>;
-<span class="kw">use</span> <span class="ident">ec</span>::<span class="ident">EcKey</span>;
-<span class="kw">use</span> <span class="ident">error</span>::<span class="ident">ErrorStack</span>;
-<span class="kw">use</span> <span class="ident">rsa</span>::<span class="ident">Rsa</span>;
-<span class="kw">use</span> <span class="ident">util</span>::{<span class="ident">invoke_passwd_cb</span>, <span class="ident">CallbackState</span>};
-<span class="kw">use</span> {<span class="ident">cvt</span>, <span class="ident">cvt_p</span>};
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">bio</span>::<span class="ident">MemBioSlice</span>;
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">dh</span>::<span class="ident">Dh</span>;
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">dsa</span>::<span class="ident">Dsa</span>;
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">ec</span>::<span class="ident">EcKey</span>;
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">error</span>::<span class="ident">ErrorStack</span>;
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">rsa</span>::<span class="ident">Rsa</span>;
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">ossl110</span>)]</span>
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">symm</span>::<span class="ident">Cipher</span>;
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">util</span>::{<span class="ident">invoke_passwd_cb</span>, <span class="ident">CallbackState</span>};
+<span class="kw">use</span> <span class="kw">crate</span>::{<span class="ident">cvt</span>, <span class="ident">cvt_p</span>};
 
 <span class="doccomment">/// A tag type indicating that a key only has parameters.</span>
 <span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">Params</span> {}
@@ -839,16 +989,6 @@
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Id</span>(<span class="ident">c_int</span>);
 
 <span class="kw">impl</span> <span class="ident">Id</span> {
-    <span class="doccomment">/// Creates a `Id` from an integer representation.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_raw</span>(<span class="ident">value</span>: <span class="ident">c_int</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Id</span> {
-        <span class="ident">Id</span>(<span class="ident">value</span>)
-    }
-
-    <span class="doccomment">/// Returns the integer representation of the `Id`.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">as_raw</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">c_int</span> {
-        <span class="self">self</span>.<span class="number">0</span>
-    }
-
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">RSA</span>: <span class="ident">Id</span> <span class="op">=</span> <span class="ident">Id</span>(<span class="ident">ffi</span>::<span class="ident">EVP_PKEY_RSA</span>);
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">HMAC</span>: <span class="ident">Id</span> <span class="op">=</span> <span class="ident">Id</span>(<span class="ident">ffi</span>::<span class="ident">EVP_PKEY_HMAC</span>);
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DSA</span>: <span class="ident">Id</span> <span class="op">=</span> <span class="ident">Id</span>(<span class="ident">ffi</span>::<span class="ident">EVP_PKEY_DSA</span>);
@@ -859,6 +999,21 @@
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">ED25519</span>: <span class="ident">Id</span> <span class="op">=</span> <span class="ident">Id</span>(<span class="ident">ffi</span>::<span class="ident">EVP_PKEY_ED25519</span>);
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">ossl111</span>)]</span>
     <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">ED448</span>: <span class="ident">Id</span> <span class="op">=</span> <span class="ident">Id</span>(<span class="ident">ffi</span>::<span class="ident">EVP_PKEY_ED448</span>);
+    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">ossl111</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">X25519</span>: <span class="ident">Id</span> <span class="op">=</span> <span class="ident">Id</span>(<span class="ident">ffi</span>::<span class="ident">EVP_PKEY_X25519</span>);
+    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">ossl111</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">X448</span>: <span class="ident">Id</span> <span class="op">=</span> <span class="ident">Id</span>(<span class="ident">ffi</span>::<span class="ident">EVP_PKEY_X448</span>);
+
+    <span class="doccomment">/// Creates a `Id` from an integer representation.</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">from_raw</span>(<span class="ident">value</span>: <span class="ident">c_int</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Id</span> {
+        <span class="ident">Id</span>(<span class="ident">value</span>)
+    }
+
+    <span class="doccomment">/// Returns the integer representation of the `Id`.</span>
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy</span>::<span class="ident">trivially_copy_pass_by_ref</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">as_raw</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">c_int</span> {
+        <span class="self">self</span>.<span class="number">0</span>
+    }
 }
 
 <span class="doccomment">/// A trait indicating that a key has parameters.</span>
@@ -1047,6 +1202,25 @@
     }
 }
 
+<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">fmt</span>::<span class="ident">Debug</span> <span class="kw">for</span> <span class="ident">PKey</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">fmt</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt</span>::<span class="ident">Formatter</span><span class="op">&lt;</span><span class="lifetime">&#39;_</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">fmt</span>::<span class="prelude-ty">Result</span> {
+        <span class="kw">let</span> <span class="ident">alg</span> <span class="op">=</span> <span class="kw">match</span> <span class="self">self</span>.<span class="ident">id</span>() {
+            <span class="ident">Id</span>::<span class="ident">RSA</span> <span class="op">=</span><span class="op">&gt;</span> <span class="string">&quot;RSA&quot;</span>,
+            <span class="ident">Id</span>::<span class="ident">HMAC</span> <span class="op">=</span><span class="op">&gt;</span> <span class="string">&quot;HMAC&quot;</span>,
+            <span class="ident">Id</span>::<span class="ident">DSA</span> <span class="op">=</span><span class="op">&gt;</span> <span class="string">&quot;DSA&quot;</span>,
+            <span class="ident">Id</span>::<span class="ident">DH</span> <span class="op">=</span><span class="op">&gt;</span> <span class="string">&quot;DH&quot;</span>,
+            <span class="ident">Id</span>::<span class="ident">EC</span> <span class="op">=</span><span class="op">&gt;</span> <span class="string">&quot;EC&quot;</span>,
+            <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">ossl111</span>)]</span>
+            <span class="ident">Id</span>::<span class="ident">ED25519</span> <span class="op">=</span><span class="op">&gt;</span> <span class="string">&quot;Ed25519&quot;</span>,
+            <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">ossl111</span>)]</span>
+            <span class="ident">Id</span>::<span class="ident">ED448</span> <span class="op">=</span><span class="op">&gt;</span> <span class="string">&quot;Ed448&quot;</span>,
+            <span class="kw">_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="string">&quot;unknown&quot;</span>,
+        };
+        <span class="ident">fmt</span>.<span class="ident">debug_struct</span>(<span class="string">&quot;PKey&quot;</span>).<span class="ident">field</span>(<span class="string">&quot;algorithm&quot;</span>, <span class="kw-2">&amp;</span><span class="ident">alg</span>).<span class="ident">finish</span>()
+        <span class="comment">// TODO: Print details for each specific type of key</span>
+    }
+}
+
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">Clone</span> <span class="kw">for</span> <span class="ident">PKey</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
     <span class="kw">fn</span> <span class="ident">clone</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">PKey</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
         <span class="ident">PKeyRef</span>::<span class="ident">to_owned</span>(<span class="self">self</span>)
@@ -1158,7 +1332,8 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// To compute CMAC values, use the `sign` module.</span>
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">ossl110</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">cmac</span>(<span class="ident">cipher</span>: <span class="kw-2">&amp;</span>::<span class="ident">symm</span>::<span class="ident">Cipher</span>, <span class="ident">key</span>: <span class="kw-2">&amp;</span>[<span class="ident">u8</span>]) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">PKey</span><span class="op">&lt;</span><span class="ident">Private</span><span class="op">&gt;</span>, <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy</span>::<span class="ident">trivially_copy_pass_by_ref</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">cmac</span>(<span class="ident">cipher</span>: <span class="kw-2">&amp;</span><span class="ident">Cipher</span>, <span class="ident">key</span>: <span class="kw-2">&amp;</span>[<span class="ident">u8</span>]) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">PKey</span><span class="op">&lt;</span><span class="ident">Private</span><span class="op">&gt;</span>, <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">key</span>.<span class="ident">len</span>() <span class="op">&lt;</span><span class="op">=</span> <span class="ident">c_int</span>::<span class="ident">max_value</span>() <span class="kw">as</span> <span class="ident">usize</span>);
             <span class="kw">let</span> <span class="ident">kctx</span> <span class="op">=</span> <span class="ident">cvt_p</span>(<span class="ident">ffi</span>::<span class="ident">EVP_PKEY_CTX_new_id</span>(
@@ -1212,7 +1387,7 @@
         }
     }
 
-    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">ossl110</span>)]</span>
+    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">ossl111</span>)]</span>
     <span class="kw">fn</span> <span class="ident">generate_eddsa</span>(<span class="ident">nid</span>: <span class="ident">c_int</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">PKey</span><span class="op">&lt;</span><span class="ident">Private</span><span class="op">&gt;</span>, <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="ident">kctx</span> <span class="op">=</span> <span class="ident">cvt_p</span>(<span class="ident">ffi</span>::<span class="ident">EVP_PKEY_CTX_new_id</span>(<span class="ident">nid</span>, <span class="ident">ptr</span>::<span class="ident">null_mut</span>()))<span class="question-mark">?</span>;
@@ -1232,6 +1407,18 @@
 
             <span class="prelude-val">Ok</span>(<span class="ident">PKey</span>::<span class="ident">from_ptr</span>(<span class="ident">key</span>))
         }
+    }
+
+    <span class="doccomment">/// Generates a new private Ed25519 key</span>
+    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">ossl111</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">generate_x25519</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">PKey</span><span class="op">&lt;</span><span class="ident">Private</span><span class="op">&gt;</span>, <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
+        <span class="ident">PKey</span>::<span class="ident">generate_eddsa</span>(<span class="ident">ffi</span>::<span class="ident">EVP_PKEY_X25519</span>)
+    }
+
+    <span class="doccomment">/// Generates a new private Ed448 key</span>
+    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">ossl111</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">generate_x448</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">PKey</span><span class="op">&lt;</span><span class="ident">Private</span><span class="op">&gt;</span>, <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
+        <span class="ident">PKey</span>::<span class="ident">generate_eddsa</span>(<span class="ident">ffi</span>::<span class="ident">EVP_PKEY_X448</span>)
     }
 
     <span class="doccomment">/// Generates a new private Ed25519 key</span>
@@ -1291,10 +1478,7 @@
     <span class="doccomment">/// Deserializes a DER-formatted PKCS#8 unencrypted private key.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This method is mainly for interoperability reasons. Encrypted keyfiles should be preferred.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">private_key_from_pkcs8</span>(
-        <span class="ident">der</span>: <span class="kw-2">&amp;</span>[<span class="ident">u8</span>],
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">PKey</span><span class="op">&lt;</span><span class="ident">Private</span><span class="op">&gt;</span>, <span class="ident">ErrorStack</span><span class="op">&gt;</span>
-    {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">private_key_from_pkcs8</span>(<span class="ident">der</span>: <span class="kw-2">&amp;</span>[<span class="ident">u8</span>]) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">PKey</span><span class="op">&lt;</span><span class="ident">Private</span><span class="op">&gt;</span>, <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="ident">ffi</span>::<span class="ident">init</span>();
             <span class="kw">let</span> <span class="ident">len</span> <span class="op">=</span> <span class="ident">der</span>.<span class="ident">len</span>().<span class="ident">min</span>(<span class="ident">c_long</span>::<span class="ident">max_value</span>() <span class="kw">as</span> <span class="ident">usize</span>) <span class="kw">as</span> <span class="ident">c_long</span>;
@@ -1303,8 +1487,7 @@
                 <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">der</span>.<span class="ident">as_ptr</span>(),
                 <span class="ident">len</span>,
             ))<span class="question-mark">?</span>;
-            <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> <span class="ident">cvt_p</span>(<span class="ident">ffi</span>::<span class="ident">EVP_PKCS82PKEY</span>(<span class="ident">p8inf</span>))
-                .<span class="ident">map</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">PKey</span>::<span class="ident">from_ptr</span>(<span class="ident">p</span>));
+            <span class="kw">let</span> <span class="ident">res</span> <span class="op">=</span> <span class="ident">cvt_p</span>(<span class="ident">ffi</span>::<span class="ident">EVP_PKCS82PKEY</span>(<span class="ident">p8inf</span>)).<span class="ident">map</span>(<span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">PKey</span>::<span class="ident">from_ptr</span>(<span class="ident">p</span>));
             <span class="ident">ffi</span>::<span class="ident">PKCS8_PRIV_KEY_INFO_free</span>(<span class="ident">p8inf</span>);
             <span class="ident">res</span>
         }
@@ -1391,6 +1574,7 @@
     <span class="kw">if</span> <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">any</span>(<span class="ident">ossl110</span>, <span class="ident">libressl270</span>))]</span> {
         <span class="kw">use</span> <span class="ident">ffi</span>::<span class="ident">EVP_PKEY_up_ref</span>;
     } <span class="kw">else</span> {
+        <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">bad_style</span>)]</span>
         <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span> <span class="ident">EVP_PKEY_up_ref</span>(<span class="ident">pkey</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi</span>::<span class="ident">EVP_PKEY</span>) {
             <span class="ident">ffi</span>::<span class="ident">CRYPTO_add_lock</span>(
                 <span class="kw-2">&amp;</span><span class="kw-2">mut</span> (<span class="kw-2">*</span><span class="ident">pkey</span>).<span class="ident">references</span>,
@@ -1403,14 +1587,80 @@
     }
 }
 
+<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">TryFrom</span><span class="op">&lt;</span><span class="ident">EcKey</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">PKey</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
+    <span class="kw">type</span> <span class="ident">Error</span> <span class="op">=</span> <span class="ident">ErrorStack</span>;
+
+    <span class="kw">fn</span> <span class="ident">try_from</span>(<span class="ident">ec_key</span>: <span class="ident">EcKey</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">PKey</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>, <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
+        <span class="ident">PKey</span>::<span class="ident">from_ec_key</span>(<span class="ident">ec_key</span>)
+    }
+}
+
+<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">TryFrom</span><span class="op">&lt;</span><span class="ident">PKey</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">EcKey</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
+    <span class="kw">type</span> <span class="ident">Error</span> <span class="op">=</span> <span class="ident">ErrorStack</span>;
+
+    <span class="kw">fn</span> <span class="ident">try_from</span>(<span class="ident">pkey</span>: <span class="ident">PKey</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">EcKey</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>, <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
+        <span class="ident">pkey</span>.<span class="ident">ec_key</span>()
+    }
+}
+
+<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">TryFrom</span><span class="op">&lt;</span><span class="ident">Rsa</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">PKey</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
+    <span class="kw">type</span> <span class="ident">Error</span> <span class="op">=</span> <span class="ident">ErrorStack</span>;
+
+    <span class="kw">fn</span> <span class="ident">try_from</span>(<span class="ident">rsa</span>: <span class="ident">Rsa</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">PKey</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>, <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
+        <span class="ident">PKey</span>::<span class="ident">from_rsa</span>(<span class="ident">rsa</span>)
+    }
+}
+
+<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">TryFrom</span><span class="op">&lt;</span><span class="ident">PKey</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Rsa</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
+    <span class="kw">type</span> <span class="ident">Error</span> <span class="op">=</span> <span class="ident">ErrorStack</span>;
+
+    <span class="kw">fn</span> <span class="ident">try_from</span>(<span class="ident">pkey</span>: <span class="ident">PKey</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Rsa</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>, <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
+        <span class="ident">pkey</span>.<span class="ident">rsa</span>()
+    }
+}
+
+<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">TryFrom</span><span class="op">&lt;</span><span class="ident">Dsa</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">PKey</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
+    <span class="kw">type</span> <span class="ident">Error</span> <span class="op">=</span> <span class="ident">ErrorStack</span>;
+
+    <span class="kw">fn</span> <span class="ident">try_from</span>(<span class="ident">dsa</span>: <span class="ident">Dsa</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">PKey</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>, <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
+        <span class="ident">PKey</span>::<span class="ident">from_dsa</span>(<span class="ident">dsa</span>)
+    }
+}
+
+<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">TryFrom</span><span class="op">&lt;</span><span class="ident">PKey</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Dsa</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
+    <span class="kw">type</span> <span class="ident">Error</span> <span class="op">=</span> <span class="ident">ErrorStack</span>;
+
+    <span class="kw">fn</span> <span class="ident">try_from</span>(<span class="ident">pkey</span>: <span class="ident">PKey</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Dsa</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>, <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
+        <span class="ident">pkey</span>.<span class="ident">dsa</span>()
+    }
+}
+
+<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">TryFrom</span><span class="op">&lt;</span><span class="ident">Dh</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">PKey</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
+    <span class="kw">type</span> <span class="ident">Error</span> <span class="op">=</span> <span class="ident">ErrorStack</span>;
+
+    <span class="kw">fn</span> <span class="ident">try_from</span>(<span class="ident">dh</span>: <span class="ident">Dh</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">PKey</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>, <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
+        <span class="ident">PKey</span>::<span class="ident">from_dh</span>(<span class="ident">dh</span>)
+    }
+}
+
+<span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="ident">TryFrom</span><span class="op">&lt;</span><span class="ident">PKey</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">Dh</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
+    <span class="kw">type</span> <span class="ident">Error</span> <span class="op">=</span> <span class="ident">ErrorStack</span>;
+
+    <span class="kw">fn</span> <span class="ident">try_from</span>(<span class="ident">pkey</span>: <span class="ident">PKey</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">Dh</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>, <span class="ident">ErrorStack</span><span class="op">&gt;</span> {
+        <span class="ident">pkey</span>.<span class="ident">dh</span>()
+    }
+}
+
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
 <span class="kw">mod</span> <span class="ident">tests</span> {
-    <span class="kw">use</span> <span class="ident">dh</span>::<span class="ident">Dh</span>;
-    <span class="kw">use</span> <span class="ident">dsa</span>::<span class="ident">Dsa</span>;
-    <span class="kw">use</span> <span class="ident">ec</span>::<span class="ident">EcKey</span>;
-    <span class="kw">use</span> <span class="ident">nid</span>::<span class="ident">Nid</span>;
-    <span class="kw">use</span> <span class="ident">rsa</span>::<span class="ident">Rsa</span>;
-    <span class="kw">use</span> <span class="ident">symm</span>::<span class="ident">Cipher</span>;
+    <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">convert</span>::<span class="ident">TryInto</span>;
+
+    <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">dh</span>::<span class="ident">Dh</span>;
+    <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">dsa</span>::<span class="ident">Dsa</span>;
+    <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">ec</span>::<span class="ident">EcKey</span>;
+    <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">nid</span>::<span class="ident">Nid</span>;
+    <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">rsa</span>::<span class="ident">Rsa</span>;
+    <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">symm</span>::<span class="ident">Cipher</span>;
 
     <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
 
@@ -1524,6 +1774,55 @@
         <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">pkey</span>.<span class="ident">id</span>(), <span class="ident">Id</span>::<span class="ident">EC</span>);
         <span class="macro">assert</span><span class="macro">!</span>(<span class="ident">pkey</span>.<span class="ident">rsa</span>().<span class="ident">is_err</span>());
     }
+
+    <span class="attribute">#[<span class="ident">test</span>]</span>
+    <span class="kw">fn</span> <span class="ident">test_rsa_conversion</span>() {
+        <span class="kw">let</span> <span class="ident">rsa</span> <span class="op">=</span> <span class="ident">Rsa</span>::<span class="ident">generate</span>(<span class="number">2048</span>).<span class="ident">unwrap</span>();
+        <span class="kw">let</span> <span class="ident">pkey</span>: <span class="ident">PKey</span><span class="op">&lt;</span><span class="ident">Private</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">rsa</span>.<span class="ident">clone</span>().<span class="ident">try_into</span>().<span class="ident">unwrap</span>();
+        <span class="kw">let</span> <span class="ident">rsa_</span>: <span class="ident">Rsa</span><span class="op">&lt;</span><span class="ident">Private</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">pkey</span>.<span class="ident">try_into</span>().<span class="ident">unwrap</span>();
+        <span class="comment">// Eq is missing</span>
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">rsa</span>.<span class="ident">p</span>(), <span class="ident">rsa_</span>.<span class="ident">p</span>());
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">rsa</span>.<span class="ident">q</span>(), <span class="ident">rsa_</span>.<span class="ident">q</span>());
+    }
+
+    <span class="attribute">#[<span class="ident">test</span>]</span>
+    <span class="kw">fn</span> <span class="ident">test_dsa_conversion</span>() {
+        <span class="kw">let</span> <span class="ident">dsa</span> <span class="op">=</span> <span class="ident">Dsa</span>::<span class="ident">generate</span>(<span class="number">2048</span>).<span class="ident">unwrap</span>();
+        <span class="kw">let</span> <span class="ident">pkey</span>: <span class="ident">PKey</span><span class="op">&lt;</span><span class="ident">Private</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">dsa</span>.<span class="ident">clone</span>().<span class="ident">try_into</span>().<span class="ident">unwrap</span>();
+        <span class="kw">let</span> <span class="ident">dsa_</span>: <span class="ident">Dsa</span><span class="op">&lt;</span><span class="ident">Private</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">pkey</span>.<span class="ident">try_into</span>().<span class="ident">unwrap</span>();
+        <span class="comment">// Eq is missing</span>
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">dsa</span>.<span class="ident">priv_key</span>(), <span class="ident">dsa_</span>.<span class="ident">priv_key</span>());
+    }
+
+    <span class="attribute">#[<span class="ident">test</span>]</span>
+    <span class="kw">fn</span> <span class="ident">test_ec_key_conversion</span>() {
+        <span class="kw">let</span> <span class="ident">group</span> <span class="op">=</span> <span class="kw">crate</span>::<span class="ident">ec</span>::<span class="ident">EcGroup</span>::<span class="ident">from_curve_name</span>(<span class="kw">crate</span>::<span class="ident">nid</span>::<span class="ident">Nid</span>::<span class="ident">X9_62_PRIME256V1</span>).<span class="ident">unwrap</span>();
+        <span class="kw">let</span> <span class="ident">ec_key</span> <span class="op">=</span> <span class="ident">EcKey</span>::<span class="ident">generate</span>(<span class="kw-2">&amp;</span><span class="ident">group</span>).<span class="ident">unwrap</span>();
+        <span class="kw">let</span> <span class="ident">pkey</span>: <span class="ident">PKey</span><span class="op">&lt;</span><span class="ident">Private</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">ec_key</span>.<span class="ident">clone</span>().<span class="ident">try_into</span>().<span class="ident">unwrap</span>();
+        <span class="kw">let</span> <span class="ident">ec_key_</span>: <span class="ident">EcKey</span><span class="op">&lt;</span><span class="ident">Private</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">pkey</span>.<span class="ident">try_into</span>().<span class="ident">unwrap</span>();
+        <span class="comment">// Eq is missing</span>
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">ec_key</span>.<span class="ident">private_key</span>(), <span class="ident">ec_key_</span>.<span class="ident">private_key</span>());
+    }
+
+    <span class="attribute">#[<span class="ident">test</span>]</span>
+    <span class="kw">fn</span> <span class="ident">test_dh_conversion</span>() {
+        <span class="kw">let</span> <span class="ident">dh_params</span> <span class="op">=</span> <span class="macro">include_bytes</span><span class="macro">!</span>(<span class="string">&quot;../test/dhparams.pem&quot;</span>);
+        <span class="kw">let</span> <span class="ident">dh_params</span> <span class="op">=</span> <span class="ident">Dh</span>::<span class="ident">params_from_pem</span>(<span class="ident">dh_params</span>).<span class="ident">unwrap</span>();
+        <span class="kw">let</span> <span class="ident">dh</span> <span class="op">=</span> <span class="ident">dh_params</span>.<span class="ident">generate_key</span>().<span class="ident">unwrap</span>();
+
+        <span class="comment">// Clone is missing for Dh, save the parameters</span>
+        <span class="kw">let</span> <span class="ident">p</span> <span class="op">=</span> <span class="ident">dh</span>.<span class="ident">prime_p</span>().<span class="ident">to_owned</span>().<span class="ident">unwrap</span>();
+        <span class="kw">let</span> <span class="ident">q</span> <span class="op">=</span> <span class="ident">dh</span>.<span class="ident">prime_q</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">q</span><span class="op">|</span> <span class="ident">q</span>.<span class="ident">to_owned</span>().<span class="ident">unwrap</span>());
+        <span class="kw">let</span> <span class="ident">g</span> <span class="op">=</span> <span class="ident">dh</span>.<span class="ident">generator</span>().<span class="ident">to_owned</span>().<span class="ident">unwrap</span>();
+
+        <span class="kw">let</span> <span class="ident">pkey</span>: <span class="ident">PKey</span><span class="op">&lt;</span><span class="ident">Private</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">dh</span>.<span class="ident">try_into</span>().<span class="ident">unwrap</span>();
+        <span class="kw">let</span> <span class="ident">dh_</span>: <span class="ident">Dh</span><span class="op">&lt;</span><span class="ident">Private</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">pkey</span>.<span class="ident">try_into</span>().<span class="ident">unwrap</span>();
+
+        <span class="comment">// Eq is missing</span>
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="kw-2">&amp;</span><span class="ident">p</span>, <span class="ident">dh_</span>.<span class="ident">prime_p</span>());
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">q</span>, <span class="ident">dh_</span>.<span class="ident">prime_q</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">q</span><span class="op">|</span> <span class="ident">q</span>.<span class="ident">to_owned</span>().<span class="ident">unwrap</span>()));
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="kw-2">&amp;</span><span class="ident">g</span>, <span class="ident">dh_</span>.<span class="ident">generator</span>());
+    }
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "openssl";</script><script src="../../aliases.js"></script><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "openssl";</script><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>

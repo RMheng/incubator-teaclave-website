@@ -1,4 +1,7 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source to the Rust file `/home/mssun/incubator-teaclave/build/cmake_tomls/sgx_untrusted_app/third_party/crates-io/vendor/sgx_types/src/types.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>types.rs.html -- source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css"><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script src="../../storage.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="shortcut icon" href="../../favicon.ico"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../sgx_types/index.html'><div class='logo-container'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">   1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/mssun/incubator-teaclave/build/cmake_tomls/sgx_untrusted_app/third_party/crates-io/vendor/sgx_types/src/types.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>types.rs - source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script src="../../storage.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="alternate icon" type="image/png" href="../../favicon-16x16.png">
+<link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../sgx_types/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><span class="help-button">?</span>
+                <a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">   1</span>
 <span id="2">   2</span>
 <span id="3">   3</span>
 <span id="4">   4</span>
@@ -1514,6 +1517,55 @@
 <span id="1514">1514</span>
 <span id="1515">1515</span>
 <span id="1516">1516</span>
+<span id="1517">1517</span>
+<span id="1518">1518</span>
+<span id="1519">1519</span>
+<span id="1520">1520</span>
+<span id="1521">1521</span>
+<span id="1522">1522</span>
+<span id="1523">1523</span>
+<span id="1524">1524</span>
+<span id="1525">1525</span>
+<span id="1526">1526</span>
+<span id="1527">1527</span>
+<span id="1528">1528</span>
+<span id="1529">1529</span>
+<span id="1530">1530</span>
+<span id="1531">1531</span>
+<span id="1532">1532</span>
+<span id="1533">1533</span>
+<span id="1534">1534</span>
+<span id="1535">1535</span>
+<span id="1536">1536</span>
+<span id="1537">1537</span>
+<span id="1538">1538</span>
+<span id="1539">1539</span>
+<span id="1540">1540</span>
+<span id="1541">1541</span>
+<span id="1542">1542</span>
+<span id="1543">1543</span>
+<span id="1544">1544</span>
+<span id="1545">1545</span>
+<span id="1546">1546</span>
+<span id="1547">1547</span>
+<span id="1548">1548</span>
+<span id="1549">1549</span>
+<span id="1550">1550</span>
+<span id="1551">1551</span>
+<span id="1552">1552</span>
+<span id="1553">1553</span>
+<span id="1554">1554</span>
+<span id="1555">1555</span>
+<span id="1556">1556</span>
+<span id="1557">1557</span>
+<span id="1558">1558</span>
+<span id="1559">1559</span>
+<span id="1560">1560</span>
+<span id="1561">1561</span>
+<span id="1562">1562</span>
+<span id="1563">1563</span>
+<span id="1564">1564</span>
+<span id="1565">1565</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// Licensed to the Apache Software Foundation (ASF) under one</span>
 <span class="comment">// or more contributor license agreements.  See the NOTICE file</span>
@@ -1532,10 +1584,10 @@
 <span class="comment">// specific language governing permissions and limitations</span>
 <span class="comment">// under the License..</span>
 
-<span class="kw">use</span> <span class="ident">core</span>::<span class="ident">default</span>::<span class="ident">Default</span>;
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">error</span>::<span class="kw-2">*</span>;
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">marker</span>::<span class="ident">ContiguousMemory</span>;
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="kw-2">*</span>;
+<span class="kw">use</span> <span class="ident">core</span>::<span class="ident">default</span>::<span class="ident">Default</span>;
 
 <span class="comment">//</span>
 <span class="comment">// sgx_attributes.h</span>
@@ -1588,7 +1640,7 @@
                                                    <span class="op">|</span> <span class="ident">SGX_FLAGS_INITTED</span>
                                                    <span class="op">|</span> <span class="ident">SGX_FLAGS_DEBUG</span>
                                                    <span class="op">|</span> <span class="ident">SGX_FLAGS_KSS</span>);
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">MISC_NON_SECURITY_BITS</span>: <span class="ident">uint32_t</span>     <span class="op">=</span> <span class="number">0x0FFFFFFF</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">MISC_NON_SECURITY_BITS</span>: <span class="ident">uint32_t</span>     <span class="op">=</span> <span class="number">0x0FFF_FFFF</span>;
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">TSEAL_DEFAULT_MISCMASK</span>: <span class="ident">uint32_t</span>     <span class="op">=</span> <span class="op">!</span><span class="ident">MISC_NON_SECURITY_BITS</span>;
 
 
@@ -1677,9 +1729,9 @@
 <span class="comment">//</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_FEBITSIZE</span>: <span class="ident">uint32_t</span> <span class="op">=</span> <span class="number">256</span>;
 
-<span class="macro">impl_struct</span><span class="macro">!</span>{
+<span class="macro">impl_struct</span><span class="macro">!</span> {
     <span class="attribute">#[<span class="ident">repr</span>(<span class="ident">packed</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ecc_param_t</span> {
+    <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">sgx_ecc_param_t</span> {
         <span class="kw">pub</span> <span class="ident">eccP</span>: [<span class="ident">uint32_t</span>; <span class="ident">SGX_NISTP_ECP256_KEY_SIZE</span>],      <span class="comment">/* EC prime field */</span>
         <span class="kw">pub</span> <span class="ident">eccA</span>: [<span class="ident">uint32_t</span>; <span class="ident">SGX_NISTP_ECP256_KEY_SIZE</span>],      <span class="comment">/* EC curve coefficient A */</span>
         <span class="kw">pub</span> <span class="ident">eccB</span>: [<span class="ident">uint32_t</span>; <span class="ident">SGX_NISTP_ECP256_KEY_SIZE</span>],      <span class="comment">/* EC curve coefficient B */</span>
@@ -1936,10 +1988,10 @@
 <span class="comment">//</span>
 <span class="comment">// sgx_report.h</span>
 <span class="comment">//</span>
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_HASH_SIZE</span>: <span class="ident">size_t</span>   <span class="op">=</span> <span class="number">32</span>;
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_MAC_SIZE</span>: <span class="ident">size_t</span>    <span class="op">=</span> <span class="number">16</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_HASH_SIZE</span>: <span class="ident">size_t</span> <span class="op">=</span> <span class="number">32</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_MAC_SIZE</span>: <span class="ident">size_t</span> <span class="op">=</span> <span class="number">16</span>;
 
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_REPORT_DATA_SIZE</span>: <span class="ident">size_t</span>   <span class="op">=</span> <span class="number">64</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_REPORT_DATA_SIZE</span>: <span class="ident">size_t</span> <span class="op">=</span> <span class="number">64</span>;
 
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_ISVEXT_PROD_ID_SIZE</span>: <span class="ident">size_t</span> <span class="op">=</span> <span class="number">16</span>;
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_ISV_FAMILY_ID_SIZE</span>: <span class="ident">size_t</span>  <span class="op">=</span> <span class="number">16</span>;
@@ -2035,7 +2087,7 @@
 <span class="comment">//</span>
 <span class="kw">pub</span> <span class="kw">type</span> <span class="ident">sgx_spinlock_t</span> <span class="op">=</span> <span class="ident">uint32_t</span>;
 
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_SPINLOCK_INITIALIZER</span>: <span class="ident">uint32_t</span>    <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_SPINLOCK_INITIALIZER</span>: <span class="ident">uint32_t</span> <span class="op">=</span> <span class="number">0</span>;
 
 <span class="comment">//</span>
 <span class="comment">// sgx_tae_service.h</span>
@@ -2180,13 +2232,13 @@ pub const SGX_MC_POLICY_ENCLAVE: uint16_t  = 0x02;
 <span class="kw">pub</span> <span class="kw">type</span> <span class="ident">sgx_sha1_hash_t</span> <span class="op">=</span> [<span class="ident">uint8_t</span>; <span class="ident">SGX_SHA1_HASH_SIZE</span>];
 <span class="kw">pub</span> <span class="kw">type</span> <span class="ident">sgx_sha256_hash_t</span> <span class="op">=</span> [<span class="ident">uint8_t</span>; <span class="ident">SGX_SHA256_HASH_SIZE</span>];
 
-<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">sgx_aes_gcm_128bit_key_t</span>   <span class="op">=</span> [<span class="ident">uint8_t</span>; <span class="ident">SGX_AESGCM_KEY_SIZE</span>];
-<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">sgx_aes_gcm_128bit_tag_t</span>   <span class="op">=</span> [<span class="ident">uint8_t</span>; <span class="ident">SGX_AESGCM_MAC_SIZE</span>];
-<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">sgx_hmac_256bit_key_t</span>      <span class="op">=</span> [<span class="ident">uint8_t</span>; <span class="ident">SGX_HMAC256_KEY_SIZE</span>];
-<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">sgx_hmac_256bit_tag_t</span>      <span class="op">=</span> [<span class="ident">uint8_t</span>; <span class="ident">SGX_HMAC256_MAC_SIZE</span>];
-<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">sgx_cmac_128bit_key_t</span>      <span class="op">=</span> [<span class="ident">uint8_t</span>; <span class="ident">SGX_CMAC_KEY_SIZE</span>];
-<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">sgx_cmac_128bit_tag_t</span>      <span class="op">=</span> [<span class="ident">uint8_t</span>; <span class="ident">SGX_CMAC_MAC_SIZE</span>];
-<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">sgx_aes_ctr_128bit_key_t</span>   <span class="op">=</span> [<span class="ident">uint8_t</span>; <span class="ident">SGX_AESCTR_KEY_SIZE</span>];
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">sgx_aes_gcm_128bit_key_t</span> <span class="op">=</span> [<span class="ident">uint8_t</span>; <span class="ident">SGX_AESGCM_KEY_SIZE</span>];
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">sgx_aes_gcm_128bit_tag_t</span> <span class="op">=</span> [<span class="ident">uint8_t</span>; <span class="ident">SGX_AESGCM_MAC_SIZE</span>];
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">sgx_hmac_256bit_key_t</span> <span class="op">=</span> [<span class="ident">uint8_t</span>; <span class="ident">SGX_HMAC256_KEY_SIZE</span>];
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">sgx_hmac_256bit_tag_t</span> <span class="op">=</span> [<span class="ident">uint8_t</span>; <span class="ident">SGX_HMAC256_MAC_SIZE</span>];
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">sgx_cmac_128bit_key_t</span> <span class="op">=</span> [<span class="ident">uint8_t</span>; <span class="ident">SGX_CMAC_KEY_SIZE</span>];
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">sgx_cmac_128bit_tag_t</span> <span class="op">=</span> [<span class="ident">uint8_t</span>; <span class="ident">SGX_CMAC_MAC_SIZE</span>];
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">sgx_aes_ctr_128bit_key_t</span> <span class="op">=</span> [<span class="ident">uint8_t</span>; <span class="ident">SGX_AESCTR_KEY_SIZE</span>];
 
 <span class="macro">impl_enum</span><span class="macro">!</span> {
     <span class="attribute">#[<span class="ident">repr</span>(<span class="ident">u32</span>)]</span>
@@ -2233,24 +2285,24 @@ pub const SGX_MC_POLICY_ENCLAVE: uint16_t  = 0x02;
 }
 
 <span class="comment">/* intel sgx sdk 2.1.3 */</span>
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">N_SIZE_IN_BYTES</span>: <span class="ident">size_t</span>     <span class="op">=</span> <span class="number">384</span>;
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">E_SIZE_IN_BYTES</span>: <span class="ident">size_t</span>     <span class="op">=</span> <span class="number">4</span>;
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D_SIZE_IN_BYTES</span>: <span class="ident">size_t</span>     <span class="op">=</span> <span class="number">384</span>;
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">P_SIZE_IN_BYTES</span>: <span class="ident">size_t</span>     <span class="op">=</span> <span class="number">192</span>;
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">Q_SIZE_IN_BYTES</span>: <span class="ident">size_t</span>     <span class="op">=</span> <span class="number">192</span>;
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DMP1_SIZE_IN_BYTES</span>: <span class="ident">size_t</span>  <span class="op">=</span> <span class="number">192</span>;
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DMQ1_SIZE_IN_BYTES</span>: <span class="ident">size_t</span>  <span class="op">=</span> <span class="number">192</span>;
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">IQMP_SIZE_IN_BYTES</span>: <span class="ident">size_t</span>  <span class="op">=</span> <span class="number">192</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">N_SIZE_IN_BYTES</span>: <span class="ident">size_t</span> <span class="op">=</span> <span class="number">384</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">E_SIZE_IN_BYTES</span>: <span class="ident">size_t</span> <span class="op">=</span> <span class="number">4</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D_SIZE_IN_BYTES</span>: <span class="ident">size_t</span> <span class="op">=</span> <span class="number">384</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">P_SIZE_IN_BYTES</span>: <span class="ident">size_t</span> <span class="op">=</span> <span class="number">192</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">Q_SIZE_IN_BYTES</span>: <span class="ident">size_t</span> <span class="op">=</span> <span class="number">192</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DMP1_SIZE_IN_BYTES</span>: <span class="ident">size_t</span> <span class="op">=</span> <span class="number">192</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DMQ1_SIZE_IN_BYTES</span>: <span class="ident">size_t</span> <span class="op">=</span> <span class="number">192</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">IQMP_SIZE_IN_BYTES</span>: <span class="ident">size_t</span> <span class="op">=</span> <span class="number">192</span>;
 
 <span class="comment">/* intel sgx sdk 2.1.3 */</span>
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">N_SIZE_IN_UINT</span>: <span class="ident">size_t</span>      <span class="op">=</span> <span class="ident">N_SIZE_IN_BYTES</span> <span class="op">/</span> <span class="number">4</span>;
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">E_SIZE_IN_UINT</span>: <span class="ident">size_t</span>      <span class="op">=</span> <span class="ident">E_SIZE_IN_BYTES</span> <span class="op">/</span> <span class="number">4</span>;
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D_SIZE_IN_UINT</span>: <span class="ident">size_t</span>      <span class="op">=</span> <span class="ident">D_SIZE_IN_BYTES</span> <span class="op">/</span> <span class="number">4</span>;
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">P_SIZE_IN_UINT</span>: <span class="ident">size_t</span>      <span class="op">=</span> <span class="ident">P_SIZE_IN_BYTES</span> <span class="op">/</span> <span class="number">4</span>;
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">Q_SIZE_IN_UINT</span>: <span class="ident">size_t</span>      <span class="op">=</span> <span class="ident">Q_SIZE_IN_BYTES</span> <span class="op">/</span> <span class="number">4</span>;
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DMP1_SIZE_IN_UINT</span>: <span class="ident">size_t</span>   <span class="op">=</span> <span class="ident">DMP1_SIZE_IN_BYTES</span> <span class="op">/</span> <span class="number">4</span>;
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DMQ1_SIZE_IN_UINT</span>: <span class="ident">size_t</span>   <span class="op">=</span> <span class="ident">DMQ1_SIZE_IN_BYTES</span> <span class="op">/</span> <span class="number">4</span>;
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">IQMP_SIZE_IN_UINT</span>: <span class="ident">size_t</span>   <span class="op">=</span> <span class="ident">IQMP_SIZE_IN_BYTES</span> <span class="op">/</span> <span class="number">4</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">N_SIZE_IN_UINT</span>: <span class="ident">size_t</span> <span class="op">=</span> <span class="ident">N_SIZE_IN_BYTES</span> <span class="op">/</span> <span class="number">4</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">E_SIZE_IN_UINT</span>: <span class="ident">size_t</span> <span class="op">=</span> <span class="ident">E_SIZE_IN_BYTES</span> <span class="op">/</span> <span class="number">4</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">D_SIZE_IN_UINT</span>: <span class="ident">size_t</span> <span class="op">=</span> <span class="ident">D_SIZE_IN_BYTES</span> <span class="op">/</span> <span class="number">4</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">P_SIZE_IN_UINT</span>: <span class="ident">size_t</span> <span class="op">=</span> <span class="ident">P_SIZE_IN_BYTES</span> <span class="op">/</span> <span class="number">4</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">Q_SIZE_IN_UINT</span>: <span class="ident">size_t</span> <span class="op">=</span> <span class="ident">Q_SIZE_IN_BYTES</span> <span class="op">/</span> <span class="number">4</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DMP1_SIZE_IN_UINT</span>: <span class="ident">size_t</span> <span class="op">=</span> <span class="ident">DMP1_SIZE_IN_BYTES</span> <span class="op">/</span> <span class="number">4</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">DMQ1_SIZE_IN_UINT</span>: <span class="ident">size_t</span> <span class="op">=</span> <span class="ident">DMQ1_SIZE_IN_BYTES</span> <span class="op">/</span> <span class="number">4</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">IQMP_SIZE_IN_UINT</span>: <span class="ident">size_t</span> <span class="op">=</span> <span class="ident">IQMP_SIZE_IN_BYTES</span> <span class="op">/</span> <span class="number">4</span>;
 
 <span class="kw">pub</span> <span class="kw">type</span> <span class="ident">sgx_rsa_key_t</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_void</span>;
 
@@ -2304,10 +2356,20 @@ pub const SGX_MC_POLICY_ENCLAVE: uint16_t  = 0x02;
     <span class="kw">pub</span> <span class="ident">m_queue</span>: <span class="ident">sgx_thread_queue_t</span>,
 }
 
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_THREAD_T_NULL</span>: <span class="ident">sgx_thread_t</span>   <span class="op">=</span> <span class="number">0</span> ;
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">sgx_thread_rwlock_t</span> {
+    <span class="kw">pub</span> <span class="ident">m_reader_count</span>: <span class="ident">uint32_t</span>,
+    <span class="kw">pub</span> <span class="ident">m_writers_waiting</span>: <span class="ident">uint32_t</span>,
+    <span class="kw">pub</span> <span class="ident">m_lock</span>: <span class="ident">uint32_t</span>,
+    <span class="kw">pub</span> <span class="ident">m_owner</span>: <span class="ident">sgx_thread_t</span>,
+    <span class="kw">pub</span> <span class="ident">m_reader_queue</span>: <span class="ident">sgx_thread_queue_t</span>,
+    <span class="kw">pub</span> <span class="ident">m_writer_queue</span>: <span class="ident">sgx_thread_queue_t</span>,
+}
+
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_THREAD_T_NULL</span>: <span class="ident">sgx_thread_t</span> <span class="op">=</span> <span class="number">0</span>;
 
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_THREAD_MUTEX_NONRECURSIVE</span>: <span class="ident">uint32_t</span> <span class="op">=</span> <span class="number">0x01</span>;
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_THREAD_MUTEX_RECURSIVE</span>: <span class="ident">uint32_t</span>    <span class="op">=</span> <span class="number">0x02</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_THREAD_MUTEX_RECURSIVE</span>: <span class="ident">uint32_t</span> <span class="op">=</span> <span class="number">0x02</span>;
 
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_THREAD_NONRECURSIVE_MUTEX_INITIALIZER</span>: <span class="ident">sgx_thread_mutex_t</span> <span class="op">=</span> <span class="ident">sgx_thread_mutex_t</span> {
     <span class="ident">m_refcount</span>: <span class="number">0</span>,
@@ -2316,9 +2378,9 @@ pub const SGX_MC_POLICY_ENCLAVE: uint16_t  = 0x02;
     <span class="ident">m_owner</span>: <span class="ident">SGX_THREAD_T_NULL</span>,
     <span class="ident">m_queue</span>: <span class="ident">sgx_thread_queue_t</span> {
         <span class="ident">m_first</span>: <span class="ident">SGX_THREAD_T_NULL</span>,
-        <span class="ident">m_last</span>: <span class="ident">SGX_THREAD_T_NULL</span>
-        }
-    };
+        <span class="ident">m_last</span>: <span class="ident">SGX_THREAD_T_NULL</span>,
+    },
+};
 
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_THREAD_RECURSIVE_MUTEX_INITIALIZER</span>: <span class="ident">sgx_thread_mutex_t</span> <span class="op">=</span> <span class="ident">sgx_thread_mutex_t</span> {
     <span class="ident">m_refcount</span>: <span class="number">0</span>,
@@ -2327,14 +2389,34 @@ pub const SGX_MC_POLICY_ENCLAVE: uint16_t  = 0x02;
     <span class="ident">m_owner</span>: <span class="ident">SGX_THREAD_T_NULL</span>,
     <span class="ident">m_queue</span>: <span class="ident">sgx_thread_queue_t</span> {
         <span class="ident">m_first</span>: <span class="ident">SGX_THREAD_T_NULL</span>,
-        <span class="ident">m_last</span>: <span class="ident">SGX_THREAD_T_NULL</span>
-        }
-    };
+        <span class="ident">m_last</span>: <span class="ident">SGX_THREAD_T_NULL</span>,
+    },
+};
 
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_THREAD_MUTEX_INITIALIZER</span>: <span class="ident">sgx_thread_mutex_t</span> <span class="op">=</span> <span class="ident">SGX_THREAD_NONRECURSIVE_MUTEX_INITIALIZER</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_THREAD_MUTEX_INITIALIZER</span>: <span class="ident">sgx_thread_mutex_t</span> <span class="op">=</span>
+    <span class="ident">SGX_THREAD_NONRECURSIVE_MUTEX_INITIALIZER</span>;
+
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_THREAD_LOCK_INITIALIZER</span>: <span class="ident">sgx_thread_rwlock_t</span> <span class="op">=</span> <span class="ident">sgx_thread_rwlock_t</span> {
+    <span class="ident">m_reader_count</span>: <span class="number">0</span>,
+    <span class="ident">m_writers_waiting</span>: <span class="number">0</span>,
+    <span class="ident">m_lock</span>: <span class="number">0</span>,
+    <span class="ident">m_owner</span>: <span class="ident">SGX_THREAD_T_NULL</span>,
+    <span class="ident">m_reader_queue</span>: <span class="ident">sgx_thread_queue_t</span> {
+        <span class="ident">m_first</span>: <span class="ident">SGX_THREAD_T_NULL</span>,
+        <span class="ident">m_last</span>: <span class="ident">SGX_THREAD_T_NULL</span>,
+    },
+    <span class="ident">m_writer_queue</span>: <span class="ident">sgx_thread_queue_t</span> {
+        <span class="ident">m_first</span>: <span class="ident">SGX_THREAD_T_NULL</span>,
+        <span class="ident">m_last</span>: <span class="ident">SGX_THREAD_T_NULL</span>,
+    },
+};
 
 <span class="macro">impl_struct</span><span class="macro">!</span> {
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">sgx_thread_mutex_attr_t</span> {
+        <span class="kw">pub</span> <span class="ident">m_dummy</span>: <span class="ident">c_uchar</span>,
+    }
+
+    <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">sgx_thread_rwlockattr_t</span> {
         <span class="kw">pub</span> <span class="ident">m_dummy</span>: <span class="ident">c_uchar</span>,
     }
 
@@ -2353,25 +2435,27 @@ pub const SGX_MC_POLICY_ENCLAVE: uint16_t  = 0x02;
     <span class="ident">m_lock</span>: <span class="number">0</span>,
     <span class="ident">m_queue</span>: <span class="ident">sgx_thread_queue_t</span> {
         <span class="ident">m_first</span>: <span class="ident">SGX_THREAD_T_NULL</span>,
-        <span class="ident">m_last</span>: <span class="ident">SGX_THREAD_T_NULL</span>
-    }
+        <span class="ident">m_last</span>: <span class="ident">SGX_THREAD_T_NULL</span>,
+    },
 };
 
 <span class="comment">//</span>
 <span class="comment">// sgx_tkey_exchange.h</span>
 <span class="comment">//</span>
-<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">sgx_ra_derive_secret_keys_t</span> <span class="op">=</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>(<span class="ident">p_shared_key</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">sgx_ec256_dh_shared_t</span>,
-                                                     <span class="ident">kdf_id</span>: <span class="ident">uint16_t</span>,
-                                                     <span class="ident">p_smk_key</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sgx_ec_key_128bit_t</span>,
-                                                     <span class="ident">p_sk_key</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sgx_ec_key_128bit_t</span>,
-                                                     <span class="ident">p_mk_key</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sgx_ec_key_128bit_t</span>,
-                                                     <span class="ident">p_vk_key</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sgx_ec_key_128bit_t</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">sgx_status_t</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">sgx_ra_derive_secret_keys_t</span> <span class="op">=</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>(
+    <span class="ident">p_shared_key</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">sgx_ec256_dh_shared_t</span>,
+    <span class="ident">kdf_id</span>: <span class="ident">uint16_t</span>,
+    <span class="ident">p_smk_key</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sgx_ec_key_128bit_t</span>,
+    <span class="ident">p_sk_key</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sgx_ec_key_128bit_t</span>,
+    <span class="ident">p_mk_key</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sgx_ec_key_128bit_t</span>,
+    <span class="ident">p_vk_key</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sgx_ec_key_128bit_t</span>,
+) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">sgx_status_t</span>;
 
 <span class="comment">//</span>
 <span class="comment">// sgx_trts_exception.h</span>
 <span class="comment">//</span>
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">EXCEPTION_CONTINUE_SEARCH</span>: <span class="ident">int32_t</span>      <span class="op">=</span> <span class="number">0</span>;
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">EXCEPTION_CONTINUE_EXECUTION</span>: <span class="ident">int32_t</span>   <span class="op">=</span> <span class="op">-</span><span class="number">1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">EXCEPTION_CONTINUE_SEARCH</span>: <span class="ident">int32_t</span> <span class="op">=</span> <span class="number">0</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">EXCEPTION_CONTINUE_EXECUTION</span>: <span class="ident">int32_t</span> <span class="op">=</span> <span class="op">-</span><span class="number">1</span>;
 
 <span class="macro">impl_enum</span><span class="macro">!</span> {
     <span class="attribute">#[<span class="ident">repr</span>(<span class="ident">u32</span>)]</span>
@@ -2382,13 +2466,16 @@ pub const SGX_MC_POLICY_ENCLAVE: uint16_t  = 0x02;
         <span class="ident">SGX_EXCEPTION_VECTOR_BP</span> <span class="op">=</span> <span class="number">3</span>,  <span class="comment">/* INT 3 instruction */</span>
         <span class="ident">SGX_EXCEPTION_VECTOR_BR</span> <span class="op">=</span> <span class="number">5</span>,  <span class="comment">/* BOUND instruction */</span>
         <span class="ident">SGX_EXCEPTION_VECTOR_UD</span> <span class="op">=</span> <span class="number">6</span>,  <span class="comment">/* UD2 instruction or reserved opcode */</span>
+        <span class="ident">SGX_EXCEPTION_VECTOR_GP</span> <span class="op">=</span> <span class="number">13</span>, <span class="comment">/* General protection exception */</span>
+        <span class="ident">SGX_EXCEPTION_VECTOR_PF</span> <span class="op">=</span> <span class="number">14</span>, <span class="comment">/* Page fault exception */</span>
         <span class="ident">SGX_EXCEPTION_VECTOR_MF</span> <span class="op">=</span> <span class="number">16</span>, <span class="comment">/* x87 FPU floating-point or WAIT/FWAIT instruction */</span>
         <span class="ident">SGX_EXCEPTION_VECTOR_AC</span> <span class="op">=</span> <span class="number">17</span>, <span class="comment">/* Any data reference in memory */</span>
         <span class="ident">SGX_EXCEPTION_VECTOR_XM</span> <span class="op">=</span> <span class="number">19</span>, <span class="comment">/* SSE/SSE2/SSE3 floating-point instruction */</span>
+        <span class="ident">SGX_EXCEPTION_VECTOR_CP</span> <span class="op">=</span> <span class="number">21</span>, <span class="comment">/* Control protection exception */</span>
     }
 }
 
-<span class="macro">impl_enum</span><span class="macro">!</span>{
+<span class="macro">impl_enum</span><span class="macro">!</span> {
     <span class="attribute">#[<span class="ident">repr</span>(<span class="ident">u32</span>)]</span>
     <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">PartialEq</span>, <span class="ident">Eq</span>)]</span>
     <span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">sgx_exception_type_t</span> {
@@ -2452,8 +2539,8 @@ pub const SGX_MC_POLICY_ENCLAVE: uint16_t  = 0x02;
 <span class="comment">//</span>
 <span class="comment">// sgx_tseal.h</span>
 <span class="comment">//</span>
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_SEAL_TAG_SIZE</span>: <span class="ident">size_t</span>  <span class="op">=</span> <span class="ident">SGX_AESGCM_MAC_SIZE</span>;
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_SEAL_IV_SIZE</span>: <span class="ident">size_t</span>   <span class="op">=</span> <span class="number">12</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_SEAL_TAG_SIZE</span>: <span class="ident">size_t</span> <span class="op">=</span> <span class="ident">SGX_AESGCM_MAC_SIZE</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_SEAL_IV_SIZE</span>: <span class="ident">size_t</span> <span class="op">=</span> <span class="number">12</span>;
 
 <span class="macro">impl_struct</span><span class="macro">!</span> {
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">sgx_aes_gcm_data_t</span> {
@@ -2474,8 +2561,8 @@ pub const SGX_MC_POLICY_ENCLAVE: uint16_t  = 0x02;
 <span class="comment">//</span>
 <span class="comment">// sgx_uae_platform.h</span>
 <span class="comment">//</span>
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PS_CAP_TRUSTED_TIME</span>: <span class="ident">size_t</span>        <span class="op">=</span> <span class="number">0x1</span>;
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PS_CAP_MONOTONIC_COUNTER</span>: <span class="ident">size_t</span>   <span class="op">=</span> <span class="number">0x2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PS_CAP_TRUSTED_TIME</span>: <span class="ident">size_t</span> <span class="op">=</span> <span class="number">0x1</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PS_CAP_MONOTONIC_COUNTER</span>: <span class="ident">size_t</span> <span class="op">=</span> <span class="number">0x2</span>;
 
 <span class="macro">impl_struct</span><span class="macro">!</span> {
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">sgx_ps_cap_t</span> {
@@ -2487,26 +2574,32 @@ pub const SGX_MC_POLICY_ENCLAVE: uint16_t  = 0x02;
 <span class="comment">//</span>
 <span class="comment">// sgx_ukey_exchange.h</span>
 <span class="comment">//</span>
-<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">sgx_ecall_get_ga_trusted_t</span> <span class="op">=</span> <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>(<span class="ident">eid</span>: <span class="ident">sgx_enclave_id_t</span>,
-                                                           <span class="ident">retval</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sgx_status_t</span>,
-                                                           <span class="ident">context</span>: <span class="ident">sgx_ra_context_t</span>,
-                                                           <span class="ident">g_a</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sgx_ec256_public_t</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">sgx_status_t</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">sgx_ecall_get_ga_trusted_t</span> <span class="op">=</span> <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>(
+    <span class="ident">eid</span>: <span class="ident">sgx_enclave_id_t</span>,
+    <span class="ident">retval</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sgx_status_t</span>,
+    <span class="ident">context</span>: <span class="ident">sgx_ra_context_t</span>,
+    <span class="ident">g_a</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sgx_ec256_public_t</span>,
+) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">sgx_status_t</span>;
 
-<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">sgx_ecall_proc_msg2_trusted_t</span> <span class="op">=</span> <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>(<span class="ident">eid</span>: <span class="ident">sgx_enclave_id_t</span>,
-                                                              <span class="ident">retval</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sgx_status_t</span>,
-                                                              <span class="ident">context</span>: <span class="ident">sgx_ra_context_t</span>,
-                                                              <span class="ident">p_msg2</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">sgx_ra_msg2_t</span>,
-                                                              <span class="ident">p_qe_target</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">sgx_target_info_t</span>,
-                                                              <span class="ident">p_report</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sgx_report_t</span>,
-                                                              <span class="ident">nonce</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sgx_quote_nonce_t</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">sgx_status_t</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">sgx_ecall_proc_msg2_trusted_t</span> <span class="op">=</span> <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>(
+    <span class="ident">eid</span>: <span class="ident">sgx_enclave_id_t</span>,
+    <span class="ident">retval</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sgx_status_t</span>,
+    <span class="ident">context</span>: <span class="ident">sgx_ra_context_t</span>,
+    <span class="ident">p_msg2</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">sgx_ra_msg2_t</span>,
+    <span class="ident">p_qe_target</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">sgx_target_info_t</span>,
+    <span class="ident">p_report</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sgx_report_t</span>,
+    <span class="ident">nonce</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sgx_quote_nonce_t</span>,
+) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">sgx_status_t</span>;
 
-<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">sgx_ecall_get_msg3_trusted_t</span> <span class="op">=</span> <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>(<span class="ident">eid</span>: <span class="ident">sgx_enclave_id_t</span>,
-                                                             <span class="ident">retval</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sgx_status_t</span>,
-                                                             <span class="ident">context</span>: <span class="ident">sgx_ra_context_t</span>,
-                                                             <span class="ident">quote_size</span>: <span class="ident">uint32_t</span>,
-                                                             <span class="ident">qe_report</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sgx_report_t</span>,
-                                                             <span class="ident">p_msg3</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sgx_ra_msg3_t</span>,
-                                                             <span class="ident">msg3_size</span>: <span class="ident">uint32_t</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">sgx_status_t</span>;
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">sgx_ecall_get_msg3_trusted_t</span> <span class="op">=</span> <span class="kw">unsafe</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>(
+    <span class="ident">eid</span>: <span class="ident">sgx_enclave_id_t</span>,
+    <span class="ident">retval</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sgx_status_t</span>,
+    <span class="ident">context</span>: <span class="ident">sgx_ra_context_t</span>,
+    <span class="ident">quote_size</span>: <span class="ident">uint32_t</span>,
+    <span class="ident">qe_report</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sgx_report_t</span>,
+    <span class="ident">p_msg3</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">sgx_ra_msg3_t</span>,
+    <span class="ident">msg3_size</span>: <span class="ident">uint32_t</span>,
+) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">sgx_status_t</span>;
 
 <span class="comment">//</span>
 <span class="comment">// sgx_urts.h</span>
@@ -2518,13 +2611,15 @@ pub const SGX_MC_POLICY_ENCLAVE: uint16_t  = 0x02;
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_CREATE_ENCLAVE_EX_PCL_BIT_IDX</span>: <span class="ident">size_t</span> <span class="op">=</span> <span class="number">0</span>;
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_CREATE_ENCLAVE_EX_PCL</span>: <span class="ident">uint32_t</span> <span class="op">=</span> <span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="ident">SGX_CREATE_ENCLAVE_EX_PCL_BIT_IDX</span> <span class="kw">as</span> <span class="ident">uint32_t</span>;
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_CREATE_ENCLAVE_EX_SWITCHLESS_BIT_IDX</span>: <span class="ident">size_t</span> <span class="op">=</span> <span class="number">1</span>;
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_CREATE_ENCLAVE_EX_SWITCHLESS</span>: <span class="ident">uint32_t</span> <span class="op">=</span> <span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="ident">SGX_CREATE_ENCLAVE_EX_SWITCHLESS_BIT_IDX</span> <span class="kw">as</span> <span class="ident">uint32_t</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_CREATE_ENCLAVE_EX_SWITCHLESS</span>: <span class="ident">uint32_t</span> <span class="op">=</span>
+    <span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="ident">SGX_CREATE_ENCLAVE_EX_SWITCHLESS_BIT_IDX</span> <span class="kw">as</span> <span class="ident">uint32_t</span>;
 <span class="comment">/* intel sgx sdk 2.4 */</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_CREATE_ENCLAVE_EX_KSS_BIT_IDX</span>: <span class="ident">size_t</span> <span class="op">=</span> <span class="number">2</span>;
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_CREATE_ENCLAVE_EX_KSS</span>: <span class="ident">uint32_t</span> <span class="op">=</span> <span class="number">1</span> <span class="op">&lt;</span><span class="op">&lt;</span> <span class="ident">SGX_CREATE_ENCLAVE_EX_KSS_BIT_IDX</span> <span class="kw">as</span> <span class="ident">uint32_t</span>;
 
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">_SGX_LAST_EX_FEATURE_IDX_</span>: <span class="ident">uint32_t</span> <span class="op">=</span> <span class="ident">SGX_CREATE_ENCLAVE_EX_KSS_BIT_IDX</span> <span class="kw">as</span> <span class="ident">uint32_t</span>;
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">_SGX_EX_FEATURES_MASK_</span>: <span class="ident">uint32_t</span> <span class="op">=</span> <span class="number">0xFFFF_FFFF_u32</span> <span class="op">&gt;</span><span class="op">&gt;</span> (<span class="ident">MAX_EX_FEATURES_COUNT</span> <span class="kw">as</span> <span class="ident">uint32_t</span> <span class="op">-</span> <span class="number">1</span> <span class="op">-</span> <span class="ident">_SGX_LAST_EX_FEATURE_IDX_</span>);
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">_SGX_EX_FEATURES_MASK_</span>: <span class="ident">uint32_t</span> <span class="op">=</span>
+    <span class="number">0xFFFF_FFFF_u32</span> <span class="op">&gt;</span><span class="op">&gt;</span> (<span class="ident">MAX_EX_FEATURES_COUNT</span> <span class="kw">as</span> <span class="ident">uint32_t</span> <span class="op">-</span> <span class="number">1</span> <span class="op">-</span> <span class="ident">_SGX_LAST_EX_FEATURE_IDX_</span>);
 
 <span class="comment">/* intel sgx sdk 2.4 */</span>
 <span class="macro">impl_copy_clone</span><span class="macro">!</span> {
@@ -2548,8 +2643,8 @@ pub const SGX_MC_POLICY_ENCLAVE: uint16_t  = 0x02;
 <span class="comment">//</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">ENCLAVE_INIT_NOT_STARTED</span>: <span class="ident">uint32_t</span> <span class="op">=</span> <span class="number">0</span>;
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">ENCLAVE_INIT_IN_PROGRESS</span>: <span class="ident">uint32_t</span> <span class="op">=</span> <span class="number">1</span>;
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">ENCLAVE_INIT_DONE</span>: <span class="ident">uint32_t</span>        <span class="op">=</span> <span class="number">2</span>;
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">ENCLAVE_CRASHED</span>: <span class="ident">uint32_t</span>          <span class="op">=</span> <span class="number">3</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">ENCLAVE_INIT_DONE</span>: <span class="ident">uint32_t</span> <span class="op">=</span> <span class="number">2</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">ENCLAVE_CRASHED</span>: <span class="ident">uint32_t</span> <span class="op">=</span> <span class="number">3</span>;
 
 <span class="comment">//</span>
 <span class="comment">// sgx_cpuid.h</span>
@@ -2568,13 +2663,12 @@ pub const SGX_MC_POLICY_ENCLAVE: uint16_t  = 0x02;
 <span class="comment">//    }</span>
 <span class="comment">//}</span>
 
-
 <span class="comment">//</span>
 <span class="comment">// sgx_tprotected_fs.h</span>
 <span class="comment">//</span>
 <span class="kw">pub</span> <span class="kw">type</span> <span class="ident">SGX_FILE</span> <span class="op">=</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_void</span>;
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FILENAME_MAX</span>: <span class="ident">c_uint</span> <span class="op">=</span> <span class="number">260</span>; <span class="comment">//define in sgx_tprotected_fs.h</span>
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FOPEN_MAX</span>: <span class="ident">c_uint</span> <span class="op">=</span> <span class="number">20</span>;     <span class="comment">//define in sgx_tprotected_fs.h</span>
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">FOPEN_MAX</span>: <span class="ident">c_uint</span> <span class="op">=</span> <span class="number">20</span>; <span class="comment">//define in sgx_tprotected_fs.h</span>
 
 <span class="comment">/* intel sgx sdk 2.0 */</span>
 <span class="comment">//</span>
@@ -2599,10 +2693,10 @@ pub const SGX_MC_POLICY_ENCLAVE: uint16_t  = 0x02;
 <span class="comment">//</span>
 <span class="comment">// sgx_pcl_guid.h</span>
 <span class="comment">//</span>
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_PCL_GUID_SIZE</span>: <span class="ident">size_t</span>   <span class="op">=</span> <span class="number">16</span>;
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_PCL_GUID</span>: [<span class="ident">uint8_t</span>; <span class="ident">SGX_PCL_GUID_SIZE</span>] <span class="op">=</span>
-    [<span class="number">0x95</span>, <span class="number">0x48</span>, <span class="number">0x6e</span>, <span class="number">0x8f</span>, <span class="number">0x8f</span>, <span class="number">0x4a</span>, <span class="number">0x41</span>, <span class="number">0x4f</span>, <span class="number">0xb1</span>, <span class="number">0x27</span>, <span class="number">0x46</span>, <span class="number">0x21</span>, <span class="number">0xa8</span>, <span class="number">0x59</span>, <span class="number">0xa8</span>, <span class="number">0xac</span>];
-
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_PCL_GUID_SIZE</span>: <span class="ident">size_t</span> <span class="op">=</span> <span class="number">16</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_PCL_GUID</span>: [<span class="ident">uint8_t</span>; <span class="ident">SGX_PCL_GUID_SIZE</span>] <span class="op">=</span> [
+    <span class="number">0x95</span>, <span class="number">0x48</span>, <span class="number">0x6e</span>, <span class="number">0x8f</span>, <span class="number">0x8f</span>, <span class="number">0x4a</span>, <span class="number">0x41</span>, <span class="number">0x4f</span>, <span class="number">0xb1</span>, <span class="number">0x27</span>, <span class="number">0x46</span>, <span class="number">0x21</span>, <span class="number">0xa8</span>, <span class="number">0x59</span>, <span class="number">0xa8</span>, <span class="number">0xac</span>,
+];
 
 <span class="comment">/* intel sgx sdk 2.2 */</span>
 <span class="comment">//</span>
@@ -2636,9 +2730,11 @@ pub const SGX_MC_POLICY_ENCLAVE: uint16_t  = 0x02;
     }
 }
 
-<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">sgx_uswitchless_worker_callback_t</span> <span class="op">=</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>(<span class="ident">worker_type</span>: <span class="ident">sgx_uswitchless_worker_type_t</span>,
-                                                           <span class="ident">worker_event</span>: <span class="ident">sgx_uswitchless_worker_event_t</span>,
-                                                           <span class="ident">worker_stats</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">sgx_uswitchless_worker_stats_t</span>);
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">sgx_uswitchless_worker_callback_t</span> <span class="op">=</span> <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> <span class="kw">fn</span>(
+    <span class="ident">worker_type</span>: <span class="ident">sgx_uswitchless_worker_type_t</span>,
+    <span class="ident">worker_event</span>: <span class="ident">sgx_uswitchless_worker_event_t</span>,
+    <span class="ident">worker_stats</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">sgx_uswitchless_worker_stats_t</span>,
+);
 
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SL_DEFAULT_FALLBACK_RETRIES</span>: <span class="ident">uint32_t</span> <span class="op">=</span> <span class="number">20000</span>;
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SL_DEFAULT_SLEEP_RETRIES</span>: <span class="ident">uint32_t</span> <span class="op">=</span> <span class="number">20000</span>;
@@ -2659,7 +2755,7 @@ pub const SGX_MC_POLICY_ENCLAVE: uint16_t  = 0x02;
 
 <span class="kw">impl</span> <span class="ident">Default</span> <span class="kw">for</span> <span class="ident">sgx_uswitchless_config_t</span> {
     <span class="kw">fn</span> <span class="ident">default</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">sgx_uswitchless_config_t</span> {
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">config</span>: <span class="ident">sgx_uswitchless_config_t</span> <span class="op">=</span> <span class="kw">unsafe</span>{ <span class="ident">core</span>::<span class="ident">mem</span>::<span class="ident">zeroed</span>() };
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">config</span>: <span class="ident">sgx_uswitchless_config_t</span> <span class="op">=</span> <span class="kw">unsafe</span> { <span class="ident">core</span>::<span class="ident">mem</span>::<span class="ident">zeroed</span>() };
         <span class="ident">config</span>.<span class="ident">num_uworkers</span> <span class="op">=</span> <span class="number">1</span>;
         <span class="ident">config</span>.<span class="ident">num_tworkers</span> <span class="op">=</span> <span class="number">1</span>;
         <span class="ident">config</span>
@@ -2735,20 +2831,20 @@ pub const SGX_MC_POLICY_ENCLAVE: uint16_t  = 0x02;
 
 <span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">sgx_ql_qve_collateral_t</span> {
-    <span class="kw">pub</span> <span class="ident">version</span>: <span class="ident">uint32_t</span>,                  <span class="comment">// version = 1.  PCK Cert chain is in the Quote.</span>
+    <span class="kw">pub</span> <span class="ident">version</span>: <span class="ident">uint32_t</span>, <span class="comment">// version = 1.  PCK Cert chain is in the Quote.</span>
     <span class="kw">pub</span> <span class="ident">pck_crl_issuer_chain</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">char</span>,
     <span class="kw">pub</span> <span class="ident">pck_crl_issuer_chain_size</span>: <span class="ident">uint32_t</span>,
-    <span class="kw">pub</span> <span class="ident">root_ca_crl</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">char</span>,            <span class="comment">// Root CA CRL</span>
+    <span class="kw">pub</span> <span class="ident">root_ca_crl</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">char</span>, <span class="comment">// Root CA CRL</span>
     <span class="kw">pub</span> <span class="ident">root_ca_crl_size</span>: <span class="ident">uint32_t</span>,
-    <span class="kw">pub</span> <span class="ident">pck_crl</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">char</span>,                <span class="comment">// PCK Cert CRL</span>
+    <span class="kw">pub</span> <span class="ident">pck_crl</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">char</span>, <span class="comment">// PCK Cert CRL</span>
     <span class="kw">pub</span> <span class="ident">pck_crl_size</span>: <span class="ident">uint32_t</span>,
     <span class="kw">pub</span> <span class="ident">tcb_info_issuer_chain</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">char</span>,
     <span class="kw">pub</span> <span class="ident">tcb_info_issuer_chain_size</span>: <span class="ident">uint32_t</span>,
-    <span class="kw">pub</span> <span class="ident">tcb_info</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">char</span>,               <span class="comment">// TCB Info structure</span>
+    <span class="kw">pub</span> <span class="ident">tcb_info</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">char</span>, <span class="comment">// TCB Info structure</span>
     <span class="kw">pub</span> <span class="ident">tcb_info_size</span>: <span class="ident">uint32_t</span>,
     <span class="kw">pub</span> <span class="ident">qe_identity_issuer_chain</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">char</span>,
     <span class="kw">pub</span> <span class="ident">qe_identity_issuer_chain_size</span>: <span class="ident">uint32_t</span>,
-    <span class="kw">pub</span> <span class="ident">qe_identity</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">char</span>,            <span class="comment">// QE Identity Structure</span>
+    <span class="kw">pub</span> <span class="ident">qe_identity</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">char</span>, <span class="comment">// QE Identity Structure</span>
     <span class="kw">pub</span> <span class="ident">qe_identity_size</span>: <span class="ident">uint32_t</span>,
 }
 
@@ -2893,56 +2989,61 @@ pub const SGX_MC_POLICY_ENCLAVE: uint16_t  = 0x02;
     <span class="attribute">#[<span class="ident">repr</span>(<span class="ident">u32</span>)]</span>
     <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">PartialEq</span>, <span class="ident">Eq</span>)]</span>
     <span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">sgx_ql_path_type_t</span> {
-        <span class="ident">SGX_QL_QE3_PATH</span>  <span class="op">=</span> <span class="number">0</span>,
-        <span class="ident">SGX_QL_PCE_PATH</span>  <span class="op">=</span> <span class="number">1</span>,
-        <span class="ident">SGX_QL_QPL_PATH</span>  <span class="op">=</span> <span class="number">2</span>,
+        <span class="ident">SGX_QL_QE3_PATH</span> <span class="op">=</span> <span class="number">0</span>,
+        <span class="ident">SGX_QL_PCE_PATH</span> <span class="op">=</span> <span class="number">1</span>,
+        <span class="ident">SGX_QL_QPL_PATH</span> <span class="op">=</span> <span class="number">2</span>,
     }
 }
-
 
 <span class="comment">//</span>
 <span class="comment">// qve_header.h</span>
 <span class="comment">//</span>
+
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">ROOT_KEY_ID_SIZE</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">48</span>;
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">PLATFORM_INSTANCE_ID_SIZE</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">16</span>;
+
+<span class="comment">/* intel DCAP 1.7 */</span>
+<span class="macro">impl_enum</span><span class="macro">!</span> {
+    <span class="attribute">#[<span class="ident">repr</span>(<span class="ident">u32</span>)]</span>
+    <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">PartialEq</span>, <span class="ident">Eq</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">pck_cert_flag_enum_t</span> {
+        <span class="ident">PCK_FLAG_FALSE</span> <span class="op">=</span> <span class="number">0</span>,
+        <span class="ident">PCK_FLAG_TRUE</span> <span class="op">=</span> <span class="number">1</span>,
+        <span class="ident">PCK_FLAG_UNDEFINED</span> <span class="op">=</span> <span class="number">2</span>,
+    }
+}
+
 <span class="macro">impl_copy_clone</span><span class="macro">!</span> {
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">sgx_ql_qv_supplemental_t</span> {
         <span class="kw">pub</span> <span class="ident">version</span>: <span class="ident">uint32_t</span>,
         <span class="kw">pub</span> <span class="ident">earliest_issue_date</span>: <span class="ident">time_t</span>,
+        <span class="kw">pub</span> <span class="ident">latest_issue_date</span>: <span class="ident">time_t</span>,
+        <span class="kw">pub</span> <span class="ident">earliest_expiration_date</span>: <span class="ident">time_t</span>,
         <span class="kw">pub</span> <span class="ident">tcb_level_date_tag</span>: <span class="ident">time_t</span>,
         <span class="kw">pub</span> <span class="ident">pck_crl_num</span>: <span class="ident">uint32_t</span>,
         <span class="kw">pub</span> <span class="ident">root_ca_crl_num</span>: <span class="ident">uint32_t</span>,
         <span class="kw">pub</span> <span class="ident">tcb_eval_ref_num</span>: <span class="ident">uint32_t</span>,
-        <span class="kw">pub</span> <span class="ident">root_key_id</span>: [<span class="ident">uint8_t</span>; <span class="number">48</span>],
+        <span class="kw">pub</span> <span class="ident">root_key_id</span>: [<span class="ident">uint8_t</span>; <span class="ident">ROOT_KEY_ID_SIZE</span>],
         <span class="kw">pub</span> <span class="ident">pck_ppid</span>: <span class="ident">sgx_key_128bit_t</span>,
         <span class="kw">pub</span> <span class="ident">tcb_cpusvn</span>: <span class="ident">sgx_cpu_svn_t</span>,
         <span class="kw">pub</span> <span class="ident">tcb_pce_isvsvn</span>: <span class="ident">sgx_isv_svn_t</span>,
         <span class="kw">pub</span> <span class="ident">pce_id</span>: <span class="ident">uint16_t</span>,
+        <span class="comment">/* intel DCAP 1.7 */</span>
+        <span class="kw">pub</span> <span class="ident">sgx_type</span>: <span class="ident">uint8_t</span>,
+
+        <span class="kw">pub</span> <span class="ident">platform_instance_id</span>: [<span class="ident">uint8_t</span>; <span class="ident">PLATFORM_INSTANCE_ID_SIZE</span>],
+        <span class="kw">pub</span> <span class="ident">dynamic_platform</span>: <span class="ident">pck_cert_flag_enum_t</span>,
+        <span class="kw">pub</span> <span class="ident">cached_keys</span>: <span class="ident">pck_cert_flag_enum_t</span>,
+        <span class="kw">pub</span> <span class="ident">smt_enabled</span>: <span class="ident">pck_cert_flag_enum_t</span>,
     }
 }
 
 <span class="macro">impl_struct_default</span><span class="macro">!</span> {
-    <span class="ident">sgx_ql_qv_supplemental_t</span>; <span class="comment">//120</span>
+    <span class="ident">sgx_ql_qv_supplemental_t</span>; <span class="comment">//168</span>
 }
 
 <span class="macro">impl_struct_ContiguousMemory</span><span class="macro">!</span> {
     <span class="ident">sgx_ql_qv_supplemental_t</span>;
-}
-
-<span class="macro">impl_enum</span><span class="macro">!</span> {
-    <span class="attribute">#[<span class="ident">repr</span>(<span class="ident">u32</span>)]</span>
-    <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Copy</span>, <span class="ident">Clone</span>, <span class="ident">PartialEq</span>, <span class="ident">Eq</span>, <span class="ident">Ord</span>, <span class="ident">PartialOrd</span>, <span class="ident">Debug</span>)]</span>
-    <span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">sgx_ql_qv_result_t</span> {
-        <span class="ident">SGX_QL_QV_RESULT_OK</span>                                 <span class="op">=</span> <span class="number">0x0000_0000</span>,
-        <span class="comment">// SGX_QL_QV_RESULT_MIN                             = 0x0000_A001,</span>
-        <span class="ident">SGX_QL_QV_RESULT_CONFIG_NEEDED</span>                      <span class="op">=</span> <span class="number">0x0000_A001</span>,
-        <span class="ident">SGX_QL_QV_RESULT_OUT_OF_DATE</span>                        <span class="op">=</span> <span class="number">0x0000_A002</span>,
-        <span class="ident">SGX_QL_QV_RESULT_OUT_OF_DATE_CONFIG_NEEDED</span>          <span class="op">=</span> <span class="number">0x0000_A003</span>,
-        <span class="ident">SGX_QL_QV_RESULT_INVALID_SIGNATURE</span>                  <span class="op">=</span> <span class="number">0x0000_A004</span>,
-        <span class="ident">SGX_QL_QV_RESULT_REVOKED</span>                            <span class="op">=</span> <span class="number">0x0000_A005</span>,
-        <span class="ident">SGX_QL_QV_RESULT_UNSPECIFIED</span>                        <span class="op">=</span> <span class="number">0x0000_A006</span>,
-        <span class="ident">SGX_QL_QV_RESULT_SW_HARDENING_NEEDED</span>                <span class="op">=</span> <span class="number">0x0000_A007</span>,
-        <span class="ident">SGX_QL_QV_RESULT_CONFIG_AND_SW_HARDENING_NEEDED</span>     <span class="op">=</span> <span class="number">0x0000_A008</span>,
-        <span class="ident">SGX_QL_QV_RESULT_MAX</span>                                <span class="op">=</span> <span class="number">0x0000_A0FF</span>,
-    }
 }
 
 <span class="comment">/* intel DCAP 1.6 */</span>
@@ -3027,9 +3128,9 @@ pub const SGX_MC_POLICY_ENCLAVE: uint16_t  = 0x02;
 <span class="comment">//</span>
 <span class="comment">// sgx_rsrv_mem_mngr.h</span>
 <span class="comment">//</span>
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_PROT_READ</span>:  <span class="ident">uint32_t</span> <span class="op">=</span> <span class="number">0x1</span>; <span class="comment">/* page can be read */</span>
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_PROT_READ</span>: <span class="ident">uint32_t</span> <span class="op">=</span> <span class="number">0x1</span>; <span class="comment">/* page can be read */</span>
 <span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_PROT_WRITE</span>: <span class="ident">uint32_t</span> <span class="op">=</span> <span class="number">0x2</span>; <span class="comment">/* page can be written */</span>
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_PROT_EXEC</span>:  <span class="ident">uint32_t</span> <span class="op">=</span> <span class="number">0x4</span>; <span class="comment">/* page can be executed */</span>
-<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_PROT_NONE</span>:  <span class="ident">uint32_t</span> <span class="op">=</span> <span class="number">0x0</span>; <span class="comment">/* page can not be accessed */</span>
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_PROT_EXEC</span>: <span class="ident">uint32_t</span> <span class="op">=</span> <span class="number">0x4</span>; <span class="comment">/* page can be executed */</span>
+<span class="kw">pub</span> <span class="kw">const</span> <span class="ident">SGX_PROT_NONE</span>: <span class="ident">uint32_t</span> <span class="op">=</span> <span class="number">0x0</span>; <span class="comment">/* page can not be accessed */</span>
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "sgx_types";</script><script src="../../aliases.js"></script><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "sgx_types";</script><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>

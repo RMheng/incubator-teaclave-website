@@ -1,4 +1,7 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source to the Rust file `/home/mssun/incubator-teaclave/build/cmake_tomls/sgx_untrusted_app/third_party/crates-io/vendor/structopt-derive/src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs.html -- source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css"><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script src="../../storage.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="shortcut icon" href="../../favicon.ico"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../structopt_derive/index.html'><div class='logo-container'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/mssun/incubator-teaclave/build/cmake_tomls/sgx_untrusted_app/third_party/crates-io/vendor/structopt-derive/src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs - source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script src="../../storage.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="alternate icon" type="image/png" href="../../favicon-16x16.png">
+<link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../structopt_derive/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><span class="help-button">?</span>
+                <a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -872,6 +875,118 @@
 <span id="872">872</span>
 <span id="873">873</span>
 <span id="874">874</span>
+<span id="875">875</span>
+<span id="876">876</span>
+<span id="877">877</span>
+<span id="878">878</span>
+<span id="879">879</span>
+<span id="880">880</span>
+<span id="881">881</span>
+<span id="882">882</span>
+<span id="883">883</span>
+<span id="884">884</span>
+<span id="885">885</span>
+<span id="886">886</span>
+<span id="887">887</span>
+<span id="888">888</span>
+<span id="889">889</span>
+<span id="890">890</span>
+<span id="891">891</span>
+<span id="892">892</span>
+<span id="893">893</span>
+<span id="894">894</span>
+<span id="895">895</span>
+<span id="896">896</span>
+<span id="897">897</span>
+<span id="898">898</span>
+<span id="899">899</span>
+<span id="900">900</span>
+<span id="901">901</span>
+<span id="902">902</span>
+<span id="903">903</span>
+<span id="904">904</span>
+<span id="905">905</span>
+<span id="906">906</span>
+<span id="907">907</span>
+<span id="908">908</span>
+<span id="909">909</span>
+<span id="910">910</span>
+<span id="911">911</span>
+<span id="912">912</span>
+<span id="913">913</span>
+<span id="914">914</span>
+<span id="915">915</span>
+<span id="916">916</span>
+<span id="917">917</span>
+<span id="918">918</span>
+<span id="919">919</span>
+<span id="920">920</span>
+<span id="921">921</span>
+<span id="922">922</span>
+<span id="923">923</span>
+<span id="924">924</span>
+<span id="925">925</span>
+<span id="926">926</span>
+<span id="927">927</span>
+<span id="928">928</span>
+<span id="929">929</span>
+<span id="930">930</span>
+<span id="931">931</span>
+<span id="932">932</span>
+<span id="933">933</span>
+<span id="934">934</span>
+<span id="935">935</span>
+<span id="936">936</span>
+<span id="937">937</span>
+<span id="938">938</span>
+<span id="939">939</span>
+<span id="940">940</span>
+<span id="941">941</span>
+<span id="942">942</span>
+<span id="943">943</span>
+<span id="944">944</span>
+<span id="945">945</span>
+<span id="946">946</span>
+<span id="947">947</span>
+<span id="948">948</span>
+<span id="949">949</span>
+<span id="950">950</span>
+<span id="951">951</span>
+<span id="952">952</span>
+<span id="953">953</span>
+<span id="954">954</span>
+<span id="955">955</span>
+<span id="956">956</span>
+<span id="957">957</span>
+<span id="958">958</span>
+<span id="959">959</span>
+<span id="960">960</span>
+<span id="961">961</span>
+<span id="962">962</span>
+<span id="963">963</span>
+<span id="964">964</span>
+<span id="965">965</span>
+<span id="966">966</span>
+<span id="967">967</span>
+<span id="968">968</span>
+<span id="969">969</span>
+<span id="970">970</span>
+<span id="971">971</span>
+<span id="972">972</span>
+<span id="973">973</span>
+<span id="974">974</span>
+<span id="975">975</span>
+<span id="976">976</span>
+<span id="977">977</span>
+<span id="978">978</span>
+<span id="979">979</span>
+<span id="980">980</span>
+<span id="981">981</span>
+<span id="982">982</span>
+<span id="983">983</span>
+<span id="984">984</span>
+<span id="985">985</span>
+<span id="986">986</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// Copyright 2018 Guillaume Pinot (@TeXitoi) &lt;texitoi@texitoi.eu&gt;</span>
 <span class="comment">//</span>
@@ -886,6 +1001,9 @@
 <span class="doccomment">//! for the usage of `#[derive(StructOpt)]`.</span>
 
 <span class="attribute">#![<span class="ident">allow</span>(<span class="ident">clippy</span>::<span class="ident">large_enum_variant</span>)]</span>
+<span class="comment">// FIXME: remove when and if our MSRV hits 1.42</span>
+<span class="attribute">#![<span class="ident">allow</span>(<span class="ident">clippy</span>::<span class="ident">match_like_matches_macro</span>)]</span>
+<span class="attribute">#![<span class="ident">forbid</span>(<span class="ident">unsafe_code</span>)]</span>
 
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">proc_macro</span>;
 
@@ -903,7 +1021,7 @@
 
 <span class="kw">use</span> <span class="ident">proc_macro2</span>::{<span class="ident">Span</span>, <span class="ident">TokenStream</span>};
 <span class="kw">use</span> <span class="ident">proc_macro_error</span>::{<span class="ident">abort</span>, <span class="ident">abort_call_site</span>, <span class="ident">proc_macro_error</span>, <span class="ident">set_dummy</span>};
-<span class="kw">use</span> <span class="ident">quote</span>::{<span class="ident">quote</span>, <span class="ident">quote_spanned</span>};
+<span class="kw">use</span> <span class="ident">quote</span>::{<span class="ident">format_ident</span>, <span class="ident">quote</span>, <span class="ident">quote_spanned</span>};
 <span class="kw">use</span> <span class="ident">syn</span>::{<span class="ident">punctuated</span>::<span class="ident">Punctuated</span>, <span class="ident">spanned</span>::<span class="ident">Spanned</span>, <span class="ident">token</span>::<span class="ident">Comma</span>, <span class="kw-2">*</span>};
 
 <span class="doccomment">/// Default casing style for generated arguments.</span>
@@ -1114,6 +1232,16 @@
 }
 
 <span class="kw">fn</span> <span class="ident">gen_constructor</span>(<span class="ident">fields</span>: <span class="kw-2">&amp;</span><span class="ident">Punctuated</span><span class="op">&lt;</span><span class="ident">Field</span>, <span class="ident">Comma</span><span class="op">&gt;</span>, <span class="ident">parent_attribute</span>: <span class="kw-2">&amp;</span><span class="ident">Attrs</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">TokenStream</span> {
+    <span class="comment">// This ident is used in several match branches below,</span>
+    <span class="comment">// and the `quote[_spanned]` invocations have different spans.</span>
+    <span class="comment">//</span>
+    <span class="comment">// Given that this ident is used in several places and</span>
+    <span class="comment">// that the branches are located inside of a loop, it is possible that</span>
+    <span class="comment">// this ident will be given _different_ spans in different places, and</span>
+    <span class="comment">// thus will not be the _same_ ident anymore. To make sure the `matches`</span>
+    <span class="comment">// is always the same, we factor it out.</span>
+    <span class="kw">let</span> <span class="ident">matches</span> <span class="op">=</span> <span class="macro">format_ident</span><span class="macro">!</span>(<span class="string">&quot;matches&quot;</span>);
+
     <span class="kw">let</span> <span class="ident">fields</span> <span class="op">=</span> <span class="ident">fields</span>.<span class="ident">iter</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">field</span><span class="op">|</span> {
         <span class="kw">let</span> <span class="ident">attrs</span> <span class="op">=</span> <span class="ident">Attrs</span>::<span class="ident">from_field</span>(
             <span class="ident">field</span>,
@@ -1140,13 +1268,13 @@
                 };
                 <span class="macro">quote_spanned</span><span class="macro">!</span> { <span class="ident">kind</span>.<span class="ident">span</span>()<span class="op">=</span><span class="op">&gt;</span>
                     #<span class="ident">field_name</span>: <span class="op">&lt;</span>#<span class="ident">subcmd_type</span> <span class="kw">as</span> ::<span class="ident">structopt</span>::<span class="ident">StructOptInternal</span><span class="op">&gt;</span>::<span class="ident">from_subcommand</span>(
-                        <span class="ident">matches</span>.<span class="ident">subcommand</span>())
+                        #<span class="ident">matches</span>.<span class="ident">subcommand</span>())
                         #<span class="ident">unwrapper</span>
                 }
             }
 
             <span class="ident">Kind</span>::<span class="ident">Flatten</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">quote_spanned</span><span class="macro">!</span> { <span class="ident">kind</span>.<span class="ident">span</span>()<span class="op">=</span><span class="op">&gt;</span>
-                #<span class="ident">field_name</span>: ::<span class="ident">structopt</span>::<span class="ident">StructOpt</span>::<span class="ident">from_clap</span>(<span class="ident">matches</span>)
+                #<span class="ident">field_name</span>: ::<span class="ident">structopt</span>::<span class="ident">StructOpt</span>::<span class="ident">from_clap</span>(#<span class="ident">matches</span>)
             },
 
             <span class="ident">Kind</span>::<span class="ident">Skip</span>(<span class="ident">val</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="kw">match</span> <span class="ident">val</span> {
@@ -1193,24 +1321,24 @@
                 <span class="kw">let</span> <span class="ident">occurrences</span> <span class="op">=</span> <span class="kw-2">*</span><span class="ident">attrs</span>.<span class="ident">parser</span>().<span class="ident">kind</span> <span class="op">=</span><span class="op">=</span> <span class="ident">ParserKind</span>::<span class="ident">FromOccurrences</span>;
                 <span class="kw">let</span> <span class="ident">name</span> <span class="op">=</span> <span class="ident">attrs</span>.<span class="ident">cased_name</span>();
                 <span class="kw">let</span> <span class="ident">field_value</span> <span class="op">=</span> <span class="kw">match</span> <span class="kw-2">*</span><span class="kw-2">*</span><span class="ident">ty</span> {
-                    <span class="ident">Ty</span>::<span class="ident">Bool</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">quote_spanned</span><span class="macro">!</span>(<span class="ident">ty</span>.<span class="ident">span</span>()<span class="op">=</span><span class="op">&gt;</span> <span class="ident">matches</span>.<span class="ident">is_present</span>(#<span class="ident">name</span>)),
+                    <span class="ident">Ty</span>::<span class="ident">Bool</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">quote_spanned</span><span class="macro">!</span>(<span class="ident">ty</span>.<span class="ident">span</span>()<span class="op">=</span><span class="op">&gt;</span> #<span class="ident">matches</span>.<span class="ident">is_present</span>(#<span class="ident">name</span>)),
 
                     <span class="ident">Ty</span>::<span class="prelude-ty">Option</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">quote_spanned</span><span class="macro">!</span> { <span class="ident">ty</span>.<span class="ident">span</span>()<span class="op">=</span><span class="op">&gt;</span>
-                        <span class="ident">matches</span>.#<span class="ident">value_of</span>(#<span class="ident">name</span>)
+                        #<span class="ident">matches</span>.#<span class="ident">value_of</span>(#<span class="ident">name</span>)
                             .<span class="ident">map</span>(#<span class="ident">parse</span>)
                     },
 
                     <span class="ident">Ty</span>::<span class="ident">OptionOption</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">quote_spanned</span><span class="macro">!</span> { <span class="ident">ty</span>.<span class="ident">span</span>()<span class="op">=</span><span class="op">&gt;</span>
-                        <span class="kw">if</span> <span class="ident">matches</span>.<span class="ident">is_present</span>(#<span class="ident">name</span>) {
-                            <span class="prelude-val">Some</span>(<span class="ident">matches</span>.#<span class="ident">value_of</span>(#<span class="ident">name</span>).<span class="ident">map</span>(#<span class="ident">parse</span>))
+                        <span class="kw">if</span> #<span class="ident">matches</span>.<span class="ident">is_present</span>(#<span class="ident">name</span>) {
+                            <span class="prelude-val">Some</span>(#<span class="ident">matches</span>.#<span class="ident">value_of</span>(#<span class="ident">name</span>).<span class="ident">map</span>(#<span class="ident">parse</span>))
                         } <span class="kw">else</span> {
                             <span class="prelude-val">None</span>
                         }
                     },
 
                     <span class="ident">Ty</span>::<span class="ident">OptionVec</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">quote_spanned</span><span class="macro">!</span> { <span class="ident">ty</span>.<span class="ident">span</span>()<span class="op">=</span><span class="op">&gt;</span>
-                        <span class="kw">if</span> <span class="ident">matches</span>.<span class="ident">is_present</span>(#<span class="ident">name</span>) {
-                            <span class="prelude-val">Some</span>(<span class="ident">matches</span>.#<span class="ident">values_of</span>(#<span class="ident">name</span>)
+                        <span class="kw">if</span> #<span class="ident">matches</span>.<span class="ident">is_present</span>(#<span class="ident">name</span>) {
+                            <span class="prelude-val">Some</span>(#<span class="ident">matches</span>.#<span class="ident">values_of</span>(#<span class="ident">name</span>)
                                  .<span class="ident">map_or_else</span>(<span class="ident">Vec</span>::<span class="ident">new</span>, <span class="op">|</span><span class="ident">v</span><span class="op">|</span> <span class="ident">v</span>.<span class="ident">map</span>(#<span class="ident">parse</span>).<span class="ident">collect</span>()))
                         } <span class="kw">else</span> {
                             <span class="prelude-val">None</span>
@@ -1218,20 +1346,20 @@
                     },
 
                     <span class="ident">Ty</span>::<span class="ident">Vec</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">quote_spanned</span><span class="macro">!</span> { <span class="ident">ty</span>.<span class="ident">span</span>()<span class="op">=</span><span class="op">&gt;</span>
-                        <span class="ident">matches</span>.#<span class="ident">values_of</span>(#<span class="ident">name</span>)
+                        #<span class="ident">matches</span>.#<span class="ident">values_of</span>(#<span class="ident">name</span>)
                             .<span class="ident">map_or_else</span>(<span class="ident">Vec</span>::<span class="ident">new</span>, <span class="op">|</span><span class="ident">v</span><span class="op">|</span> <span class="ident">v</span>.<span class="ident">map</span>(#<span class="ident">parse</span>).<span class="ident">collect</span>())
                     },
 
                     <span class="ident">Ty</span>::<span class="ident">Other</span> <span class="kw">if</span> <span class="ident">occurrences</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">quote_spanned</span><span class="macro">!</span> { <span class="ident">ty</span>.<span class="ident">span</span>()<span class="op">=</span><span class="op">&gt;</span>
-                        #<span class="ident">parse</span>(<span class="ident">matches</span>.#<span class="ident">value_of</span>(#<span class="ident">name</span>))
+                        #<span class="ident">parse</span>(#<span class="ident">matches</span>.#<span class="ident">value_of</span>(#<span class="ident">name</span>))
                     },
 
                     <span class="ident">Ty</span>::<span class="ident">Other</span> <span class="kw">if</span> <span class="ident">flag</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">quote_spanned</span><span class="macro">!</span> { <span class="ident">ty</span>.<span class="ident">span</span>()<span class="op">=</span><span class="op">&gt;</span>
-                        #<span class="ident">parse</span>(<span class="ident">matches</span>.<span class="ident">is_present</span>(#<span class="ident">name</span>))
+                        #<span class="ident">parse</span>(#<span class="ident">matches</span>.<span class="ident">is_present</span>(#<span class="ident">name</span>))
                     },
 
                     <span class="ident">Ty</span>::<span class="ident">Other</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">quote_spanned</span><span class="macro">!</span> { <span class="ident">ty</span>.<span class="ident">span</span>()<span class="op">=</span><span class="op">&gt;</span>
-                        <span class="ident">matches</span>.#<span class="ident">value_of</span>(#<span class="ident">name</span>)
+                        #<span class="ident">matches</span>.#<span class="ident">value_of</span>(#<span class="ident">name</span>)
                             .<span class="ident">map</span>(#<span class="ident">parse</span>)
                             .<span class="ident">unwrap</span>()
                     },
@@ -1346,8 +1474,9 @@
         <span class="kw">let</span> <span class="ident">kind</span> <span class="op">=</span> <span class="ident">attrs</span>.<span class="ident">kind</span>();
         <span class="kw">match</span> <span class="kw-2">&amp;</span><span class="kw-2">*</span><span class="ident">kind</span> {
             <span class="ident">Kind</span>::<span class="ident">ExternalSubcommand</span> <span class="op">=</span><span class="op">&gt;</span> {
+                <span class="kw">let</span> <span class="ident">app_var</span> <span class="op">=</span> <span class="ident">Ident</span>::<span class="ident">new</span>(<span class="string">&quot;app&quot;</span>, <span class="ident">Span</span>::<span class="ident">call_site</span>());
                 <span class="macro">quote_spanned</span><span class="macro">!</span> { <span class="ident">attrs</span>.<span class="ident">kind</span>().<span class="ident">span</span>()<span class="op">=</span><span class="op">&gt;</span>
-                    <span class="kw">let</span> <span class="ident">app</span> <span class="op">=</span> <span class="ident">app</span>.<span class="ident">setting</span>(
+                    <span class="kw">let</span> #<span class="ident">app_var</span> <span class="op">=</span> #<span class="ident">app_var</span>.<span class="ident">setting</span>(
                         ::<span class="ident">structopt</span>::<span class="ident">clap</span>::<span class="ident">AppSettings</span>::<span class="ident">AllowExternalSubcommands</span>
                     );
                 }
@@ -1420,11 +1549,12 @@
     }
 }
 
-<span class="kw">fn</span> <span class="ident">gen_from_clap_enum</span>(<span class="ident">name</span>: <span class="kw-2">&amp;</span><span class="ident">Ident</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">TokenStream</span> {
+<span class="kw">fn</span> <span class="ident">gen_from_clap_enum</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">TokenStream</span> {
     <span class="macro">quote</span><span class="macro">!</span> {
         <span class="kw">fn</span> <span class="ident">from_clap</span>(<span class="ident">matches</span>: <span class="kw-2">&amp;</span>::<span class="ident">structopt</span>::<span class="ident">clap</span>::<span class="ident">ArgMatches</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
-            <span class="op">&lt;</span>#<span class="ident">name</span> <span class="kw">as</span> ::<span class="ident">structopt</span>::<span class="ident">StructOptInternal</span><span class="op">&gt;</span>::<span class="ident">from_subcommand</span>(<span class="ident">matches</span>.<span class="ident">subcommand</span>())
-                .<span class="ident">unwrap</span>()
+            <span class="op">&lt;</span><span class="self">Self</span> <span class="kw">as</span> ::<span class="ident">structopt</span>::<span class="ident">StructOptInternal</span><span class="op">&gt;</span>::<span class="ident">from_subcommand</span>(<span class="ident">matches</span>.<span class="ident">subcommand</span>())
+                .<span class="ident">expect</span>(<span class="string">&quot;structopt misuse: You likely tried to #[flatten] a struct \
+                         that contains #[subcommand]. This is forbidden.&quot;</span>)
         }
     }
 }
@@ -1507,26 +1637,29 @@
             <span class="kw">_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="bool-val">false</span>,
         });
 
+    <span class="kw">let</span> <span class="ident">other</span> <span class="op">=</span> <span class="macro">format_ident</span><span class="macro">!</span>(<span class="string">&quot;other&quot;</span>);
+    <span class="kw">let</span> <span class="ident">matches</span> <span class="op">=</span> <span class="macro">format_ident</span><span class="macro">!</span>(<span class="string">&quot;matches&quot;</span>);
+
     <span class="kw">let</span> <span class="ident">external</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">ext_subcmd</span> {
         <span class="prelude-val">Some</span>((<span class="ident">span</span>, <span class="ident">var_name</span>, <span class="ident">str_ty</span>, <span class="ident">values_of</span>)) <span class="op">=</span><span class="op">&gt;</span> <span class="macro">quote_spanned</span><span class="macro">!</span> { <span class="ident">span</span><span class="op">=</span><span class="op">&gt;</span>
-            <span class="kw">match</span> <span class="ident">other</span> {
+            <span class="kw">match</span> #<span class="ident">other</span> {
                 (<span class="string">&quot;&quot;</span>, ::<span class="ident">std</span>::<span class="ident">option</span>::<span class="prelude-ty">Option</span>::<span class="prelude-val">None</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="prelude-val">None</span>,
 
-                (<span class="ident">external</span>, <span class="prelude-val">Some</span>(<span class="ident">matches</span>)) <span class="op">=</span><span class="op">&gt;</span> {
+                (<span class="ident">external</span>, <span class="prelude-val">Some</span>(#<span class="ident">matches</span>)) <span class="op">=</span><span class="op">&gt;</span> {
                     ::<span class="ident">std</span>::<span class="ident">option</span>::<span class="prelude-ty">Option</span>::<span class="prelude-val">Some</span>(#<span class="ident">name</span>::#<span class="ident">var_name</span>(
                         ::<span class="ident">std</span>::<span class="ident">iter</span>::<span class="ident">once</span>(#<span class="ident">str_ty</span>::<span class="ident">from</span>(<span class="ident">external</span>))
                         .<span class="ident">chain</span>(
-                            <span class="ident">matches</span>.#<span class="ident">values_of</span>(<span class="string">&quot;&quot;</span>).<span class="ident">into_iter</span>().<span class="ident">flatten</span>().<span class="ident">map</span>(#<span class="ident">str_ty</span>::<span class="ident">from</span>)
+                            #<span class="ident">matches</span>.#<span class="ident">values_of</span>(<span class="string">&quot;&quot;</span>).<span class="ident">into_iter</span>().<span class="ident">flatten</span>().<span class="ident">map</span>(#<span class="ident">str_ty</span>::<span class="ident">from</span>)
                         )
                         .<span class="ident">collect</span>::<span class="op">&lt;</span>::<span class="ident">std</span>::<span class="ident">vec</span>::<span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>()
                     ))
                 }
 
                 (<span class="ident">external</span>, <span class="prelude-val">None</span>) <span class="op">=</span><span class="op">&gt;</span> {
-                    ::<span class="ident">std</span>::<span class="ident">option</span>::<span class="prelude-ty">Option</span>::<span class="prelude-val">Some</span>(#<span class="ident">name</span>::#<span class="ident">var_name</span>({
+                    ::<span class="ident">std</span>::<span class="ident">option</span>::<span class="prelude-ty">Option</span>::<span class="prelude-val">Some</span>(#<span class="ident">name</span>::#<span class="ident">var_name</span>(
                         ::<span class="ident">std</span>::<span class="ident">iter</span>::<span class="ident">once</span>(#<span class="ident">str_ty</span>::<span class="ident">from</span>(<span class="ident">external</span>))
                             .<span class="ident">collect</span>::<span class="op">&lt;</span>::<span class="ident">std</span>::<span class="ident">vec</span>::<span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span><span class="op">&gt;</span>()
-                    }))
+                    ))
                 }
             }
         },
@@ -1542,7 +1675,7 @@
             <span class="ident">Unit</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">quote</span><span class="macro">!</span>(),
             <span class="ident">Unnamed</span>(<span class="kw-2">ref</span> <span class="ident">fields</span>) <span class="kw">if</span> <span class="ident">fields</span>.<span class="ident">unnamed</span>.<span class="ident">len</span>() <span class="op">=</span><span class="op">=</span> <span class="number">1</span> <span class="op">=</span><span class="op">&gt;</span> {
                 <span class="kw">let</span> <span class="ident">ty</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">fields</span>.<span class="ident">unnamed</span>[<span class="number">0</span>];
-                <span class="macro">quote</span><span class="macro">!</span>( ( <span class="op">&lt;</span>#<span class="ident">ty</span> <span class="kw">as</span> ::<span class="ident">structopt</span>::<span class="ident">StructOpt</span><span class="op">&gt;</span>::<span class="ident">from_clap</span>(<span class="ident">matches</span>) ) )
+                <span class="macro">quote</span><span class="macro">!</span>( ( <span class="op">&lt;</span>#<span class="ident">ty</span> <span class="kw">as</span> ::<span class="ident">structopt</span>::<span class="ident">StructOpt</span><span class="op">&gt;</span>::<span class="ident">from_clap</span>(#<span class="ident">matches</span>) ) )
             }
             <span class="ident">Unnamed</span>(..) <span class="op">=</span><span class="op">&gt;</span> <span class="macro">abort</span><span class="macro">!</span>(
                 <span class="ident">variant</span>.<span class="ident">ident</span>,
@@ -1551,7 +1684,7 @@
         };
 
         <span class="macro">quote</span><span class="macro">!</span> {
-            (#<span class="ident">sub_name</span>, <span class="prelude-val">Some</span>(<span class="ident">matches</span>)) <span class="op">=</span><span class="op">&gt;</span> {
+            (#<span class="ident">sub_name</span>, <span class="prelude-val">Some</span>(#<span class="ident">matches</span>)) <span class="op">=</span><span class="op">&gt;</span> {
                 <span class="prelude-val">Some</span>(#<span class="ident">name</span> :: #<span class="ident">variant_name</span> #<span class="ident">constructor_block</span>)
             }
         }
@@ -1564,7 +1697,7 @@
                 <span class="kw">let</span> <span class="ident">ty</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">fields</span>.<span class="ident">unnamed</span>[<span class="number">0</span>];
                 <span class="macro">quote</span><span class="macro">!</span> {
                     <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">res</span>) <span class="op">=</span>
-                        <span class="op">&lt;</span>#<span class="ident">ty</span> <span class="kw">as</span> ::<span class="ident">structopt</span>::<span class="ident">StructOptInternal</span><span class="op">&gt;</span>::<span class="ident">from_subcommand</span>(<span class="ident">other</span>)
+                        <span class="op">&lt;</span>#<span class="ident">ty</span> <span class="kw">as</span> ::<span class="ident">structopt</span>::<span class="ident">StructOptInternal</span><span class="op">&gt;</span>::<span class="ident">from_subcommand</span>(#<span class="ident">other</span>)
                     {
                         <span class="kw">return</span> <span class="prelude-val">Some</span>(#<span class="ident">name</span> :: #<span class="ident">variant_name</span> (<span class="ident">res</span>));
                     }
@@ -1583,7 +1716,7 @@
         ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
             <span class="kw">match</span> <span class="ident">sub</span> {
                 #( #<span class="ident">match_arms</span>, )<span class="op">*</span>
-                <span class="ident">other</span> <span class="op">=</span><span class="op">&gt;</span> {
+                #<span class="ident">other</span> <span class="op">=</span><span class="op">&gt;</span> {
                     #( #<span class="ident">child_subcommands</span> )<span class="kw">else</span><span class="kw-2">*</span>;
                     #<span class="ident">external</span>
                 }
@@ -1593,9 +1726,9 @@
 }
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;paw&quot;</span>)]</span>
-<span class="kw">fn</span> <span class="ident">gen_paw_impl</span>(<span class="ident">name</span>: <span class="kw-2">&amp;</span><span class="ident">Ident</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">TokenStream</span> {
+<span class="kw">fn</span> <span class="ident">gen_paw_impl</span>(<span class="ident">impl_generics</span>: <span class="kw-2">&amp;</span><span class="ident">ImplGenerics</span>, <span class="ident">name</span>: <span class="kw-2">&amp;</span><span class="ident">Ident</span>, <span class="ident">ty_generics</span>: <span class="kw-2">&amp;</span><span class="ident">TypeGenerics</span>, <span class="ident">where_clause</span>: <span class="kw-2">&amp;</span><span class="ident">TokenStream</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">TokenStream</span> {
     <span class="macro">quote</span><span class="macro">!</span> {
-        <span class="kw">impl</span> <span class="ident">paw</span>::<span class="ident">ParseArgs</span> <span class="kw">for</span> #<span class="ident">name</span> {
+        <span class="kw">impl</span> #<span class="ident">impl_generics</span> ::<span class="ident">structopt</span>::<span class="ident">paw</span>::<span class="ident">ParseArgs</span> <span class="kw">for</span> #<span class="ident">name</span> #<span class="ident">ty_generics</span> #<span class="ident">where_clause</span> {
             <span class="kw">type</span> <span class="ident">Error</span> <span class="op">=</span> <span class="ident">std</span>::<span class="ident">io</span>::<span class="ident">Error</span>;
 
             <span class="kw">fn</span> <span class="ident">parse_args</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">std</span>::<span class="ident">result</span>::<span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="self">Self</span>, <span class="self">Self</span>::<span class="ident">Error</span><span class="op">&gt;</span> {
@@ -1605,19 +1738,109 @@
     }
 }
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;paw&quot;</span>))]</span>
-<span class="kw">fn</span> <span class="ident">gen_paw_impl</span>(<span class="kw">_</span>: <span class="kw-2">&amp;</span><span class="ident">Ident</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">TokenStream</span> {
+<span class="kw">fn</span> <span class="ident">gen_paw_impl</span>(<span class="kw">_</span>: <span class="kw-2">&amp;</span><span class="ident">ImplGenerics</span>, <span class="kw">_</span>: <span class="kw-2">&amp;</span><span class="ident">Ident</span>, <span class="kw">_</span>: <span class="kw-2">&amp;</span><span class="ident">TypeGenerics</span>, <span class="kw">_</span>: <span class="kw-2">&amp;</span><span class="ident">TokenStream</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">TokenStream</span> {
     <span class="ident">TokenStream</span>::<span class="ident">new</span>()
+}
+
+<span class="kw">fn</span> <span class="ident">split_structopt_generics_for_impl</span>(<span class="ident">generics</span>: <span class="kw-2">&amp;</span><span class="ident">Generics</span>) <span class="op">-</span><span class="op">&gt;</span> (<span class="ident">ImplGenerics</span>, <span class="ident">TypeGenerics</span>, <span class="ident">TokenStream</span>) {
+    <span class="kw">use</span> <span class="ident">syn</span>::{ <span class="ident">token</span>::<span class="ident">Add</span>, <span class="ident">TypeParamBound</span>::<span class="ident">Trait</span> };
+
+    <span class="kw">fn</span> <span class="ident">path_ends_with</span>(<span class="ident">path</span>: <span class="kw-2">&amp;</span><span class="ident">Path</span>, <span class="ident">ident</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+        <span class="ident">path</span>.<span class="ident">segments</span>.<span class="ident">last</span>().<span class="ident">unwrap</span>().<span class="ident">ident</span> <span class="op">=</span><span class="op">=</span> <span class="ident">ident</span>
+    }
+
+    <span class="kw">fn</span> <span class="ident">type_param_bounds_contains</span>(<span class="ident">bounds</span>: <span class="kw-2">&amp;</span><span class="ident">Punctuated</span><span class="op">&lt;</span><span class="ident">TypeParamBound</span>, <span class="ident">Add</span><span class="op">&gt;</span>, <span class="ident">ident</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
+        <span class="kw">for</span> <span class="ident">bound</span> <span class="kw">in</span> <span class="ident">bounds</span> {
+            <span class="kw">if</span> <span class="kw">let</span> <span class="ident">Trait</span>(<span class="ident">bound</span>) <span class="op">=</span> <span class="ident">bound</span> {
+                <span class="kw">if</span> <span class="ident">path_ends_with</span>(<span class="kw-2">&amp;</span><span class="ident">bound</span>.<span class="ident">path</span>, <span class="ident">ident</span>) {
+                    <span class="kw">return</span> <span class="bool-val">true</span>;
+                }
+            }
+        }
+        <span class="kw">return</span> <span class="bool-val">false</span>;
+    }
+
+    <span class="kw">struct</span> <span class="ident">TraitBoundAmendments</span>{
+        <span class="ident">tokens</span>: <span class="ident">TokenStream</span>,
+        <span class="ident">need_where</span>: <span class="ident">bool</span>,
+        <span class="ident">need_comma</span>: <span class="ident">bool</span>,
+    }
+
+    <span class="kw">impl</span> <span class="ident">TraitBoundAmendments</span> {
+        <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">where_clause</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">WhereClause</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+            <span class="kw">let</span> <span class="ident">tokens</span> <span class="op">=</span> <span class="ident">TokenStream</span>::<span class="ident">new</span>();
+            <span class="kw">let</span> (<span class="ident">need_where</span>,<span class="ident">need_comma</span>) <span class="op">=</span> <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">where_clause</span>) <span class="op">=</span> <span class="ident">where_clause</span> {
+                <span class="kw">if</span> <span class="ident">where_clause</span>.<span class="ident">predicates</span>.<span class="ident">trailing_punct</span>() {
+                    (<span class="bool-val">false</span>, <span class="bool-val">false</span>)
+                } <span class="kw">else</span> {
+                    (<span class="bool-val">false</span>, <span class="bool-val">true</span>)
+                }
+            } <span class="kw">else</span> {
+                (<span class="bool-val">true</span>, <span class="bool-val">false</span>)
+            };
+            <span class="self">Self</span>{<span class="ident">tokens</span>, <span class="ident">need_where</span>, <span class="ident">need_comma</span>}
+        }
+
+        <span class="kw">fn</span> <span class="ident">add</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">amendment</span>: <span class="ident">TokenStream</span>) {
+            <span class="kw">if</span> <span class="self">self</span>.<span class="ident">need_where</span> {
+                <span class="self">self</span>.<span class="ident">tokens</span>.<span class="ident">extend</span>(<span class="macro">quote</span><span class="macro">!</span>{ <span class="kw">where</span> });
+                <span class="self">self</span>.<span class="ident">need_where</span> <span class="op">=</span> <span class="bool-val">false</span>;
+            }
+            <span class="kw">if</span> <span class="self">self</span>.<span class="ident">need_comma</span> {
+                <span class="self">self</span>.<span class="ident">tokens</span>.<span class="ident">extend</span>(<span class="macro">quote</span><span class="macro">!</span>{ , });
+            }
+            <span class="self">self</span>.<span class="ident">tokens</span>.<span class="ident">extend</span>(<span class="ident">amendment</span>);
+            <span class="self">self</span>.<span class="ident">need_comma</span> <span class="op">=</span> <span class="bool-val">true</span>;
+        }
+
+        <span class="kw">fn</span> <span class="ident">into_tokens</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">TokenStream</span> {
+            <span class="self">self</span>.<span class="ident">tokens</span>
+        }
+    }
+
+    <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">trait_bound_amendments</span> <span class="op">=</span> <span class="ident">TraitBoundAmendments</span>::<span class="ident">new</span>(<span class="ident">generics</span>.<span class="ident">where_clause</span>.<span class="ident">as_ref</span>());
+
+    <span class="kw">for</span> <span class="ident">param</span> <span class="kw">in</span> <span class="kw-2">&amp;</span><span class="ident">generics</span>.<span class="ident">params</span> {
+        <span class="kw">if</span> <span class="kw">let</span> <span class="ident">GenericParam</span>::<span class="ident">Type</span>(<span class="ident">param</span>) <span class="op">=</span> <span class="ident">param</span> {
+            <span class="kw">let</span> <span class="ident">param_ident</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">param</span>.<span class="ident">ident</span>;
+            <span class="kw">if</span> <span class="ident">type_param_bounds_contains</span>(<span class="kw-2">&amp;</span><span class="ident">param</span>.<span class="ident">bounds</span>, <span class="string">&quot;StructOpt&quot;</span>) {
+                <span class="ident">trait_bound_amendments</span>.<span class="ident">add</span>(<span class="macro">quote</span><span class="macro">!</span>{ #<span class="ident">param_ident</span> : ::<span class="ident">structopt</span>::<span class="ident">StructOptInternal</span> });
+            }
+        }
+    }
+
+    <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">where_clause</span>) <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">generics</span>.<span class="ident">where_clause</span> {
+        <span class="kw">for</span> <span class="ident">predicate</span> <span class="kw">in</span> <span class="kw-2">&amp;</span><span class="ident">where_clause</span>.<span class="ident">predicates</span> {
+            <span class="kw">if</span> <span class="kw">let</span> <span class="ident">WherePredicate</span>::<span class="ident">Type</span>(<span class="ident">predicate</span>) <span class="op">=</span> <span class="ident">predicate</span> {
+                <span class="kw">let</span> <span class="ident">predicate_bounded_ty</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">predicate</span>.<span class="ident">bounded_ty</span>;
+                <span class="kw">if</span> <span class="ident">type_param_bounds_contains</span>(<span class="kw-2">&amp;</span><span class="ident">predicate</span>.<span class="ident">bounds</span>, <span class="string">&quot;StructOpt&quot;</span>) {
+                    <span class="ident">trait_bound_amendments</span>.<span class="ident">add</span>(<span class="macro">quote</span><span class="macro">!</span>{ #<span class="ident">predicate_bounded_ty</span> : ::<span class="ident">structopt</span>::<span class="ident">StructOptInternal</span> });
+                }
+            }
+        }
+    }
+
+    <span class="kw">let</span> <span class="ident">trait_bound_amendments</span> <span class="op">=</span> <span class="ident">trait_bound_amendments</span>.<span class="ident">into_tokens</span>();
+
+    <span class="kw">let</span> (<span class="ident">impl_generics</span>, <span class="ident">ty_generics</span>, <span class="ident">where_clause</span>) <span class="op">=</span> <span class="ident">generics</span>.<span class="ident">split_for_impl</span>();
+
+    <span class="kw">let</span> <span class="ident">where_clause</span> <span class="op">=</span> <span class="macro">quote</span><span class="macro">!</span>{ #<span class="ident">where_clause</span> #<span class="ident">trait_bound_amendments</span> };
+
+    (<span class="ident">impl_generics</span>, <span class="ident">ty_generics</span>, <span class="ident">where_clause</span>)
 }
 
 <span class="kw">fn</span> <span class="ident">impl_structopt_for_struct</span>(
     <span class="ident">name</span>: <span class="kw-2">&amp;</span><span class="ident">Ident</span>,
     <span class="ident">fields</span>: <span class="kw-2">&amp;</span><span class="ident">Punctuated</span><span class="op">&lt;</span><span class="ident">Field</span>, <span class="ident">Comma</span><span class="op">&gt;</span>,
     <span class="ident">attrs</span>: <span class="kw-2">&amp;</span>[<span class="ident">Attribute</span>],
+    <span class="ident">generics</span>: <span class="kw-2">&amp;</span><span class="ident">Generics</span>,
 ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">TokenStream</span> {
+    <span class="kw">let</span> (<span class="ident">impl_generics</span>, <span class="ident">ty_generics</span>, <span class="ident">where_clause</span>) <span class="op">=</span> <span class="ident">split_structopt_generics_for_impl</span>(<span class="kw-2">&amp;</span><span class="ident">generics</span>);
+
     <span class="kw">let</span> <span class="ident">basic_clap_app_gen</span> <span class="op">=</span> <span class="ident">gen_clap_struct</span>(<span class="ident">attrs</span>);
     <span class="kw">let</span> <span class="ident">augment_clap</span> <span class="op">=</span> <span class="ident">gen_augment_clap</span>(<span class="ident">fields</span>, <span class="kw-2">&amp;</span><span class="ident">basic_clap_app_gen</span>.<span class="ident">attrs</span>);
     <span class="kw">let</span> <span class="ident">from_clap</span> <span class="op">=</span> <span class="ident">gen_from_clap</span>(<span class="ident">name</span>, <span class="ident">fields</span>, <span class="kw-2">&amp;</span><span class="ident">basic_clap_app_gen</span>.<span class="ident">attrs</span>);
-    <span class="kw">let</span> <span class="ident">paw_impl</span> <span class="op">=</span> <span class="ident">gen_paw_impl</span>(<span class="ident">name</span>);
+    <span class="kw">let</span> <span class="ident">paw_impl</span> <span class="op">=</span> <span class="ident">gen_paw_impl</span>(<span class="kw-2">&amp;</span><span class="ident">impl_generics</span>, <span class="ident">name</span>, <span class="kw-2">&amp;</span><span class="ident">ty_generics</span>, <span class="kw-2">&amp;</span><span class="ident">where_clause</span>);
 
     <span class="kw">let</span> <span class="ident">clap_tokens</span> <span class="op">=</span> <span class="ident">basic_clap_app_gen</span>.<span class="ident">tokens</span>;
     <span class="macro">quote</span><span class="macro">!</span> {
@@ -1635,7 +1858,7 @@
         )]</span>
         <span class="attribute">#[<span class="ident">deny</span>(<span class="ident">clippy</span>::<span class="ident">correctness</span>)]</span>
         <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">dead_code</span>, <span class="ident">unreachable_code</span>)]</span>
-        <span class="kw">impl</span> ::<span class="ident">structopt</span>::<span class="ident">StructOpt</span> <span class="kw">for</span> #<span class="ident">name</span> {
+        <span class="kw">impl</span> #<span class="ident">impl_generics</span> ::<span class="ident">structopt</span>::<span class="ident">StructOpt</span> <span class="kw">for</span> #<span class="ident">name</span> #<span class="ident">ty_generics</span> #<span class="ident">where_clause</span> {
             #<span class="ident">clap_tokens</span>
             #<span class="ident">from_clap</span>
         }
@@ -1654,7 +1877,7 @@
         )]</span>
         <span class="attribute">#[<span class="ident">deny</span>(<span class="ident">clippy</span>::<span class="ident">correctness</span>)]</span>
         <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">dead_code</span>, <span class="ident">unreachable_code</span>)]</span>
-        <span class="kw">impl</span> ::<span class="ident">structopt</span>::<span class="ident">StructOptInternal</span> <span class="kw">for</span> #<span class="ident">name</span> {
+        <span class="kw">impl</span> #<span class="ident">impl_generics</span> ::<span class="ident">structopt</span>::<span class="ident">StructOptInternal</span> <span class="kw">for</span> #<span class="ident">name</span> #<span class="ident">ty_generics</span> #<span class="ident">where_clause</span> {
             #<span class="ident">augment_clap</span>
             <span class="kw">fn</span> <span class="ident">is_subcommand</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> { <span class="bool-val">false</span> }
         }
@@ -1667,15 +1890,19 @@
     <span class="ident">name</span>: <span class="kw-2">&amp;</span><span class="ident">Ident</span>,
     <span class="ident">variants</span>: <span class="kw-2">&amp;</span><span class="ident">Punctuated</span><span class="op">&lt;</span><span class="ident">Variant</span>, <span class="ident">Comma</span><span class="op">&gt;</span>,
     <span class="ident">attrs</span>: <span class="kw-2">&amp;</span>[<span class="ident">Attribute</span>],
+    <span class="ident">generics</span>: <span class="kw-2">&amp;</span><span class="ident">Generics</span>,
 ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">TokenStream</span> {
+
+    <span class="kw">let</span> (<span class="ident">impl_generics</span>, <span class="ident">ty_generics</span>, <span class="ident">where_clause</span>) <span class="op">=</span> <span class="ident">split_structopt_generics_for_impl</span>(<span class="kw-2">&amp;</span><span class="ident">generics</span>);
+
     <span class="kw">let</span> <span class="ident">basic_clap_app_gen</span> <span class="op">=</span> <span class="ident">gen_clap_enum</span>(<span class="ident">attrs</span>);
     <span class="kw">let</span> <span class="ident">clap_tokens</span> <span class="op">=</span> <span class="ident">basic_clap_app_gen</span>.<span class="ident">tokens</span>;
     <span class="kw">let</span> <span class="ident">attrs</span> <span class="op">=</span> <span class="ident">basic_clap_app_gen</span>.<span class="ident">attrs</span>;
 
     <span class="kw">let</span> <span class="ident">augment_clap</span> <span class="op">=</span> <span class="ident">gen_augment_clap_enum</span>(<span class="ident">variants</span>, <span class="kw-2">&amp;</span><span class="ident">attrs</span>);
-    <span class="kw">let</span> <span class="ident">from_clap</span> <span class="op">=</span> <span class="ident">gen_from_clap_enum</span>(<span class="ident">name</span>);
+    <span class="kw">let</span> <span class="ident">from_clap</span> <span class="op">=</span> <span class="ident">gen_from_clap_enum</span>();
     <span class="kw">let</span> <span class="ident">from_subcommand</span> <span class="op">=</span> <span class="ident">gen_from_subcommand</span>(<span class="ident">name</span>, <span class="ident">variants</span>, <span class="kw-2">&amp;</span><span class="ident">attrs</span>);
-    <span class="kw">let</span> <span class="ident">paw_impl</span> <span class="op">=</span> <span class="ident">gen_paw_impl</span>(<span class="ident">name</span>);
+    <span class="kw">let</span> <span class="ident">paw_impl</span> <span class="op">=</span> <span class="ident">gen_paw_impl</span>(<span class="kw-2">&amp;</span><span class="ident">impl_generics</span>, <span class="ident">name</span>, <span class="kw-2">&amp;</span><span class="ident">ty_generics</span>, <span class="kw-2">&amp;</span><span class="ident">where_clause</span>);
 
     <span class="macro">quote</span><span class="macro">!</span> {
         <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unknown_lints</span>)]</span>
@@ -1691,7 +1918,7 @@
             <span class="ident">clippy</span>::<span class="ident">cargo</span>
         )]</span>
         <span class="attribute">#[<span class="ident">deny</span>(<span class="ident">clippy</span>::<span class="ident">correctness</span>)]</span>
-        <span class="kw">impl</span> ::<span class="ident">structopt</span>::<span class="ident">StructOpt</span> <span class="kw">for</span> #<span class="ident">name</span> {
+        <span class="kw">impl</span> #<span class="ident">impl_generics</span> ::<span class="ident">structopt</span>::<span class="ident">StructOpt</span> <span class="kw">for</span> #<span class="ident">name</span> #<span class="ident">ty_generics</span> #<span class="ident">where_clause</span> {
             #<span class="ident">clap_tokens</span>
             #<span class="ident">from_clap</span>
         }
@@ -1710,7 +1937,7 @@
         )]</span>
         <span class="attribute">#[<span class="ident">deny</span>(<span class="ident">clippy</span>::<span class="ident">correctness</span>)]</span>
         <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">dead_code</span>, <span class="ident">unreachable_code</span>)]</span>
-        <span class="kw">impl</span> ::<span class="ident">structopt</span>::<span class="ident">StructOptInternal</span> <span class="kw">for</span> #<span class="ident">name</span> {
+        <span class="kw">impl</span> #<span class="ident">impl_generics</span> ::<span class="ident">structopt</span>::<span class="ident">StructOptInternal</span> <span class="kw">for</span> #<span class="ident">name</span> #<span class="ident">ty_generics</span> #<span class="ident">where_clause</span> {
             #<span class="ident">augment_clap</span>
             #<span class="ident">from_subcommand</span>
             <span class="kw">fn</span> <span class="ident">is_subcommand</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> { <span class="bool-val">true</span> }
@@ -1742,10 +1969,10 @@
         <span class="ident">Struct</span>(<span class="ident">DataStruct</span> {
             <span class="ident">fields</span>: <span class="ident">syn</span>::<span class="ident">Fields</span>::<span class="ident">Named</span>(<span class="kw-2">ref</span> <span class="ident">fields</span>),
             ..
-        }) <span class="op">=</span><span class="op">&gt;</span> <span class="ident">impl_structopt_for_struct</span>(<span class="ident">struct_name</span>, <span class="kw-2">&amp;</span><span class="ident">fields</span>.<span class="ident">named</span>, <span class="kw-2">&amp;</span><span class="ident">input</span>.<span class="ident">attrs</span>),
-        <span class="ident">Enum</span>(<span class="kw-2">ref</span> <span class="ident">e</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="ident">impl_structopt_for_enum</span>(<span class="ident">struct_name</span>, <span class="kw-2">&amp;</span><span class="ident">e</span>.<span class="ident">variants</span>, <span class="kw-2">&amp;</span><span class="ident">input</span>.<span class="ident">attrs</span>),
+        }) <span class="op">=</span><span class="op">&gt;</span> <span class="ident">impl_structopt_for_struct</span>(<span class="ident">struct_name</span>, <span class="kw-2">&amp;</span><span class="ident">fields</span>.<span class="ident">named</span>, <span class="kw-2">&amp;</span><span class="ident">input</span>.<span class="ident">attrs</span>, <span class="kw-2">&amp;</span><span class="ident">input</span>.<span class="ident">generics</span>),
+        <span class="ident">Enum</span>(<span class="kw-2">ref</span> <span class="ident">e</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="ident">impl_structopt_for_enum</span>(<span class="ident">struct_name</span>, <span class="kw-2">&amp;</span><span class="ident">e</span>.<span class="ident">variants</span>, <span class="kw-2">&amp;</span><span class="ident">input</span>.<span class="ident">attrs</span>, <span class="kw-2">&amp;</span><span class="ident">input</span>.<span class="ident">generics</span>),
         <span class="kw">_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">abort_call_site</span><span class="macro">!</span>(<span class="string">&quot;structopt only supports non-tuple structs and enums&quot;</span>),
     }
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "structopt_derive";</script><script src="../../aliases.js"></script><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "structopt_derive";</script><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>

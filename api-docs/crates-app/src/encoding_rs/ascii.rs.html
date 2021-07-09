@@ -1,4 +1,7 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source to the Rust file `/home/mssun/incubator-teaclave/build/cmake_tomls/sgx_untrusted_app/third_party/crates-io/vendor/encoding_rs/src/ascii.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>ascii.rs.html -- source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css"><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script src="../../storage.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="shortcut icon" href="../../favicon.ico"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../encoding_rs/index.html'><div class='logo-container'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">   1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `/home/mssun/incubator-teaclave/build/cmake_tomls/sgx_untrusted_app/third_party/crates-io/vendor/encoding_rs/src/ascii.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>ascii.rs - source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light.css"  id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css" disabled ><link rel="stylesheet" type="text/css" href="../../ayu.css" disabled ><script src="../../storage.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="alternate icon" type="image/png" href="../../favicon-16x16.png">
+<link rel="alternate icon" type="image/png" href="../../favicon-32x32.png"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../encoding_rs/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><span class="help-button">?</span>
+                <a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">   1</span>
 <span id="2">   2</span>
 <span id="3">   3</span>
 <span id="4">   4</span>
@@ -1537,8 +1540,17 @@
 <span id="1537">1537</span>
 <span id="1538">1538</span>
 <span id="1539">1539</span>
+<span id="1540">1540</span>
+<span id="1541">1541</span>
+<span id="1542">1542</span>
+<span id="1543">1543</span>
+<span id="1544">1544</span>
+<span id="1545">1545</span>
+<span id="1546">1546</span>
+<span id="1547">1547</span>
+<span id="1548">1548</span>
 </pre><div class="example-wrap"><pre class="rust ">
-<span class="comment">// Copyright 2016 Mozilla Foundation. See the COPYRIGHT</span>
+<span class="comment">// Copyright Mozilla Foundation. See the COPYRIGHT</span>
 <span class="comment">// file at the top-level directory of this distribution.</span>
 <span class="comment">//</span>
 <span class="comment">// Licensed under the Apache License, Version 2.0 &lt;LICENSE-APACHE or</span>
@@ -1569,14 +1581,14 @@
         <span class="ident">all</span>(<span class="ident">target_endian</span> <span class="op">=</span> <span class="string">&quot;little&quot;</span>, <span class="ident">target_feature</span> <span class="op">=</span> <span class="string">&quot;neon&quot;</span>)
     )
 ))]</span>
-<span class="kw">use</span> <span class="ident">simd_funcs</span>::<span class="kw-2">*</span>;
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">simd_funcs</span>::<span class="kw-2">*</span>;
 
 <span class="macro">cfg_if</span><span class="macro">!</span> {
     <span class="kw">if</span> <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;simd-accel&quot;</span>)]</span> {
         <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused_imports</span>)]</span>
-        <span class="kw">use</span> ::<span class="ident">std</span>::<span class="ident">intrinsics</span>::<span class="ident">unlikely</span>;
+        <span class="kw">use</span> ::<span class="ident">core</span>::<span class="ident">intrinsics</span>::<span class="ident">unlikely</span>;
         <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">unused_imports</span>)]</span>
-        <span class="kw">use</span> ::<span class="ident">std</span>::<span class="ident">intrinsics</span>::<span class="ident">likely</span>;
+        <span class="kw">use</span> ::<span class="ident">core</span>::<span class="ident">intrinsics</span>::<span class="ident">likely</span>;
     } <span class="kw">else</span> {
         <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">dead_code</span>)]</span>
         <span class="attribute">#[<span class="ident">inline</span>(<span class="ident">always</span>)]</span>
@@ -1643,7 +1655,7 @@
                 <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">until_alignment</span> <span class="op">=</span> {
                     <span class="comment">// Check if the other unit aligns if we move the narrower unit</span>
                     <span class="comment">// to alignment.</span>
-                    <span class="comment">//               if ::std::mem::size_of::&lt;$src_unit&gt;() == ::std::mem::size_of::&lt;$dst_unit&gt;() {</span>
+                    <span class="comment">//               if ::core::mem::size_of::&lt;$src_unit&gt;() == ::core::mem::size_of::&lt;$dst_unit&gt;() {</span>
                     <span class="comment">// ascii_to_ascii</span>
                     <span class="kw">let</span> <span class="ident">src_alignment</span> <span class="op">=</span> (<span class="ident">src</span> <span class="kw">as</span> <span class="ident">usize</span>) <span class="op">&amp;</span> <span class="ident">ALU_ALIGNMENT_MASK</span>;
                     <span class="kw">let</span> <span class="ident">dst_alignment</span> <span class="op">=</span> (<span class="ident">dst</span> <span class="kw">as</span> <span class="ident">usize</span>) <span class="op">&amp;</span> <span class="ident">ALU_ALIGNMENT_MASK</span>;
@@ -1651,7 +1663,7 @@
                         <span class="kw">break</span>;
                     }
                     (<span class="ident">ALU_ALIGNMENT</span> <span class="op">-</span> <span class="ident">src_alignment</span>) <span class="op">&amp;</span> <span class="ident">ALU_ALIGNMENT_MASK</span>
-                    <span class="comment">//               } else if ::std::mem::size_of::&lt;$src_unit&gt;() &lt; ::std::mem::size_of::&lt;$dst_unit&gt;() {</span>
+                    <span class="comment">//               } else if ::core::mem::size_of::&lt;$src_unit&gt;() &lt; ::core::mem::size_of::&lt;$dst_unit&gt;() {</span>
                     <span class="comment">// ascii_to_basic_latin</span>
                     <span class="comment">//                   let src_until_alignment = (ALIGNMENT - ((src as usize) &amp; ALIGNMENT_MASK)) &amp; ALIGNMENT_MASK;</span>
                     <span class="comment">//                   if (dst.add(src_until_alignment) as usize) &amp; ALIGNMENT_MASK != 0 {</span>
@@ -1737,7 +1749,7 @@
                 <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">until_alignment</span> <span class="op">=</span> {
                     <span class="comment">// Check if the other unit aligns if we move the narrower unit</span>
                     <span class="comment">// to alignment.</span>
-                    <span class="comment">//               if ::std::mem::size_of::&lt;$src_unit&gt;() == ::std::mem::size_of::&lt;$dst_unit&gt;() {</span>
+                    <span class="comment">//               if ::core::mem::size_of::&lt;$src_unit&gt;() == ::core::mem::size_of::&lt;$dst_unit&gt;() {</span>
                     <span class="comment">// ascii_to_ascii</span>
                     <span class="comment">//                   let src_alignment = (src as usize) &amp; ALIGNMENT_MASK;</span>
                     <span class="comment">//                   let dst_alignment = (dst as usize) &amp; ALIGNMENT_MASK;</span>
@@ -1746,12 +1758,14 @@
                     <span class="comment">//                   }</span>
                     <span class="comment">//                   (ALIGNMENT - src_alignment) &amp; ALIGNMENT_MASK</span>
                     <span class="comment">//               } else</span>
-                    <span class="kw">if</span> ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">size_of</span>::<span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">src_unit</span><span class="op">&gt;</span>() <span class="op">&lt;</span> ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">size_of</span>::<span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">dst_unit</span><span class="op">&gt;</span>() {
+                    <span class="kw">if</span> ::<span class="ident">core</span>::<span class="ident">mem</span>::<span class="ident">size_of</span>::<span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">src_unit</span><span class="op">&gt;</span>() <span class="op">&lt;</span> ::<span class="ident">core</span>::<span class="ident">mem</span>::<span class="ident">size_of</span>::<span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">dst_unit</span><span class="op">&gt;</span>() {
                         <span class="comment">// ascii_to_basic_latin</span>
                         <span class="kw">let</span> <span class="ident">src_until_alignment</span> <span class="op">=</span> (<span class="ident">ALU_ALIGNMENT</span>
                             <span class="op">-</span> ((<span class="ident">src</span> <span class="kw">as</span> <span class="ident">usize</span>) <span class="op">&amp;</span> <span class="ident">ALU_ALIGNMENT_MASK</span>))
                             <span class="op">&amp;</span> <span class="ident">ALU_ALIGNMENT_MASK</span>;
-                        <span class="kw">if</span> (<span class="ident">dst</span>.<span class="ident">add</span>(<span class="ident">src_until_alignment</span>) <span class="kw">as</span> <span class="ident">usize</span>) <span class="op">&amp;</span> <span class="ident">ALU_ALIGNMENT_MASK</span> <span class="op">!</span><span class="op">=</span> <span class="number">0</span> {
+                        <span class="kw">if</span> (<span class="ident">dst</span>.<span class="ident">wrapping_add</span>(<span class="ident">src_until_alignment</span>) <span class="kw">as</span> <span class="ident">usize</span>) <span class="op">&amp;</span> <span class="ident">ALU_ALIGNMENT_MASK</span>
+                            <span class="op">!</span><span class="op">=</span> <span class="number">0</span>
+                        {
                             <span class="kw">break</span>;
                         }
                         <span class="ident">src_until_alignment</span>
@@ -1760,7 +1774,9 @@
                         <span class="kw">let</span> <span class="ident">dst_until_alignment</span> <span class="op">=</span> (<span class="ident">ALU_ALIGNMENT</span>
                             <span class="op">-</span> ((<span class="ident">dst</span> <span class="kw">as</span> <span class="ident">usize</span>) <span class="op">&amp;</span> <span class="ident">ALU_ALIGNMENT_MASK</span>))
                             <span class="op">&amp;</span> <span class="ident">ALU_ALIGNMENT_MASK</span>;
-                        <span class="kw">if</span> (<span class="ident">src</span>.<span class="ident">add</span>(<span class="ident">dst_until_alignment</span>) <span class="kw">as</span> <span class="ident">usize</span>) <span class="op">&amp;</span> <span class="ident">ALU_ALIGNMENT_MASK</span> <span class="op">!</span><span class="op">=</span> <span class="number">0</span> {
+                        <span class="kw">if</span> (<span class="ident">src</span>.<span class="ident">wrapping_add</span>(<span class="ident">dst_until_alignment</span>) <span class="kw">as</span> <span class="ident">usize</span>) <span class="op">&amp;</span> <span class="ident">ALU_ALIGNMENT_MASK</span>
+                            <span class="op">!</span><span class="op">=</span> <span class="number">0</span>
+                        {
                             <span class="kw">break</span>;
                         }
                         <span class="ident">dst_until_alignment</span>
@@ -1826,12 +1842,14 @@
             <span class="comment">// This loop is only broken out of as a `goto` forward</span>
             <span class="kw">loop</span> {
                 <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">until_alignment</span> <span class="op">=</span> {
-                    <span class="kw">if</span> ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">size_of</span>::<span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">src_unit</span><span class="op">&gt;</span>() <span class="op">&lt;</span> ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">size_of</span>::<span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">dst_unit</span><span class="op">&gt;</span>() {
+                    <span class="kw">if</span> ::<span class="ident">core</span>::<span class="ident">mem</span>::<span class="ident">size_of</span>::<span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">src_unit</span><span class="op">&gt;</span>() <span class="op">&lt;</span> ::<span class="ident">core</span>::<span class="ident">mem</span>::<span class="ident">size_of</span>::<span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">dst_unit</span><span class="op">&gt;</span>() {
                         <span class="comment">// unpack</span>
                         <span class="kw">let</span> <span class="ident">src_until_alignment</span> <span class="op">=</span> (<span class="ident">ALU_ALIGNMENT</span>
                             <span class="op">-</span> ((<span class="ident">src</span> <span class="kw">as</span> <span class="ident">usize</span>) <span class="op">&amp;</span> <span class="ident">ALU_ALIGNMENT_MASK</span>))
                             <span class="op">&amp;</span> <span class="ident">ALU_ALIGNMENT_MASK</span>;
-                        <span class="kw">if</span> (<span class="ident">dst</span>.<span class="ident">add</span>(<span class="ident">src_until_alignment</span>) <span class="kw">as</span> <span class="ident">usize</span>) <span class="op">&amp;</span> <span class="ident">ALU_ALIGNMENT_MASK</span> <span class="op">!</span><span class="op">=</span> <span class="number">0</span> {
+                        <span class="kw">if</span> (<span class="ident">dst</span>.<span class="ident">wrapping_add</span>(<span class="ident">src_until_alignment</span>) <span class="kw">as</span> <span class="ident">usize</span>) <span class="op">&amp;</span> <span class="ident">ALU_ALIGNMENT_MASK</span>
+                            <span class="op">!</span><span class="op">=</span> <span class="number">0</span>
+                        {
                             <span class="kw">break</span>;
                         }
                         <span class="ident">src_until_alignment</span>
@@ -1840,7 +1858,9 @@
                         <span class="kw">let</span> <span class="ident">dst_until_alignment</span> <span class="op">=</span> (<span class="ident">ALU_ALIGNMENT</span>
                             <span class="op">-</span> ((<span class="ident">dst</span> <span class="kw">as</span> <span class="ident">usize</span>) <span class="op">&amp;</span> <span class="ident">ALU_ALIGNMENT_MASK</span>))
                             <span class="op">&amp;</span> <span class="ident">ALU_ALIGNMENT_MASK</span>;
-                        <span class="kw">if</span> (<span class="ident">src</span>.<span class="ident">add</span>(<span class="ident">dst_until_alignment</span>) <span class="kw">as</span> <span class="ident">usize</span>) <span class="op">&amp;</span> <span class="ident">ALU_ALIGNMENT_MASK</span> <span class="op">!</span><span class="op">=</span> <span class="number">0</span> {
+                        <span class="kw">if</span> (<span class="ident">src</span>.<span class="ident">wrapping_add</span>(<span class="ident">dst_until_alignment</span>) <span class="kw">as</span> <span class="ident">usize</span>) <span class="op">&amp;</span> <span class="ident">ALU_ALIGNMENT_MASK</span>
+                            <span class="op">!</span><span class="op">=</span> <span class="number">0</span>
+                        {
                             <span class="kw">break</span>;
                         }
                         <span class="ident">dst_until_alignment</span>
@@ -1979,7 +1999,7 @@
             <span class="ident">dst</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">dst_unit</span>,
             <span class="ident">len</span>: <span class="ident">usize</span>,
         ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="macro-nonterminal">$</span><span class="macro-nonterminal">src_unit</span>, <span class="ident">usize</span>)<span class="op">&gt;</span> {
-            <span class="kw">let</span> <span class="ident">unit_size</span> <span class="op">=</span> ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">size_of</span>::<span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">src_unit</span><span class="op">&gt;</span>();
+            <span class="kw">let</span> <span class="ident">unit_size</span> <span class="op">=</span> ::<span class="ident">core</span>::<span class="ident">mem</span>::<span class="ident">size_of</span>::<span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">src_unit</span><span class="op">&gt;</span>();
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">offset</span> <span class="op">=</span> <span class="number">0usize</span>;
             <span class="comment">// This loop is only broken out of as a goto forward without</span>
             <span class="comment">// actually looping</span>
@@ -2161,7 +2181,7 @@
     ) <span class="op">=</span><span class="op">&gt;</span> {
         <span class="attribute">#[<span class="ident">inline</span>(<span class="ident">always</span>)]</span>
         <span class="kw">pub</span> <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">name</span>(<span class="ident">src</span>: <span class="kw-2">*</span><span class="kw">const</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">src_unit</span>, <span class="ident">dst</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="macro-nonterminal">$</span><span class="macro-nonterminal">dst_unit</span>, <span class="ident">len</span>: <span class="ident">usize</span>) {
-            <span class="kw">let</span> <span class="ident">unit_size</span> <span class="op">=</span> ::<span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">size_of</span>::<span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">src_unit</span><span class="op">&gt;</span>();
+            <span class="kw">let</span> <span class="ident">unit_size</span> <span class="op">=</span> ::<span class="ident">core</span>::<span class="ident">mem</span>::<span class="ident">size_of</span>::<span class="op">&lt;</span><span class="macro-nonterminal">$</span><span class="macro-nonterminal">src_unit</span><span class="op">&gt;</span>();
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">offset</span> <span class="op">=</span> <span class="number">0usize</span>;
             <span class="kw">if</span> <span class="ident">SIMD_STRIDE_SIZE</span> <span class="op">&lt;</span><span class="op">=</span> <span class="ident">len</span> {
                 <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">until_alignment</span> <span class="op">=</span> ((<span class="ident">SIMD_STRIDE_SIZE</span>
@@ -3043,6 +3063,7 @@
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
 <span class="kw">mod</span> <span class="ident">tests</span> {
     <span class="kw">use</span> <span class="kw">super</span>::<span class="kw-2">*</span>;
+    <span class="kw">use</span> <span class="ident">alloc</span>::<span class="ident">vec</span>::<span class="ident">Vec</span>;
 
     <span class="macro">macro_rules</span><span class="macro">!</span> <span class="ident">test_ascii</span> {
         (<span class="macro-nonterminal">$</span><span class="macro-nonterminal">test_name</span>:<span class="ident">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">fn_tested</span>:<span class="ident">ident</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">src_unit</span>:<span class="ident">ty</span>, <span class="macro-nonterminal">$</span><span class="macro-nonterminal">dst_unit</span>:<span class="ident">ty</span>) <span class="op">=</span><span class="op">&gt;</span> {
@@ -3078,4 +3099,4 @@
     <span class="macro">test_ascii</span><span class="macro">!</span>(<span class="ident">test_basic_latin_to_ascii</span>, <span class="ident">basic_latin_to_ascii</span>, <span class="ident">u16</span>, <span class="ident">u8</span>);
 }
 </pre></div>
-</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "encoding_rs";</script><script src="../../aliases.js"></script><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>
+</section><section id="search" class="content hidden"></section><section class="footer"></section><script>window.rootPath = "../../";window.currentCrate = "encoding_rs";</script><script src="../../main.js"></script><script src="../../source-script.js"></script><script src="../../source-files.js"></script><script defer src="../../search-index.js"></script></body></html>

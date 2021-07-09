@@ -1,1 +1,1 @@
-initSidebarItems({"constant":[["_IMPL_SERIALIZE_FOR_AttestationOpt",""]],"enum":[["Command",""]],"fn":[["attestation",""],["main",""],["run",""],["start_enclave_remote_attestation",""],["status",""]],"struct":[["AttestationOpt",""],["Opt",""]]});
+initSidebarItems({"enum":[["Command",""]],"fn":[["attestation",""],["main",""],["run",""],["start_enclave_remote_attestation",""],["status",""]],"struct":[["AttestationOpt",""],["Opt",""]]});
