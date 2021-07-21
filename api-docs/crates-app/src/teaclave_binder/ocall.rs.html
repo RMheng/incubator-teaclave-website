@@ -115,6 +115,9 @@
 <span id="112">112</span>
 <span id="113">113</span>
 <span id="114">114</span>
+<span id="115">115</span>
+<span id="116">116</span>
+<span id="117">117</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// Licensed to the Apache Software Foundation (ASF) under one</span>
 <span class="comment">// or more contributor license agreements.  See the NOTICE file</span>
@@ -136,6 +139,9 @@
 <span class="kw">use</span> <span class="ident">sgx_types</span>::<span class="kw-2">*</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">ptr</span>;
 
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">sgx_sim</span>)]</span>
+<span class="attribute">#[<span class="ident">link</span>(<span class="ident">name</span> <span class="op">=</span> <span class="string">&quot;sgx_quote_ex_sim&quot;</span>)]</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">sgx_sim</span>))]</span>
 <span class="attribute">#[<span class="ident">link</span>(<span class="ident">name</span> <span class="op">=</span> <span class="string">&quot;sgx_quote_ex&quot;</span>)]</span>
 <span class="kw">extern</span> <span class="string">&quot;C&quot;</span> {
     <span class="kw">fn</span> <span class="ident">sgx_select_att_key_id</span>(

@@ -6,154 +6,155 @@
     "description": "Apache Teaclave (incubating) is an open source universal secure computing platform, making computation on privacy-sensitive data safe and simple.",
     "items": [
         {
-            "id": "https://teaclave.apache.org/blog/2019-08-19-apache-incubation-proposal/",
-            "url": "https://teaclave.apache.org/blog/2019-08-19-apache-incubation-proposal/",
-            "title": "Aapache Incubation Proposal",
-            "summary": "MesaTEE Apache Incubation Proposal",
-            "date_modified": "2019-08-20T00:00:00.000Z"
-        },
-        {
-            "id": "https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/",
-            "url": "https://teaclave.apache.org/blog/2019-12-31-podling-teaclave-report-january-2020/",
+            "id": "https://teaclave.apache.org/blog/2020-01-01-podling-teaclave-report-january-2020/",
+            "url": "https://teaclave.apache.org/blog/2020-01-01-podling-teaclave-report-january-2020/",
             "title": "Podling Teaclave Report - January 2020",
-            "summary": "Teaclave has been incubating since 2019-08-20.",
+            "summary": "Teaclave is a universal secure computing platform.",
             "date_modified": "2020-01-01T00:00:00.000Z"
         },
         {
-            "id": "https://teaclave.apache.org/blog/2020-06-28-podling-teaclave-report-july-2020/",
-            "url": "https://teaclave.apache.org/blog/2020-06-28-podling-teaclave-report-july-2020/",
+            "id": "https://teaclave.apache.org/blog/2020-04-01-podling-teaclave-report-april-2020/",
+            "url": "https://teaclave.apache.org/blog/2020-04-01-podling-teaclave-report-april-2020/",
+            "title": "Podling Teaclave Report - April 2020",
+            "summary": "Teaclave has been incubating since 2019-08-20.",
+            "date_modified": "2020-04-01T00:00:00.000Z"
+        },
+        {
+            "id": "https://teaclave.apache.org/blog/2020-06-29-podling-teaclave-report-july-2020/",
+            "url": "https://teaclave.apache.org/blog/2020-06-29-podling-teaclave-report-july-2020/",
             "title": "Podling Teaclave Report - July 2020",
             "summary": "Teaclave has been incubating since 2019-08-20.",
             "date_modified": "2020-06-29T00:00:00.000Z"
         },
         {
-            "id": "https://teaclave.apache.org/blog/2019-12-02-mitigation-of-intel-sa-00219-in-teaclave-sgx-sdk/",
-            "url": "https://teaclave.apache.org/blog/2019-12-02-mitigation-of-intel-sa-00219-in-teaclave-sgx-sdk/",
-            "title": "Mitigation of Intel-SA-00219 in Teaclave SGX SDK",
-            "summary": "This article is to help people understand Intel-SA-00219, and how Teaclave SGX SDK handles it.",
-            "date_modified": "2019-12-03T00:00:00.000Z"
-        },
-        {
-            "id": "https://teaclave.apache.org/blog/2020-03-31-podling-teaclave-report-april-2020/",
-            "url": "https://teaclave.apache.org/blog/2020-03-31-podling-teaclave-report-april-2020/",
-            "title": "Podling Teaclave Report - April 2020",
-            "summary": "community.\n  Since we are mainly working on GitHub, with the help of the INFRA team,\n    we can sync the notifications of GitHub with our mailing list.",
-            "date_modified": "2020-04-01T00:00:00.000Z"
-        },
-        {
-            "id": "https://teaclave.apache.org/blog/2020-10-11-podling-teaclave-report-october-2020/",
-            "url": "https://teaclave.apache.org/blog/2020-10-11-podling-teaclave-report-october-2020/",
+            "id": "https://teaclave.apache.org/blog/2020-10-12-podling-teaclave-report-october-2020/",
+            "url": "https://teaclave.apache.org/blog/2020-10-12-podling-teaclave-report-october-2020/",
             "title": "Podling Teaclave Report - October 2020",
-            "summary": "towards the first Apache release. This includes license checking, building\nsystem improvement, documentation and write-ups. On Oct 9th, the Teaclave\ncommunity and incubator has passed 0.1.0 release voting.",
+            "summary": "Improve project structure and documentation\n  Grow the community (attracting more committers, contributors, users)\n  Publish Apache releases (resolving logistics on Apache release)",
             "date_modified": "2020-10-12T00:00:00.000Z"
         },
         {
-            "id": "https://teaclave.apache.org/blog/2020-10-28-announcing-teaclave-0-1-0-cn/",
-            "url": "https://teaclave.apache.org/blog/2020-10-28-announcing-teaclave-0-1-0-cn/",
-            "title": "让安全计算更简单 - Apache Teaclave (incubating) 0.1.0 正式发布",
-            "summary": "面做了代码重构和功能特性完善：提供了更完善的函数和数据注册执行，重新设计的函数的\n开发流程，支持兼容 protobuf 的 RPC 定义接口，支持分布式执行服务，支持自定义执行\n器，提供更佳完善的文档，重新设计了错误处理机制，完善测试框架和测试用例，实现了更\n多的内置函数，支持了更加灵活的远程证实方式（DCAP），重新设计 RPC 方式等等。更多\n更详细的修改可以看我们的版本发布文档。这次\n发布一共修改了 876 个源文件，新增了 78,237 行代码，删除了 54,846 行代码，并且在\nGitHub issue 上解决了来自社区的 102 个问题。",
-            "image": "https://teaclave.apache.org/./img/teaclave-architecture.png",
-            "date_modified": "2020-10-29T00:00:00.000Z"
-        },
-        {
-            "id": "https://teaclave.apache.org/blog/2020-10-21-announcing-teaclave-0-1-0/",
-            "url": "https://teaclave.apache.org/blog/2020-10-21-announcing-teaclave-0-1-0/",
+            "id": "https://teaclave.apache.org/blog/2020-10-22-announcing-teaclave-0-1-0/",
+            "url": "https://teaclave.apache.org/blog/2020-10-22-announcing-teaclave-0-1-0/",
             "title": "Announcing Apache Teaclave (incubating) 0.1.0",
-            "summary": "like remote attestation can be easily embedded in other projects. In addition,\n  Teaclave SGX SDK can also be used separately to write standalone SGX enclaves\n  for other purposes.",
+            "summary": "first official release since we entered Apache Incubator on August 19, 2019.",
             "image": "https://teaclave.apache.org/./img/teaclave-architecture.png",
             "date_modified": "2020-10-22T00:00:00.000Z"
         },
         {
-            "id": "https://teaclave.apache.org/blog/2020-12-03-teaclave-ecosystem-cn/",
-            "url": "https://teaclave.apache.org/blog/2020-12-03-teaclave-ecosystem-cn/",
-            "title": "Teaclave 安全计算开源生态 - 由 Teaclave 驱动的开源项目一览",
-            "summary": "Teaclave 生态也支持着可信计算和系统安全相关的学术研究，其中包括可信执行环境的安全，内存安全的 SGX SDK 设计，SGX 第三方库生态的安全等等相关课题。其中有多篇学术成果发表在国际顶级会议上。",
-            "image": "https://teaclave.apache.org/./img/secure-computing-intel-sgx.png",
-            "date_modified": "2020-12-04T00:00:00.000Z"
+            "id": "https://teaclave.apache.org/blog/2020-10-29-announcing-teaclave-0-1-0-cn/",
+            "url": "https://teaclave.apache.org/blog/2020-10-29-announcing-teaclave-0-1-0-cn/",
+            "title": "让安全计算更简单 - Apache Teaclave (incubating) 0.1.0 正式发布",
+            "summary": "用 Teaclave 中的各种组件。例如，可以在项目中使用 Teaclave 远程证实库作为第三方\n  依赖库，或者直接单独部署使用 Teaclave 中的数据库服务等。",
+            "image": "https://teaclave.apache.org/./img/teaclave-architecture.png",
+            "date_modified": "2020-10-29T00:00:00.000Z"
         },
         {
-            "id": "https://teaclave.apache.org/blog/2021-01-19-roadmap-in-2021-project-maturity-and-community-buildup/",
-            "url": "https://teaclave.apache.org/blog/2021-01-19-roadmap-in-2021-project-maturity-and-community-buildup/",
-            "title": "Roadmap in 2021: Project Maturity and Community Buildup",
-            "summary": "Database persistency\n  Execution report for end user\n  Async RPC framework for better throughput performance\n  Monitoring\n  Performance/Scalability evaluation\n  Multi-language client SDK: C, Rust client SDK\n  Improve legacy code using latest compiler features\n  Documentation: Lifecycle of a task in Teaclave\n  Documentation: How to launch a multi-party secure computation task\n  Documentation: FAQ\n  Technical report\n  Use a separated service and rule evaluation engine for access control\n  Implement KMS\n  Attestation specification for third party enclaves\n  Automatic state transition of pre-approved tasks\n  Local configuration of attestation method\n  Better attestation report freshness management\n  Refactor RPC interfaces\n  Add a secure logging service\n  Active enclaves status service\n  Support multiple TEE implementations\n  GRPC or thrift compatibility\n  Universal TEE interface design and implementation",
-            "date_modified": "2021-01-20T00:00:00.000Z"
-        },
-        {
-            "id": "https://teaclave.apache.org/blog/2020-12-08-teaclave-ecosystem/",
-            "url": "https://teaclave.apache.org/blog/2020-12-08-teaclave-ecosystem/",
+            "id": "https://teaclave.apache.org/blog/2020-12-09-teaclave-ecosystem/",
+            "url": "https://teaclave.apache.org/blog/2020-12-09-teaclave-ecosystem/",
             "title": "The Teaclave Secure Computing Ecosystem - Projects Powered by Teaclave",
-            "summary": "computing solution to help companies and organizations for privacy-preserving\ndata exchange/computation.",
+            "summary": "remote attestation can be easily embedded in other projects. In addition,\n  Teaclave SGX SDK can also be used separately to write standalone SGX enclaves\n  for other purposes.",
             "image": "https://teaclave.apache.org/./img/secure-computing-intel-sgx.png",
             "date_modified": "2020-12-09T00:00:00.000Z"
         },
         {
-            "id": "https://teaclave.apache.org/blog/2020-12-31-podling-teaclave-report-january-2021/",
-            "url": "https://teaclave.apache.org/blog/2020-12-31-podling-teaclave-report-january-2021/",
+            "id": "https://teaclave.apache.org/blog/2021-01-01-podling-teaclave-report-january-2021/",
+            "url": "https://teaclave.apache.org/blog/2021-01-01-podling-teaclave-report-january-2021/",
             "title": "Podling Teaclave Report - January 2021",
+            "summary": "reporting and new projects acceptance voting.",
             "date_modified": "2021-01-01T00:00:00.000Z"
         },
         {
-            "id": "https://teaclave.apache.org/blog/2021-01-27-teaclave-meetup-1/",
-            "url": "https://teaclave.apache.org/blog/2021-01-27-teaclave-meetup-1/",
+            "id": "https://teaclave.apache.org/blog/2021-01-20-roadmap-in-2021-project-maturity-and-community-buildup/",
+            "url": "https://teaclave.apache.org/blog/2021-01-20-roadmap-in-2021-project-maturity-and-community-buildup/",
+            "title": "Roadmap in 2021: Project Maturity and Community Buildup",
+            "summary": "in. I'm more than happy to help you if not familiar with Teaclave, SGX, or Rust.\nAt last, this is not a complete list. Feel free to comment and discuss in this\nthread.",
+            "date_modified": "2021-01-20T00:00:00.000Z"
+        },
+        {
+            "id": "https://teaclave.apache.org/blog/2021-01-28-teaclave-meetup-1/",
+            "url": "https://teaclave.apache.org/blog/2021-01-28-teaclave-meetup-1/",
             "title": "Teaclave Meetup #1",
-            "summary": "We just finished the first public virtual meetup. Around 11 people from the\ncommunity show up in the virtual meetup. Thanks for attending the meetup.",
             "image": "https://teaclave.apache.org/./img/teaclave-meetup-1-zoom.png",
             "date_modified": "2021-01-28T00:00:00.000Z"
         },
         {
-            "id": "https://teaclave.apache.org/blog/2021-02-24-teaclave-meetup-2/",
-            "url": "https://teaclave.apache.org/blog/2021-02-24-teaclave-meetup-2/",
+            "id": "https://teaclave.apache.org/blog/2021-02-25-teaclave-meetup-2/",
+            "url": "https://teaclave.apache.org/blog/2021-02-25-teaclave-meetup-2/",
             "title": "Teaclave Meetup #2",
-            "summary": "meetup. Thanks for attending the meetup. Hope to see more people in the next\nmeetup and sharing your ideas.",
+            "summary": "Last time, we discussed setting the meetup as a regular activity (i.e., the\nlast Thursday in each Month). On Feb 25, we organized the second Teaclave\nvirtual meetup. Around ten people from the community showed up in the virtual\nmeetup. Thanks for attending the meetup. Hope to see more people in the next\nmeetup and sharing your ideas.",
             "image": "https://teaclave.apache.org/./img/teaclave-meetup-2-zoom.png",
             "date_modified": "2021-02-25T00:00:00.000Z"
         },
         {
-            "id": "https://teaclave.apache.org/blog/2021-03-14-welcome-rust-optee-trustzone-sdk-cn/",
-            "url": "https://teaclave.apache.org/blog/2021-03-14-welcome-rust-optee-trustzone-sdk-cn/",
-            "title": "欢迎 Rust OP-TEE TrustZone SDK 成为 Teaclave 子项目",
-            "summary": "[1] 造成的安全世界（secure world) 的漏洞，\n后果甚至可以拿到全磁盘加密的密钥 [2]。",
-            "image": "https://teaclave.apache.org/./img/teaclave-trustzone-sdk-design.png",
-            "date_modified": "2021-03-15T00:00:00.000Z"
-        },
-        {
-            "id": "https://teaclave.apache.org/blog/2021-03-01-announcing-teaclave-0-2-0/",
-            "url": "https://teaclave.apache.org/blog/2021-03-01-announcing-teaclave-0-2-0/",
-            "title": "Announcing Apache Teaclave (incubating) 0.2.0",
-            "summary": "In version 0.2.0, we added more client SDKs in different languages; Rust, C, and\neven Swift. In Teaclave Meetup #2, we\nintroduced the design of client SDKs.\nBasically, we are using JSON serialization/deserialization to make the interface\nsimple and easy to work on.",
+            "id": "https://teaclave.apache.org/blog/2021-03-02-announcing-teaclave-0-2-0-cn/",
+            "url": "https://teaclave.apache.org/blog/2021-03-02-announcing-teaclave-0-2-0-cn/",
+            "title": "Apache Teaclave (incubating) 0.2.0 发布",
+            "summary": "隐私计算任务。 Teaclave 平台提供了函数即服务（function-as-a-service）接口，降低\n了使用门槛。平台中也实现了众多内置函数，例如机器学习算法，多方联 合求交，加解密\n计算等等常用功能。更重要的是，开发者还可以使用 Python 自由编写函数来操作隐私数据，\n在中平台执行。最后，为了避免内存安全漏洞带来的安全风险，Teaclave 还使用内存安全\n编程语言 Rust 编写。",
             "image": "https://teaclave.apache.org/./img/teaclave-client-sdks.png",
             "date_modified": "2021-03-02T00:00:00.000Z"
         },
         {
-            "id": "https://teaclave.apache.org/blog/2021-03-14-welcome-rust-optee-trustzone-sdk/",
-            "url": "https://teaclave.apache.org/blog/2021-03-14-welcome-rust-optee-trustzone-sdk/",
-            "title": "Welcome Rust OP-TEE TrustZone SDK to Teaclave",
-            "summary": "In addition, Rust OP-TEE TrustZone SDK also support Rust's standard library and\nthird-party crates (i.e., libraries). This will improve the efficiency of\ndevelopments of TrustZone apps, and also extend its usage scenarios.",
+            "id": "https://teaclave.apache.org/blog/2021-03-02-announcing-teaclave-0-2-0/",
+            "url": "https://teaclave.apache.org/blog/2021-03-02-announcing-teaclave-0-2-0/",
+            "title": "Announcing Apache Teaclave (incubating) 0.2.0",
+            "summary": "even Swift. In Teaclave Meetup #2, we\nintroduced the design of client SDKs.\nBasically, we are using JSON serialization/deserialization to make the interface\nsimple and easy to work on.",
+            "image": "https://teaclave.apache.org/./img/teaclave-client-sdks.png",
+            "date_modified": "2021-03-02T00:00:00.000Z"
+        },
+        {
+            "id": "https://teaclave.apache.org/blog/2021-03-15-welcome-rust-optee-trustzone-sdk-cn/",
+            "url": "https://teaclave.apache.org/blog/2021-03-15-welcome-rust-optee-trustzone-sdk-cn/",
+            "title": "欢迎 Rust OP-TEE TrustZone SDK 成为 Teaclave 子项目",
+            "summary": "TrustZone SDK，新的项目代码库地址为：\nhttps://github.com/apache/incubator-teaclave-trustzone-sdk\n。Teaclave TrustZone SDK 与 Teaclave SGX SDK 一样，可以为 Teaclave FaaS 隐私安全\n计算平台提供底层支持，赋能多平台可信执行环境的隐私安全计算生态。",
             "image": "https://teaclave.apache.org/./img/teaclave-trustzone-sdk-design.png",
             "date_modified": "2021-03-15T00:00:00.000Z"
         },
         {
-            "id": "https://teaclave.apache.org/blog/2021-04-09-podling-teaclave-report-april-2021/",
-            "url": "https://teaclave.apache.org/blog/2021-04-09-podling-teaclave-report-april-2021/",
+            "id": "https://teaclave.apache.org/blog/2021-03-15-welcome-rust-optee-trustzone-sdk/",
+            "url": "https://teaclave.apache.org/blog/2021-03-15-welcome-rust-optee-trustzone-sdk/",
+            "title": "Welcome Rust OP-TEE TrustZone SDK to Teaclave",
+            "summary": "To accelerate the development of confidential computing ecosystem and improve\nTrustZone's foundation, Baidu has donated Rust OP-TEE TrustZone SDK to Apache Software\nFoundation as a subproject of Teaclave, and renamed it as Teaclave TrustZone SDK.\nThe location of new repository is\nhttps://github.com/apache/incubator-teaclave-trustzone-sdk.\nSimilar to Teaclave SGX SDK, Teaclave TrustZone SDK will be the foundation of\nTeaclave FaaS platform to support multiple trusted execution environments.",
+            "image": "https://teaclave.apache.org/./img/teaclave-trustzone-sdk-design.png",
+            "date_modified": "2021-03-15T00:00:00.000Z"
+        },
+        {
+            "id": "https://teaclave.apache.org/blog/2021-03-25-teaclave-meetup-3/",
+            "url": "https://teaclave.apache.org/blog/2021-03-25-teaclave-meetup-3/",
+            "title": "Teaclave Meetup #3",
+            "summary": "cloud attestation services.",
+            "image": "https://teaclave.apache.org/./img/teaclave-meetup-3-zoom.jpg",
+            "date_modified": "2021-03-25T00:00:00.000Z"
+        },
+        {
+            "id": "https://teaclave.apache.org/blog/2021-04-10-podling-teaclave-report-april-2021/",
+            "url": "https://teaclave.apache.org/blog/2021-04-10-podling-teaclave-report-april-2021/",
             "title": "Podling Teaclave Report - April 2021",
-            "summary": "In addition, we have one more project (Crust Network) powered by Teaclave joined\nin our \"Powered By\" page on the Teaclave homepage.\n",
+            "summary": "We published a project roadmap in 2021:\n  Roadmap in 2021: Project Maturity and Community Buildup:",
             "date_modified": "2021-04-10T00:00:00.000Z"
         },
         {
-            "id": "https://teaclave.apache.org/blog/2021-03-01-announcing-teaclave-0-2-0-cn/",
-            "url": "https://teaclave.apache.org/blog/2021-03-01-announcing-teaclave-0-2-0-cn/",
-            "title": "Apache Teaclave (incubating) 0.2.0 发布",
-            "summary": "Teaclave 0.2.0 版本可以在官网下载页面找到（注意验证 PGP 签名和 hash）。",
-            "image": "https://teaclave.apache.org/./img/teaclave-client-sdks.png",
-            "date_modified": "2021-03-02T00:00:00.000Z"
+            "id": "https://teaclave.apache.org/blog/2021-04-29-teaclave-meetup-4/",
+            "url": "https://teaclave.apache.org/blog/2021-04-29-teaclave-meetup-4/",
+            "title": "Teaclave Meetup #4",
+            "image": "https://teaclave.apache.org/./img/teaclave-meetup-phala-network.png",
+            "date_modified": "2021-04-29T00:00:00.000Z"
         },
         {
-            "id": "https://teaclave.apache.org/blog/2021-03-24-teaclave-meetup-3/",
-            "url": "https://teaclave.apache.org/blog/2021-03-24-teaclave-meetup-3/",
-            "title": "Teaclave Meetup #3",
-            "summary": "Then, Mengyuan talked his recent research on attestation, especially, on public\ncloud attestation services.",
-            "image": "https://teaclave.apache.org/./img/teaclave-meetup-3-zoom.jpg",
-            "date_modified": "2021-03-25T00:00:00.000Z"
+            "id": "https://teaclave.apache.org/blog/2021-06-16-announcing-teaclave-trustzone-sdk-0-1-0/",
+            "url": "https://teaclave.apache.org/blog/2021-06-16-announcing-teaclave-trustzone-sdk-0-1-0/",
+            "title": "Announcing Apache Teaclave TrustZone SDK (incubating) 0.1.0",
+            "summary": "On behalf of the Teaclave community, I am happy to announce the release of\nTeaclave TrustZone SDK 0.1.0. This is the first Apache Incubator release since\nthe recent donation to the Teaclave community.",
+            "image": "https://teaclave.apache.org/./img/teaclave-trustzone-sdk-apis.png",
+            "date_modified": "2021-06-16T00:00:00.000Z"
+        },
+        {
+            "id": "https://teaclave.apache.org/blog/2021-06-24-teaclave-meetup-5/",
+            "url": "https://teaclave.apache.org/blog/2021-06-24-teaclave-meetup-5/",
+            "title": "Teaclave Meetup #5",
+            "summary": "#504,\n#512).",
+            "image": "https://teaclave.apache.org/./img/teaclave-meetup-5-zoom.png",
+            "date_modified": "2021-06-24T00:00:00.000Z"
         }
     ]
 }
