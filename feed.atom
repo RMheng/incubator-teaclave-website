@@ -2,33 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://teaclave.apache.org</id>
     <title>Apache Teaclave (incubating)</title>
-    <updated>2021-07-28T23:22:17.548Z</updated>
+    <updated>2021-08-03T00:24:43.966Z</updated>
     <generator>https://github.com/webmasterish/vuepress-plugin-feed</generator>
     <link rel="alternate" href="https://teaclave.apache.org"/>
     <link rel="self" href="https://teaclave.apache.org/feed.atom"/>
     <subtitle>Apache Teaclave (incubating) is an open source universal secure computing platform, making computation on privacy-sensitive data safe and simple.</subtitle>
-    <entry>
-        <title type="html"><![CDATA[Podling Teaclave Report - April 2020]]></title>
-        <id>https://teaclave.apache.org/blog/2020-04-01-podling-teaclave-report-april-2020/</id>
-        <link href="https://teaclave.apache.org/blog/2020-04-01-podling-teaclave-report-april-2020/">
-        </link>
-        <updated>2020-04-01T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Teaclave is a universal secure computing platform.]]></summary>
-    </entry>
     <entry>
         <title type="html"><![CDATA[Podling Teaclave Report - January 2020]]></title>
         <id>https://teaclave.apache.org/blog/2020-01-01-podling-teaclave-report-january-2020/</id>
         <link href="https://teaclave.apache.org/blog/2020-01-01-podling-teaclave-report-january-2020/">
         </link>
         <updated>2020-01-01T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Teaclave has been incubating since 2019-08-20.]]></summary>
+        <summary type="html"><![CDATA[Teaclave is a universal secure computing platform.]]></summary>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Podling Teaclave Report - July 2020]]></title>
-        <id>https://teaclave.apache.org/blog/2020-06-29-podling-teaclave-report-july-2020/</id>
-        <link href="https://teaclave.apache.org/blog/2020-06-29-podling-teaclave-report-july-2020/">
+        <title type="html"><![CDATA[Podling Teaclave Report - April 2020]]></title>
+        <id>https://teaclave.apache.org/blog/2020-04-01-podling-teaclave-report-april-2020/</id>
+        <link href="https://teaclave.apache.org/blog/2020-04-01-podling-teaclave-report-april-2020/">
         </link>
-        <updated>2020-06-29T00:00:00.000Z</updated>
+        <updated>2020-04-01T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Teaclave has been incubating since 2019-08-20.]]></summary>
     </entry>
     <entry>
@@ -37,9 +29,17 @@
         <link href="https://teaclave.apache.org/blog/2020-10-12-podling-teaclave-report-october-2020/">
         </link>
         <updated>2020-10-12T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Teaclave has been incubating since 2019-08-20.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Podling Teaclave Report - July 2020]]></title>
+        <id>https://teaclave.apache.org/blog/2020-06-29-podling-teaclave-report-july-2020/</id>
+        <link href="https://teaclave.apache.org/blog/2020-06-29-podling-teaclave-report-july-2020/">
+        </link>
+        <updated>2020-06-29T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Improve project structure and documentation
-  Grow the community (attracting more committers, contributors, users)
-  Publish Apache releases (resolving logistics on Apache release)]]></summary>
+ Grow the community (attracting more committers, contributors, users)
+ Publish Apache releases (resolving logistics on Apache release)]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Announcing Apache Teaclave (incubating) 0.1.0]]></title>
@@ -69,13 +69,20 @@
   for other purposes.]]></summary>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Podling Teaclave Report - January 2021]]></title>
+        <id>https://teaclave.apache.org/blog/2021-01-01-podling-teaclave-report-january-2021/</id>
+        <link href="https://teaclave.apache.org/blog/2021-01-01-podling-teaclave-report-january-2021/">
+        </link>
+        <updated>2021-01-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[reporting and new projects acceptance voting.]]></summary>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Roadmap in 2021: Project Maturity and Community Buildup]]></title>
         <id>https://teaclave.apache.org/blog/2021-01-20-roadmap-in-2021-project-maturity-and-community-buildup/</id>
         <link href="https://teaclave.apache.org/blog/2021-01-20-roadmap-in-2021-project-maturity-and-community-buildup/">
         </link>
         <updated>2021-01-20T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[buildup. Yes, this is a very long list. Please let me know if you are interested
-in. I'm more than happy to help you if not familiar with Teaclave, SGX, or Rust.
+        <summary type="html"><![CDATA[in. I'm more than happy to help you if not familiar with Teaclave, SGX, or Rust.
 At last, this is not a complete list. Feel free to comment and discuss in this
 thread.]]></summary>
     </entry>
@@ -87,20 +94,13 @@ thread.]]></summary>
         <updated>2021-01-28T00:00:00.000Z</updated>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Podling Teaclave Report - January 2021]]></title>
-        <id>https://teaclave.apache.org/blog/2021-01-01-podling-teaclave-report-january-2021/</id>
-        <link href="https://teaclave.apache.org/blog/2021-01-01-podling-teaclave-report-january-2021/">
-        </link>
-        <updated>2021-01-01T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Teaclave is a universal secure computing platform.]]></summary>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Teaclave Meetup #2]]></title>
         <id>https://teaclave.apache.org/blog/2021-02-25-teaclave-meetup-2/</id>
         <link href="https://teaclave.apache.org/blog/2021-02-25-teaclave-meetup-2/">
         </link>
         <updated>2021-02-25T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[last Thursday in each Month). On Feb 25, we organized the second Teaclave
+        <summary type="html"><![CDATA[Last time, we discussed setting the meetup as a regular activity (i.e., the
+last Thursday in each Month). On Feb 25, we organized the second Teaclave
 virtual meetup. Around ten people from the community showed up in the virtual
 meetup. Thanks for attending the meetup. Hope to see more people in the next
 meetup and sharing your ideas.]]></summary>
@@ -171,6 +171,16 @@ Teaclave FaaS platform to support multiple trusted execution environments.]]></s
   Roadmap in 2021: Project Maturity and Community Buildup:]]></summary>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Announcing Apache Teaclave TrustZone SDK (incubating) 0.1.0]]></title>
+        <id>https://teaclave.apache.org/blog/2021-06-16-announcing-teaclave-trustzone-sdk-0-1-0/</id>
+        <link href="https://teaclave.apache.org/blog/2021-06-16-announcing-teaclave-trustzone-sdk-0-1-0/">
+        </link>
+        <updated>2021-06-16T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[$ wget https://dist.apache.org/repos/dist/dev/incubator/teaclave/trustzone-sdk-0.1.0-rc.1/apache-teaclave-trustzone-sdk-0.1.0-rc.1-incubating.tar.gz
+$ tar zxvf apache-teaclave-trustzone-sdk-0.1.0-rc.1-incubating.tar.gz && cd
+apache-teaclave-trustzone-sdk-0.1.0-incubating]]></summary>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Teaclave Meetup #4]]></title>
         <id>https://teaclave.apache.org/blog/2021-04-29-teaclave-meetup-4/</id>
         <link href="https://teaclave.apache.org/blog/2021-04-29-teaclave-meetup-4/">
@@ -178,22 +188,12 @@ Teaclave FaaS platform to support multiple trusted execution environments.]]></s
         <updated>2021-04-29T00:00:00.000Z</updated>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Announcing Apache Teaclave TrustZone SDK (incubating) 0.1.0]]></title>
-        <id>https://teaclave.apache.org/blog/2021-06-16-announcing-teaclave-trustzone-sdk-0-1-0/</id>
-        <link href="https://teaclave.apache.org/blog/2021-06-16-announcing-teaclave-trustzone-sdk-0-1-0/">
+        <title type="html"><![CDATA[[Scheduled] Teaclave Meetup #6]]></title>
+        <id>https://teaclave.apache.org/blog/2021-07-29-teaclave-meetup-6/</id>
+        <link href="https://teaclave.apache.org/blog/2021-07-29-teaclave-meetup-6/">
         </link>
-        <updated>2021-06-16T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[On behalf of the Teaclave community, I am happy to announce the release of
-Teaclave TrustZone SDK 0.1.0. This is the first Apache Incubator release since
-the recent donation to the Teaclave community.]]></summary>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Teaclave Meetup #5]]></title>
-        <id>https://teaclave.apache.org/blog/2021-06-24-teaclave-meetup-5/</id>
-        <link href="https://teaclave.apache.org/blog/2021-06-24-teaclave-meetup-5/">
-        </link>
-        <updated>2021-06-24T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[#504,
-#512).]]></summary>
+        <updated>2021-07-29T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[We are going to have the monthly Teaclave (virtual) meetup. The
+meetup in this month is scheduled on July 29, 2021 (PT):]]></summary>
     </entry>
 </feed>
