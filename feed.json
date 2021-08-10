@@ -13,31 +13,24 @@
             "date_modified": "2020-01-01T00:00:00.000Z"
         },
         {
-            "id": "https://teaclave.apache.org/blog/2020-04-01-podling-teaclave-report-april-2020/",
-            "url": "https://teaclave.apache.org/blog/2020-04-01-podling-teaclave-report-april-2020/",
-            "title": "Podling Teaclave Report - April 2020",
-            "summary": "Teaclave has been incubating since 2019-08-20.",
-            "date_modified": "2020-04-01T00:00:00.000Z"
-        },
-        {
             "id": "https://teaclave.apache.org/blog/2020-06-29-podling-teaclave-report-july-2020/",
             "url": "https://teaclave.apache.org/blog/2020-06-29-podling-teaclave-report-july-2020/",
             "title": "Podling Teaclave Report - July 2020",
-            "summary": "Teaclave has been incubating since 2019-08-20.",
+            "summary": "on privacy-sensitive data safe and simple.",
             "date_modified": "2020-06-29T00:00:00.000Z"
         },
         {
             "id": "https://teaclave.apache.org/blog/2020-10-12-podling-teaclave-report-october-2020/",
             "url": "https://teaclave.apache.org/blog/2020-10-12-podling-teaclave-report-october-2020/",
             "title": "Podling Teaclave Report - October 2020",
-            "summary": "Improve project structure and documentation\n  Grow the community (attracting more committers, contributors, users)\n  Publish Apache releases (resolving logistics on Apache release)",
+            "summary": "Teaclave has been incubating since 2019-08-20.",
             "date_modified": "2020-10-12T00:00:00.000Z"
         },
         {
             "id": "https://teaclave.apache.org/blog/2020-10-22-announcing-teaclave-0-1-0/",
             "url": "https://teaclave.apache.org/blog/2020-10-22-announcing-teaclave-0-1-0/",
             "title": "Announcing Apache Teaclave (incubating) 0.1.0",
-            "summary": "first official release since we entered Apache Incubator on August 19, 2019.",
+            "summary": "Incubator release of Teaclave, 0.1.0. Teaclave is a universal secure computing\nplatform, making computation on privacy-sensitive data safe and simple.",
             "image": "https://teaclave.apache.org/./img/teaclave-architecture.png",
             "date_modified": "2020-10-22T00:00:00.000Z"
         },
@@ -45,9 +38,16 @@
             "id": "https://teaclave.apache.org/blog/2020-10-29-announcing-teaclave-0-1-0-cn/",
             "url": "https://teaclave.apache.org/blog/2020-10-29-announcing-teaclave-0-1-0-cn/",
             "title": "让安全计算更简单 - Apache Teaclave (incubating) 0.1.0 正式发布",
-            "summary": "用 Teaclave 中的各种组件。例如，可以在项目中使用 Teaclave 远程证实库作为第三方\n  依赖库，或者直接单独部署使用 Teaclave 中的数据库服务等。",
+            "summary": "敏感数据在可信域外和离岸场景下安全可控的流通和处理，无需担心隐私数据泄露和滥用。\nTeaclave 同时支持多方参与的联合计算，打破企业和组织中的数据孤岛。",
             "image": "https://teaclave.apache.org/./img/teaclave-architecture.png",
             "date_modified": "2020-10-29T00:00:00.000Z"
+        },
+        {
+            "id": "https://teaclave.apache.org/blog/2020-04-01-podling-teaclave-report-april-2020/",
+            "url": "https://teaclave.apache.org/blog/2020-04-01-podling-teaclave-report-april-2020/",
+            "title": "Podling Teaclave Report - April 2020",
+            "summary": "Since last report, one external contributor has became our regular\n    contributor.\n  Compared to the last report, we have seen more pull request from external\n    contributors.\n  We received emails from some companies which are interested in the\n    project and willing to make some contributions for the secure computing\n    community.\n  Since we are mainly working on GitHub, with the help of the INFRA team,\n    we can sync the notifications of GitHub with our mailing list.",
+            "date_modified": "2020-04-01T00:00:00.000Z"
         },
         {
             "id": "https://teaclave.apache.org/blog/2020-12-09-teaclave-ecosystem/",
@@ -119,19 +119,27 @@
             "date_modified": "2021-03-15T00:00:00.000Z"
         },
         {
+            "id": "https://teaclave.apache.org/blog/2021-04-10-podling-teaclave-report-april-2021/",
+            "url": "https://teaclave.apache.org/blog/2021-04-10-podling-teaclave-report-april-2021/",
+            "title": "Podling Teaclave Report - April 2021",
+            "summary": "Welcome Rust OP-TEE TrustZone SDK TO Teaclave:",
+            "date_modified": "2021-04-10T00:00:00.000Z"
+        },
+        {
             "id": "https://teaclave.apache.org/blog/2021-03-25-teaclave-meetup-3/",
             "url": "https://teaclave.apache.org/blog/2021-03-25-teaclave-meetup-3/",
             "title": "Teaclave Meetup #3",
-            "summary": "cloud attestation services.",
+            "summary": "Here the abstract of the talk:",
             "image": "https://teaclave.apache.org/./img/teaclave-meetup-3-zoom.jpg",
             "date_modified": "2021-03-25T00:00:00.000Z"
         },
         {
-            "id": "https://teaclave.apache.org/blog/2021-04-10-podling-teaclave-report-april-2021/",
-            "url": "https://teaclave.apache.org/blog/2021-04-10-podling-teaclave-report-april-2021/",
-            "title": "Podling Teaclave Report - April 2021",
-            "summary": "We published a project roadmap in 2021:\n  Roadmap in 2021: Project Maturity and Community Buildup:",
-            "date_modified": "2021-04-10T00:00:00.000Z"
+            "id": "https://teaclave.apache.org/blog/2021-06-16-announcing-teaclave-trustzone-sdk-0-1-0/",
+            "url": "https://teaclave.apache.org/blog/2021-06-16-announcing-teaclave-trustzone-sdk-0-1-0/",
+            "title": "Announcing Apache Teaclave TrustZone SDK (incubating) 0.1.0",
+            "summary": "This version is compatible with OP-TEE 3.13.0.",
+            "image": "https://teaclave.apache.org/./img/teaclave-trustzone-sdk-apis.png",
+            "date_modified": "2021-06-16T00:00:00.000Z"
         },
         {
             "id": "https://teaclave.apache.org/blog/2021-04-29-teaclave-meetup-4/",
@@ -141,18 +149,10 @@
             "date_modified": "2021-04-29T00:00:00.000Z"
         },
         {
-            "id": "https://teaclave.apache.org/blog/2021-06-16-announcing-teaclave-trustzone-sdk-0-1-0/",
-            "url": "https://teaclave.apache.org/blog/2021-06-16-announcing-teaclave-trustzone-sdk-0-1-0/",
-            "title": "Announcing Apache Teaclave TrustZone SDK (incubating) 0.1.0",
-            "summary": "On behalf of the Teaclave community, I am happy to announce the release of\nTeaclave TrustZone SDK 0.1.0. This is the first Apache Incubator release since\nthe recent donation to the Teaclave community.",
-            "image": "https://teaclave.apache.org/./img/teaclave-trustzone-sdk-apis.png",
-            "date_modified": "2021-06-16T00:00:00.000Z"
-        },
-        {
             "id": "https://teaclave.apache.org/blog/2021-06-24-teaclave-meetup-5/",
             "url": "https://teaclave.apache.org/blog/2021-06-24-teaclave-meetup-5/",
             "title": "Teaclave Meetup #5",
-            "summary": "#504,\n#512).",
+            "summary": "In Jun 24, we gathered in Zoom for the fifth monthly Teaclave meetup. In this\nmeetup, we're glad to have Hongbo (@ya0guang) talking about his contributions on\nadding WebAssembly Micro Runtime to Teaclave as an executor (PR:\n#504,\n#512).",
             "image": "https://teaclave.apache.org/./img/teaclave-meetup-5-zoom.png",
             "date_modified": "2021-06-24T00:00:00.000Z"
         }

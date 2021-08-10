@@ -307,6 +307,41 @@
 <span id="304">304</span>
 <span id="305">305</span>
 <span id="306">306</span>
+<span id="307">307</span>
+<span id="308">308</span>
+<span id="309">309</span>
+<span id="310">310</span>
+<span id="311">311</span>
+<span id="312">312</span>
+<span id="313">313</span>
+<span id="314">314</span>
+<span id="315">315</span>
+<span id="316">316</span>
+<span id="317">317</span>
+<span id="318">318</span>
+<span id="319">319</span>
+<span id="320">320</span>
+<span id="321">321</span>
+<span id="322">322</span>
+<span id="323">323</span>
+<span id="324">324</span>
+<span id="325">325</span>
+<span id="326">326</span>
+<span id="327">327</span>
+<span id="328">328</span>
+<span id="329">329</span>
+<span id="330">330</span>
+<span id="331">331</span>
+<span id="332">332</span>
+<span id="333">333</span>
+<span id="334">334</span>
+<span id="335">335</span>
+<span id="336">336</span>
+<span id="337">337</span>
+<span id="338">338</span>
+<span id="339">339</span>
+<span id="340">340</span>
+<span id="341">341</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// Licensed to the Apache Software Foundation (ASF) under one</span>
 <span class="comment">// or more contributor license agreements.  See the NOTICE file</span>
@@ -339,8 +374,9 @@
 
 <span class="kw">use</span> <span class="ident">teaclave_types</span>::{<span class="ident">FunctionArguments</span>, <span class="ident">FunctionRuntime</span>, <span class="ident">TeaclaveExecutor</span>};
 
-<span class="kw">const</span> <span class="ident">DEFAULT_HEAP_SIZE</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="number">8092</span>;
-<span class="kw">const</span> <span class="ident">DEFAULT_STACK_SIZE</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="number">8092</span>;
+<span class="comment">// TVM example needs 20MB heap to run in WAMR</span>
+<span class="kw">const</span> <span class="ident">DEFAULT_HEAP_SIZE</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="number">20971520</span>;
+<span class="kw">const</span> <span class="ident">DEFAULT_STACK_SIZE</span>: <span class="ident">u32</span> <span class="op">=</span> <span class="number">163840</span>;
 <span class="kw">const</span> <span class="ident">DEFAULT_ERROR_BUF_SIZE</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">128</span>;
 
 <span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
@@ -567,10 +603,41 @@
     <span class="kw">use</span> <span class="ident">teaclave_types</span>::<span class="kw-2">*</span>;
 
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">run_tests</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> {
-        <span class="macro">run_tests</span><span class="macro">!</span>(<span class="ident">test_wamr</span>,)
+        <span class="macro">run_tests</span><span class="macro">!</span>(<span class="ident">test_wamr_tvm_mnist</span>, <span class="ident">test_wamr_millionaire</span>,)
     }
 
-    <span class="kw">fn</span> <span class="ident">test_wamr</span>() {
+    <span class="kw">fn</span> <span class="ident">test_wamr_tvm_mnist</span>() {
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">args</span> <span class="op">=</span> <span class="ident">HashMap</span>::<span class="ident">new</span>();
+
+        <span class="ident">args</span>.<span class="ident">insert</span>(<span class="string">&quot;input_img&quot;</span>.<span class="ident">to_string</span>(), <span class="string">&quot;input_img&quot;</span>.<span class="ident">to_string</span>());
+        <span class="kw">let</span> <span class="ident">args</span> <span class="op">=</span> <span class="ident">FunctionArguments</span>::<span class="ident">from</span>(<span class="ident">args</span>);
+
+        <span class="kw">let</span> <span class="ident">wa_payload</span> <span class="op">=</span> <span class="macro">include_bytes</span><span class="macro">!</span>(<span class="string">&quot;../../tests/fixtures/functions/wamr_tvm_mnist/mnist.wasm&quot;</span>);
+
+        <span class="kw">let</span> <span class="ident">wa_payload</span> <span class="op">=</span> <span class="ident">wa_payload</span>.<span class="ident">to_vec</span>();
+        <span class="kw">let</span> <span class="ident">input_img</span> <span class="op">=</span> <span class="string">&quot;fixtures/functions/wamr_tvm_mnist/img_10.jpg&quot;</span>;
+
+        <span class="kw">let</span> <span class="ident">input_img_info</span> <span class="op">=</span>
+            <span class="ident">StagedFileInfo</span>::<span class="ident">new</span>(<span class="ident">input_img</span>, <span class="ident">TeaclaveFile128Key</span>::<span class="ident">random</span>(), <span class="ident">FileAuthTag</span>::<span class="ident">mock</span>());
+
+        <span class="kw">let</span> <span class="ident">input_files</span> <span class="op">=</span> <span class="ident">StagedFiles</span>::<span class="ident">new</span>(<span class="macro">hashmap</span><span class="macro">!</span>(<span class="string">&quot;input_img&quot;</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">input_img_info</span>));
+        <span class="kw">let</span> <span class="ident">output_files</span> <span class="op">=</span> <span class="ident">StagedFiles</span>::<span class="ident">default</span>();
+
+        <span class="kw">let</span> <span class="ident">runtime</span> <span class="op">=</span> <span class="ident">Box</span>::<span class="ident">new</span>(<span class="ident">RawIoRuntime</span>::<span class="ident">new</span>(<span class="ident">input_files</span>, <span class="ident">output_files</span>));
+
+        <span class="kw">let</span> <span class="ident">function</span> <span class="op">=</span> <span class="ident">WAMicroRuntime</span>::<span class="ident">default</span>();
+        <span class="kw">let</span> <span class="ident">summary</span> <span class="op">=</span> <span class="ident">function</span>
+            .<span class="ident">execute</span>(<span class="string">&quot;&quot;</span>.<span class="ident">to_string</span>(), <span class="ident">args</span>, <span class="ident">wa_payload</span>, <span class="ident">runtime</span>)
+            .<span class="ident">unwrap</span>();
+        <span class="ident">log</span>::<span class="macro">debug</span><span class="macro">!</span>(
+            <span class="string">&quot;IN TEST test_wamr_tvm_mnist: AFTER execution, summary: {:?}&quot;</span>,
+            <span class="ident">summary</span>
+        );
+
+        <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">summary</span>, <span class="string">&quot;3&quot;</span>);
+    }
+
+    <span class="kw">fn</span> <span class="ident">test_wamr_millionaire</span>() {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">args</span> <span class="op">=</span> <span class="ident">HashMap</span>::<span class="ident">new</span>();
 
         <span class="ident">args</span>.<span class="ident">insert</span>(<span class="string">&quot;input_file_id1&quot;</span>.<span class="ident">to_string</span>(), <span class="string">&quot;pf_in_a&quot;</span>.<span class="ident">to_string</span>());
@@ -605,7 +672,10 @@
         <span class="kw">let</span> <span class="ident">summary</span> <span class="op">=</span> <span class="ident">function</span>
             .<span class="ident">execute</span>(<span class="string">&quot;&quot;</span>.<span class="ident">to_string</span>(), <span class="ident">args</span>, <span class="ident">wa_payload</span>, <span class="ident">runtime</span>)
             .<span class="ident">unwrap</span>();
-        <span class="ident">log</span>::<span class="macro">debug</span><span class="macro">!</span>(<span class="string">&quot;IN TEST test_wamr: AFTER execution, summary: {:?}&quot;</span>, <span class="ident">summary</span>);
+        <span class="ident">log</span>::<span class="macro">debug</span><span class="macro">!</span>(
+            <span class="string">&quot;IN TEST test_wamr_millionaire: AFTER execution, summary: {:?}&quot;</span>,
+            <span class="ident">summary</span>
+        );
 
         <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="ident">summary</span>, <span class="string">&quot;7&quot;</span>);
 
